@@ -1,0 +1,8 @@
+# Ignore node_modules and log files
+/node_modules
+/log
+/tmp
+
+# Don't ignore the Backend directory
+!/Backend
+
