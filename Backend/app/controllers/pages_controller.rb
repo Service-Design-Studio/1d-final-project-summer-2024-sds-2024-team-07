@@ -1,4 +1,13 @@
 class PagesController < ApplicationController
-  def page_one
+  def cardoptions
+  end
+
+  def apply
+  end
+
+  def documentupload
+  end
+
+  def applicationform
   end
 end

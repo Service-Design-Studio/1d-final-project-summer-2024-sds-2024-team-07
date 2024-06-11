@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'pages/cardoptions'
+  get 'pages/apply'
+  get 'pages/documentupload'
+  get 'pages/applicationform'
   get 'pages/page_one'
   # get 'home/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
