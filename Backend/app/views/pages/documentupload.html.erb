@@ -1,3 +1,17 @@
-<h1>Pages#documentupload</h1>
-<p>Find me in app/views/pages/documentupload.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YourAppName</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+</head>
+
+<body>
+  <%= render 'shared/navbar' %>
+  <%= yield %>
+
+  <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+</body>
+</html>
