@@ -1,2 +1,1386 @@
-<h1>Pages#applicationform</h1>
-<p>Find me in app/views/pages/applicationform.html.erb</p>
+
+<!doctype html>
+
+
+<html ng-app="obCCNTBWebApp">
+  <head>
+ 
+  <script src=/DBSObWeb/ob/js/Adobe/71d06aac4e562e3a2278bf493855202cacdacaa2/satelliteLib-e1e8c61fc2280cc6fb41b6644be1ca2dfdcf675d.js ></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta name = "format-detection" content = "telephone=no">
+	
+  
+		
+	
+<meta name = "REQUEST_CSRF_TOKEN" content ="a6a65d0f315c053793b75743f7a1363e_1718340638747_1272910238">
+    <!--<title>NTB Credit Card | Customer Application Page</title>-->
+	<title>DBS</title>
+    <link href="ob/assets/css/theme.css?version=0.1" rel="stylesheet" type="text/css" media="screen">
+    <link href="ob/assets/css/style.css?version=0.1" rel="stylesheet" type="text/css" media="screen"> 
+	<link href="ob/assets/css/jquery-ui.css?version=0.1" rel="stylesheet" type="text/css" media="screen"> 
+    <link href="ob/assets/css/jquery.mCustomScrollbar.css?version=0.1" rel="stylesheet" type="text/css" media="screen">  
+     
+  
+                              <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="6ANV8-293CV-B5AB4-JCU2N-2CMQC",function(){function e(){if(!o){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,i.parentNode.appendChild(e),o=!0}}function t(e){o=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(i.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",i.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"6ANV8-293CV-B5AB4-JCU2N-2CMQC";var i=document.currentScript||document.getElementsByTagName("script")[0],o=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!o)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),i.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="m4me2myx24dq4ztlzqpa-f-2f99568ce-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"37","ak.cp":"1460753","ak.ai":parseInt("907949",10),"ak.ol":"0","ak.cr":6,"ak.ipv":4,"ak.proto":"h2","ak.rid":"c5f8ae15","ak.r":45686,"ak.a2":n,"ak.m":"a","ak.n":"essl","ak.bpcip":"103.24.77.0","ak.cport":17323,"ak.gh":"23.48.172.142","ak.quicv":"","ak.tlsv":"tls1.2","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1718340638","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==RjGslxNGXfSl7p982aA49fgGyOZpztdiqphyxq/EoYBWjYNMMIVHtuXKRq2gc6s4DKq5QEK9iNfEGC0Pe5HD1Zr5N3OB2/UuD+5hBJoxBPd/aduu3OvVI/T8Q4v5lGERs28nJ4L5cdJvTGcokLqhpZWv9oX/I9JBIbhcoVmSxBcsh5MFglJgiQ+Ccd+XZZI/kh+2p5+Hx8OvU3/iD1do7hvtFoO6FvbqHanXyMO0mRtMT9E7VwrJQZpmYkhd4eelqi8tkN/05jQw1ROBMeC1nw2/A2sz12n8gHt2Ihh4Ae9u2ysxzIgTdYBQZt231VUyXL/7ND9fhKcgjiIctjzLzmkXgfFDo8pUIPENJ5Gb56jnUwviOEMX6IfdgUX42IZFR9gVdHXXIaN97B6r494+VLJ+Ypxd9vK66mGw+jOGSL4=","ak.pv":"85","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+  <body>
+	
+
+<form  name="creditCardNTBApplication" id="controller" ng-controller="obCCNTBController  as ctrl" ng-cloak novalidate>
+<input type="hidden" name="scriptFormFlow" id="scriptFormFlow" value="NTB_CC"/>
+    <header class="inner box-shadow">
+      <div class="container clearfix">
+        <a href="javascript:void(0);" alt="DBS" class="logo pull-left">DBS</a>
+
+
+        <h2 class="in-block m-hidden">Credit Card Application</h2>
+
+
+        <ul class="pull-right right-menu">
+          <li class="">
+            <a href="javascript:void(0);"  class="btn btn-primary" data-toggle="modal" data-target="#saveapplication" data-backdrop="static" data-keyboard="false">Save</a>
+          </li>
+
+          <li class="card-count">
+            <a href="javascript:void(0);"  onclick="fillSelectedCardsToCarouselForCancel();" class="" data-toggle="modal" data-target="#card-selector" data-backdrop="static" data-keyboard="false">
+              <span class="marker">{{selCardData.length}}</span>
+              <i class="icon icon-card3"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!--Top header ends here-->
+
+
+
+      
+      <div class="container clearfix step-indicator four">     
+        <ul>
+          <li class="active">
+            <em>1.</em>
+            <span>Application Details</span> 
+            <i class="icon icon-success2"></i>
+          </li>
+          
+          <li>
+            <em>2.</em>
+            <span>Verify Details</span> 
+            <i class="icon icon-success2"></i>
+          </li>
+
+          <li>
+            <em>3.</em>
+            <span>Upload Documents</span> 
+            <i class="icon icon-success2"></i>
+          </li>
+          
+          <li>
+            <em>4.</em>
+            <span>Create Pin</span> 
+            <i class="icon icon-success2"></i>
+          </li>
+        
+        </ul>
+      </div>
+      <!--Step Tracker Ends Here-->
+    </header>
+    <!--Header Ends here-->
+ 
+    <div class="container body-content" id="restrictCopyPasteOnWindow">
+      <div class="content">
+        <ul id="typeFormLayout" class="form">
+          <li class="active">         
+            <h1 class="m-bot30">Hello! Please help us to know you.</h1>
+            <!--Page Heading Ends Here-->
+
+            <div class="form-row">       
+              <div class="clearfix">
+                <div class="s3-width pull-left m-bot16-mbl full-width-mbl relative">
+                  <h4 class="labels">Title</h4>
+
+	                  <div class="clearfix relative">
+						  <i class="icon-arrow-down top36"></i>  
+		                  <div class="s12-width pull-left  m-bot16-mbl full-width-mbl" >                 
+							<select class="s12-width" name="salutation" id="salutation" onload-focus="true" onblur="pushAAFieldTagging('salutation')"data-focus="first" data-tab="true" ng-model="ctrl.ntbCreditCard.SALUTATION"  ng-change= "validate_continue('salutation')" keyup="clearErrorMessage('salutation',$event)" required>
+							<option selected value=''>Select</option>
+							<option value="{{element.SALUTATION_CODE}}" ng-repeat="element in salutationArr">{{element.SALUTATION}}</option>
+							</select>
+		                  </div>
+					              <div class="validationerrordiv ">
+						<span id="errmsgforsalutation"></span>		
+						  </div>
+			  </div>
+                </div>
+                  
+                <div class="s9-width pull-right p-left12 full-width-mbl">
+                  <h4 class="labels">Your name as in NRIC/Passport</h4>
+                  
+                  <div class="clearfix">
+                    <input type="text" class="s12-width" name="nameOnNRICPassport" onblur="pushAAFieldTagging('nameOnNRICPassport');NRIC_MIN_LEN()" id="nameOnNRICPassport" maxlength="40" data-focus="first" data-tab="true" ng-model="ctrl.ntbCreditCard.NAME_ON_NRIC_PASSPORT" ng-change= "validate_continue('nameOnNRICPassport')" ng-keyup="clearErrorMessage('nameOnNRICPassport',$event)" required/>
+			  <div class="validationerrordiv">
+						<span id="errmsgfornameOnNRICPassport"></span>		
+					 </div>
+			  </div>
+
+                </div>
+			  </div>
+              <div class="btn-holder clearfix">
+                <button class="btn btn-primary">Next</button> 
+                <span class="btn-help">or press ENTER</span>
+              </div>
+              <!--btn-holder Ends here-->
+            </div>
+          </li>
+          <!--Question 1-->
+          
+          <li>         
+            <figure class="relative m-bot16">
+              <img src="ob/assets/images/DBS_Black_Visa_Card_Small.png">
+              <div class="grey" id="cardname"></div>
+            </figure>
+            <!--Card Image will display here-->
+			<div class="m-bot16">
+			<div ng-repeat="k in ntbccFinalApprovedCards">  
+	             {{k.CARD_NAME}}
+            </div></div>
+			<!--Card Description will display here-->
+            <div class="form-row">
+              <h4 class="labels">Your preferred name to appear on the card(s)</h4>
+
+              <div class="clearfix">
+                <input type="text" data-focus="first" class="s12-width pull-left"  data-tab="true" maxlength="19" id="cardnameinput" name="cardNameInput" onblur="pushAAFieldTagging('cardNameInput')" ng-model="ctrl.ntbCreditCard.PREFERRED_NAME"  ng-change= "validate_continue('cardNameInput')" ng-keyup="clearErrorMessage('cardNameInput',$event)" required />
+              </div>
+			  <div class="validationerrordiv">
+						<span id="errmsgforcardNameInput"></span>		
+			  </div>
+              <div class="btn-holder clearfix">
+                <button class="btn btn-primary">Next</button> 
+                <span class="btn-help">or press ENTER</span>
+              </div>
+              <!--btn-holder Ends here-->
+            </div>
+          </li>
+          <!--Question 2-->
+
+          <li>
+            <div class="form-row">    
+
+              <h4 class="labels">Your mobile number </h4>
+              
+               <div class="clearfix m-bot16">
+                 <div class="s2-width s3-mbl pull-left">
+                    <input type="tel" class="s12-width" data-focus="first" data-tab="true" maxlength="3" value="+65" onblur="pushAAFieldTagging('countrycode')" name="countrycode" id="countrycode" ng-keypress="countrycode($event)" ng-blur="countrycodeOnBlur()" ng-model="ctrl.ntbCreditCard.MOBILE_COUNTRY_CODE"  ng-change= "validate_continue('countrycode')" required>
+                   <div class="validationerrordiv">
+						<span id="errmsgforcountrycode"></span>		
+					</div>
+				  </div>
+                  <div class="s10-width s9-mbl pull-left p-left12">
+                    <div class="clearfix">
+                    <input type="tel" data-focus="first" name="telMobile" onblur="pushAAFieldTagging('telMobile');validateMobilenumberLength('NTB_CC')"  maxlength="20" id="telMobile" class="s12-width " maxlength="10" ng-model="ctrl.ntbCreditCard.MOBILE_NUMBER" ng-keyup="validateMobileMB('telMobile',$event)" ng-change= "validate_continue('telMobile')" required/>
+                    </div>
+					<div class="validationerrordivforPhoneNumbers">
+						<span id="errmsgfortelMobile"></span>		
+					</div>
+                  </div>
+              </div>          
+               
+			    <!--Mobile number ends here-->
+			    <h4 class="labels">Your email address</h4>
+              <div class="clearfix">
+                <input type="email" class="s12-width"  name="email" onblur="pushAAFieldTagging('email')"  id="email" maxlength="40" ng-model="ctrl.ntbCreditCard.EMAIL_ADDRESS" ng-change= "validate_continue('email')" required/>
+              </div> 
+			  
+			  <div class="validationerrordiv">
+						<span id="errmsgforemail"></span>		
+			  </div>
+			  <!--Email Address ends here-->          
+              <p class="m-bot16 context-help">
+                <!--In an event of an incomplete application, our customer service staff will contact you via email and/or mobile to assist you in completing the application. Click Next or press ENTER to continue.-->
+				By providing your email address and/or mobile number above, you agree to our collection and use of your personal data for purposes of assisting you with your application.
+              </p>
+
+              <!--Mobile number ends here-->
+              
+              <h4 class="labels">Your home number </h4>
+
+               <div class="clearfix m-bot16">
+                  <div class="s2-width s3-mbl pull-left">
+                    <div class="country-code">+65</div>
+                  </div>
+
+                  <div class="s10-width s9-mbl pull-left p-left12">
+                    <input type="tel" name="telHome" onblur="pushAAFieldTagging('telHome')"  id="telHome" class="s12-width optional" maxlength="8" ng-model="ctrl.ntbCreditCard.HOME_NUMBER"/>
+                  </div>
+              </div>
+              <!--Home number ends here-->
+               <div class="validationerrordivforPhoneNumbers">
+						<span id="errmsgfortelHome"></span>		
+			  </div>
+              <h4 class="labels">Your office number</h4>
+
+               <div class="clearfix">
+                 <div class="s2-width s3-mbl pull-left">
+                    <div class="country-code">+65</div>
+                  </div>
+
+                  <div class="s10-width s9-mbl pull-left p-left12">
+                    <input type="tel" name="telOffice" onblur="pushAAFieldTagging('telOffice')" id="telOffice" class="s12-width optional" maxlength="8" data-focus="last" ng-model="ctrl.ntbCreditCard.OFFICE_NUMBER"/>
+                  </div>
+              </div>
+              <!--Office number ends here-->            
+			  <div class="validationerrordivforPhoneNumbers">
+						<span id="errmsgfortelOffice"></span>		
+			  </div>
+
+              <div class="btn-holder clearfix">
+                <button class="btn btn-primary">Next</button> 
+                <span class="btn-help">or press ENTER</span>
+              </div>
+              <!--btn-holder Ends here-->
+            </div>            
+          </li>
+          <!--Question 3-->          
+          
+          <li>      
+            <div class="form-row">               
+              <h4 class="labels">Nationality</h4>
+				
+				<div class="clearfix" >
+                <ul class="selection-group clearfix full">
+                  <li ng-repeat="nationality in nationalityArr" ng-class-odd="'pull-left'" ng-class-even="'pull-right'" >
+                    <div class="relative">
+                      <input type="radio" id="nationality{{$index}}" name = "nationality" disabled='disabled' value="{{nationality.NATIONALITY_CODE}}" class="none"  ng-model="ctrl.ntbCreditCard.NATIONALITY" ng-click="validate_continue()" ng-change="resetPassportExpDate()" required>
+                      <label ng-class="(nationality.NATIONALITY_CODE== ctrl.ntbCreditCard.NATIONALITY) ? 'option-label selected' : 'option-label'" for="nationality{{$index}}">
+                        <h3>{{nationality.NATIONALITY}}</h3>
+                        <i class="icon icon-selected"></i>   
+                      </label>  
+                    </div>          
+				  </li>     
+                </ul> 
+              </div>
+                    
+            
+			<div class="validationerrordivradio"><span id="errmsgfornationality"></span> </div>
+			<div id="nationalityType" style="display: block;" ng-if="('PR'== ctrl.ntbCreditCard.NATIONALITY || 'FR'== ctrl.ntbCreditCard.NATIONALITY)">
+                    <div class="form-row">
+					 <h4 class="labels">Please specify your Home Country</h4>
+                      
+                      <div class="relative clearfix">
+                		<i class="icon-arrow-down"></i>
+		                <select class="s12-width" name="otherNationality" onblur="pushAAFieldTagging('otherNationality')"  id="otherNationality" data-focus="first" data-tab="true"  ng-model="ctrl.ntbCreditCard.NATIONALITY_OTHER"
+								ng-options="element.HOME_COUNTRY_CODE as element.HOME_COUNTRY for element in otherNationalityArr" ng-change="validate_continue('otherNationality')" ng-keyup="clearErrorMessage('otherNationality',$event)">
+								<option selected value="">Please Select Here</option>                  
+						</select>
+		              </div>
+					  <div class="validationerrordivradio"> <span id="errmsgforothernationality"></span></div>
+                     </div>
+                    <!--Text box if others-->
+            </div>
+			<div class="validationerrordivradio"><span id="errmsgfornationality"></span></div>
+				
+             </div>
+			<div id="nationbtn" class="btn-holder clearfix">
+                        <button class="btn btn-primary">Next</button>
+                        <span class="btn-help">or press ENTER</span> 
+				</div>
+          </li>
+          <!--Question 4-->
+
+          <li>         
+            <div class="form-row">
+              <h4 class="labels" ng-if="(ctrl.ntbCreditCard.NATIONALITY == '702' || ctrl.ntbCreditCard.NATIONALITY == 'PR') && ctrl.ntbCreditCard.NATIONALITY != '458'">NRIC</h4>
+			 <h4 class="labels" ng-if="ctrl.ntbCreditCard.NATIONALITY != '458' && ctrl.ntbCreditCard.NATIONALITY != '702' && ctrl.ntbCreditCard.NATIONALITY != 'PR' && ctrl.ntbCreditCard.NATIONALITY_OTHER != '458'">Passport Number</h4>
+			 <h4 class="labels" ng-if="ctrl.ntbCreditCard.NATIONALITY != '702' && ctrl.ntbCreditCard.NATIONALITY != 'PR' && (ctrl.ntbCreditCard.NATIONALITY == '458' || ctrl.ntbCreditCard.NATIONALITY_OTHER == '458')">Malaysian IC</h4>
+			  
+
+              <div class="clearfix">
+                <input type="text" maxlength="20" class="s5-width full-width-mbl" id="NRICPassportNumber" onblur="pushAAFieldTagging('NRICPassportNumber')"   name="NRICPassportNumber" data-focus="first" data-tab="true" ng-model="ctrl.ntbCreditCard.NRIC_PASSPORT_NUMBER" ng-change = "validate_continue('NRICPassportNumber')" ng-keyup="clearErrorMessage('NRICPassportNumber',$event)" required>
+              </div> 
+			  <div class="validationerrordiv">
+					<span id="errmsgforNRICPassportNumber"></span>		
+			  </div>
+               <div class="btn-holder clearfix">
+                <button class="btn btn-primary">Next</button> 
+                <span class="btn-help">or press ENTER</span>
+              </div>
+              <!--btn-holder Ends here-->        
+            </div>
+          </li>
+          <!--Question 5-->
+          
+		  <!-- Passport Expiry, validations, DD-MM-YYYY -->
+		  <!-- Checking if the customer is a Foreigner, not a PR, not a Malaysian -->
+		  <li class="fade radio-optional" id="section-6" ng-if="ctrl.ntbCreditCard.NATIONALITY != '702' && ctrl.ntbCreditCard.NATIONALITY != 'PR' && ctrl.ntbCreditCard.NATIONALITY_OTHER != '458' ">
+                  <div class="form-row mBot-16 hide" id='foreignerExpDate'>
+                     <h4 class="labels">Passport Expiry Date</h4>
+                     <div class="calendar clearfix">
+                        <div class="s2-width s4-mbl">
+                           <input type="tel" maxlength="2" placeholder="DD" id="passportExpiryDay" name="passportExpiryDay" class="s12-width ignr1BlrEvt" data-focus="first" required="" disabled="disabled" ng-model="ctrl.ntbCreditCard.ntbCCPassportExpiryDay" ng-change="validate_continue('passportExpiryDay')" ng-blur="onPassportExpiry()">
+							<div class="validationerrordiv">
+								<span id="errmsgforpassportExpiryDay"></span>
+							</div>						   
+                        </div>
+                        <div class="s2-width s4-mbl p-left12">
+                           <input type="tel" maxlength="2" placeholder="MM" id="passportExpiryMonth" name="passportExpiryMonth" class="s12-width" required="" disabled="disabled" ng-model="ctrl.ntbCreditCard.ntbCCPassportExpiryMonth" ng-change="validate_continue('passportExpiryMonth')" ng-blur="onPassportExpiry()">
+						    <div class="validationerrordiv">
+								<span id="errmsgforpassportExpiryMonth"></span>
+							</div>
+                        </div>
+                        <div class="s2-width s4-mbl p-left12">
+                           <input type="tel" maxlength="4" placeholder="YYYY" id="passportExpiryYear" name="passportExpiryYear" class="s12-width" data-tab="true" data-focus="last" required="" disabled="disabled" ng-model="ctrl.ntbCreditCard.ntbCCPassportExpiryYear" ng-change= "validate_continue('passportExpiryYear')" ng-change = "isValidPassPortExpiryDate()" ng-blur="onPassportExpiry()">
+						   <div class="validationerrordiv">
+								<span id="errmsgforpassportExpiryYear"></span>
+						  </div>
+                        </div>
+                     </div>
+					 <div class="validationerrordiv">
+						<span id="errmsgforPassPortExpiryValidYear"></span>
+					</div>
+                     <div class="btn-holder clearfix">
+                        <button class="btn btn-primary">Next</button> 
+                        <span class="btn-help">or press TAB</span> 
+                     </div>
+                  </div>
+                  <!--btn-holder Ends here--> 
+               </li>
+		  
+          <!--Question 6-->
+		  
+            <li>         
+            <div class="form-row">
+              <h4 class="labels">Your date of birth</h4>
+
+              <div class="calendar clearfix">
+                <div class="s2-width s4-mbl">
+                  <input type="tel" maxlength="2" placeholder="DD" class="s12-width" id="birthDay" onblur="pushAAFieldTagging('birthDay')"  name="birthDay"  id="birthDay" data-focus="first" ng-model="ctrl.ntbCreditCard.DOB_DD" ng-blur="onDOB()" ng-change= "validate_continue('birthDay')" ng-keyup="clearErrorMessage('birthDay',$event)" required/>  
+					 <div class="validationerrordiv">
+						<span id="errmsgforbirthDay"></span>
+					</div>
+                </div>
+
+                <div class="s2-width s4-mbl p-left12">
+                  <input type="tel" maxlength="2" placeholder="MM" class="s12-width" id="birthMonth" onblur="pushAAFieldTagging('birthMonth')"  name="birthMonth" ng-model="ctrl.ntbCreditCard.DOB_MM" ng-blur="onDOB()" ng-change= "validate_continue('birthMonth')"  ng-keyup="clearErrorMessage('birthMonth',$event)" required/>
+				   <div class="validationerrordiv">
+						<span id="errmsgforbirthMonth"></span>
+					</div>
+                </div>
+
+                <div class="s2-width s4-mbl p-left12">
+
+                  <input type="tel" maxlength="4" placeholder="YYYY" class="s12-width" id="birthYear" onblur="pushAAFieldTagging('birthYear')"  name="birthYear" data-tab="true" data-focus="last" ng-model="ctrl.ntbCreditCard.DOB_YYYY" ng-blur="onDOB()" ng-change= "validate_continue('birthYear')" ng-keyup="clearErrorMessage('birthYear',$event)" required/>
+					  <div class="validationerrordiv">
+					<span id="errmsgforbirthYear"></span>
+			  </div>
+			   </div>
+             
+			  </div>
+			  
+				<div class="validationerrordiv">
+						<span id="errmsgforValidYear"></span>
+					</div>
+              <div class="btn-holder clearfix">
+                <button class="btn btn-primary">Next</button> 
+                <span class="btn-help">or press ENTER</span> </div>
+            </div>
+            <!--btn-holder Ends here--> 
+          </li>
+		    <li>         
+            <div class="form-row">
+              <h4 class="labels">Your gender</h4>
+
+				<div class="clearfix">
+                <ul class="selection-group clearfix ">
+                  <li ng-repeat="gender in genderArr" ng-class-odd="'pull-left'" ng-class-even="'pull-right'" >
+                    <div class="relative">
+                      <input type="radio" id="gender{{$index}}" name = "gender" disabled='disabled' value="{{gender.GENDER_CODE}}" class="none"  ng-model="ctrl.ntbCreditCard.GENDER" ng-click= "validate_continue('gender')" required>
+                      <label ng-class="(gender.GENDER_CODE== ctrl.ntbCreditCard.GENDER) ? 'option-label selected' : 'option-label'" for="gender{{$index}}">
+                        <h3>{{gender.GENDER}}</h3>
+                        <i class="icon icon-selected"></i>   
+                      </label>  
+                    </div>          
+				  </li>     
+                </ul> 
+              </div>
+                      
+            </div>
+			<div class="validationerrordivradio">
+					<span id="errmsgforgender"></span>
+			  </div>
+          </li>
+          <!--Question 7-->		  
+		  <li>
+            <div class="form-row">
+              <h4 class="labels">Monthly Income</h4>
+
+              <div class="addon-left clearfix">
+               <div class="clearfix"> <span>S$</span>
+                <input type="tel" data-focus="first" class="s4-width ignr1BlrEvt" name="monthlyIncome" onblur="pushAAFieldTagging('monthlyIncome');" ng-blur= "monthlyIncomeValidation('monthlyIncome')" maxlength="16" data-tab="true" id="monthly_income" ng-change= "validate_continue('monthlyIncome')" ng-keyup="clearErrorMessage('monthlyIncome',$event)"  ng-model="ctrl.ntbCreditCard.MONTHLY_INCOME" required/></div>
+				
+              </div>
+			  <div class="validationerrordivMonthlyIncome">
+				<span id="errmsgformonthlyIncome"></span>
+			  </div>
+              <div class="btn-holder clearfix">
+                <button class="btn btn-primary">Next</button> 
+                <span class="btn-help">or press ENTER</span>
+              </div>
+            </div>
+            <!--btn-holder Ends here-->
+          </li>
+          <!--Question 20--> 
+          <li> 
+            <div class="form-row">               
+              <h4 class="labels">Your preferred credit limit</h4>
+				<p class="m-top10 m-bot16 context-help">
+               For explanatory notes on Credit Limit, click <a href="https://www.dbs.com.sg/infopath_resources/pdf/dbsform/Terms_And_Conditions/dbs_credit_cards_credit_limit_review_tncs_declaration.pdf" Target="_new">here</a>.
+              </p>
+
+              <div class="clearfix">
+                <ul class="selection-group full">
+                  <li class="pull-left">
+                    <div class="relative">
+                      <input type="radio" id="limit1" name="prefCreditLimit" value="limit1" disabled='disabled' class="none" ng-model="ctrl.ntbCreditCard.PREFERRED_CREDIT_LIMIT" ng-click="preferedLimitchecked();validate_continue()" required>
+                      <label ng-class="('limit1'== ctrl.ntbCreditCard.PREFERRED_CREDIT_LIMIT) ? 'option-label selected' : 'option-label'" for="limit1">
+                        <h3>Limit granted by the Bank</h3>
+                        <i class="icon icon-selected"></i>   
+                      </label>  
+                    </div> 
+                    <p class="m-top10 m-bot16 context-help">
+                      I have no preference for the credit limit on my account. I understand that DBS has the right to determine the credit limit at its absolute discretion.
+                    </p>					
+                  </li>
+
+                  <li class="pull-right others">
+                    <div class="relative">
+                      <input type="radio" id="limit2" name="prefCreditLimit" disabled='disabled' value="limit2" class="none" ng-model="ctrl.ntbCreditCard.PREFERRED_CREDIT_LIMIT" ng-click= "validate_continue()" required>
+                      <label data-attr="specific-limit" ng-class="('limit2'== ctrl.ntbCreditCard.PREFERRED_CREDIT_LIMIT) ? 'option-label selected' : 'option-label'" for="limit2">
+                        <h3>I would like to specify a limit</h3>
+                        <i class="icon icon-selected"></i>   
+                      </label>
+	                <p class="m-top10 m-bot16 context-help specific-limit none">
+                      I consent to be granted a credit limit that is no more than the above indicated amount. I understand that DBS has the right to determine the credit limit at its absolute discretion. Preferred credit limit should be at a minimum of S$500 and in multiples of S$100.
+                    </p> 
+					<div id="specified_limit_div" ng-if="'limit2'== ctrl.ntbCreditCard.PREFERRED_CREDIT_LIMIT">
+                      <article class="addon-left m-top20 clearfix none" style="display:block;">                
+                        <div class="clearfix">
+                          <span>S$</span>
+                          <input type="tel" maxlength="16" data-focus="first" data-tab="true" name="prefSpecificLimit" onblur="pushAAFieldTagging('prefSpecificLimit')"  id="specified_limit" class="s4-width" ng-model="ctrl.ntbCreditCard.SPECIFIED_LIMIT" ng-keypress="checkValueForSpefLimit($event)" ng-keyup="checkValueForSpefLimitMB($event)" ng-blur="validateDefaultCreditLimit()"/>
+                        </div>                                          
+                    </article>
+					</div>
+					<div class="validationerrordiv">
+						<span id="errmsgforprefCreditLimit"></span>		
+					</div>
+                    <div id="specific_limit" class="btn-holder clearfix" style="display:none;">
+                      <button class="btn btn-primary">Next</button> 
+                      <span class="btn-help">or press ENTER</span>
+                    </div>                      
+                    <!--Limit Box ends here-->  
+                    </div> 
+
+                  </li>             
+                </ul>
+              </div>        
+            </div>
+          </li>
+          
+          <li>         
+            <div class="form-row">
+              <h4 class="labels">Marital Status</h4>
+
+               <div class="clearfix">
+                <ul class="selection-group clearfix">
+                  <li ng-repeat="marital in maritalStatusArr" ng-class-odd="'pull-left'" ng-class-even="'pull-right'" >
+                    <div class="relative">
+                      <input type="radio" id="marital{{$index}}" name="marital" disabled='disabled' value="{{marital.MARITAL_STATUS_CODE}}" class="none"  ng-model="ctrl.ntbCreditCard.MARITAL_STATUS" ng-click= "validate_continue()" required>
+                      <label ng-class="(marital.MARITAL_STATUS_CODE== ctrl.ntbCreditCard.MARITAL_STATUS) ? 'option-label selected' : 'option-label'" for="marital{{$index}}">
+                        <h3>{{marital.MARITAL_STATUS}}</h3>
+                        <i class="icon icon-selected"></i>   
+                      </label>  
+                    </div>          
+				  </li>     
+                </ul> 
+				<div class="validationerrordivradio">
+					<span id="errmsgformarital"></span>
+				 </div>
+		    </div>
+		  </div>
+        </li>
+            <!--      <div id="mariType" style="display: none;">
+                    <div class="form-row">
+					<h4 class="labels">Please specify</h4>
+                      <div class="clearfix m-bot16">
+                        <input type="text" name="maritaloth" data-focus="first" data-tab="true" class="s12-width" onblur="pushAAFieldTagging('maritaloth')"  id="mariType_input" maxlength="30"  ng-model="ctrl.ntbCreditCard.MARITAL_STATUS_OTHER">
+                      </div>
+                    <!--Text box if others-->
+            <!--      </div>       -->                        
+				  
+		<!--	  <div id="mariId" style="display: none;">  
+                 <div class="btn-holder clearfix">
+                        <button class="btn btn-primary">NEXT</button>
+                        <span class="btn-help">or press ENTER</span>
+				</div>
+				</div>			   -->
+         
+          <!--Question 8-->
+          
+          <li>         
+            <div class="form-row">
+              <h4 class="labels">Number of dependents </h4> <!--<i class="icon icon-info text-red" ></i></h4>-->
+             
+
+              <div class="clearfix">               
+                <input type="tel" maxlength="2" data-focus="first" id="noOfDependents" onblur="pushAAFieldTagging('noOfDependents')" name="noOfDependents" data-tab="true" class="s3-width s2-mbl" ng-model="ctrl.ntbCreditCard.NO_OF_DEPENDENTS" ng-change= "validate_continue('noOfDependents')" ng-keyup="clearErrorMessage('noOfDependents',$event)" required/>
+              </div>
+			  <div class="validationerrordiv">
+				<span id="errmsgfornoOfDependents"></span>
+			  </div>
+
+              <div class="btn-holder clearfix show" >
+                <button class="btn btn-primary">Next</button> 
+                <span class="btn-help">or press ENTER</span>
+              </div>
+            </div>
+          </li>
+          <!--Question 9-->
+
+          <li>        
+            <div class="form-row">
+              <h4 class="labels">Your residential address</h4>
+
+              <div class="clearfix relative m-bot16">
+                <div class="s3-width full-width-mbl ">
+                  <label class="m-bot5 block">Postal Code</label>
+                  <input type="tel" class="s12-width" id="resAddPostalCode" onblur="pushAAFieldTagging('resAddPostalCode')" name="resAddPostalCode" maxlength="6" data-focus="first" ng-model="ctrl.ntbCreditCard.RESEDENTIAL_POSTALCODE" ng-blur="fillSelectedResAddressByPostalCode()" ng-change= "validate_continue('resAddPostalCode')" ng-keyup="clearErrorMessage('resAddPostalCode',$event)" required/>
+                </div>           
+              </div>
+			  <div class="validationerrordivradio">
+				<span id="errmsgforresAddPostalCode"></span>
+			  </div>
+              <div class="clearfix m-bot8 ">            
+                <div class="s3-width full-width-mbl m-bot16-mbl ">
+                  <label class="m-bot5 block">Block/House Number</label>
+                  <input type="tel" class="m-bot8 s12-width optional" name="resAddBlockNo" maxlength="5" id="resAddBlockNo" onblur="pushAAFieldTagging('resAddBlockNo')" ng-keyup="OnkeyBlockNoMB('resAddBlockNo',$event)" ng-model="ctrl.ntbCreditCard.RESEDENTIAL_BLKNO"/>
+				  <div class="validationerrordivradio">
+					<span id="errmsgforresAddBlockNo"></span>
+				  </div>
+                </div>
+                <div class="s9-width full-width-mbl p-left12 ">
+                  <label class="m-bot5 block">Street Name 1</label>
+                  <input type="text" class="m-bot8 s12-width" name="resAddStreetAdd" onblur="pushAAFieldTagging('resAddStreetAdd')"  id="resAddStreetAdd" maxlength="35" ng-model="ctrl.ntbCreditCard.RESEDENTIAL_STREET" ng-change= "validate_continue('resAddStreetAdd')" ng-keyup="clearErrorMessage('resAddStreetAdd',$event)" required/>
+				<div class="validationerrordivradio">
+					<span id="errmsgforresAddStreetAdd"></span>
+				</div>
+                </div>
+              </div>
+			  <div class="clearfix m-bot8 ">
+				<label class="m-bot5 block">Street Name 2</label>
+			    <input type="text" class="m-bot8 s12-width optional" name="resAddStreetAdd2" onblur="pushAAFieldTagging('resAddStreetAdd2')"  id="resAddStreetAdd2" maxlength="35" ng-keypress="OnkeyStreetAdd($event)" ng-model="ctrl.ntbCreditCard.RESEDENTIAL_STREET_2"/>
+				<div class="validationerrordivradio">
+					<span id="errmsgforresAddStreetAdd2"></span>
+				</div>
+			   </div>
+			   <div class="clearfix m-bot8 ">
+				<label class="m-bot5 block">Street Name 3</label>
+			    <input type="text" class="m-bot8 s12-width optional" name="resAddStreetAdd3" onblur="pushAAFieldTagging('resAddStreetAdd3')"  id="resAddStreetAdd3" maxlength="35" ng-keypress="OnkeyStreetAdd($event)" ng-model="ctrl.ntbCreditCard.RESEDENTIAL_STREET_3"/>
+				<div class="validationerrordivradio">
+					<span id="errmsgforresAddStreetAdd3"></span>
+				</div>
+			   </div>
+			   <!--<div class="clearfix m-bot8 ">
+				<label class="m-bot5 block">Street Name 4</label>
+			    <input type="text" class="m-bot8 s12-width optional" name="resAddStreetAdd4" id="resAddStreetAdd4" ng-keypress="OnkeyStreetAdd($event)" ng-model="ctrl.ntbCreditCard.RESEDENTIAL_STREET_4"/>
+				<div class="validationerrordivradio">
+					<span id="errmsgforresAddStreetAdd4"></span>
+				</div>
+			   </div>-->
+			   
+              <div class="clearfix">
+                <div class="s3-width full-width-mbl margibBot-mob-8">
+                  <label class="m-bot5 block">Unit Number</label>
+                  <input type="text" class="s12-width optional" name="resAddUnitNo" onblur="pushAAFieldTagging('resAddUnitNo')"  id="resAddUnitNo" data-focus="last" maxlength="7" data-tab="true" ng-keyup="OnkeyBlockNoMB('resAddUnitNo',$event)" ng-model="ctrl.ntbCreditCard.RESEDENTIAL_UNIT"/>
+                </div>           
+              </div>
+			  <div class="validationerrordiv">
+				<span id="errmsgforresAddUnitNo"></span>
+			  </div>
+              <div class="btn-holder clearfix" >
+                <button class="btn btn-primary">Next</button> 
+                <span class="btn-help">or press ENTER</span>
+              </div>
+            </div>
+          </li>
+          <!--Question 10-->
+          
+          <li>         
+            <div class="form-row">
+              <h4 class="labels">Type of residence</h4>
+
+				 <div class="clearfix">
+                <ul class="selection-group clearfix">
+                  <li ng-repeat="residential in residentialTypeArr" ng-class-odd="'pull-left'" ng-class-even="'pull-right'" >
+                    <div class="relative">
+                      <input type="radio" id="residential{{$index}}" name = "residential" disabled='disabled' value="{{residential.RESIDENTIAL_TYPE_CODE}}" class="none"  ng-model="ctrl.ntbCreditCard.RESIDENTIAL_TYPE" ng-click= "validate_continue()" required>
+                      <label ng-class="(residential.RESIDENTIAL_TYPE_CODE== ctrl.ntbCreditCard.RESIDENTIAL_TYPE) ? 'option-label selected' : 'option-label'" for="residential{{$index}}">
+                        <h3>{{residential.RESIDENTIAL_TYPE}}</h3>
+                        <i class="icon icon-selected"></i>   
+                      </label>  
+                    </div>          
+				  </li>     
+                </ul> 
+
+                  <div id="resedType" style="display: none;">
+					<h4 class="labels">Please specify</h4>
+                      <div class="clearfix m-bot16">
+                        <input type="text" data-focus="first" data-tab="true" class="s12-width" id="resedType_input" onblur="pushAAFieldTagging('resedType_input')"  maxlength="20" ng-model="ctrl.ntbCreditCard.RESIDENTIAL_TYPE_OTHER">
+                      </div>
+				  </div>  
+
+                    <!--Text box if others-->
+                
+              </div>
+              <div class="validationerrordivradio">
+					<span id="errmsgforresidential"></span>
+			  </div>  
+			   <div id="resedTypeArt" style="display: none;">
+                      <div class="btn-holder clearfix">
+                        <button class="btn btn-primary">Next</button>
+                        <span class="btn-help">or press ENTER</span> </div>
+
+                    
+                  </div>       
+            </div>
+          </li>
+          <!--Question 11-->
+          
+          <li>         
+            <div class="form-row">
+              <h4 class="labels">Your residential status</h4>
+
+				 <div class="clearfix">
+                <ul class="selection-group clearfix ">
+                  <li ng-repeat="residence in residentialStatusArr" ng-class-odd="'pull-left'" ng-class-even="'pull-right'"  >
+                    <div class="relative">
+                      <input type="radio" id="residence{{$index}}" name = "residence" disabled='disabled' value="{{residence.RESIDENTIAL_STATUS_CODE}}" class="none"  ng-model="ctrl.ntbCreditCard.RESIDENTIAL_STATUS" ng-click= "validate_continue()" required>
+                      <label ng-class="(residence.RESIDENTIAL_STATUS_CODE== ctrl.ntbCreditCard.RESIDENTIAL_STATUS) ? 'option-label selected' : 'option-label'" for="residence{{$index}}">
+                        <h3>{{residence.RESIDENTIAL_STATUS}}</h3>
+                        <i class="icon icon-selected"></i>   
+                      </label>  
+                    </div>          
+				  </li>     
+                </ul> 
+
+                  <div class="m-top25 none" id="resStatus" style="display: none;">
+                    <div class="form-row">
+					<h4 class="labels">Please specify</h4>
+                      <div class="clearfix m-bot16">
+                        <input type="text" data-focus="first" data-tab="true" id="resStatus_input" onblur="pushAAFieldTagging('resStatus_input')"  class="s12-width" maxlength="20" ng-model="ctrl.ntbCreditCard.RESIDENTIAL_STATUS_OTHER">
+                      </div>
+
+                      
+                    </div>
+                    <!--Text box if others-->
+                  </div>                              
+                
+              </div>
+               <div class="validationerrordivradio">
+					<span id="errmsgforresidence"></span>
+			  </div> 
+			  <div id="resedStbtn" style="display: none;">
+                      <div class="btn-holder clearfix">
+                        <button class="btn btn-primary">Next</button>
+                        <span class="btn-help">or press ENTER</span> </div>                    
+                  </div>
+            </div>
+          </li>
+          <!--Question 12-->
+          
+          <li>         
+            <div class="form-row clearfix">
+              <h4 class="labels">Number of years at this residence</h4>
+
+              <div class="clearfix">
+                <div class="s5-width full-width-mbl">
+                    <div class="input-group">
+                      <input type="tel" data-focus="first" class="s4-width" id="stayYears" onblur="pushAAFieldTagging('stayYears')"  name="stayYears" maxlength="2" data-tab="true" maxlength="4"  ng-model="ctrl.ntbCreditCard.STAY_YEARS" ng-blur="onstayYears()" ng-change= "validate_continue('stayYears')" ng-keyup="clearErrorMessage('stayYears',$event)" required/>
+                      <span class="add-on-text ">Years</span>
+                    </div>
+                  </div>
+              </div>
+			  <div class="validationerrordiv">
+					<span id="errmsgforstayYears"></span>
+			  </div>
+              <div class="btn-holder clearfix">
+                <button class="btn btn-primary">Next</button> 
+                <span class="btn-help">or press ENTER</span>
+              </div>
+            </div>
+          </li>
+          <!--Question 13-->
+          
+          <li>         
+            <div class="form-row">
+              <h4 class="labels">Your education level</h4>
+
+              <div class="clearfix">
+                <ul class="selection-group clearfix full">
+                  <li ng-repeat="highestEdu in highestEduArr" >
+                    <div class="relative">
+                      <input type="radio" id="highestEdu{{$index}}" name = "highestEdu" disabled='disabled' value="{{highestEdu.HIGHEST_EDUCATION_CODE}}" class="none"  ng-model="ctrl.ntbCreditCard.HIGH_EDUCATION" ng-click= "validate_continue()" required>
+                      <label ng-class="(highestEdu.HIGHEST_EDUCATION_CODE== ctrl.ntbCreditCard.HIGH_EDUCATION) ? 'option-label selected' : 'option-label'" for="highestEdu{{$index}}">
+                        <h3>{{highestEdu.HIGHEST_EDUCATION}}</h3>
+                        <i class="icon icon-selected"></i>   
+                      </label>  
+                    </div>          
+				  </li>     
+                </ul> 
+
+                  <div class="m-top25 none" id="highEducation" style="display: none;">
+                    <div class="form-row">
+					<h4 class="labels">Please specify</h4>
+                      <div class="clearfix m-bot16">
+                        <input type="text" data-focus="first" data-tab="true" id="highEducation_input" onblur="pushAAFieldTagging('highEducation_input')"  class="s12-width" maxlength="20" ng-model="ctrl.ntbCreditCard.HIGH_EDUCATION_OTHER">
+                      </div>
+
+                      
+                    </div>
+                    <!--Text box if others-->
+                  </div>                              
+                
+              </div>
+			  <div class="validationerrordivradio">
+					<span id="errmsgforhighestEdu"></span>
+			  </div>                    
+			<div id="edubtn" style="display: none;">
+                      <div class="btn-holder clearfix">
+                        <button class="btn btn-primary">Next</button>
+                        <span class="btn-help">or press ENTER</span> </div>                    
+                  </div>		  
+            </div>
+          </li>
+          <!--Question 14-->
+          
+          <li>        
+            <div class="form-row">
+              <h4 class="labels">Your current job status</h4>
+
+               <div class="clearfix">
+                <ul class="selection-group clearfix full">
+                  <li ng-repeat="jobStatus in jobStatusArr" ng-class-odd="'pull-left'" ng-class-even="'pull-right'"  >
+                    <div class="relative">
+                      <input type="radio" id="jobStatus{{$index}}" name = "jobStatus" disabled='disabled' value="{{jobStatus.JOB_STATUS_CODE}}" class="none"  ng-model="ctrl.ntbCreditCard.JOB_STATUS" ng-click= "validate_continue()" required>
+                      <label ng-class="(jobStatus.JOB_STATUS_CODE== ctrl.ntbCreditCard.JOB_STATUS) ? 'option-label selected' : 'option-label'" for="jobStatus{{$index}}">
+                        <h3>{{jobStatus.JOB_STATUS}}</h3>
+                        <i class="icon icon-selected"></i>   
+                      </label>  
+                    </div>          
+				  </li>     
+                </ul> 
+                  <div class="m-top25 none" id="jobSt" style="display: none;">
+                    <div class="form-row">
+					<h4 class="labels">Please specify</h4>
+                      <div class="clearfix m-bot16">
+                        <input type="text" data-focus="first" data-tab="true" id="jobSt_input" onblur="pushAAFieldTagging('jobSt_input')"  class="s12-width" maxlength="40" ng-model="ctrl.ntbCreditCard.JOB_STATUS_OTHER">
+                      </div>                      
+                    </div>
+                    <!--Text box if others-->
+                  </div>
+				  <div class="validationerrordivradio">
+					<span id="errmsgforjobStatus"></span>
+				</div>
+				<div id="jobbtn" style="display: none;">
+                      <div class="btn-holder clearfix">
+                        <button class="btn btn-primary">Next</button>
+                        <span class="btn-help">or press ENTER</span> </div>                    
+                  </div>
+              </div>
+            </div>
+          </li>
+          <!--Question 15-->
+          
+          <li>         
+            <div class="form-row">
+              <h4 class="labels">Your occupation</h4>
+
+               <div class="relative clearfix">
+                <i class="icon-arrow-down"></i>
+                <select class="s12-width" name="occupation" id="occupation" onblur="pushAAFieldTagging('occupation')"  data-focus="first" data-tab="true"  ng-model="ctrl.ntbCreditCard.OCCUPATION"
+						ng-options="element.CURRENT_POSITION_CODE as element.CURRENT_POSITION for element in occupationArr" ng-change="validate_continue('occupation')" ng-keyup="clearErrorMessage('occupation',$event)" required>
+						<option selected value="">Please Select Here</option>                  
+				</select>  
+               
+                
+              </div>
+			  
+			  
+               <div id="othTitle" style="display: none;">
+                    <div class="form-row">
+					<h4 class="labels">Please specify</h4>
+                      <div class="clearfix m-bot16">
+                        <input type="text" data-focus="first" data-tab="true" id="othTitle_input" onblur="pushAAFieldTagging('othTitle_input')" class="s12-width" maxlength="40" ng-model="ctrl.ntbCreditCard.OCCUPATION_OTHER">
+                      </div>
+                    </div>
+                </div>
+				<div class="validationerrordiv">
+					<span id="errmsgforoccupation"></span>
+			    </div>
+              <div class="btn-holder clearfix">
+                  <button class="btn btn-primary">Next</button> 
+                  <span class="btn-help">or press ENTER</span>
+              </div>
+              <!--btn-holder Ends here-->
+            </div>
+          </li>
+          <!--Question 16-->
+          
+          <li>         
+            <div class="form-row">
+              <h4 class="labels">Your job industry</h4>
+
+              <div class="relative clearfix">
+                <i class="icon-arrow-down"></i>
+                <select class="s12-width" name="jobIndustry" id="jobIndustry" onblur="pushAAFieldTagging('jobIndustry')" data-focus="first" data-tab="true"  ng-model="ctrl.ntbCreditCard.JOB_INDUSTRY"
+						ng-options="element.INDUSTRY_CODE as element.INDUSTRY for element in industryTypeArr" ng-change="validate_continue('jobIndustry')" ng-keyup="clearErrorMessage('jobIndustry',$event)" required>
+						<option selected value="">Please Select Here</option>                  
+				</select>
+              </div>
+			  
+               <div id="jobInd" class="m-top25 other-select none" style="display:none">
+                    <div class="form-row">
+					<h4 class="labels">Please specify</h4>
+                      <div class="clearfix m-bot16">
+						<input type="text" data-focus="first" data-tab="true" id="jobInd_input" onblur="pushAAFieldTagging('jobInd_input')"  class="s12-width" maxlength="40" ng-model="ctrl.ntbCreditCard.JOB_INDUSTRY_OTHER">
+						</div>
+					</div>
+                </div>
+				<div class="validationerrordiv">
+					<span id="errmsgforjobIndustry"></span>
+			    </div>
+				<div class="btn-holder clearfix">
+						<button class="btn btn-primary">Next</button> 
+						<span class="btn-help">or press ENTER</span>
+				</div>  
+
+
+              <!--btn-holder Ends here-->
+            </div>
+          </li>
+          <!--Question 17-->
+          
+          <li>
+            <div class="form-row">
+              <h4 class="labels">Your Company name</h4>
+
+              <div class="clearfix">
+                <input type="text" maxlength="30" data-focus="first" id="ntbCompanyName" onblur="pushAAFieldTagging('companyName')"  name="companyName" class="s12-width" data-tab="true"  ng-model="ctrl.ntbCreditCard.CURRENT_EMPLOYER" ng-change= "validate_continue('companyName')" ng-keypress="verifyCompanyName($event)" ng-keyup="clearErrorMessage('companyName',$event)" required/>
+              </div>
+			  <div class="validationerrordivradio">
+					<span id="errmsgforcompanyName"></span>
+			  </div>
+              <div class="btn-holder clearfix">
+                <button class="btn btn-primary">Next</button> 
+                <span class="btn-help">or press ENTER</span>
+              </div>
+              <!--btn-holder Ends here-->
+            </div>
+          </li>
+          <!--Question 18-->
+          
+          <li>
+            <div class="form-row">
+              <h4 class="labels">Length of Current Employment</h4>
+
+                <div class="clearfix years-group">
+                  <div class="s5-width m-bot16-mbl full-width-mbl">
+                    <div class="input-group">
+                      <input type="tel" id="yearsId" data-focus="first" name="employmentYearsId" onblur="pushAAFieldTagging('employmentYearsId')"  class="s4-width" maxlength="2" ng-model="ctrl.ntbCreditCard.EMPLOYMENTTENUREYEARS" ng-change= "validate_continue('employmentYearsId')" required/>
+                      <span class="add-on-text">Years</span>
+                    </div>
+                  </div>
+
+                  <div class="s5-width full-width-mbl">
+                    <div class="input-group">
+                      <input type="tel" id="monthsId" class="s4-width" name="employmentMonthsId" onblur="pushAAFieldTagging('employmentMonthsId')"  maxlength="2" ng-model="ctrl.ntbCreditCard.EMPLOYMENTTENUREMONTHS"  data-tab="true" ng-blur="checkOnBlurValueForEmpMonths($event)" ng-keyup= "validate_continue('employmentMonthsId')" ng-keyup="clearErrorMessage('employmentMonthsId',$event)" required/>
+                      <span class="add-on-text ">Months</span>
+                    </div>
+					
+                  </div>
+                </div>
+				<div class="validationerrordiv">
+						<span id="errmsgforemploymentYearsId"></span>
+					</div>
+				<div ng-if="ctrl.ntbCreditCard.EMPLOYMENTTENUREYEARS==0 && ctrl.ntbCreditCard.EMPLOYMENTTENUREMONTHS <=11">
+				  <article class="m-top25 none" style="display:block;">
+                <div class="form-row">
+                  <h4 class="labels">Your previous company</h4>
+
+                  <div class="clearfix">
+						<input type="text" name="prevEmploymentCompany" id="prevEmploymentCompany" onblur="pushAAFieldTagging('prevEmploymentCompany')"  maxlength="30" class="s12-width m-bot10 optional" ng-model="ctrl.ntbCreditCard.PREVEMPLOYMENTCOMPANY" ng-keypress="checkValueForPrevEmp($event);verifyCompanyName($event)" />
+                  </div>
+                </div>
+				  <div class="validationerrordiv">
+						<span id="errmsgforprevEmploymentCompany"></span>
+				  </div>  				
+                <div class="form-row m-top25">
+                  <h4 class="labels">Length of Previous Employment</h4>
+
+                  <div class=" clearfix">
+                    <div class="s5-width m-bot16-mbl full-width-mbl">
+                      <div class="clearfix">
+                        <div class="input-group">
+							  <input type="tel" name="prevEmploymentYears" id="prevEmploymentYears" onblur="pushAAFieldTagging('prevEmploymentYears')"  maxlength="2" class="s4-width optional"  ng-model="ctrl.ntbCreditCard.PREVEMPLOYMENTTENUREYEARS" ng-keypress="checkValueForPrevEmpYears($event)" />
+                          <span class="add-on-text">Years</span>
+                        </div>                 
+                      </div>
+                    </div>
+
+                    <div class="relative s5-width full-width-mbl">
+                      <div class="clearfix">
+                        <div class="input-group">
+							  <input type="tel" name="prevEmploymentMonths" id="prevEmploymentMonths" onblur="pushAAFieldTagging('prevEmploymentMonths')"  maxlength="2" class="s4-width optional"  data-tab="true" ng-model="ctrl.ntbCreditCard.PREVEMPLOYMENTTENUREMONTHS" ng-keypress="checkValueForPrevEmpMonths($event)"/>
+                          <span class="add-on-text">Months</span>
+                        </div>                     
+                      </div>
+                    </div>
+                  </div>  
+						<div class="validationerrordiv">
+							<span id="errmsgforprevEmploymentYears"></span>
+						</div>				  
+                </div>
+
+
+				</article>
+				</div>
+              <!--Previous Company details ends here-->
+
+              <div class="btn-holder clearfix">
+                <button class="btn btn-primary" id="empButton">Next</button> 
+                <span class="btn-help">or press ENTER</span>
+              </div>
+              <!--btn-holder Ends here-->         
+            </div>
+          </li>
+          <!--Question 19-->
+
+
+          <!--Question 21--> 
+		  
+		  <li>
+            <div class="form-row">
+              <h4 class="labels ">Mailing address</h4>
+              
+              <div class="clearfix">
+                <ul class="selection-group clearfix">
+                  <li class="pull-left">
+                    <div class="relative">
+                      <input type="radio" id="billing1" name="AddressMailType" disabled='disabled' value="Residential" class="none" ng-model="ctrl.ntbCreditCard.PREFBILLINGADDRESS" ng-click = "validate_continue(); pushForAAtagging('AddressMailType')" required>
+                      <label ng-class="('Residential'== ctrl.ntbCreditCard.PREFBILLINGADDRESS) ? 'option-label selected' : 'option-label'" for="billing1">
+                        <h3>Residential</h3>
+                        <i class="icon icon-selected"></i>   
+                      </label>  
+                    </div>          
+                  </li>
+
+
+
+                  <li class="pull-right">
+                    <div class="relative">
+                      <input type="radio" id="billing2" name="AddressMailType" value="Office" disabled='disabled' class="none" ng-model="ctrl.ntbCreditCard.PREFBILLINGADDRESS" ng-click = "validate_continue(); pushForAAtagging('AddressMailType')" required>
+                      <label ng-class="('Office'== ctrl.ntbCreditCard.PREFBILLINGADDRESS) ? 'option-label selected' : 'option-label'" for="billing2">
+                        <h3>Office</h3>
+                        <i class="icon icon-selected"></i>   
+                      </label>
+                    </div>                     
+                  </li>                                             
+                </ul>
+              </div>  
+                   
+            </div>
+			 <div class="validationerrordivradio">
+					<span id="errmsgforAddressMailType"></span>
+			 </div> 
+           </li>
+		<!--Question 22--> 
+		  <li>	
+            <div class="form-row">
+              <h4 class="labels">Your current office address</h4>
+
+              <div class="clearfix relative m-bot16">
+                <div class="s3-width full-width-mbl">
+                  <label class="m-bot5 block">Postal Code</label>
+                  <input type="tel" class="s12-width" name="officeAddPostalCode" onblur="pushAAFieldTagging('officeAddPostalCode')"  id="officeAddPostalCode" maxlength="6" data-focus="first"  
+				     ng-model="ctrl.ntbCreditCard.OFF_ADDRESS_POSTALCODE" ng-keypress="OnkeyPostalCode($event)" ng-keyup="clearErrorMessage('officeAddPostalCode',$event)"
+					 ng-change="fillSelectedOFFAddressByPostalCode();validate_continue('officeAddPostalCode')" ng-blur="fillSelectedOFFAddressByPostalCode();postalCodeLenghtValidate()" required/><!--ng-blur="fillSelectedOFFAddressByPostalCode()" -->
+                </div>           
+              </div>
+			  <div class="validationerrordivradio">
+				<span id="errmsgforofficeAddPostalCode"></span>
+			  </div>
+              <div class="clearfix m-bot8">            
+                <div class="s3-width full-width-mbl m-bot16-mbl ">
+                  <label class="m-bot5 block">Block/House Number</label>
+                  <input type="tel" class="m-bot8 s12-width optional" name="officeAddBlockNo" onblur="pushAAFieldTagging('officeAddBlockNo')"  id="officeAddBlockNo" maxlength="5" ng-keypress="OnkeyBlockNo($event)" ng-keyup="OnkeyBlockNoMB('officeAddBlockNo',$event)" ng-model="ctrl.ntbCreditCard.OFF_ADDRESS_BLOCK"/>
+				<div class="validationerrordivradio">
+					<span id="errmsgforofficeAddBlockNo"></span>
+				</div>
+                </div>
+                <div class="s9-width full-width-mbl p-left12 ">
+                  <label class="m-bot5 block">Street Name 1</label>
+                  <input type="text" class="m-bot8 s12-width" name="officeAddStreetAdd" onblur="pushAAFieldTagging('officeAddStreetAdd')"  id="officeAddStreetAdd" ng-keypress="OnkeyStreetAdd($event)"  ng-model="ctrl.ntbCreditCard.OFF_ADDRESS_STREET" ng-change= "validate_continue('officeAddStreetAdd')" ng-keyup="clearErrorMessage('officeAddStreetAdd',$event)" required/>
+				  <div class="validationerrordivradio">
+					<span id="errmsgforofficeAddStreetAdd"></span>
+				  </div>	
+                </div>
+				
+              </div>
+			  <div class="clearfix m-bot8 ">
+				<label class="m-bot5 block">Street Name 2</label>
+			    <input type="text" class="m-bot8 s12-width optional" name="officeAddStreetAdd2" onblur="pushAAFieldTagging('officeAddStreetAdd2')"  id="officeAddStreetAdd2" ng-keypress="OnkeyStreetAdd($event)" ng-model="ctrl.ntbCreditCard.OFF_ADDRESS_STREET_2"/>
+				<div class="validationerrordivradio">
+					<span id="errmsgforofficeAddStreetAdd2"></span>
+				</div>
+			   </div>
+			   <div class="clearfix m-bot8 ">
+				<label class="m-bot5 block">Street Name 3</label>
+			    <input type="text" class="m-bot8 s12-width optional" name="officeAddStreetAdd3" onblur="pushAAFieldTagging('officeAddStreetAdd3')"  id="officeAddStreetAdd3" ng-keypress="OnkeyStreetAdd($event)" ng-model="ctrl.ntbCreditCard.OFF_ADDRESS_STREET_3"/>
+				<div class="validationerrordivradio">
+					<span id="errmsgforofficeAddStreetAdd3"></span>
+				</div>
+			   </div>
+			  <!-- <div class="clearfix m-bot8 ">
+				<label class="m-bot5 block">Street Name 4</label>
+			    <input type="text" class="m-bot8 s12-width optional" name="officeAddStreetAdd4" id="officeAddStreetAdd4" ng-keypress="OnkeyStreetAdd($event)" ng-model="ctrl.ntbCreditCard.OFF_ADDRESS_STREET_4"/>
+				<div class="validationerrordivradio">
+					<span id="errmsgforofficeAddStreetAdd4"></span>
+				</div>
+			   </div>-->
+              <div class="clearfix">
+                <div class="s3-width full-width-mbl margibBot-mob-8">
+                  <label class="m-bot5 block">Unit Number</label>
+                  <input type="text" class="s12-width optional" name="officeAddUnitNo" onblur="pushAAFieldTagging('officeAddUnitNo')"  id="officeAddUnitNo" ng-keypress="OnkeyUnitNo($event)" ng-blur="OnBlurUnitNo()" ng-keyup="OnkeyBlockNoMB('officeAddUnitNo',$event)" data-focus="last" data-tab="true" maxlength="7" ng-model="ctrl.ntbCreditCard.OFF_ADDRESS_UNITNO"/>
+                </div>           
+              </div>
+			  <div class="validationerrordiv">
+				<span id="errmsgforofficeAddUnitNo"></span>
+			  </div>
+            </div>  			
+              <div class="btn-holder clearfix" >
+                <button class="btn btn-primary">Next</button> 
+                <span class="btn-help">or press ENTER</span>
+              </div>
+          </li>
+          <!--Question 23--> 
+
+          <li class="radio-optional"> 
+             <!--<div class="form-row m-top25 clearfix marketing">
+              <h4 class="labels">How would you like to receive DBS marketing &amp; promotions materials?</h4>
+              <div class="clearfix relative in-block s3-width">
+                <input type="checkbox" name="marketing" id="sms" class="checkbox text-center optional" tabindex="" checked ng-model="ctrl.ntbCreditCard.MARKETING_OPT_MESSAGE">
+                <label class="label " for="sms" data-focus="first" data-tab="true">
+                  Mobile Message
+                </label>
+              </div>
+
+              <div class="clearfix relative in-block s3-width">
+                <input type="checkbox" name="marketing" id="email1" class="checkbox text-center optional" tabindex="" checked ng-model="ctrl.ntbCreditCard.MARKETING_OPT_EMAIL">
+                <label class="label " for="email1" data-focus="first" data-tab="true">
+                  Email
+                </label>
+              </div>
+
+              <div class="clearfix relative in-block s3-width">
+                <input type="checkbox" name="marketing" id="post" class="checkbox text-center optional" tabindex="" checked ng-model="ctrl.ntbCreditCard.MARKETING_OPT_POST">
+                <label class="label " for="post" data-focus="first" data-tab="true">
+                  Post
+                </label>
+              </div>
+
+              <div class="clearfix relative in-block s3-width">
+                <input type="checkbox" name="marketing" id="call" class="checkbox text-center optional" tabindex="" checked ng-model="ctrl.ntbCreditCard.MARKETING_OPT_CALL">
+                <label class="label " for="call" data-focus="first" data-tab="true">
+                  Call
+                </label>
+              </div>
+            </div>-->
+            <!--PDPA clause ends here-->
+         
+          
+            <!--PDPA clause ends here-->
+           
+            <div class="form-row m-top25">
+              <div class="clearfix relative">
+                <input type="checkbox" name="promo" id="promo" onblur="pushAAFieldTagging('promo')"  class="checkbox text-center optional" value="promo" ng-model="ctrl.ntbCreditCard.ISPROMOCODECHECKED" ng-click="checkPromoCode()"> 
+                <label class="label " for="promo" data-focus="first" data-tab="true">
+                  I have a promo code for this application
+                </label>
+					<div ng-if="ctrl.ntbCreditCard.ISPROMOCODECHECKED">
+					<article class="promo m-top10 clearfix" style="display:block;">
+                  <div class="clearfix">
+                    <input type="text" id="promoinputval" onblur="pushAAFieldTagging('promoinputval')"  maxlength="10" data-focus="first" class="s4-width" data-tab="true" ng-keypress="onPromo($event)" ng-model="ctrl.ntbCreditCard.PROMO_CODE"/>
+                  </div>
+				  	  <div class="validationerrordiv">
+					<span id="errmsgforpromoinputval"></span>
+				  </div>
+                </article> 
+					</div>
+              </div>           
+            </div>
+            <!--Promo Code ends here-->
+          
+            <div class="form-row m-top25">
+              <div class="clearfix agreement">
+                By clicking on the Continue button below, I have read and agreed to be bound by the <a href="https://www.dbs.com.sg/iwov-resources/pdf/cards/credit-card-declaration.pdf" Target="_new"><u>declaration, important notes, fee and charges.</u></a>
+				<!-- declaration, important notes, fees and charges <a href="http://www.dbs.com/sg/ibanking/cards/declaration/default.aspx" Target="_new">(Click here to view)</a>. -->
+              </div>           
+            </div>
+            <!--Agreement Ends Here-->
+          </li>
+          <!--Question 24--> 
+        </ul>
+        <!--====================================-Form Ends Here====================================-->
+         <div class="btn-holder clearfix">   <!--ng-if="(ctrl.ntbCreditCard.actionFormEdit==undefined || ctrl.ntbCreditCard.actionFormEdit=='')" -->
+          <button class="btn btn-primary " id = "btnId" ng-click="gotoVerifyPage()" disabled = "disabled" >Continue</button> 
+        </div>
+	<!--	<div class="btn-holder clearfix" ng-if="(ctrl.ntbCreditCard.actionFormEdit=='EDIT')">
+          <button class="btn btn-primary " ng-click="gotoVerifyPage()" ng-disabled="buttonDisabled">Save & Return to Verify</button> 
+        </div> -->
+        <!--Page Submit Buttons Ends Here-->           
+      </div>
+    </div>
+    <!--Container Ends Here-->
+
+
+    <footer>
+      <div class="container">
+        <div class="step-tracker pull-left">
+          <div id="progressbarHolder">
+            <div class="counter">
+              <span class="outof">0 </span> of <span class="total"> </span> Finished
+            </div>
+
+            <div id="progressbar"></div>
+            <!--Progress Bar Ends Here-->
+          </div>
+        </div>
+
+        <div class="pull-right clearfix">
+          <ul class="pull-left">
+            <li id="up"><a href="javascript:void(0);"><i class="icon icon-arrow-up"></i></a></li>
+            <li id="down"><a href="javascript:void(0);"  class="disabled"><i class="icon icon-arrow-down "></i></a></li>
+          </ul>
+		  <button ng-if="(ctrl.ntbCreditCard.actionFormEdit=='EDIT')" class="btn btn-primary btn-verify pull-right" ng-click="gotoVerifyPage()"></button>
+        </div>
+      </div>
+    </footer>
+    <!--Footer Ends Here-->  
+
+
+
+    <!-- Modal for Save Application-->
+    <div class="modal fade notification" id="saveapplication" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+         <div class="modal-header">
+             <h4 class="text-center">Save Application</h4>        
+          </div>
+          <!--Modal Header ends here-->
+
+          <div class="modal-body clearfix">
+            <p class="text-center">
+              Click "Save & Exit" to continue your application later. An email will be sent to you with a link to continue your application.
+            </p>
+          </div>
+          <!--Modal Header Body here-->
+
+
+          <div class="modal-footer three-btns">
+            <button type="button" class="btn btn-secondary m-right16" ng-click="validateAndSubmit('exit')" title="Exit" tabindex="">Save & Exit </button>
+            <button type="button" id="saveContinue" class="btn btn-primary ntp" ng-click="validateAndSubmit('saveContinue')" title="Continue" tabindex="">Save & Continue</button>
+          </div>
+          <!--Modal Footer ends here-->
+        </div>
+      </div>
+    </div>
+    <!--Modal ends here-->
+
+
+
+	<!-- Modal -->
+  <div class="modal fade" id="modal-alert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">  
+
+        <div class="modal-body clearfix">
+          <p class="m-top30">Please select a maximum of four cards.</p>          
+        </div>
+        <!--Modal Header Body here-->
+
+
+        <div class="modal-footer three-btns">
+          <button type="button" class="btn btn-primary ntp" data-dismiss="modal" title="OK" tabindex="6">OK </button>
+        </div>
+        <!--Modal Footer ends here-->
+      </div>
+    </div>
+  </div>
+  <!--Modal ends here-->
+  
+    <!--Modal to display Card selector-->
+    <div class="modal fade" id="card-selector" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+         <div class="modal-header">
+             <h4 class="text-center ">Please Select Your Card(s)</h4> 
+             <p class="text-center ">You may apply for a maximum of four (4) cards.<span>({{selCardData.length}}/4)</span></p>  
+          </div>
+          <!--Modal Header ends here-->
+
+          <div class="modal-body clearfix">
+            <div class="card-selecion clearfix">
+              				  
+		  
+            <div class="row clearfix" ng-repeat="x in cardDetails">
+			 
+              <div class="pull-left m-right8" ng-if="(2*$index) < cardDetails.length">
+                <figure class="pull-left">
+                  <a href="#" title="" ng-if="cardDetails[2*$index].CARD_BRAND == 'P'">
+					
+					<img id="card_{{2*$index +2}}" onclick="validate120KCcAndSelectCard(this);" src="https://www.dbs.com.sg/iwov-resources/images/ibanking/posb/cards-apply/{{cardDetails[2*$index].CARD_ORG}}{{cardDetails[2*$index].CARD_PRODUCT_LOGO}}{{cardDetails[2*$index].CARD_ID}}.png" 
+					alt="{{cardDetails[2*$index].CARD_ORG}}~{{cardDetails[2*$index].CARD_PRODUCT_LOGO}}~{{cardDetails[2*$index].CARD_ID}}~{{cardDetails[2*$index].CARD_NAME}}~300"/>
+					<!--
+                    <img id="card_{{2*$index +1}}" onclick="selectCards(this);" src="../../assets/images/cards/{{cardDetails[2*$index].CARD_ORG}}{{cardDetails[2*$index].CARD_LOGO}}{{cardDetails[2*$index].CARD_PRODUCT_ID}}.png" alt=""/>
+					-->
+                    <i class="icon" ng-if="selCardData.indexOf((cardDetails[2*$index].CARD_ORG+'~'+cardDetails[2*$index].CARD_PRODUCT_LOGO+'~'+cardDetails[2*$index].CARD_ID+'~'+cardDetails[2*$index].CARD_NAME+'~300')) == -1"></i>
+					<i class="icon icon-success" ng-if="selCardData.indexOf((cardDetails[2*$index].CARD_ORG+'~'+cardDetails[2*$index].CARD_PRODUCT_LOGO+'~'+cardDetails[2*$index].CARD_ID+'~'+cardDetails[2*$index].CARD_NAME+'~300')) != -1"></i>
+                  </a>
+				  <a href="#" title="" ng-if="cardDetails[2*$index].CARD_BRAND == 'D'">
+					
+					<img id="card_{{2*$index +2}}" onclick="validate120KCcAndSelectCard(this);" src="https://www.dbs.com.sg/iwov-resources/images/ibanking/dbs/cards-apply/{{cardDetails[2*$index].CARD_ORG}}{{cardDetails[2*$index].CARD_PRODUCT_LOGO}}{{cardDetails[2*$index].CARD_ID}}.png" 
+					alt="{{cardDetails[2*$index].CARD_ORG}}~{{cardDetails[2*$index].CARD_PRODUCT_LOGO}}~{{cardDetails[2*$index].CARD_ID}}~{{cardDetails[2*$index].CARD_NAME}}~300"/>
+					<!--
+                    <img id="card_{{2*$index +1}}" onclick="selectCards(this);" src="../../assets/images/cards/{{cardDetails[2*$index].CARD_ORG}}{{cardDetails[2*$index].CARD_LOGO}}{{cardDetails[2*$index].CARD_PRODUCT_ID}}.png" alt=""/>
+					-->
+                    <i class="icon" ng-if="selCardData.indexOf((cardDetails[2*$index].CARD_ORG+'~'+cardDetails[2*$index].CARD_PRODUCT_LOGO+'~'+cardDetails[2*$index].CARD_ID+'~'+cardDetails[2*$index].CARD_NAME+'~300')) == -1"></i>
+					<i class="icon icon-success" ng-if="selCardData.indexOf((cardDetails[2*$index].CARD_ORG+'~'+cardDetails[2*$index].CARD_PRODUCT_LOGO+'~'+cardDetails[2*$index].CARD_ID+'~'+cardDetails[2*$index].CARD_NAME+'~300')) != -1"></i>
+                  </a>
+
+                  <!-- <button class="btn btn-primary btn-border"><a href="{{cardDetails[2*$index].URL_TO_PWEB.replace('#','=').toLowerCase()}}" target='_blank'>Learn More</a></button> -->
+                  <button type="button" class="btn btn-primary btn-border" ng-click="learnMore(cardDetails[2*$index].URL_TO_PWEB.trim().replace('#','='))"> Learn more</button>
+                </figure>
+				<div class="pull-left">
+                  <h4>{{cardDetails[2*$index].CARD_NAME}}</h4>
+                 <!-- <p>get 6% Cashback on your online purchase and 3X DBS Points on your online, travel, overseas and contactless spend.</p>-->
+				   <p>Income per Annum: S$ {{cardDetails[2*$index].MINIMUM_INCOME_SG}}</p>
+				   <p>Annual Fee: {{cardDetails[2*$index].FORMATTED_ANNUAL_FEE}}</p>
+				  <p>Principal</br>Waiver: {{cardDetails[2*$index].ANNUAL_FEE_WAVIER}} </p>
+                </div>
+				
+              </div>
+              <!--Left Card colm ends here-->
+			
+              <div class="pull-left m-right8" ng-if="(2*$index +1) < cardDetails.length">
+                <figure class="pull-left">
+                  <a href="#" title="" ng-if="cardDetails[2*$index+1].CARD_BRAND == 'P'">
+                     
+					 <img id="card_{{2*$index +3}}" onclick="validate120KCcAndSelectCard(this);" src="https://www.dbs.com.sg/iwov-resources/images/ibanking/posb/cards-apply/{{cardDetails[2*$index+1].CARD_ORG}}{{cardDetails[2*$index+1].CARD_PRODUCT_LOGO}}{{cardDetails[2*$index+1].CARD_ID}}.png" 
+					 alt="{{cardDetails[2*$index+1].CARD_ORG}}~{{cardDetails[2*$index+1].CARD_PRODUCT_LOGO}}~{{cardDetails[2*$index+1].CARD_ID}}~{{cardDetails[2*$index+1].CARD_NAME}}~300"/>
+					 <!--
+					 <img id="card_{{2*$index +2}}" onclick="selectCards(this);" src="../../assets/images/cards/{{cardDetails[2*$index+1].CARD_ORG}}{{cardDetails[2*$index+1].CARD_LOGO}}{{cardDetails[2*$index+1].CARD_PRODUCT_ID}}.png" alt=""/>
+                    -->
+					<i class="icon" ng-if="selCardData.indexOf((cardDetails[2*$index+1].CARD_ORG+'~'+cardDetails[2*$index+1].CARD_PRODUCT_LOGO+'~'+cardDetails[2*$index+1].CARD_ID+'~'+cardDetails[2*$index+1].CARD_NAME+'~300')) == -1"></i>
+					<i class="icon icon-success" ng-if="selCardData.indexOf((cardDetails[2*$index+1].CARD_ORG+'~'+cardDetails[2*$index+1].CARD_PRODUCT_LOGO+'~'+cardDetails[2*$index+1].CARD_ID+'~'+cardDetails[2*$index+1].CARD_NAME+'~300')) != -1"></i>
+                  </a>
+				  <a href="#" title="" ng-if="cardDetails[2*$index+1].CARD_BRAND == 'D'">
+				  
+                     <img id="card_{{2*$index +3}}" onclick="validate120KCcAndSelectCard(this);" src="https://www.dbs.com.sg/iwov-resources/images/ibanking/dbs/cards-apply/{{cardDetails[2*$index+1].CARD_ORG}}{{cardDetails[2*$index+1].CARD_PRODUCT_LOGO}}{{cardDetails[2*$index+1].CARD_ID}}.png" 
+					 alt="{{cardDetails[2*$index+1].CARD_ORG}}~{{cardDetails[2*$index+1].CARD_PRODUCT_LOGO}}~{{cardDetails[2*$index+1].CARD_ID}}~{{cardDetails[2*$index+1].CARD_NAME}}~300"/>
+					 <!--
+					 <img id="card_{{2*$index +2}}" onclick="selectCards(this);" src="../../assets/images/cards/{{cardDetails[2*$index+1].CARD_ORG}}{{cardDetails[2*$index+1].CARD_LOGO}}{{cardDetails[2*$index+1].CARD_PRODUCT_ID}}.png" alt=""/>
+                    -->
+					<i class="icon" ng-if="selCardData.indexOf((cardDetails[2*$index+1].CARD_ORG+'~'+cardDetails[2*$index+1].CARD_PRODUCT_LOGO+'~'+cardDetails[2*$index+1].CARD_ID+'~'+cardDetails[2*$index+1].CARD_NAME+'~300')) == -1"></i>
+					<i class="icon icon-success" ng-if="selCardData.indexOf((cardDetails[2*$index+1].CARD_ORG+'~'+cardDetails[2*$index+1].CARD_PRODUCT_LOGO+'~'+cardDetails[2*$index+1].CARD_ID+'~'+cardDetails[2*$index+1].CARD_NAME+'~300')) != -1"></i>
+                  </a>
+	
+                  <!-- <button class="btn btn-primary btn-border"><a href="{{cardDetails[2*$index+1].URL_TO_PWEB.replace('#','=').toLowerCase()}}" target='_blank'>Learn More</a></button> -->
+                  <button type="button" class="btn btn-primary btn-border" ng-click="learnMore(cardDetails[2*$index+1].URL_TO_PWEB.trim().replace('#','='))"> Learn more</button>
+                </figure>
+
+                <div class="pull-left">
+                  <h4>{{cardDetails[2*$index +1].CARD_NAME}}</h4>
+                 <!-- <p>get 6% Cashback on your online purchase and 3X DBS Points on your online, travel, overseas and contactless spend.</p>-->
+				   <p>Income per Annum: S$ {{cardDetails[2*$index+1].MINIMUM_INCOME_SG}}</p>
+				   <p>Annual Fee: {{cardDetails[2*$index+1].FORMATTED_ANNUAL_FEE}}</p>
+				  <p>Principal</br>Waiver: {{cardDetails[2*$index+1].ANNUAL_FEE_WAVIER}} </p>
+                </div>
+              </div>
+              <!--Right Card colm ends here-->
+			  
+			  
+			  
+            </div>
+              <!--row ends here-->
+
+              
+              <!--row ends here-->
+            </div>
+            
+          </div>
+          <!--Modal Header Body here-->
+
+
+          <div class="modal-footer three-btns">
+            <button type="button" class="btn btn-secondary m-right16 modelCancel" ng-click="cardSelectionCancel()" title="Cancel" tabindex="5">Cancel </button>
+            <button type="button" class="btn btn-primary ntp" onClick="addRemoveCards()" ng-click="cardSelectionOk()" title="OK" tabindex="6">OK </button>
+          </div>
+          <!--Modal Footer ends here-->
+        </div>
+      </div>
+    </div>
+    <!--Modal ends here-->
+    
+    <!-- Modal for 120K card Info Alert-->
+  <div class="modal fade" id="modal-alert-120k" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">  
+
+        <div class="modal-body clearfix">
+          <p class="m-top30"></p>          
+        </div>
+        <!--Modal Header Body here-->
+
+
+        <div class="modal-footer three-btns">
+          <button type="button" class="btn btn-primary ntp" data-dismiss="modal" title="OK" tabindex="6">OK </button>
+        </div>
+        <!--Modal Footer ends here-->
+      </div>
+    </div>
+  </div>
+  <!--Modal ends here-->
+  
+  <!-- Modal for 120K card Continue/cancel Alert-->
+  <div class="modal fade" id="modal-alert-120k-continue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">  
+
+        <div class="modal-body clearfix">
+          <p class="m-top30"></p>          
+        </div>
+        <!--Modal Header Body here-->
+
+
+        <div class="modal-footer three-btns">
+           <button type="button" class="btn btn-secondary ntp" onClick="deSelect120kCardImg();" data-dismiss="modal" title="Cancel" tabindex="6">Cancel </button>
+           <button type="button" class="btn btn-primary ntp" data-dismiss="modal" title="Continue" tabindex="6">Continue </button>
+        </div>
+        <!--Modal Footer ends here-->
+      </div>
+    </div>
+  </div>
+  <!--Modal ends here-->
+    
+	</form>
+	</script>
+  </body>
+</html>
