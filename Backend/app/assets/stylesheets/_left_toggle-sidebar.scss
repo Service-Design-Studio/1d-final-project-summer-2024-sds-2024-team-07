@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+}
+
+.left-div,
+.right-div {
+  flex: 1;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+}
+
+/* app/assets/stylesheets/shared.css */
+.left-div {
+  background-color: #f9f9f9;
+}
+
+.right-div {
+  background-color: #f1f1f1;
+}
