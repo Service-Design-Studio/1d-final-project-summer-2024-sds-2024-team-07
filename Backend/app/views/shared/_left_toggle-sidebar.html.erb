@@ -1,12 +1,20 @@
 <body>
   <div class="sidebar">
+    
     <div class="logo-details">
       <%= image_tag("dbs_logo.svg", alt: "DBS", class: "logo-icon") %>
     </div>
+
     <ul class="nav-links">
       <li>
-        <i class='bx bx-menu'></i>
+        <div class="iocn-link">
+          <a class="toggle-btn">
+            <i class='bx bx-menu'></i>
+            <span class="link_name">Toggle Checklist</span>
+          </a>
+        </div>
       </li>
+
       <li>
         <div class="iocn-link">
           <a href="#">
@@ -22,6 +30,7 @@
           <li><a href="#">PHP & MySQL</a></li>
         </ul>
       </li>
+
       <li>
         <div class="iocn-link">
           <a href="#">
@@ -37,6 +46,7 @@
           <li><a href="#">Card Design</a></li>
         </ul>
       </li>
+
       <li>
         <a href="#">
           <i class='bx bx-pie-chart-alt-2'></i>
@@ -46,29 +56,7 @@
           <li><a class="link_name" href="#">Analytics</a></li>
         </ul>
       </li>
+
     </ul>
   </div>
-  <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        let arrow = document.querySelectorAll(".arrow");
-        for (var i = 0; i < arrow.length; i++) {
-            arrow[i].addEventListener("click", (e) => {
-            let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
-            arrowParent.classList.toggle("showMenu");
-            });
-        }
-        let sidebar = document.querySelector(".sidebar");
-        let sidebarBtn = document.querySelector(".bx-menu");
-        let rightDiv = document.querySelector(".right-div");
-        sidebarBtn.addEventListener("click", () => {
-            sidebar.classList.toggle("close");
-            if (sidebar.classList.contains("close")) {
-            rightDiv.style.marginLeft = "80px";
-            } else {
-            rightDiv.style.marginLeft = "260px";
-            }
-        });
-        });
-
-  </script>
 </body>

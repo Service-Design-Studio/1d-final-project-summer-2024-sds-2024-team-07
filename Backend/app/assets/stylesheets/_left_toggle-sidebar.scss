@@ -43,6 +43,15 @@
   pointer-events: none;
 }
 
+// Toggle Checklist Button
+.sidebar .nav-links .toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
 // Sidebar Toggle Buttons
 .sidebar .nav-links {
   height: 100%;
@@ -138,7 +147,7 @@
   top: 0;
   opacity: 1;
   pointer-events: auto;
-  transition: all 0.4s ease;
+  transition: all 0.2s ease;
 }
 .sidebar .nav-links li .sub-menu .link_name {
   display: none;
