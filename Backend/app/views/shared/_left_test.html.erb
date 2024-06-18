@@ -1,19 +1,19 @@
 <body>
-  <div class="sidebar close">
+  <div class="sidebar">
     <div class="logo-details">
-        <%= image_tag("dbs_logo.svg", alt: "DBS", class: "logo-icon") %>
+      <%= image_tag("dbs_logo.svg", alt: "DBS", class: "logo-icon") %>
     </div>
     <ul class="nav-links">
-        <li> 
-            <i class='bx bx-menu' ></i>
-        </li>
+      <li>
+        <i class='bx bx-menu'></i>
+      </li>
       <li>
         <div class="iocn-link">
           <a href="#">
-            <i class='bx bx-collection' ></i>
+            <i class='bx bx-collection'></i>
             <span class="link_name">1. Documents</span>
           </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
+          <i class='bx bxs-chevron-down arrow'></i>
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">1. Documents</a></li>
@@ -22,14 +22,13 @@
           <li><a href="#">PHP & MySQL</a></li>
         </ul>
       </li>
-
       <li>
         <div class="iocn-link">
           <a href="#">
-            <i class='bx bx-book-alt' ></i>
+            <i class='bx bx-book-alt'></i>
             <span class="link_name">Posts</span>
           </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
+          <i class='bx bxs-chevron-down arrow'></i>
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Posts</a></li>
@@ -38,21 +37,17 @@
           <li><a href="#">Card Design</a></li>
         </ul>
       </li>
-
       <li>
         <a href="#">
-          <i class='bx bx-pie-chart-alt-2' ></i>
+          <i class='bx bx-pie-chart-alt-2'></i>
           <span class="link_name">Analytics</span>
         </a>
         <ul class="sub-menu blank">
           <li><a class="link_name" href="#">Analytics</a></li>
         </ul>
       </li>
-      
-  </li>
-</ul>
+    </ul>
   </div>
-
   <script>
         document.addEventListener('DOMContentLoaded', function() {
         let arrow = document.querySelectorAll(".arrow");
@@ -64,11 +59,16 @@
         }
         let sidebar = document.querySelector(".sidebar");
         let sidebarBtn = document.querySelector(".bx-menu");
-        let homeSection = document.querySelector(".home-section");
+        let rightDiv = document.querySelector(".right-div");
         sidebarBtn.addEventListener("click", () => {
             sidebar.classList.toggle("close");
-            homeSection.classList.toggle("expanded");
+            if (sidebar.classList.contains("close")) {
+            rightDiv.style.marginLeft = "80px";
+            } else {
+            rightDiv.style.marginLeft = "260px";
+            }
         });
         });
 
   </script>
+</body>

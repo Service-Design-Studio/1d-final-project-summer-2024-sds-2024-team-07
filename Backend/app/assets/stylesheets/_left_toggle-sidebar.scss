@@ -5,13 +5,13 @@
   top: 0;
   left: 0;
   height: 100%;
-  width: fit-content;
+  width: 260px; /* Adjusted to a fixed width for the open state */
   background: #ff3333;
   z-index: 100;
   transition: all 0.5s ease;
 }
 .sidebar.close {
-  width: 80px;
+  width: 80px; /* Width when the sidebar is closed */
 }
 
 // Sidebar DBS Logo CSS
@@ -73,11 +73,11 @@
 }
 .sidebar .nav-links li i {
   height: 50px;
-  min-width: 78px;
+  min-width: 80px;
   text-align: center;
   line-height: 50px;
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -93,7 +93,7 @@
   text-decoration: none;
 }
 .sidebar .nav-links li a .link_name {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
   color: #fff;
   transition: all 0.4s ease;
@@ -164,18 +164,9 @@
     display: none;
   }
   .sidebar {
-    width: 78px;
+    width: 80px;
   }
   .sidebar.close {
     width: 0;
-  }
-  .home-section {
-    left: 78px;
-    width: calc(100% - 78px);
-    z-index: 100;
-  }
-  .sidebar.close ~ .home-section {
-    width: 100%;
-    left: 0;
   }
 }
