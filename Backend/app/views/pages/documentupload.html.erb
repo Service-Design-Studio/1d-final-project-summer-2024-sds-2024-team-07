@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card Options</title>
-    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.2/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-39e9UaGkm/+yp6spIsVfzcs3j7ac7G2cg0hzmDvtG11pT1d7YMnOC26w4wMPhzsL" crossorigin="anonymous">
-    </head>
-    <body>
+<div class="custom-container">
+    <div class="left-div">
+        <%= render 'shared/left_toggle-sidebar' %>
+    </div>
+    <div class="right-div">
+        <%= render 'shared/right_content' %>    
         <%# render 'layouts/header' %>
-        <div class="container">
-            <div class="left-div">
-            <%= render 'shared/left_toggle-sidebar' %>
-            </div>
-            <div class="right-div">
-            <%= render 'shared/right_content' %>
-            </div>
-        </div>
-        <%# render 'layouts/footer' %>
-    </body>
-</html>
+    </div>
+</div>

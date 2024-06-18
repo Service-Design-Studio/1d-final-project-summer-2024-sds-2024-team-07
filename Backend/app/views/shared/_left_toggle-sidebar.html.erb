@@ -10,14 +10,13 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="#" >
         <i class="nav-icon cil-speedometer"></i> 2. Particulars
-        <%# <span class="badge bg-primary ms-auto">NEW</span> %>
         </a>
     </li>
     <li class="nav-item nav-group show">
-        <a class="nav-link nav-group-toggle" href="#">
-        <i class="nav-icon cil-puzzle"></i> Nav dropdown
+        <a class="nav-link nav-group-toggle" href="#" data-toggle="dropdown">
+        <i class="nav-icon cil-chevron-bottom"></i> Nav dropdown
         </a>
         <ul class="nav-group-items">
         <li class="nav-item">
@@ -32,25 +31,28 @@
         </li>
         </ul>
     </li>
-    <li class="nav-item mt-5">
-        <a class="nav-link" href="https://coreui.io">
-        <i class="nav-icon cil-cloud-download"></i> Download CoreUI
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://coreui.io/pro/">
-        <i class="nav-icon cil-layers"></i> Try CoreUI
-        <strong>PRO</strong>
-        </a>
-    </li>
+
     </ul>
     <div class="sidebar-footer border-top d-flex">
     <button class="sidebar-toggler" type="button"></button>
     </div>
 </div>
 
-
-
- 
-
-  <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.2/dist/js/coreui.bundle.min.js" integrity="sha384-/lLdeDXcg75fFKvNaXc6K+P80Jk8U+1mKJUYqkLSxqr18HIUvJYVN42+m23Zbw4b" crossorigin="anonymous"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var toggles = document.querySelectorAll('.nav-group-toggle');
+  toggles.forEach(function(toggle) {
+    toggle.addEventListener('click', function(event) {
+      event.preventDefault();
+      var dropdown = toggle.nextElementSibling;
+      if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+        dropdown.style.display = 'block';
+        toggle.classList.add('open');
+      } else {
+        dropdown.style.display = 'none';
+        toggle.classList.remove('open');
+      }
+    });
+  });
+});
+  </script>
