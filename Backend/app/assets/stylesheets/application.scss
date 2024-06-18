@@ -37,11 +37,3 @@ body {
   padding: 20px;
   background-color: #f8f9fa; /* Optional: Background color for main content */
 }
-
-.nav-group-toggle i {
-  transition: transform 0.3s ease;
-}
-
-.nav-group-toggle.open i {
-  transform: rotate(180deg);
-}
