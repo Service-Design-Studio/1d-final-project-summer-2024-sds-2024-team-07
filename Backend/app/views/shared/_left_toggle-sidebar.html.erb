@@ -1,0 +1,126 @@
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <%= image_tag("dbs_logo.svg", alt: "DBS", class: "logo-icon") %>
+    </div>
+
+    <ul class="nav-links">
+      <li>
+        <div class="iocn-link">
+          <a class="toggle-btn">
+            <i class='bx bx-menu'></i>
+            <span class="link_name">Application Checklist</span>
+          </a>
+        </div>
+      </li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-collection'></i>
+            <span class="link_name">1. Documents</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">1. Documents</a></li>
+          <li><a href="#" data-tab="tab1">Valid Passport</a></li>
+          <li><a href="#" data-tab="tab2">Valid Employment Pass</a></li>
+          <li><a href="#" data-tab="tab3">Income Tax</a></li>
+          <li><a href="#" data-tab="tab4">Proof of Singapore Address</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-book-alt'></i>
+            <span class="link_name">2. Particulars</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">2. Particulars</a></li>
+          <li><a href="#">Name</a></li>
+          <li><a href="#">Date of Birth</a></li>
+          <li><a href="#">Gender</a></li>
+          <li><a href="#">Contact Information</a></li>
+            <ul class="sub-menu ">
+              <li><a href="#">Mobile Number</a></li>
+              <li><a href="#">Email Address</a></li>
+              <li><a href="#">Home Number</a></li>
+              <li><a href="#">Office Number</a></li>
+            </ul>
+          <li><a href="#">Passport Details</a></li>
+          <ul class="sub-menu">
+            <li><a href="#">Nationality</a></li>
+            <li><a href="#">Passport Number</a></li>
+            <li><a href="#">Passport Expiry Date</a></li>
+          </ul>
+          <li><a href="#">Maritial Status</a></li>
+          <li><a href="#">Number of dependents</a></li>
+          <li><a href="#">Residential Information</a></li>
+          <ul class="sub-menu">
+            <li><a href="#">Residential Address</a></li>
+            <li><a href="#">Mailing Address</a></li>
+            <li><a href="#">Type of Residence</a></li>
+            <li><a href="#">Residential Status</a></li>
+            <li><a href="#">Residential Period</a></li>
+          </ul>
+          <li><a href="#">Employment Information</a></li>
+          <ul class="sub-menu">
+            <li><a href="#">Education Level</a></li>
+            <li><a href="#">Current Job Status</a></li>
+            <li><a href="#">Occupation</a></li>
+            <li><a href="#">Job Industry</a></li>
+            <li><a href="#">Company Name</a></li>
+            <li><a href="#">Length of Employment</a></li>
+            <li><a href="#">Office Address</a></li>
+            <li><a href="#">Monthly Income</a></li>
+          </ul>
+        </ul>
+      </li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-collection'></i>
+            <span class="link_name">3. Verify Particulars</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">3. Verify Particulars</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-collection'></i>
+            <span class="link_name">4. Create Pin</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">4. Create Pin</a></li>
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- Include JavaScript to handle the tab switching -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('.sub-menu a[data-tab]');
+      links.forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const tabId = this.getAttribute('data-tab');
+          document.getElementById(tabId).checked = true;
+        });
+      });
+    });
+  </script>
+</body>

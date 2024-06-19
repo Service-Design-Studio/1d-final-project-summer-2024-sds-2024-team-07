@@ -1,1 +1,43 @@
 @import "bootstrap";
+@import "left_toggle-sidebar";
+@import "right_main_content";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-container {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0; /* Ensure no margin */
+  padding: 0; /* Ensure no padding */
+}
+
+.left-div {
+  width: fit-content;
+  height: 100%;
+  overflow-y: auto;
+  border: 2px;
+  border-color: black;
+}
+
+.right-div {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f8f9fa; /* Optional: Background color for main content */
+  transition: margin-left 0.5s ease; /* Smooth transition for margin-left */
+  margin-left: 260px; /* Default margin-left when sidebar is open */
+}
