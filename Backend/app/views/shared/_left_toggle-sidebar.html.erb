@@ -1,6 +1,5 @@
 <body>
   <div class="sidebar">
-    
     <div class="logo-details">
       <%= image_tag("dbs_logo.svg", alt: "DBS", class: "logo-icon") %>
     </div>
@@ -25,11 +24,10 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">1. Documents</a></li>
-          <li><a href="#">Valid Passport</a></li>
-          <li><a href="#">Valid Employment Pass</a></li>
-          <li><a href="#">Income Tax</a></li>
-          <li><a href="#">Payslip (1 Month ago)</a></li>
-          <li><a href="#">Proof of Singapore Address</a></li>
+          <li><a href="#" data-tab="tab1">Valid Passport</a></li>
+          <li><a href="#" data-tab="tab2">Valid Employment Pass</a></li>
+          <li><a href="#" data-tab="tab3">Income Tax</a></li>
+          <li><a href="#" data-tab="tab4">Proof of Singapore Address</a></li>
         </ul>
       </li>
 
@@ -110,4 +108,18 @@
 
     </ul>
   </div>
+
+  <!-- Include JavaScript to handle the tab switching -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('.sub-menu a[data-tab]');
+      links.forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const tabId = this.getAttribute('data-tab');
+          document.getElementById(tabId).checked = true;
+        });
+      });
+    });
+  </script>
 </body>
