@@ -1,6 +1,5 @@
 <body>
   <div class="sidebar">
-    
     <div class="logo-details">
       <%= image_tag("dbs_logo.svg", alt: "DBS", class: "logo-icon") %>
     </div>
@@ -25,11 +24,10 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">1. Documents</a></li>
-          <li><a href="#">Valid Passport</a></li>
-          <li><a href="#">Valid Employment Pass</a></li>
-          <li><a href="#">Income Tax</a></li>
-          <li><a href="#">Payslip (1 Month ago)</a></li>
-          <li><a href="#">Proof of Singapore Address</a></li>
+          <li><a href="#" data-tab="tab1">Valid Passport</a></li>
+          <li><a href="#" data-tab="tab2">Valid Employment Pass</a></li>
+          <li><a href="#" data-tab="tab3">Income Tax</a></li>
+          <li><a href="#" data-tab="tab4">Proof of Singapore Address</a></li>
         </ul>
       </li>
 
@@ -43,29 +41,15 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">2. Particulars</a></li>
-          <li><a href="#">Name</a></li>
-          <li><a href="#">Address</a></li>
-          <li><a href="#">Mobile Number</a></li>
-          <li><a href="#">Home Number</a></li>
-          <li><a href="#">Office Number</a></li>
-          <li><a href="#">Nationality</a></li>
-          <li><a href="#">Passport Number</a></li>
-          <li><a href="#">Passport Expiry Date</a></li>
-          <li><a href="#">More</a></li>
-          <li><a href="#">More</a></li>
-          <li><a href="#">More</a></li>
-          <li><a href="#">More</a></li>
-          <li><a href="#">More</a></li>
-          <li><a href="#">More</a></li>
-          <li><a href="#">More</a></li>
-          <li><a href="#">More</a></li>
-          <li><a href="#">More</a></li>
-          <li><a href="#">More</a></li>
-          <li><a href="#">More</a></li>
-          <li><a href="#">More</a></li>
-          <li><a href="#">More</a></li>
-          <li><a href="#">More</a></li>
-          <li><a href="#">More</a></li>
+          <li><a href="#" data-tab="tab5">Name</a></li>
+          <li><a href="#" data-tab="tab6">Address</a></li>
+          <li><a href="#" data-tab="tab7">Mobile Number</a></li>
+          <li><a href="#" data-tab="tab8">Home Number</a></li>
+          <li><a href="#" data-tab="tab9">Office Number</a></li>
+          <li><a href="#" data-tab="tab10">Nationality</a></li>
+          <li><a href="#" data-tab="tab11">Passport Number</a></li>
+          <li><a href="#" data-tab="tab12">Passport Expiry Date</a></li>
+          <li><a href="#" data-tab="tab13">More</a></li>
         </ul>
       </li>
 
@@ -97,4 +81,18 @@
 
     </ul>
   </div>
+
+  <!-- Include JavaScript to handle the tab switching -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('.sub-menu a[data-tab]');
+      links.forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const tabId = this.getAttribute('data-tab');
+          document.getElementById(tabId).checked = true;
+        });
+      });
+    });
+  </script>
 </body>
