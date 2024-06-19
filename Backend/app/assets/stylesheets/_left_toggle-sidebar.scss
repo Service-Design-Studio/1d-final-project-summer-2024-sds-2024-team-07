@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-
 .sidebar {
   position: fixed;
   top: 0;
@@ -41,15 +39,6 @@
   transition-delay: 0s;
   opacity: 0;
   pointer-events: none;
-}
-
-// Toggle Checklist Button
-.sidebar .nav-links .toggle-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 0;
-  cursor: pointer;
 }
 
 // Sidebar Toggle Buttons
