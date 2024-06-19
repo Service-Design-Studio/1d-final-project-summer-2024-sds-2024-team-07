@@ -101,7 +101,7 @@
   pointer-events: none;
 }
 .sidebar .nav-links li .sub-menu {
-  padding: 6px 6px 14px 80px;
+  padding: 6px 6px 14px 30px;
   margin-top: -10px;
   background: #1d1b31;
   display: none;
@@ -167,4 +167,8 @@
   .sidebar.close {
     width: 0;
   }
+}
+
+.sub-menu .detail {
+  font-size: 6px;  /* Adjust font size as desired */
 }
