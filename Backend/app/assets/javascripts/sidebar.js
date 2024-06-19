@@ -17,4 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
       rightDiv.style.marginLeft = "260px";
     }
   });
+  const links = document.querySelectorAll('.sub-menu a[data-tab]');
+  links.forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      const tabId = this.getAttribute('href');
+      document.querySelector(tabId).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
 });
