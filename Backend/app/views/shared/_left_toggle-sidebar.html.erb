@@ -23,7 +23,7 @@
           <i class='bx bxs-chevron-down arrow'></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">1. Documents</a></li>
+          <li><a class="link_name">1. Documents</a></li>
           <li><a href="#" data-tab="tab1">Valid Passport</a></li>
           <li><a href="#" data-tab="tab2">Valid Employment Pass</a></li>
           <li><a href="#" data-tab="tab3">Income Tax</a></li>
@@ -109,17 +109,4 @@
     </ul>
   </div>
 
-  <!-- Include JavaScript to handle the tab switching -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const links = document.querySelectorAll('.sub-menu a[data-tab]');
-      links.forEach(link => {
-        link.addEventListener('click', function(event) {
-          event.preventDefault();
-          const tabId = this.getAttribute('data-tab');
-          document.getElementById(tabId).checked = true;
-        });
-      });
-    });
-  </script>
 </body>
