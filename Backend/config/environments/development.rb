@@ -1,9 +1,13 @@
 require "active_support/core_ext/integer/time"
 
+Rails.application.config.hosts << "dbsdoccheckteam7-44nyvt7saq-as.a.run.app"
 Rails.application.configure do
   # Configure 'rails notes' to inspect Cucumber files
   config.annotations.register_directories('features')
   config.annotations.register_extensions('feature') { |tag| /#\s*(#{tag}):?\s*(.*)$/ }
+
+  # Allow the Cloud Run host
+  # config.hosts << "dbsdoccheckteam7-44nyvt7saq-as.a.run.app"
 
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -78,15 +82,15 @@ Rails.application.configure do
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
 
-  # Enable live compilation of assets
-  config.assets.compile = true
+  # # Enable live compilation of assets
+  # config.assets.compile = true
 
-  # Disable asset digest generation in development
-  config.assets.digest = false
+  # # Disable asset digest generation in development
+  # config.assets.digest = false
 
-  # Enable debug mode for assets
-  config.assets.debug = true
+  # # Enable debug mode for assets
+  # config.assets.debug = true
 
-  # Enable source maps for easier debugging
-  config.sass.inline_source_maps = true if defined?(Sass)
+  # # Enable source maps for easier debugging
+  # config.sass.inline_source_maps = true if defined?(Sass)
 end
