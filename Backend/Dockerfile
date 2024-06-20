@@ -11,7 +11,7 @@ WORKDIR /rails
 ENV RAILS_ENV="production" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
-    BUNDLE_WITHOUT="development"
+    BUNDLE_WITHOUT="test"
 
 
 # Throw-away build stage to reduce size of final image
@@ -20,6 +20,10 @@ FROM base as build
 # Install packages needed to build gems
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git libvips pkg-config
+
+# Install Node.js
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y nodejs npm
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
@@ -63,5 +67,5 @@ USER rails:rails
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
-EXPOSE 3000
-CMD ["./bin/rails", "server"]
+EXPOSE 8080
+CMD ["./bin/rails", "server", "-b", "0.0.0.0", "-p", "8080"]
