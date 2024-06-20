@@ -13,7 +13,7 @@ Then('I should be able to click the employment type I currently have') do
 end
 
 Then('I should be brought to the document upload page') do
-  expect(page).to have_current_path('/document_upload')  # Adjust the path to match your actual URL
+  expect(page).to have_current_path('/documentupload')  # Adjust the path to match your actual URL
 end
 
 Then('I should see the required documents that I need to upload for my application') do
@@ -30,7 +30,7 @@ Then('I should be able to click on the toggle of the sidebar to close the sideba
 end
 
 Given('that I am on the document upload page') do
-  visit '/document_upload'  # Adjust the path to match your actual URL
+  visit '/documentupload'  # Adjust the path to match your actual URL
 end
 
 When('I want to find the information of the documents required in the document upload page') do
@@ -54,7 +54,7 @@ Then('my screen slides to the respective section') do
 end
 
 Given('that I have clicked into the document upload page') do
-  visit '/document_upload'  # Adjust the path to match your actual URL
+  visit '/documentupload'  # Adjust the path to match your actual URL
 end
 
 When('I want to find the information of the application form having not submitted my documents yet') do

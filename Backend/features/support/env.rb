@@ -1,10 +1,21 @@
-require 'capybara/cucumber'
 require 'selenium-webdriver'
+require 'capybara/cucumber'
 
-# Set the path to the downloaded ChromeDriver
-Selenium::WebDriver::Chrome::Service.driver_path = File.join(Dir.pwd, 'chromedriver')
+# Registering the Selenium driver with Safari
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :safari)
+end
 
-Capybara.configure do |config|
-  config.default_driver = :selenium_chrome
-  config.app_host = 'http://127.0.0.1:3000'
+# Setting the default driver to Selenium
+Capybara.default_driver = :selenium
+
+# Increasing the default wait time
+Capybara.default_max_wait_time = 20 # Increase wait time if necessary
+
+Before do
+  Capybara.current_session.driver.browser.manage.window.resize_to(1280, 800) # Adjust the window size as needed
+end
+
+After do
+  Capybara.reset_sessions! # Reset the sessions to avoid invalid session errors
 end
