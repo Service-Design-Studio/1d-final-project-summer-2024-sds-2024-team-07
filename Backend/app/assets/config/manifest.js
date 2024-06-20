@@ -1,5 +1,10 @@
 //= link_tree ../images
 //= link_directory ../stylesheets .css
+//= link_directory ../stylesheets/documentchecklistpage .css
+//= link_directory ../stylesheets/applypage .css
+//= link_directory ../stylesheets/cardoptionspage .css
+//= link_directory ../stylesheets/documentuploadpage .css
+//= link_directory ../stylesheets/applicationformpage .css
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js
 //= link sidebar.js
