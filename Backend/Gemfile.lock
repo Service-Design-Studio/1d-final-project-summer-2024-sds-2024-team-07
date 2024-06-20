@@ -339,6 +339,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner-active_record
   debug
+  drb (>= 2.2.1)
   execjs
   importmap-rails
   irb (>= 1.13.1)
