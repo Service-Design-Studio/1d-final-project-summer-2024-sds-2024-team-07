@@ -1,5 +1,6 @@
 require "active_support/core_ext/integer/time"
 
+Rails.application.config.hosts << "my-rails-app-zpatvuoakq-as.a.run.app"
 Rails.application.configure do
   # Configure 'rails notes' to inspect Cucumber files
   config.annotations.register_directories('features')
@@ -78,15 +79,4 @@ Rails.application.configure do
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
 
-  # Enable live compilation of assets
-  config.assets.compile = true
-
-  # Disable asset digest generation in development
-  config.assets.digest = false
-
-  # Enable debug mode for assets
-  config.assets.debug = true
-
-  # Enable source maps for easier debugging
-  config.sass.inline_source_maps = true if defined?(Sass)
 end
