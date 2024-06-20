@@ -1,6 +1,4 @@
 @import "bootstrap";
-@import "left_toggle-sidebar";
-@import "right_main_content";
 
 * {
   margin: 0;
@@ -17,75 +15,9 @@ body {
   padding: 0;
 }
 
-.custom-container {
-  display: flex;
-  flex-grow: 1;
-  width: 100%;
-  height: 100%;
-  margin: 0; /* Ensure no margin */
-  padding: 0; /* Ensure no padding */
-}
-
-.left-div {
-  width: fit-content;
-  height: 100%;
-  overflow-y: auto;
-  border: 2px solid black;
-}
-
-.right-div {
-  flex-grow: 1;
-  padding: 20px;
-  background-color: #f8f9fa; /* Optional: Background color for main content */
-  transition: margin-left 0.5s ease; /* Smooth transition for margin-left */
-  margin-left: 260px; /* Default margin-left when sidebar is open */
-}
-
 h2 {
   font-size: 1.5em;
   margin-bottom: 0.5em;
   color: #333;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="date"],
-select,
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0 20px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 1em;
-  background-color: #fff;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-input[type="date"]:focus,
-select:focus,
-textarea:focus {
-  border-color: #007BFF;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-button {
-  background-color: #007BFF;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-/* Specific margin for the first heading (e.g., Name) */
-.content > div:first-child h2 {
-  margin-top: 20px;
-}
