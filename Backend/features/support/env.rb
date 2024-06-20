@@ -1,5 +1,8 @@
 require 'selenium-webdriver'
 require 'capybara/cucumber'
+require 'rspec/expectations'
+require File.expand_path('../../../config/environment', __FILE__) # Adjust the path as needed
+require 'cucumber/rails'
 
 # Registering the Selenium driver with Safari
 Capybara.register_driver :selenium do |app|
@@ -19,3 +22,7 @@ end
 After do
   Capybara.reset_sessions! # Reset the sessions to avoid invalid session errors
 end
+
+# Include Rails URL helpers and RSpec expectations
+World(Rails.application.routes.url_helpers)
+World(RSpec::Matchers)
