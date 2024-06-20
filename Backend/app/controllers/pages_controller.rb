@@ -1,6 +1,17 @@
 class PagesController < ApplicationController
-  layout "application_applypage", only: [:apply]
-  layout "application_documentuploadpage", only: [:documentupload]
+  layout :set_layout
+  def set_layout
+    case action_name
+    when 'apply'
+      'application_applypage'
+    when 'documentupload'
+      'application_documentuploadpage'
+    when 'applicationform'
+      'application_formpage'
+    else
+      'application'
+    end
+  end
 
   def cardoptions
   end
