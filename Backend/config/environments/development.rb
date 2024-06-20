@@ -1,9 +1,13 @@
 require "active_support/core_ext/integer/time"
 
+Rails.application.config.hosts << "dbsdoccheckteam7-44nyvt7saq-as.a.run.app"
 Rails.application.configure do
   # Configure 'rails notes' to inspect Cucumber files
   config.annotations.register_directories('features')
   config.annotations.register_extensions('feature') { |tag| /#\s*(#{tag}):?\s*(.*)$/ }
+
+  # Allow the Cloud Run host
+  # config.hosts << "dbsdoccheckteam7-44nyvt7saq-as.a.run.app"
 
   # Settings specified here will take precedence over those in config/application.rb.
 

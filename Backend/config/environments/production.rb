@@ -1,5 +1,6 @@
 require "active_support/core_ext/integer/time"
 
+Rails.application.config.hosts << "dbsdoccheckteam7-44nyvt7saq-as.a.run.app"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -11,6 +12,9 @@ Rails.application.configure do
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
+
+  # Use the secret key base from environment variable
+  # config.secret_key_base = ENV["SECRET_KEY_BASE"]
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local = false
