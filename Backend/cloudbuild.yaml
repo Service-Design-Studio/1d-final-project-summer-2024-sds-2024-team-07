@@ -21,8 +21,10 @@ steps:
       ]
 
 substitutions:
-  _REGION: "asia-east1"
-  _SERVICE_NAME: "rails-server-426806"
+  _REGION: "asia-southeast1"
+  _SERVICE_NAME: "dbsdoccheckteam7"
+  # _SERVICE_NAME: [YOUR SERVICE]
+  # _INSTANCE_NAME: [CLOUD SQL INSTANCE NAME]
 
 images:
   - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"
