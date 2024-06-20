@@ -21,9 +21,10 @@ FROM base as build
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git libvips pkg-config
 
-# Install Node.js
+# Install Node.js and other dependencies
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y nodejs npm
+    apt-get install --no-install-recommends -y apt-utils nodejs npm libpq-dev && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
@@ -66,6 +67,8 @@ USER rails:rails
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
-# Start the server by default, this can be overwritten at runtime
-EXPOSE 8080
+# Define environment variable
+ENV PORT=8080
+
+#Running the app
 CMD ["./bin/rails", "server", "-b", "0.0.0.0", "-p", "8080"]
