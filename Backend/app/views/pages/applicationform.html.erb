@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form with Mobile Number Validation</title>
+</head>
+<body>
+  <div class="custom-container">
+    <div class="left-div">
+      <%= render 'shared/left_toggle-sidebar' %>
+    </div>
+    <div class="right-div">
+      <%= render 'shared/right_header' %>
+      <div class="content">
+        <div id="tab5">
+          <h2>Name</h2>
+          <input type="text" placeholder="Enter your name" />
+        </div>
+        <div id="tab6">
+          <h2>Date of Birth</h2>
+          <input type="date" />
+        </div>
+        <div id="tab7">
+          <h2>Gender</h2>
+          <select>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div>
+          <h1>Contact Information</h1>
+          <div id="tab8">
+            <h3>Mobile Number</h3>
+            <input type="text" id="mobile-number" placeholder="Enter your mobile number" />
+            <span id="mobile-number-validation"></span>
+          </div>
+          <div id="tab9">
+            <h3>Email Address</h3>
+            <input type="text" placeholder="Enter your email address" />
+          </div>
+          <div id="tab10">
+            <h3>Home Number</h3>
+            <input type="text" placeholder="Enter your home number" />
+          </div>
+          <div id="tab11">
+            <h3>Office Number</h3>
+            <input type="text" placeholder="Enter your office number" />
+          </div>
+        </div>
+        <div>
+          <h1>Passport Details</h1>
+          <div id="tab12">
+            <h3>Nationality</h3>
+            <input type="text" placeholder="Enter your nationality" />
+          </div>
+          <div id="tab13">
+            <h3>Passport Number</h3>
+            <input type="text" placeholder="Enter your passport number" />
+          </div>
+          <div id="tab14">
+            <h3>Passport Expiry Date</h3>
+            <input type="date" />
+          </div>
+        </div>
+        <button type="submit">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mobileNumberInput = document.getElementById("mobile-number");
+      const validationMessage = document.getElementById("mobile-number-validation");
+
+      mobileNumberInput.addEventListener("blur", async () => {
+        const mobileNumber = mobileNumberInput.value;
+
+        try {
+          const response = await fetch(`http://127.0.0.1:4567/validate?mobile_number=${mobileNumber}`);
+          const result = await response.json();
+
+          if (result.valid_mobile_number) {
+          } else {
+            validationMessage.textContent = "Invalid mobile number.";
+            validationMessage.style.color = "red";
+          }
+        } catch (error) {
+          validationMessage.textContent = "Error validating mobile number.";
+          validationMessage.style.color = "red";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -179,6 +179,8 @@ GEM
     minitest (5.23.1)
     msgpack (1.7.2)
     multi_test (1.1.0)
+    mustermann (3.0.0)
+      ruby2_keywords (~> 0.0.1)
     mutex_m (0.2.0)
     net-imap (0.4.12)
       date
@@ -196,6 +198,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.5-x86_64-linux)
       racc (~> 1.4)
+    phonelib (0.8.9)
     popper_js (2.11.8)
     psych (5.1.2)
       stringio
@@ -204,6 +207,9 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.0)
     rack (3.0.11)
+    rack-protection (4.0.0)
+      base64 (>= 0.1.0)
+      rack (>= 3.0.0, < 4)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -248,6 +254,11 @@ GEM
       io-console (~> 0.5)
     rexml (3.2.8)
       strscan (>= 3.0.9)
+    rspec-expectations (3.13.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.1)
+    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -262,6 +273,13 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sinatra (4.0.0)
+      mustermann (~> 3.0)
+      rack (>= 3.0.0, < 4)
+      rack-protection (= 4.0.0)
+      rack-session (>= 2.0.0, < 3)
+      tilt (~> 2.0)
+    sinatra-cross_origin (0.4.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -323,11 +341,20 @@ DEPENDENCIES
   debug
   execjs
   importmap-rails
+  irb (>= 1.13.1)
   jbuilder
   jquery-rails
+  minitest (>= 5.1)
+  nokogiri (= 1.16.5)
+  phonelib
   puma (>= 5.0)
+  racc (~> 1.8)
   rails (~> 7.1.3, >= 7.1.3.4)
+  rake (>= 12.2)
+  rspec-expectations
   selenium-webdriver
+  sinatra
+  sinatra-cross_origin
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails

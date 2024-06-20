@@ -16,8 +16,10 @@ WORKDIR /rails
 # Set production environment
 ENV RAILS_ENV="development" \
     BUNDLE_DEPLOYMENT="1" \
+
     BUNDLE_PATH="/usr/local/bundle"
     # BUNDLE_WITHOUT="development"
+
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
@@ -25,6 +27,11 @@ FROM base as build
 # Install packages needed to build gems and Node.js for ExecJS
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git libvips pkg-config nodejs
+
+# Install Node.js and other dependencies
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y apt-utils nodejs npm libpq-dev && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
@@ -72,6 +79,7 @@ USER rails:rails
 # Entrypoint prepares the database.
 # ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
+
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 8080
 
@@ -80,3 +88,5 @@ EXPOSE 8080
 
 # Run the app
 CMD ["bundle", "exec","rails", "server", "-b", "0.0.0.0", "-p", "8080"]
+
+
