@@ -1,7 +1,7 @@
 @import "bootstrap";
-@import "left_toggle-sidebar";
-@import "right_main_content";
-@import "right_header_creditcard";
+@import "../shared/left_toggle-sidebar";
+@import "./right_main_content";
+@import "../shared/right_header_creditcard";
 
 * {
   margin: 0;
