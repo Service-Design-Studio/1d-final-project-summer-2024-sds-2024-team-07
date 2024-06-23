@@ -62,15 +62,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
-// // <!-- Include JavaScript to handle the tab switching -->
-// document.addEventListener("DOMContentLoaded", function () {
-//   const links = document.querySelectorAll(".sub-menu a[data-tab]");
-//   links.forEach((link) => {
-//     link.addEventListener("click", function (event) {
-//       event.preventDefault();
-//       const tabId = this.getAttribute("data-tab");
-//       document.getElementById(tabId).checked = true;
-//     });
-//   });
-// });
