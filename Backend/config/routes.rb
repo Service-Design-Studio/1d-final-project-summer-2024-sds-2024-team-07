@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'pages/cardoptions'
-  get 'pages/apply'
-  get 'pages/documentupload', to: 'pages#documentupload', as: 'upload_documents'
-  get 'pages/applicationform', to: 'pages#applicationform', as: 'application_form'
+  get 'pages/cardoptions', to: 'pages#cardoptions', as: 'pages_cardoptions'
+  get 'pages/apply', to: 'pages#apply', as: 'pages_apply'
+  get 'pages/documentupload', to: 'pages#documentupload', as: 'pages_documentupload'
+  get 'pages/applicationform', to: 'pages#applicationform', as: 'pages_applicationform'
   get 'pages/page_one'
 
   get 'employment_passport', to: 'your_controller#employment_passport', as: 'employment_passport'

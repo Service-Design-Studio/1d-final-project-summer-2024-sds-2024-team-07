@@ -1,2 +1,37 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Root Page</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+
+        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+        <%= javascript_importmap_tags %>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <style>
+            .button-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Full height to center vertically as well */
+            }
+            .btn, btn-danger {
+                margin: 20px;
+                width: 150px
+            }
+        </style>
+    </head>
+    <body>
+        <div class="button-container">
+            <%= link_to 'Apply', pages_apply_path, class: 'btn btn-danger' %>
+            <%= link_to 'Card Options', pages_cardoptions_path, class: 'btn btn-danger' %>
+            <%= link_to 'Document Upload', pages_documentupload_path, class: 'btn btn-danger' %>
+            <%= link_to 'Application Form', pages_applicationform_path, class: 'btn btn-danger' %>
+            <%= link_to 'Other Button', root_path, class: 'btn btn-danger' %>
+        </div>
+    </body>
+
+</html>

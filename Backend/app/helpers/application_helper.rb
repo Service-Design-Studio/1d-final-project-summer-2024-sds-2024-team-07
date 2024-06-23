@@ -2,9 +2,9 @@ module ApplicationHelper
   def step_class(step)
     case step
     when 1
-      'active' if current_page?(upload_documents_path)
+      'active' if current_page?(pages_documentupload_path)
     when 2
-      'active' if current_page?(application_form_path)
+      'active' if current_page?(pages_applicationform_path)
     when 3
       'active' if current_page?(verify_details_path)
     when 4
