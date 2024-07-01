@@ -29,15 +29,51 @@
     </div>
   </header>
   <div class="container">
-    <div class="section" id="section1">
+    <div class="section" id="section1" onclick="showPopup('principal_popup')">
       <h2>Principal Credit Cards</h2>
     </div>
-    <div class="section" id="section2">
+    <div class="section" id="section2" onclick="showPopup('supplementary_popup')">
       <h2>Supplementary Credit Cards</h2>
     </div>
-    <div class="section" id="section3">
+    <div class="section" id="section3" onclick="showPopup('livefresh_popup')">
       <h2>DBS Live Fresh Student Card</h2>
     </div>
   </div>
+
+  <<!-- Popups -->
+  <div class="popup-overlay" id="principal_popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup('principal_popup')">&times;</span>
+      <h2>Principal Credit Cards</h2>
+      <p>Details about Principal Credit Cards...</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="supplementary_popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup('supplementary_popup')">&times;</span>
+      <h2>Supplementary Credit Cards</h2>
+      <p>Details about Supplementary Credit Cards...</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="livefresh_popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup('livefresh_popup')">&times;</span>
+      <h2>DBS Live Fresh Student Card</h2>
+      <p>Details about DBS Live Fresh Student Card...</p>
+    </div>
+  </div>
+
+  <script>
+    function showPopup(popupId) {
+      document.getElementById(popupId).classList.add("show");
+    }
+
+    function closePopup(popupId) {
+      document.getElementById(popupId).classList.remove("show");
+    }
+  </script>
+
 </body>
 </html>
