@@ -8,6 +8,8 @@ class PagesController < ApplicationController
       'application_documentuploadpage'
     when 'applicationform'
       'application_formpage'
+    when 'applicationchecklist'
+      'application_checklistpage'
     else
       'application'
     end

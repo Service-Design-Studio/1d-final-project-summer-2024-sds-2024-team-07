@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'pages/apply', to: 'pages#apply', as: 'pages_apply'
   get 'pages/documentupload', to: 'pages#documentupload', as: 'pages_documentupload'
   get 'pages/applicationform', to: 'pages#applicationform', as: 'pages_applicationform'
+  get 'pages/applicationchecklist', to: 'pages#applicationchecklist', as: 'pages_applicationchecklist'
   get 'pages/page_one'
 
   get 'employment_passport', to: 'your_controller#employment_passport', as: 'employment_passport'
