@@ -193,4 +193,19 @@
     opacity: 1;
   }
 
+  ul {
+    list-style-type: disc;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul ul {
+    list-style-type: circle;
+    margin-left: 20px;
+  }
+  
+  #popup-header { 
+    color: black;
+  }
+
  
