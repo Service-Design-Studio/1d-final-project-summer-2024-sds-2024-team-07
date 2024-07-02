@@ -85,6 +85,7 @@ group :test do
   # Add cucumber-rails and database_cleaner-active_record
   gem 'cucumber-rails', require: false
   gem 'database_cleaner-active_record'
+  gem 'simplecov', '~> 0.21.0', require: false
 end
 
 # group :production do
