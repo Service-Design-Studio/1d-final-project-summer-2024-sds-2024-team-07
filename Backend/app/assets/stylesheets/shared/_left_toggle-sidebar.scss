@@ -103,8 +103,7 @@
   pointer-events: none;
 }
 .sidebar .nav-links li .sub-menu {
-  padding: 6px 6px 14px 30px;
-  margin-top: -10px;
+  padding: 10px 15px 10px 25px;
   background: #1d1b31;
   display: none;
 }
@@ -112,9 +111,8 @@
   display: block;
 }
 .sidebar .nav-links li .sub-menu a {
-  color: #fff;
+  color: #fff;  
   font-size: 15px;
-  padding: 5px 0;
   white-space: nowrap;
   opacity: 0.6;
   transition: all 0.3s ease;
@@ -173,4 +171,11 @@
 
 .sub-menu .detail {
   font-size: 6px;  /* Adjust font size as desired */
+}
+
+.non-clickable {
+  color: #fff; /* White text color for high contrast */
+  font-weight: 350; /* Make the text bold */
+  font-size: 15px;
+  opacity: 0.3;
 }
