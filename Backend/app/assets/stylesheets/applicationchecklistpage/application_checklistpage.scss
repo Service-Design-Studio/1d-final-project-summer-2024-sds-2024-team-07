@@ -182,10 +182,10 @@
 
   .popup-content {
     background-color: white;
-    padding: 20px;
+    padding: 40px;
     border-radius: 10px;
     width: 80%;
-    max-width: 800px;
+    max-width: 80%;
     position: relative;
   }
 
@@ -204,17 +204,141 @@
 
   ul {
     list-style-type: disc;
-    margin: 0;
+    margin-left: 20px;
     padding: 0;
   }
 
-  ul ul {
+  li {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+
+  ul li {
     list-style-type: circle;
     margin-left: 20px;
   }
   
   #popup-header { 
     color: black;
+    margin-left: 20px;
   }
 
- 
+  /*pop up content*/
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .toggle-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .toggle-container input[type="radio"] {
+    display: none;
+  }
+  
+  .toggle-container label {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 2px solid #f1f1f1;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 14px;
+    border-radius: 25px;
+    margin: 0 5px;
+  }
+  
+  .toggle-container input[type="radio"]:checked + label {
+    background-color: #ff5a5f;
+    color: white;
+    border-color: #ff5a5f;
+  }
+  
+  .toggle-container label:hover {
+    background-color: #ddd;
+  }
+  
+  .tabs {
+    display: flex;
+    border: none;
+  }
+  
+  .tab {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+  }
+  
+  .tab:hover {
+    background-color: #ddd;
+  }
+  
+  .tab.active {
+    background-color: #ccc;
+  }
+  
+  .content {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .sidebar {
+    flex: 1;
+    padding: 20px;
+    border-right: 2px solid #ccc;
+  }
+  
+  .main-content {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .accordion .accordion-item {
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .accordion-header {
+    background-color: #f1f1f1;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .accordion-header:hover {
+    background-color: #ddd;
+  }
+  
+  .accordion-content {
+    display: none;
+    padding: 10px;
+  }
+  
+  .accordion-content p {
+    margin: 0;
+  }
+  
+  
