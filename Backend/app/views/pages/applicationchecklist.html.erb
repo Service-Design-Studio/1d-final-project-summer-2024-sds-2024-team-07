@@ -48,7 +48,85 @@
     <div class="popup-content">
       <span class="close" onclick="closePopup('principal_popup')">&times;</span>
       <h2 style="color: black;">Principal Credit Cards</h2>
-      <p>info for principal Card</p>
+      <div class="header">
+        <div class="toggle-container">
+          <input type="radio" id="singapore" name="toggle" checked>
+          <label for="singapore">Singaporeans or PR</label>
+          <input type="radio" id="foreigners" name="toggle">
+          <label for="foreigners">Foreigners</label>
+        </div>
+        <div class="tabs">
+          <button class="tab active" onclick="openTab(event, 'label1')">Label 1</button>
+          <button class="tab" onclick="openTab(event, 'label2')">Label 2</button>
+          <button class="tab" onclick="openTab(event, 'label3')">Label 3</button>
+        </div>
+      </div>
+
+      <div id="label1" class="tab-content" style="display: block;">
+        <div class="content" id="singapore-content">
+          <div class="sidebar">
+            <div class="accordion">
+              <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(event)">Mac and iPhone</button>
+                <div class="accordion-content">
+                  <p>You can answer calls or messages from your iPhone directly on your Mac. Copy images, video, or text on your iPhone, then paste into another app on your nearby Mac. With iCloud, you can access your favorite files from either your iPhone or your Mac. And so much more.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(event)">Mac and iPad</button>
+                <div class="accordion-content">
+                  <p>Content for Mac and iPad.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(event)">Mac and Apple Watch</button>
+                <div class="accordion-content">
+                  <p>Content for Mac and Apple Watch.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="main-content">
+            <img src="your-image.png" alt="Mac and iPhone">
+          </div>
+        </div>
+
+        <div class="content" id="foreigners-content" style="display: none;">
+          <div class="sidebar">
+            <div class="accordion">
+              <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(event)">Foreign Content 1</button>
+                <div class="accordion-content">
+                  <p>Content for Foreign Content 1.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(event)">Foreign Content 2</button>
+                <div class="accordion-content">
+                  <p>Content for Foreign Content 2.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(event)">Foreign Content 3</button>
+                <div class="accordion-content">
+                  <p>Content for Foreign Content 3.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="main-content">
+            <img src="your-image.png" alt="Foreign Content">
+          </div>
+        </div>
+      </div>
+
+      <div id="label2" class="tab-content" style="display: none;">
+        <p>Content for Label 2</p>
+      </div>
+
+      <div id="label3" class="tab-content" style="display: none;">
+        <p>Content for Label 3</p>
+      </div>
     </div>
   </div>
 
@@ -57,17 +135,13 @@
       <span class="close" onclick="closePopup('supplementary_popup')">&times;</span>
       <h1>Supplementary Credit Cards</h1>
         <h2 id="popup-header">Eligibility</h2>
-        <ul>
-            <li>Supplementary Card Applicant must be at least 18 years old. No income is required.</li>
-        </ul>
+        <ul>Supplementary Card Applicant must be at least 18 years old. No income is required.</ul>
         <h2 id="popup-header">How to apply</h2>
-        <ul>
-            <li>Complete and mail back the <a href="https://www.dbs.com.sg/iforms/credit-card/supplementary-details.page?pid=sg-dbs-pweb-supplementary-credit-cards-txtlink-application-form" colour: red >application form</a> with your Supplementary Card Applicant's documents below:</li>
-            <ul>
-                <li>Singaporean/Permanent Residents: NRIC (front and back)</li>
-                <li>Foreigners: Passport with at least 6 months validity at the time of application. If you are new to DBS/POSB Bank, please also provide the latest copy of your Residential Address Proof.</li>
-            </ul>
-        </ul>
+        <ul>Complete and mail back the <a href="https://www.dbs.com.sg/iforms/credit-card/supplementary-details.page?pid=sg-dbs-pweb-supplementary-credit-cards-txtlink-application-form" colour: red >application form</a> with your Supplementary Card Applicant's documents below:</ul>
+          <ul>
+              <li>Singaporean/Permanent Residents: NRIC (front and back)</li>
+              <li>Foreigners: Passport with at least 6 months validity at the time of application. If you are new to DBS/POSB Bank, please also provide the latest copy of your Residential Address Proof.</li>
+          </ul>
     </div>
   </div>
 
@@ -75,16 +149,15 @@
     <div class="popup-content">
       <span class="close" onclick="closePopup('livefresh_popup')">&times;</span>
       <h1>DBS Live Fresh Student Card</h1>
-        <ul>
-          <li>To qualify, you must be between 21 to 27 years old. No minimum income required.</li>
-          <li>Applicable for existing students (Singaporean/Permanent Residents) from eligible local tertiary institution.</li>
-          <li>You will need to provide the following documents:
-            <ul>
-              <li>NRIC (front and back)</li>
-              <li>Student Matriculation Card (front and back, digital copy is acceptable)</li>
-            </ul>
-          </li>
-        </ul>
+        <li>To qualify, you must be between 21 to 27 years old. No minimum income required.
+        <li>Applicable for existing students (Singaporean/Permanent Residents) from eligible local tertiary institution.</li>
+        <br>
+        <ul>You will need to provide the following documents:</ul>
+          <ul>
+            <li>NRIC (front and back)</li>
+            <li>Student Matriculation Card (front and back, digital copy is acceptable)</li>
+          </ul>
+        </li>
     </div>
   </div>
 
@@ -96,7 +169,57 @@
     function closePopup(popupId) {
       document.getElementById(popupId).classList.remove("show");
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+      accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const currentContent = header.nextElementSibling;
+          const allContents = header.closest('.accordion').querySelectorAll('.accordion-content');
+
+          allContents.forEach(content => {
+            if (content !== currentContent) {
+              content.style.display = 'none';
+            }
+          });
+
+          currentContent.style.display = currentContent.style.display === 'block' ? 'none' : 'block';
+        });
+    });
+
+    const toggleRadios = document.querySelectorAll('.toggle-container input[type="radio"]');
+    
+    toggleRadios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        const singaporeContent = document.getElementById('singapore-content');
+        const foreignersContent = document.getElementById('foreigners-content');
+        if (document.getElementById('singapore').checked) {
+          singaporeContent.style.display = 'flex';
+          foreignersContent.style.display = 'none';
+        } else {
+          singaporeContent.style.display = 'none';
+          foreignersContent.style.display = 'flex';
+        }
+      });
+    });
+  });
+
+  function openTab(evt, tabName) {
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => tab.classList.remove('active'));
+    evt.currentTarget.classList.add('active');
+
+    tabContents.forEach(content => {
+      content.style.display = 'none';
+    });
+
+    document.getElementById(tabName).style.display = 'block';
+  }
+
+
   </script>
 
 </body>
-</html>
