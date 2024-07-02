@@ -8,6 +8,8 @@ class PagesController < ApplicationController
       'application_documentuploadpage'
     when 'applicationform'
       'application_formpage'
+    when 'cardoptions'
+      'application_cardoptionspage'
     else
       'application'
     end
