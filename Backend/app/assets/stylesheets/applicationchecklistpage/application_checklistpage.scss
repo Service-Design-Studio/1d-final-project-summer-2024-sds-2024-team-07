@@ -154,6 +154,15 @@
     }
   }
 
+  .title {
+    text-align: left;
+    width: 78%;
+    margin: 20px auto;
+    font-size: larger;
+    color: black;
+    font-weight: bold;
+  }
+
   /* Popup container */
   .popup-overlay {
     position: fixed;
