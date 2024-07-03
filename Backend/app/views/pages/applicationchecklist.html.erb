@@ -49,11 +49,14 @@
       <span class="close" onclick="closePopup('principal_popup')">&times;</span>
       <h2 style="color: black;">Principal Credit Cards</h2>
       <div class="header">
-        <div class="toggle-container">
-          <input type="radio" id="singapore" name="toggle" checked>
-          <label for="singapore">Singaporeans or PR</label>
-          <input type="radio" id="foreigners" name="toggle">
-          <label for="foreigners">Foreigners</label>
+        <div class="toggle-switch">
+          <input type="checkbox" id="toggle" class="toggle-input">
+            <label for="toggle" class="toggle-label">
+                <span class="toggle-text">
+                    <span id="sg-pr">Singaporean/Permanent Resident</span>
+                    <span id="foreigner">Foreigners</span>
+                </span>
+            </label>
         </div>
         <div class="tabs">
           <button class="tab active" onclick="openTab(event, 'label1')">Label 1</button>
@@ -188,13 +191,13 @@
         });
     });
 
-    const toggleRadios = document.querySelectorAll('.toggle-container input[type="radio"]');
+    const toggleCheckbox = document.querySelectorAll('toggle');
     
     toggleRadios.forEach(radio => {
       radio.addEventListener('change', () => {
         const singaporeContent = document.getElementById('singapore-content');
         const foreignersContent = document.getElementById('foreigners-content');
-        if (document.getElementById('singapore').checked) {
+        if (toggleCheckbox.checked) {
           singaporeContent.style.display = 'flex';
           foreignersContent.style.display = 'none';
         } else {
