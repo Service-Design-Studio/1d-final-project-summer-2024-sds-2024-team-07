@@ -266,7 +266,7 @@
   .toggle-container label {
     padding: 10px 20px;
     cursor: pointer;
-    border: 2px solid #f1f1f1;
+    border: 2px solid #f7f7f7;
     transition: background-color 0.3s, color 0.3s;
     font-size: 14px;
     border-radius: 25px;
@@ -289,15 +289,16 @@
   }
   
   .tab {
-    background-color: #f1f1f1;
+    background-color: #f7f7f7;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s;
+    transition: border-bottom 0.3s;
     font-size: 14px;
-    height: 78px;
-    max-width: 200px;
-    border-radius: 20px 20px 0px 0px;
+    height: 50px;
+    max-width: 225px;
+    border-radius: 15px 15px 5px 5px;
   }
   
   .tab:hover {
@@ -305,7 +306,8 @@
   }
   
   .tab.active {
-    background-color: #ccc;
+    background-color: #efefef;
+    border-bottom: 2px solid red;
   }
   
   .content {
@@ -357,6 +359,7 @@
   .toggle-switch {
       position: relative;
       text-align: center;
+      padding: 4px 0px 0px 0px;
   }
 
   .toggle-input {
@@ -419,4 +422,11 @@
 
   .toggle-input:checked + .toggle-label .toggle-text #sg-pr {
     color: black;
+  }
+
+  .title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }

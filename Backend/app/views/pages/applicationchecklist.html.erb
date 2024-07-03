@@ -47,17 +47,19 @@
   <div class="popup-overlay" id="principal_popup">
     <div class="popup-content">
       <span class="close" onclick="closePopup('principal_popup')">&times;</span>
-      <h2 style="color: black;">Principal Credit Cards</h2>
-      <div class="header">
+      <div class="title-container">
+        <h1>Principal Credit Cards</h1>
         <div class="toggle-switch">
           <input type="checkbox" id="toggle" class="toggle-input">
-            <label for="toggle" class="toggle-label">
-                <span class="toggle-text">
-                    <span id="sg-pr">Singaporean/Permanent Resident</span>
-                    <span id="foreigner">Foreigners</span>
-                </span>
-            </label>
+          <label for="toggle" class="toggle-label">
+            <span class="toggle-text">
+              <span id="sg-pr">Singaporean/Permanent Resident</span>
+              <span id="foreigner">Foreigners</span>
+            </span>
+          </label>
         </div>
+      </div>
+      <div class="header">
         <div class="tabs">
           <button class="tab active" onclick="openTab(event, 'label1')">Salaried Employee (more than 3 months)</button>
           <button class="tab" onclick="openTab(event, 'label2')">Salaried Employee (less than 3 months)</button>
@@ -191,21 +193,21 @@
         });
     });
 
-    const toggleCheckbox = document.querySelectorAll('toggle');
-    
-    toggleRadios.forEach(radio => {
-      radio.addEventListener('change', () => {
-        const singaporeContent = document.getElementById('singapore-content');
-        const foreignersContent = document.getElementById('foreigners-content');
-        if (toggleCheckbox.checked) {
-          singaporeContent.style.display = 'flex';
-          foreignersContent.style.display = 'none';
-        } else {
-          singaporeContent.style.display = 'none';
-          foreignersContent.style.display = 'flex';
-        }
-      });
+    const toggleCheckbox = document.getElementById('toggle');
+
+    toggleCheckbox.addEventListener('change', () => {
+      const singaporeContent = document.getElementById('singapore-content');
+      const foreignersContent = document.getElementById('foreigners-content');
+
+      if (toggleCheckbox.checked) {
+        singaporeContent.style.display = 'none';
+        foreignersContent.style.display = 'flex';
+      } else {
+        singaporeContent.style.display = 'flex';
+        foreignersContent.style.display = 'none';
+      }
     });
+
   });
 
   function openTab(evt, tabName) {
