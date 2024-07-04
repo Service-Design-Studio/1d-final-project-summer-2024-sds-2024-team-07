@@ -45,6 +45,12 @@ h2 {
   color: #333;
 }
 
+h4 {
+  font-size: 1em; /* Adjust as needed */
+  color: #333;
+  margin: 0 0 5px 0; /* Reduce bottom margin */
+}
+
 .content{
   padding: 30px 150px 30px 150px;
 }
@@ -62,12 +68,12 @@ h2 {
 
 .form-control{
   height: 45px;
-  margin-top: 13px;
+  margin-top: 10.5px;
 }
 
 .form-name-right{
   width: 90%;
-  margin-left: 20px;
+  margin-left: 5px;
 }
 
 
@@ -112,4 +118,16 @@ button:hover {
 /* Specific margin for the first heading (e.g., Name) */
 .content > div:first-child h2 {
   margin-top: 20px;
+}
+
+.button-holder{
+  visibility: hidden;
+}
+
+.next-button{
+  background-color: #ff3333;
+}
+
+.next-button:hover{
+  background-color: #cc0000;
 }
