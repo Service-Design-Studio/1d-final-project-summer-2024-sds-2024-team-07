@@ -47,6 +47,36 @@ h2 {
   color: #333;
 }
 
+// .content{
+//   display: flex;
+//   flex-direction: column;
+//   width: 70%;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+.form-name{
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+.form-name-left{
+  width: 10%;
+
+}
+
+.form-control{
+  height: 45px;
+  margin-top: 13px;
+}
+
+.form-name-right{
+  width: 90%;
+  margin-left: 20px;
+}
+
+
 input[type="text"],
 input[type="number"],
 input[type="date"],

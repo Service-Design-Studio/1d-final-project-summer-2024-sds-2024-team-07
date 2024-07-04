@@ -4,11 +4,27 @@
   </div>
   <div class="right-div">
     <%= render 'shared/right_header' %>
+    <h2>Hello! Please help us to know you.</h2>
+
     <div class="content">
-      <div id="tab5">
-        <h2>Name</h2>
-        <input type="text" placeholder="Enter your name" />
+
+      <div class ="form-name" id="tab5">
+        <div class= "form-name-left">
+          <h2>Title</h2>
+          <select id="title" name="title" class="form-control">
+            <option value="">Select</option>
+            <option value="mr">Mr.</option>
+            <option value="mrs">Mrs.</option>
+            <option value="ms">Ms.</option>
+            <option value="dr">Dr.</option>
+          </select>
+        </div>
+        <div class= "form-name-right">
+          <h2>Your name as in NRIC/Passport</h2>
+          <input type="text" placeholder="Enter your name" />
+        </div>
       </div>
+
       <div id="tab6">
         <h2>Date of Birth</h2>
         <input type="date" />
