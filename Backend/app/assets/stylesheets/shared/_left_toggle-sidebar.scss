@@ -9,7 +9,7 @@
   transition: all 0.5s ease;
 }
 .sidebar.close {
-  width: 60px; /* Adjusted to a thinner width when closed */
+  width: 80px; /* Adjusted to a thinner width when closed */
 }
 
 // Sidebar DBS Logo CSS
@@ -73,7 +73,7 @@
 
 .sidebar .nav-links li i {
   height: 50px;
-  min-width: 60px;
+  min-width: 80px;
   text-align: center;
   line-height: 50px;
   color: #fff;
