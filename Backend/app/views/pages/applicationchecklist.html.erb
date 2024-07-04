@@ -182,6 +182,7 @@
         header.addEventListener('click', () => {
           const currentContent = header.nextElementSibling;
           const allContents = header.closest('.accordion').querySelectorAll('.accordion-content');
+          const allHeaders = header.closest('.accordion').querySelectorAll('.accordion-header');
 
           allContents.forEach(content => {
             if (content !== currentContent) {
@@ -189,7 +190,14 @@
             }
           });
 
+          allHeaders.forEach(h => {
+            if (h !== header) {
+              h.classList.remove('active');
+            }
+          });
+
           currentContent.style.display = currentContent.style.display === 'block' ? 'none' : 'block';
+          header.classList.toggle('active');
         });
     });
 

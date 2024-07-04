@@ -359,7 +359,8 @@
 
   .accordion-header.active {
     /* Styles for active accordion headers */
-    background-color: lightblue;
+    background-color: #ddd;
+    border-radius: 10px;
   }
   
   .accordion-content {
