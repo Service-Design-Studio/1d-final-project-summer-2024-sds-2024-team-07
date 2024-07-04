@@ -282,6 +282,14 @@
   .toggle-container label:hover {
     background-color: #ddd;
   }
+
+  div#singapore-content {
+    background-color: white;
+    width: 96.5%;
+    margin: 0px 10px 0px 20px;
+    border: 1px solid #f7f7f7;
+    border-radius: 20px;
+  }
   
   .tabs {
     display: flex;
@@ -316,6 +324,9 @@
   
   .sidebar {
     flex: 1;
+    background-color: #f7f7f7;
+    border: 1px solid #f7f7f7;
+    border-radius: 20px;
     padding: 20px;
   }
   
@@ -328,11 +339,11 @@
   }
   
   .accordion .accordion-item {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #f1f1f1;
   }
   
   .accordion-header {
-    background-color: #f1f1f1;
+    background-color: #f7f7f7;
     border: none;
     width: 100%;
     text-align: left;
@@ -343,6 +354,12 @@
   
   .accordion-header:hover {
     background-color: #ddd;
+    border-radius: 10px;
+  }
+
+  .accordion-header.active {
+    /* Styles for active accordion headers */
+    background-color: lightblue;
   }
   
   .accordion-content {
@@ -355,9 +372,9 @@
   }
 
   .toggle-switch {
-      position: relative;
-      text-align: center;
-      padding: 4px 0px 0px 0px;
+    position: relative;
+    text-align: center;
+    padding: 4px 15px 0px 0px;
   }
 
   .toggle-input {
