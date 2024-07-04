@@ -162,7 +162,8 @@ body {
 
   .content {
     margin-top: 30px;
-
+    padding: 30px 300px 30px 300px;
+    
     section {
       display: none;
       animation: content 0.3s ease-in-out;
@@ -180,7 +181,7 @@ body {
           height: 3px;
           background: $accent;
           margin-top: 5px;
-          left: 1px;
+          left: 0px;
         }
       }
     }
