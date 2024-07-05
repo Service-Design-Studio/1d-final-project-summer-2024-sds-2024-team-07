@@ -206,17 +206,6 @@ body {
     display: none !important;
 }
 
-  .disabled-tab {
-    cursor: default !important;
-    pointer-events: none;
-    color: lighten($secondary, 15%) !important;
-    
-}
-
-.disabled-tab svg {
-    fill: lighten($secondary, 15%) !important;
-}
-
   input[name="tab-control"] {
     @include tabs {
       > label {
