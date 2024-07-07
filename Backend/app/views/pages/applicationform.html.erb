@@ -152,11 +152,147 @@
           <h4>Years</h4>
         </div>
       </div>
-
-
     </div>
 
-    <button type="submit">Save</button>
+    <%# Education level %>
+    <div class="education-level"> 
+      <h2>Your education level</h2>
+      <div class="education-level-toggle-buttons">
+        <button class="education-level-toggle-button" id="uni">University/Post-Grad</button>
+        <button class="education-level-toggle-button" id="diploma">Diploma</button>
+        <button class="education-level-toggle-button" id="alevel">'A'-level/Pre-University</button>
+        <button class="education-level-toggle-button" id="secondary">Secondary</button>
+        <button class="education-level-toggle-button" id="technical">Technical</button>
+        <button class="education-level-toggle-button" id="others">Others</button>
+      </div>
+    </div>
+
+    <%# Current Job Status %>
+    <div class="current-job-status"> 
+      <h2>Your current job status</h2>
+      <div class="current-job-status-toggle-buttons">
+        <button class="current-job-status-toggle-button" id="employee">Employee</button>
+        <button class="current-job-status-toggle-button" id="selfemployed">Self-Employed</button>
+        <button class="current-job-status-toggle-button" id="variable">Variable/Commissioned Earner</button>
+        <button class="current-job-status-toggle-button" id="others">Others</button>
+      </div>
+    </div>
+
+    <%# Occupation %>
+    <h2>Your occupation</h2>
+    <div class="occupation"> 
+      <select id="title" name="title" class="form-control">
+        <option selected="selected" value="" class="">Please Select Here</option>
+        <option label="Senior Management" value="string:01">Senior Management</option>
+        <option label="Director" value="string:12">Director</option>
+        <option label="Professional" value="string:02">Professional</option>
+        <option label="Executive" value="string:04">Executive</option>
+        <option label="Teacher" value="string:27">Teacher</option>
+        <option label="Managerial" value="string:03">Managerial</option>
+        <option label="Supervisor" value="string:19">Supervisor</option>
+        <option label="Sales" value="string:06">Sales</option>
+        <option label="Diplomat" value="string:50">Diplomat</option>
+        <option label="Others" value="string:10">Others</option>
+      </select>
+    </div>
+
+    <%# Job Industry %>
+    <h2>Your job industry</h2>
+    <div class="occupation"> 
+      <select id="title" name="title" class="form-control">
+        <option selected="selected" value="" class="">Please Select Here</option>
+        <option label="IT/Telco" value="string:05">IT/Telco</option>
+        <option label="Retail" value="string:27">Retail</option>
+        <option label="Banking &amp; Finance" value="string:04">Banking &amp; Finance</option>
+        <option label="Government" value="string:11">Government</option>
+        <option label="Shipping/ Transport" value="string:20">Shipping/ Transport</option>
+        <option label="Building/ Construction" value="string:02">Building/ Construction</option>
+        <option label="Travel Related" value="string:29">Travel Related</option>
+        <option label="Insurance" value="string:24">Insurance</option>
+        <option label="Hotel/ Restaurant" value="string:23">Hotel/ Restaurant</option>
+        <option label="Entertainment" value="string:22">Entertainment</option>
+        <option label="Manufacturing/ Production" value="string:17">Manufacturing/ Production</option>
+        <option label="Others" value="string:19">Others</option></select>
+      </select>
+    </div>
+
+    <%# Your Company Name %>
+    <div class ="" id="">
+      <h2>Your Company name</h2>
+      <input type="text" placeholder="Your Company name" />
+    </div>
+
+    <%# Length of Current Employment  %>
+    <h2>Length of Current Employment</h2>
+    <div class="length-current-employment"> 
+      <div class= "length-current-employment-1">
+        <input type="text" placeholder="No. of years" />          
+      </div>
+      <div class= "length-current-employment-2">
+        <h4>Years</h4>
+      </div>
+      <div class= "length-current-employment-3">
+        <input type="text" placeholder="No. of months" />          
+      </div>
+      <div class= "length-current-employment-4">
+        <h4>Months</h4>
+      </div>
+    </div>
+    
+    <%# Mailing Address %>
+    <div class="mailing-address"> 
+      <h2>Your current job status</h2>
+      <div class="mailing-address-toggle-buttons">
+        <button class="mailing-address-toggle-button" id="residential">Residential</button>
+        <button class="mailing-address-toggle-button" id="office">Office</button>
+      </div>
+    </div>
+
+    <%# Your current office address %>
+    <h2>Your current office address</h2>
+    <div class ="current-office-address-layer1">
+      <h4>Postal Code</h4>
+      <input type="text" placeholder="Postal Code" />
+    </div>
+    <div class= "current-office-address-layer2">
+      <div class= "current-office-address-layer2-left">
+        <h4>Block/House Number</h4>
+        <input type="text" placeholder="Block/House Number" />          
+      </div>
+      <div class= "current-office-address-layer2-right">
+        <h4>Street Name 1</h4>
+        <input type="text" placeholder="Street Name 1" />          
+      </div>
+    </div>
+    <div class ="current-office-address-layer3">
+      <h4>Street Name 2</h4>
+      <input type="text" placeholder="Street Name 2" />
+    </div>
+    <div class ="current-office-address-layer4">
+      <h4>Street Name 3</h4>
+      <input type="text" placeholder="Street Name 3" />
+    </div>
+    <div class ="current-office-address-layer5">
+      <h4>Unit Number</h4>
+      <input type="text" placeholder="Unit Number" />
+    </div>
+
+    <br/>
+    <br/>
+
+    <%# Promo Code / Fine Prints / Continue Button %>
+    <div class="clearfix relative">
+      <input type="checkbox"> 
+      <label class="label " for="promo" data-focus="first" data-tab="true">
+        I have a promo code for this application
+      </label>
+    </div>
+    <div class="clearfix agreement">
+      By clicking on the Continue button below, I have read and agreed to be bound by the <a href="https://www.dbs.com.sg/iwov-resources/pdf/cards/credit-card-declaration.pdf" target="_new"><u>declaration, important notes, fee and charges.</u></a>
+    </div>
+    <br/>
+    <button type="submit">Continue</button>
+
   </div>
 </div>
 
@@ -205,7 +341,6 @@
   //Toggle Button JS (Residence Type)
   document.addEventListener("DOMContentLoaded", function() {
     const buttons = document.querySelectorAll(".residence-type-toggle-button");
-
     buttons.forEach(button => {
       button.addEventListener("click", function() {
         buttons.forEach(btn => btn.classList.remove("active"));
@@ -216,7 +351,6 @@
   //Toggle Button JS (Residential Status)
   document.addEventListener("DOMContentLoaded", function() {
     const buttons = document.querySelectorAll(".residence-status-toggle-button");
-
     buttons.forEach(button => {
       button.addEventListener("click", function() {
         buttons.forEach(btn => btn.classList.remove("active"));
@@ -224,6 +358,35 @@
       });
     });
   });
-
+  //Toggle Button JS (Education Level)
+  document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".education-level-toggle-button");
+    buttons.forEach(button => {
+      button.addEventListener("click", function() {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  });
+  //Toggle Button JS (Current Job Status)
+  document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".current-job-status-toggle-button");
+    buttons.forEach(button => {
+      button.addEventListener("click", function() {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  });
+  //Toggle Button JS (Mailing Address)
+  document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".mailing-address-toggle-button");
+    buttons.forEach(button => {
+      button.addEventListener("click", function() {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  });
 
 </script>
