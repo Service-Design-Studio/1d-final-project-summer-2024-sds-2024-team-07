@@ -51,31 +51,135 @@ h4 {
   margin: 0 0 5px 0; /* Reduce bottom margin */
 }
 
-.content{
-  padding: 30px 300px 30px 300px;
+.content {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
-.form-name{
+// Title amd Name as NRIC
+.form-name {
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
 }
-
-.form-name-left{
+.form-name-left {
   width: 10%;
-
 }
-
-.form-control{
+.form-control {
   height: 45px;
   margin-top: 10.5px;
 }
-
-.form-name-right{
+.form-name-right {
   width: 90%;
   margin-left: 5px;
 }
 
+//Residential Details
+.residential-container {
+  display: flex;
+  flex-direction: column;
+}
+//Residential Details (Residential Address)
+.residential-address-layer2 {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.residential-address-layer2-left {
+  width: 25%;
+}
+.residential-address-layer2-right {
+  width: 75%;
+  margin-left: 7px;
+}
+.residential-address-layer1,
+.residential-address-layer5 {
+  width: 25%;
+}
+
+//Residential Details (Type of Residence)
+.residence-type {
+  text-align: left;
+}
+.residence-type-toggle-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.residence-type-toggle-button {
+  width: 24%;
+  color: black;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 7px;
+  margin-top: 7px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-size: 16px;
+}
+.residence-type-toggle-button:hover {
+  background-color: white;
+  border: 1px solid #ff4a53;
+}
+.residence-type-toggle-button.active {
+  background-color: #ff4a53;
+  border-color: #ff4a53;
+  color: white;
+}
+
+//Residential Details (Residential Status)
+.residence-status {
+  text-align: left;
+}
+.residence-status-toggle-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.residence-status-toggle-button {
+  width: 40%;
+  color: black;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 7px;
+  margin-top: 7px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-size: 16px;
+}
+.residence-status-toggle-button:hover {
+  background-color: white;
+  border: 1px solid #ff4a53;
+}
+.residence-status-toggle-button.active {
+  background-color: #ff4a53;
+  border-color: #ff4a53;
+  color: white;
+}
+
+//Residential Details (Years at Residence)
+.residential-years {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.residential-years-left {
+  width: 40%;
+}
+.residential-years-right {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  margin-left: 12px;
+}
 
 input[type="text"],
 input[type="number"],
@@ -120,14 +224,14 @@ button:hover {
   margin-top: 20px;
 }
 
-.button-holder{
+.button-holder {
   visibility: hidden;
 }
 
-.next-button{
+.next-button {
   background-color: #ff3333;
 }
 
-.next-button:hover{
+.next-button:hover {
   background-color: #cc0000;
 }

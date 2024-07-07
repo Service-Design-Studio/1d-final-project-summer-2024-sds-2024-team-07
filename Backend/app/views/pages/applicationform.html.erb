@@ -7,7 +7,9 @@
     
 
     <div class="content">
+
       <h2>Hello! Please help us to know you.</h2>
+
       <div class ="form-name" id="tab5">
         <div class= "form-name-left">
           <h4>Title</h4>
@@ -24,70 +26,142 @@
           <input type="text" id="name" placeholder="Enter your name" />
         </div>
       </div>
+
       <div class="button-holder" style="visibility: hidden;">
       <button id="next-button" class="btn btn-primary next-button">Next</button> 
       <span class="button-help">or press ENTER</span>
     </div>
 
-      <div class ="form-preferredname" id="tab6">
-          <%= image_tag("DBS_Black_Visa_Card_Small.png", alt: "DBS_Black_Visa_Card_Small", class:"dbs_blackvisacard_image") %>
-          <h2>Your preferred name to appear on the card(s)</h2>
-          <input type="text" placeholder="" />
-      </div>
+    <div class ="form-preferredname" id="tab6">
+        <%= image_tag("DBS_Black_Visa_Card_Small.png", alt: "DBS_Black_Visa_Card_Small", class:"dbs_blackvisacard_image") %>
+        <h2>Your preferred name to appear on the card(s)</h2>
+        <input type="text" placeholder="" />
+    </div>
 
-      <div id="tab6">
-        <h2>Date of Birth</h2>
+    <div id="tab6">
+      <h2>Date of Birth</h2>
+      <input type="date" />
+    </div>
+
+    <div id="tab7">
+      <h2>Gender</h2>
+      <select>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div>
+      <h1>Contact Information</h1>
+      <div id="tab8">
+        <h3>Mobile Number</h3>
+        <input type="text" id="mobile-number" placeholder="Enter your mobile number" />
+        <span id="mobile-number-validation"></span>
+      </div>
+      <div id="tab9">
+        <h3>Email Address</h3>
+        <input type="text" placeholder="Enter your email address" />
+      </div>
+      <div id="tab10">
+        <h3>Home Number</h3>
+        <input type="text" placeholder="Enter your home number" />
+      </div>
+      <div id="tab11">
+        <h3>Office Number</h3>
+        <input type="text" placeholder="Enter your office number" />
+      </div>
+    </div>
+
+    <div>
+      <h1>Passport Details</h1>
+      <div id="tab12">
+        <h3>Nationality</h3>
+        <input type="text" placeholder="Enter your nationality" />
+      </div>
+      <div id="tab13">
+        <h3>Passport Number</h3>
+        <input type="text" placeholder="Enter your passport number" />
+      </div>
+      <div id="tab14">
+        <h3>Passport Expiry Date</h3>
         <input type="date" />
       </div>
-      <div id="tab7">
-        <h2>Gender</h2>
-        <select>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      <div>
-        <h1>Contact Information</h1>
-        <div id="tab8">
-          <h3>Mobile Number</h3>
-          <input type="text" id="mobile-number" placeholder="Enter your mobile number" />
-          <span id="mobile-number-validation"></span>
-        </div>
-        <div id="tab9">
-          <h3>Email Address</h3>
-          <input type="text" placeholder="Enter your email address" />
-        </div>
-        <div id="tab10">
-          <h3>Home Number</h3>
-          <input type="text" placeholder="Enter your home number" />
-        </div>
-        <div id="tab11">
-          <h3>Office Number</h3>
-          <input type="text" placeholder="Enter your office number" />
-        </div>
-      </div>
-      <div>
-        <h1>Passport Details</h1>
-        <div id="tab12">
-          <h3>Nationality</h3>
-          <input type="text" placeholder="Enter your nationality" />
-        </div>
-        <div id="tab13">
-          <h3>Passport Number</h3>
-          <input type="text" placeholder="Enter your passport number" />
-        </div>
-        <div id="tab14">
-          <h3>Passport Expiry Date</h3>
-          <input type="date" />
-        </div>
-      </div>
-      <button type="submit">Save</button>
     </div>
+
+    <%# Residential Portion %>
+    <div class="residential-container" id="tab5">
+      <h1>Residential Details</h1>
+
+      <h2>Residential Address</h2>
+      <div class ="residential-address-layer1">
+        <h4>Postal Code</h4>
+        <input type="text" placeholder="Postal Code" />
+      </div>
+      <div class= "residential-address-layer2">
+        <div class= "residential-address-layer2-left">
+          <h4>Block/House Number</h4>
+          <input type="text" placeholder="Block/House Number" />          
+        </div>
+        <div class= "residential-address-layer2-right">
+          <h4>Street Name 1</h4>
+          <input type="text" placeholder="Street Name 1" />          
+        </div>
+      </div>
+      <div class ="residential-address-layer3">
+        <h4>Street Name 2</h4>
+        <input type="text" placeholder="Street Name 2" />
+      </div>
+      <div class ="residential-address-layer4">
+        <h4>Street Name 3</h4>
+        <input type="text" placeholder="Street Name 3" />
+      </div>
+      <div class ="residential-address-layer5">
+        <h4>Unit Number</h4>
+        <input type="text" placeholder="Unit Number" />
+      </div>
+
+      <div class="residence-type"> 
+        <h2>Type of residence</h2>
+        <div class="residence-type-toggle-buttons">
+          <button class="residence-type-toggle-button" id="hdb">HDB</button>
+          <button class="residence-type-toggle-button" id="condo">Condo/Apt</button>
+          <button class="residence-type-toggle-button" id="landed">Landed</button>
+          <button class="residence-type-toggle-button" id="others">Others</button>
+        </div>
+      </div>
+
+      <div class="residence-status"> 
+        <h2>Your residential status</h2>
+        <div class="residence-status-toggle-buttons">
+          <button class="residence-status-toggle-button" id="ownedFP">Owned (Fully Paid)</button>
+          <button class="residence-status-toggle-button" id="ownedM">Owned (Mortgaged)</button>
+          <button class="residence-status-toggle-button" id="rented">Rented</button>
+          <button class="residence-status-toggle-button" id="parents">Parents'</button>
+          <button class="residence-status-toggle-button" id="employers">Employer's</button>
+          <button class="residence-status-toggle-button" id="others">Others</button>
+        </div>
+      </div>
+
+      <h2>Number of years at this residence</h2>
+      <div class="residential-years"> 
+        <div class= "residential-years-left">
+          <input type="text" placeholder="No. of years" />          
+        </div>
+        <div class= "residential-years-right">
+          <h4>Years</h4>
+        </div>
+      </div>
+
+
+    </div>
+
+    <button type="submit">Save</button>
   </div>
 </div>
 
 <script>
+  //Mobile Number validation
   document.addEventListener("DOMContentLoaded", () => {
     const mobileNumberInput = document.getElementById("mobile-number");
     const validationMessage = document.getElementById("mobile-number-validation");
@@ -127,4 +201,29 @@
 
     buttonVisibility();
   });
+
+  //Toggle Button JS (Residence Type)
+  document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".residence-type-toggle-button");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", function() {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  });
+  //Toggle Button JS (Residential Status)
+  document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".residence-status-toggle-button");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", function() {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  });
+
+
 </script>
