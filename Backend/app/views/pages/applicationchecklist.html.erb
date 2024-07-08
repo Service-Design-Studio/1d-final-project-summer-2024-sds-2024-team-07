@@ -52,10 +52,10 @@
         <div class="toggle-switch">
           <input type="checkbox" id="toggle" class="toggle-input">
           <label for="toggle" class="toggle-label">
-            <span class="toggle-text">
-              <span id="sg-pr">Singaporean/Permanent Resident</span>
-              <span id="foreigner">Foreigners</span>
-            </span>
+              <span class="toggle-text">
+                  <span id="sg-pr">Singaporean/Permanent Resident</span>
+                  <span id="foreigner">Foreigners</span>
+              </span>
           </label>
         </div>
       </div>
@@ -66,42 +66,40 @@
           <button class="tab" onclick="openTab(event, 'label3')">Variable/Commission-based Employees or Self-Employed</button>
         </div>
       </div>
-
       <div id="label1" class="tab-content" style="display: block;">
         <div class="content" id="singapore-content">
           <div class="sidebar">
             <div class="accordion">
               <div class="accordion-item">
                 <button class="accordion-header" data-image="<%= image_path('Nric.png') %>" onclick="toggleAccordion(event)">Identification Document</button>
-                  <div class="accordion-content">
-                      <p>NRIC (front & back) for Singaporean/Permanent Residents</p>
-                  </div>
+                <div class="accordion-content">
+                  <p>NRIC (front & back) for Singaporean/Permanent Residents</p>
+                </div>
               </div>
               <div class="accordion-item">
                 <button class="accordion-header" data-image="<%= image_path('dbs-live-fresh.jpg') %>" onclick="toggleAccordion(event)">Financial Document</button>
-                  <div class="accordion-content">
-                      <p>Submission of either documents are acceptable:
-                      <ul>
-                          <li>Latest 3 months’ computerised payslip in SGD is preferred; else minimally Latest 1 month’s computerised payslip</li>
-                          <li>Latest 12 months’ CPF Contribution History Statement</li>
-                          <li>Latest 3 months’ salary crediting bank statements in SGD</li>
-                      </ul>
-                      </p>
-                  </div>
+                <div class="accordion-content">
+                  <p>Submission of either documents are acceptable:
+                    <ul>
+                      <li>Latest 3 months’ computerised payslip in SGD is preferred; else minimally Latest 1 month’s computerised payslip</li>
+                      <li>Latest 12 months’ CPF Contribution History Statement</li>
+                      <li>Latest 3 months’ salary crediting bank statements in SGD</li>
+                    </ul>
+                  </p>
+                </div>
               </div>
               <div class="accordion-item">
                 <button class="accordion-header" data-image="<%= image_path('tax-assesment.png') %>" onclick="toggleAccordion(event)">Income Tax Notice of Assessment</button>
-                  <div class="accordion-content">
-                    <p>Latest 2 years of Income Tax Notice of Assessment in SGD is preferred; else minimally latest 1 year of Income Tax Notice of Assessment</p>
-                  </div>
+                <div class="accordion-content">
+                  <p>Latest 2 years of Income Tax Notice of Assessment in SGD is preferred; else minimally latest 1 year of Income Tax Notice of Assessment</p>
+                </div>
               </div>
             </div>
           </div>
           <div class="main-content">
-              <%= image_tag("visa-card.jpg", alt: "Visa Card", id: "main-image") %>
+            <%= image_tag("visa-card.jpg", alt: "Visa Card", id: "main-image") %>
           </div>
         </div>
-
         <div class="content" id="foreigners-content" style="display: none;">
           <div class="sidebar">
             <div class="accordion">

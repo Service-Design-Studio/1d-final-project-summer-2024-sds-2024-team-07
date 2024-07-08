@@ -187,6 +187,8 @@
     border-radius: 10px;
     width: 80%;
     max-width: 80%;
+    max-height: 90%; /* Max height */
+    overflow-y: auto; /* Enable vertical scrolling */
     position: relative;
   }
 
