@@ -59,6 +59,8 @@
           </label>
         </div>
       </div>
+      
+      <!-- Principal Cards -->
       <div class="header">
         <div class="tabs">
           <button class="tab active" onclick="openTab(event, 'label1')">Salaried Employee (more than 3 months)</button>
@@ -66,6 +68,8 @@
           <button class="tab" onclick="openTab(event, 'label3')">Variable/Commission-based Employees or Self-Employed</button>
         </div>
       </div>
+
+      <!-- Salaried Employee more than 3 months - Singaporean -->
       <div id="label1" class="tab-content" style="display: block;">
         <div class="content" id="singapore-content">
           <div class="sidebar">
@@ -77,7 +81,7 @@
                 </div>
               </div>
               <div class="accordion-item">
-                <button class="accordion-header" data-image="<%= image_path('dbs-live-fresh.jpg') %>" onclick="toggleAccordion(event)">Financial Document</button>
+                <button class="accordion-header" data-image="<%= image_path('income-slip.png') %>" onclick="toggleAccordion(event)">Financial Document</button>
                 <div class="accordion-content">
                   <p>Submission of either documents are acceptable:
                     <ul>
@@ -97,20 +101,22 @@
             </div>
           </div>
           <div class="main-content">
-            <%= image_tag("visa-card.jpg", alt: "Visa Card", id: "main-image") %>
+            <%= image_tag("visa-card.jpg", alt: "Visa Card", id: "main-image-1s", class: "main-image", style: "width: 80%;") %>
           </div>
         </div>
+
+        <!-- Salaried Employee more than 3 months - Foreigner -->
         <div class="content" id="foreigners-content" style="display: none;">
           <div class="sidebar">
             <div class="accordion">
               <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(event, 'visa-card.jpg')">Valid Passport</button>
+                <button class="accordion-header" data-image="<%= image_path('passport.jpeg') %>" onclick="toggleAccordion(event)">Valid Passport</button>
                 <div class="accordion-content">
                   <p>Passport for Foreigner (minimum validity of 6 months at the time of application)</p>
                 </div>
               </div>
               <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(event)">Employment Pass</button>
+                <button class="accordion-header" data-image="<%= image_path('work-permit.png') %>" onclick="toggleAccordion(event)">Employment Pass</button>
                 <div class="accordion-content">
                   <p>Employment Pass must have a minimum validity of 6 months at the time of application. Any of these following pass is acceptable:
                     <ul>
@@ -126,19 +132,19 @@
                 </div>
               </div>
               <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(event)">Income Tax Notice of Assessment</button>
+                <button class="accordion-header" data-image="<%= image_path('tax-assesment.png') %>" onclick="toggleAccordion(event)">Income Tax Notice of Assessment</button>
                 <div class="accordion-content">
                   <p>Please provide the latest 2 years of Income Tax Notice of Assessment</p>
                 </div>
               </div>
               <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(event)">Latest computerised payslip</button>
+                <button class="accordion-header" data-image="<%= image_path('income-slip.png') %>" onclick="toggleAccordion(event)">Latest computerised payslip</button>
                 <div class="accordion-content">
                   <p>Document must be dated within 3 months before the date of application; else minimally Latest 1 month’s computerised payslip</p>
                 </div>
               </div>
               <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(event)">Proof of Residential Address</button>
+                <button class="accordion-header" data-image="<%= image_path('bank-statement.webp') %>" onclick="toggleAccordion(event)">Proof of Residential Address</button>
                 <div class="accordion-content">
                   <p>Latest copy of your Residential Address proof dated within 3 months before the date of card application (For new DBS/POSB Bank customers only). Submission of either one of the documents is accpetable:
                     <ul>
@@ -154,11 +160,12 @@
             </div>
           </div>
           <div class="main-content">
-            <img src="your-image.png" alt="Foreign Content">
+            <%= image_tag("visa-card.jpg", alt: "Visa Card", id: "main-image-1f", style: "width: 80%;") %>
           </div>
         </div>
       </div>
 
+      <!-- Salaried Employee less than 3 months - Singaporean -->
       <div id="label2" class="tab-content" style="display: none;">
         <div class="content" id="singapore-content">
           <div class="sidebar">
@@ -170,7 +177,7 @@
                   </div>
               </div>
               <div class="accordion-item">
-                <button class="accordion-header" data-image="<%= image_path('dbs-live-fresh.jpg') %>" onclick="toggleAccordion(event)">Financial Document</button>
+                <button class="accordion-header" data-image="<%= image_path('income-slip.png') %>" onclick="toggleAccordion(event)">Financial Document</button>
                   <div class="accordion-content">
                       <p>Submission of either documents are acceptable:
                       <ul>
@@ -183,21 +190,22 @@
             </div>
           </div>
           <div class="main-content">
-              <%= image_tag("visa-card.jpg", alt: "Visa Card", id: "main-image") %>
+              <%= image_tag("visa-card.jpg", alt: "Visa Card", id: "main-image-2s", class: "main-image", style: "width: 80%;") %>
           </div>
         </div>
 
+        <!-- Salaried Employee less than 3 months - Singaporean -->
         <div class="content" id="foreigners-content" style="display: none;">
           <div class="sidebar">
             <div class="accordion">
               <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(event, 'visa-card.jpg')">Valid Passport</button>
+                <button class="accordion-header" data-image="<%= image_path('passport.jpeg') %>" onclick="toggleAccordion(event, 'visa-card.jpg')">Valid Passport</button>
                 <div class="accordion-content">
                   <p>Passport for Foreigner (minimum validity of 6 months at the time of application)</p>
                 </div>
               </div>
               <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(event)">Employment Pass</button>
+                <button class="accordion-header" data-image="<%= image_path('work-permit.png') %>" onclick="toggleAccordion(event)">Employment Pass</button>
                 <div class="accordion-content">
                   <p>Employment Pass must have a minimum validity of 6 months at the time of application. Any of these following pass is acceptable:
                     <ul>
@@ -213,37 +221,39 @@
                 </div>
               </div>
               <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(event)">Foreign Content 3</button>
+                <button class="accordion-header" data-image="<%= image_path('income-slip.png') %>" onclick="toggleAccordion(event)">Proof of Employment</button>
                 <div class="accordion-content">
-                  <p>Content for Foreign Content 3.</p>
+                  <p>Any following document is acceptable:
+                    <ul>
+                      <li>Latest computerised payslip</li>
+                      <li>Company letter certifying employment and salary </li>
+                    <ul>
+                  </p>
                 </div>
               </div>
               <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(event)">Foreign Content 1</button>
+                <button class="accordion-header" data-image="<%= image_path('bank-statement.webp') %>" onclick="toggleAccordion(event)">Proof of Residential Address</button>
                 <div class="accordion-content">
-                  <p>Content for Foreign Content 1.</p>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(event)">Foreign Content 1</button>
-                <div class="accordion-content">
-                  <p>Content for Foreign Content 1.</p>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(event)">Foreign Content 1</button>
-                <div class="accordion-content">
-                  <p>Content for Foreign Content 1.</p>
+                  <p>Latest copy of your Residential Address proof dated within 3 months before the date of card application (For new DBS/POSB Bank customers only). Submission of either one of the documents is accpetable:
+                    <ul>
+                      <li>Letter of offer/ employment</li>
+                      <li>Local utility/ telecommunication bill</li>
+                      <li>Local bank statement/ credit card statement</li>
+                      <li>In-Principle Approval (IPA) issued by Ministry of Manpower</li>
+                      <li>In-Principle Approval (IPA) issued from ICA</li>
+                      <li>Work permit of foreign domestic worker issue by Ministry of Manpower</li>
+                  </p>
                 </div>
               </div>
             </div>
           </div>
           <div class="main-content">
-            <img src="your-image.png" alt="Foreign Content">
+            <%= image_tag("visa-card.jpg", alt: "Visa Card", id: "main-image-2f", style: "width: 80%;" ) %>
           </div>
         </div>
       </div>
 
+      <!-- Self Employed - Singaporean -->
       <div id="label3" class="tab-content" style="display: none;">
         <div class="content" id="singapore-content">
           <div class="sidebar">
@@ -263,8 +273,61 @@
             </div>
           </div>
           <div class="main-content">
-              <%= image_tag("visa-card.jpg", alt: "Visa Card", id: "main-image") %>
+              <%= image_tag("visa-card.jpg", alt: "Visa Card", id: "main-image", style:"width: 80%") %>
           </div>
+        </div>
+
+        <!-- Self Employed - Singaporean -->
+        <div class="content" id="foreigners-content" style="display: none;">
+            <div class="sidebar">
+              <div class="accordion">
+                <div class="accordion-item">
+                  <button class="accordion-header" data-image="<%= image_path('passport.jpeg') %>" onclick="toggleAccordion(event, 'visa-card.jpg')">Valid Passport</button>
+                  <div class="accordion-content">
+                    <p>Passport for Foreigner (minimum validity of 6 months at the time of application)</p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button class="accordion-header" data-image="<%= image_path('work-permit.png') %>" onclick="toggleAccordion(event)">Employment Pass</button>
+                  <div class="accordion-content">
+                    <p>Employment Pass must have a minimum validity of 6 months at the time of application. Any of these following pass is acceptable:
+                      <ul>
+                        <li>Employment Pass</li> 
+                        <li>S Pass</li> 
+                        <li>Personalised Employment Pass</li>
+                        <li>Long-Term Visit Pass with LOC</li>
+                        <li>Tech. Pass</li>
+                        <li>International Organisation Pass</li>
+                        <li>Overseas Networks & Expertise Pass</li>
+                      </ul>
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button class="accordion-header" data-image="<%= image_path('tax-assesment.png') %>" onclick="toggleAccordion(event)"> Latest Income Tax Notice of Assessment </button>
+                  <div class="accordion-content">
+                    <p>Latest 2 years of Income Tax Notice of Assessment in SGD is preferred; else minimally latest 1 year of Income Tax Notice of Assessment</p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button class="accordion-header" data-image="<%= image_path('bank-statement.webp') %>" onclick="toggleAccordion(event)">Proof of Residential Address</button>
+                  <div class="accordion-content">
+                    <p>Latest copy of your Residential Address proof dated within 3 months before the date of card application (For new DBS/POSB Bank customers only). Submission of either one of the documents is accpetable:
+                      <ul>
+                        <li>Letter of offer/ employment</li>
+                        <li>Local utility/ telecommunication bill</li>
+                        <li>Local bank statement/ credit card statement</li>
+                        <li>In-Principle Approval (IPA) issued by Ministry of Manpower</li>
+                        <li>In-Principle Approval (IPA) issued from ICA</li>
+                        <li>Work permit of foreign domestic worker issue by Ministry of Manpower</li>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="main-content">
+                <%= image_tag("visa-card.jpg", alt: "Visa Card", id: "main-image", style:"width: 80%") %>
+            </div>
         </div>
       </div>
     </div>
@@ -302,83 +365,139 @@
   </div>
 
   <script>
+    // Pop Up close and open
     function showPopup(popupId) {
-      document.getElementById(popupId).classList.add("show");
+        document.getElementById(popupId).classList.add("show");
     }
 
     function closePopup(popupId) {
-      document.getElementById(popupId).classList.remove("show");
+        document.getElementById(popupId).classList.remove("show");
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
+        // Add event listeners for section clicks
+        document.getElementById('section1').addEventListener('click', () => showPopup('principal_popup'));
+        document.getElementById('section2').addEventListener('click', () => showPopup('supplementary_popup'));
+        document.getElementById('section3').addEventListener('click', () => showPopup('livefresh_popup'));
 
-    accordionHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const currentContent = header.nextElementSibling;
-            const allContents = document.querySelectorAll('.accordion-content');
-            const allHeaders = document.querySelectorAll('.accordion-header');
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        const toggleCheckbox = document.getElementById('toggle');
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
 
-            allContents.forEach(content => {
-                if (content !== currentContent) {
-                    content.style.display = 'none';
-                }
-            });
+        // Initialize the first active header image
+        const initialActiveHeader = document.querySelector('.accordion-header.active');
+        if (initialActiveHeader) {
+            updateMainImage(initialActiveHeader.getAttribute('data-image'), initialActiveHeader.closest('.content').querySelector('.main-content img'));
+        }
 
-            allHeaders.forEach(h => {
-                if (h !== header) {
-                    h.classList.remove('active');
-                }
-            });
-
-            currentContent.style.display = currentContent.style.display === 'block' ? 'none' : 'block';
-            header.classList.toggle('active');
-
-            // Update the image in the main-content div
-            const imagePath = header.getAttribute('data-image');
-            const mainImage = document.getElementById('main-image');
-            mainImage.src = imagePath;
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                resetAccordionHeaders(header.closest('.content'));
+                toggleAccordion(header);
             });
         });
+
+        toggleCheckbox.addEventListener('change', () => {
+            tabContents.forEach(tab => toggleContent(tab));
+            updateMainImageForActiveTab();
+        });
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (event) => {
+                openTab(event, tab.getAttribute('onclick').match(/'(.*?)'/)[1]);
+            });
+        });
+
+        // Open the first tab by default
+        const defaultTab = document.querySelector('.tab.active');
+        if (defaultTab) {
+            defaultTab.click();
+        }
+
+        function resetAccordionHeaders(contentContainer) {
+            const allContents = contentContainer.querySelectorAll('.accordion-content');
+            const allHeaders = contentContainer.querySelectorAll('.accordion-header');
+            allContents.forEach(content => content.style.display = 'none');
+            allHeaders.forEach(header => header.classList.remove('active'));
+        }
+
+        function toggleAccordion(header) {
+            const currentContent = header.nextElementSibling;
+            currentContent.style.display = 'block';
+            header.classList.add('active');
+            updateMainImage(header.getAttribute('data-image'), header.closest('.content').querySelector('.main-content img'));
+        }
+
+        function updateMainImage(imagePath, imageElement) {
+            if (imagePath && imageElement) {
+                imageElement.src = imagePath;
+            }
+        }
+
+        function toggleContent(tab) {
+            const singaporeContent = tab.querySelector('#singapore-content');
+            const foreignersContent = tab.querySelector('#foreigners-content');
+            if (toggleCheckbox.checked) {
+                singaporeContent.style.display = 'none';
+                foreignersContent.style.display = 'flex';
+                resetAccordion(foreignersContent);
+            } else {
+                singaporeContent.style.display = 'flex';
+                foreignersContent.style.display = 'none';
+                resetAccordion(singaporeContent);
+            }
+            updateMainImageForActiveTab();
+        }
+
+        function resetAccordion(contentContainer) {
+            const headers = contentContainer.querySelectorAll('.accordion-header');
+            const contents = contentContainer.querySelectorAll('.accordion-content');
+            contents.forEach(content => content.style.display = 'none');
+            headers.forEach(header => header.classList.remove('active'));
+            if (headers.length > 0) {
+                headers[0].classList.add('active');
+                contents[0].style.display = 'block';
+                updateMainImage(headers[0].getAttribute('data-image'), contentContainer.querySelector('.main-content img'));
+            }
+        }
+
+        function openTab(evt, tabName) {
+            tabs.forEach(tab => tab.classList.remove('active'));
+            evt.currentTarget.classList.add('active');
+            tabContents.forEach(content => content.style.display = 'none');
+            const activeTab = document.getElementById(tabName);
+            activeTab.style.display = 'block';
+            toggleContent(activeTab);
+
+            // Update the image for the first accordion header in the active tab
+            const activeContent = activeTab.querySelector('.content');
+            const firstActiveHeader = activeContent.querySelector('.accordion-header.active');
+            const mainImageElement = activeContent.querySelector('.main-content img');
+            if (firstActiveHeader) {
+                updateMainImage(firstActiveHeader.getAttribute('data-image'), mainImageElement);
+            } else {
+                const firstHeader = activeContent.querySelector('.accordion-header');
+                if (firstHeader) {
+                    updateMainImage(firstHeader.getAttribute('data-image'), mainImageElement);
+                }
+            }
+        }
+
+        function updateMainImageForActiveTab() {
+            const activeTabContent = document.querySelector('.tab-content[style*="display: block"] .content');
+            const activeHeader = activeTabContent.querySelector('.accordion-header.active');
+            const mainImageElement = activeTabContent.querySelector('.main-content img');
+            if (activeHeader) {
+                updateMainImage(activeHeader.getAttribute('data-image'), mainImageElement);
+            } else {
+                const firstHeader = activeTabContent.querySelector('.accordion-header');
+                if (firstHeader) {
+                    updateMainImage(firstHeader.getAttribute('data-image'), mainImageElement);
+                }
+            }
+        }
     });
-
-
-    const toggleCheckbox = document.getElementById('toggle');
-
-    toggleCheckbox.addEventListener('change', () => {
-      const singaporeContent = document.getElementById('singapore-content');
-      const foreignersContent = document.getElementById('foreigners-content');
-
-      if (toggleCheckbox.checked) {
-        singaporeContent.style.display = 'none';
-        foreignersContent.style.display = 'flex';
-      } else {
-        singaporeContent.style.display = 'flex';
-        foreignersContent.style.display = 'none';
-      }
-    });
-
-  function openTab(evt, tabName) {
-    const tabs = document.querySelectorAll('.tab');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    tabs.forEach(tab => tab.classList.remove('active'));
-    evt.currentTarget.classList.add('active');
-
-    tabContents.forEach(content => {
-      content.style.display = 'none';
-    });
-
-    document.getElementById(tabName).style.display = 'block';
-  }
-
- const imageSrc = header.getAttribute('data-image-src'); 
-  if (imageSrc) {
-    document.getElementById('main-image').src = imageSrc;
-  }
-
-
-
 
   </script>
 
