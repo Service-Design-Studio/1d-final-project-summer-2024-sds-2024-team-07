@@ -6,3 +6,4 @@
 //= link documentuploadpage/application_documentuploadpage.css
 //= link applicationformpage/application_formpage.css
 //= link applypage/application_applypage.css
+//= link documentuploadpage/application_documentuploadpage.css
