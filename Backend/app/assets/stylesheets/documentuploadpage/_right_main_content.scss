@@ -9,7 +9,8 @@ $accent-inactive: desaturate($accent, 85%);
 $secondary: $accent-inactive;
 
 /* tab setting */
-$tab-count: 4;
+
+$tab-count: 5; 
 $indicator-width: 50px;
 $indicator-height: 4px;
 
@@ -19,30 +20,97 @@ $breakpoints: (
   small: #{$tab-count * 150px},
 );
 
-/* selectors relative to radio inputs */
-$label-selector: "~ ul > li";
-$slider-selector: "~ .slider";
-$content-selector: "~ .content > section";
-
-@mixin tabs(
-  $label-selector: $label-selector,
-  $slider-selector: $slider-selector,
-  $content-selector: $content-selector
-) {
-  @for $i from 1 through $tab-count {
-    &:nth-of-type(#{$i}):checked {
-      #{$label-selector}:nth-child(#{$i}) {
-        @content;
-      }
-      #{$slider-selector} {
-        transform: translateX(#{100% * ($i - 1)});
-      }
-      #{$content-selector}:nth-child(#{$i}) {
-        display: block;
-      }
-    }
-  }
+.tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  font-family: Arial, sans-serif;
 }
+.tabs input[type="radio"] {
+  display: none;
+}
+.tabs ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+.tabs ul li {
+  flex: 1;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.tabs label {
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  background-color: #f0f0f0;
+}
+.tabs label:hover {
+  background-color: #e0e0e0;
+}
+.tabs .indicator {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  background: #333;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+/* Additional styling for active states */
+input[id="tab1"]:checked ~ ul li label[for="tab1"],
+input[id="tab2"]:checked ~ ul li label[for="tab2"],
+input[id="tab3"]:checked ~ ul li label[for="tab3"],
+input[id="tab4"]:checked ~ ul li label[for="tab4"],
+input[id="tab5"]:checked ~ ul li label[for="tab5"] {
+  background: #fff;
+  border-bottom: 2px solid #333;
+  color: #333;
+}
+
+
+// /* selectors relative to radio inputs */
+// $label-selector: "~ ul > li";
+// $slider-selector: "~ .slider";
+// $content-selector: "~ .content > section";
+
+// @mixin tabs(
+//   $label-selector: $label-selector,
+//   $slider-selector: $slider-selector,
+//   $content-selector: $content-selector
+// ) {
+//   @for $i from 1 through $tab-count {
+//     &:nth-of-type(#{$i}):checked {
+//       #{$label-selector}:nth-child(#{$i}) {
+//         @content;
+//       }
+//       #{$slider-selector} {
+//         transform: translateX(#{100% * ($i - 1)});
+//       }
+//       #{$content-selector}:nth-child(#{$i}) {
+//         display: block;
+//       }
+//     }
+//   }
+// }
+// .slider {
+//   position: relative;
+//   width: calc(100% / #{$tab-count});
+//   transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+
+//   .indicator {
+//     position: relative;
+//     width: $indicator-width;
+//     max-width: 100%;
+//     margin: 0 auto;
+//     height: $indicator-height;
+//     background: $accent;
+//     border-radius: 1px;
+//   }
+// }
 
 html {
   width: 100%;
@@ -63,16 +131,33 @@ body {
     margin: 0;
   }
 }
+.btn-group {
+  position: relative;
+  left: 5%;
+  width: 90%;
+  margin-top: 30px;
+  background-color: #ffffff;
+  outline: none;
+  
+}
+.btn-group button{
+  font-weight: bold;
+}
+.btn-group .btn.active {
+  background-color: #fa3943;
+  color: white;
+}
 
 .tabs {
+  margin-top: 1px;
   left: 50%;
   transform: translateX(-50%);
   position: relative;
   background: white;
   padding: 50px;
   padding-bottom: 80px;
-  width: 70%;
-  height: 250px;
+  width: 90%;
+  height: 600px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   border-radius: 5px;
   min-width: #{$tab-count * 60px};
@@ -108,7 +193,7 @@ body {
 
       label {
         transition: all 0.3s ease-in-out;
-        color: $secondary;
+        color: darken($secondary, 20%);
         padding: 5px auto;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -123,7 +208,7 @@ body {
         }
 
         svg {
-          fill: $secondary;
+          fill: darken($secondary, 20%);
           height: 1.2em;
           vertical-align: bottom;
           margin-right: 0.2em;
@@ -144,21 +229,6 @@ body {
     }
   }
 
-  .slider {
-    position: relative;
-    width: #{100% / $tab-count};
-    transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
-
-    .indicator {
-      position: relative;
-      width: $indicator-width;
-      max-width: 100%;
-      margin: 0 auto;
-      height: $indicator-height;
-      background: $accent;
-      border-radius: 1px;
-    }
-  }
 
   .content {
     margin-top: 30px;
@@ -186,7 +256,9 @@ body {
       }
     }
   }
-
+  .hidden-tab {
+    display: none !important;
+}
   input[name="tab-control"] {
     @include tabs {
       > label {

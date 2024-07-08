@@ -47,7 +47,14 @@
           </li>
           <li>
             <% if relevant_page?(pages_documentupload_path) %>
-              <a href="#" data-tab="tab4">Proof of Singapore Address</a>
+              <a href="#" data-tab="tab4">Pay Slip</a>
+            <% else %>
+              <span class="non-clickable">Pay Slip</span>
+            <% end %>
+          </li>
+          <li>
+            <% if relevant_page?(pages_documentupload_path) %>
+              <a href="#" data-tab="tab5">Proof of Singapore Address</a>
             <% else %>
               <span class="non-clickable">Proof of Singapore Address</span>
             <% end %>
