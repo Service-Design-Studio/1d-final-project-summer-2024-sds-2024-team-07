@@ -10,15 +10,16 @@ steps:
     args: ["push", "gcr.io/dbs-db-doc/${_SERVICE_NAME}"]
 
 
-  # - id: "apply migrations"
-  #   name: "gcr.io/google-appengine/exec-wrapper"
-  #   entrypoint: "bash"
-  #   args:
-  #     [
-  #       "-c",
-  #       "/buildstep/execute.sh -i gcr.io/dbs-db-doc/${_SERVICE_NAME} -s dbs-db-doc:${_REGION}:${_INSTANCE_NAME} -e RAILS_MASTER_KEY=$$RAILS_KEY -- bundle exec rake db:migrate"
-  #     ]
-  #   secretEnv: ["RAILS_KEY"]
+  - id: "apply migrations"
+    name: "gcr.io/google-appengine/exec-wrapper"
+    entrypoint: "bash"
+    args:
+      [
+        "-c",
+        "source /workspace/.env && /buildstep/execute.sh -i gcr.io/dbs-db-doc/${_SERVICE_NAME} -s dbs-db-doc:${_REGION}:${_INSTANCE_NAME} -e RAILS_MASTER_KEY=$$RAILS_KEY -- bundle exec rake db:migrate"
+        # "/buildstep/execute.sh -i gcr.io/dbs-db-doc/${_SERVICE_NAME} -s dbs-db-doc:${_REGION}:${_INSTANCE_NAME} -e RAILS_MASTER_KEY=$$RAILS_KEY -- bundle exec rake db:migrate"
+      ]
+    secretEnv: ["RAILS_KEY"]
   
   # - id: "seed database"
   #   name: "gcr.io/google-appengine/exec-wrapper"
