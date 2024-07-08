@@ -23,36 +23,36 @@
           <i class='bx bxs-chevron-down arrow'></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name">1. Documents</a></li>
-          <li>
+          <li id="item-documents"><a class="link_name">1. Documents</a></li>
+          <li id="item-tab1">
             <% if relevant_page?(pages_documentupload_path) %>
               <a href="#" data-tab="tab1">Valid Passport</a>
             <% else %>
               <span class="non-clickable">Valid Passport</span>
             <% end %>
           </li>
-          <li>
+          <li id="item-tab2">
             <% if relevant_page?(pages_documentupload_path) %>
               <a href="#" data-tab="tab2">Valid Employment Pass</a>
             <% else %>
               <span class="non-clickable">Valid Employment Pass</span>
             <% end %>
           </li>
-          <li>
+          <li id="item-tab3">
             <% if relevant_page?(pages_documentupload_path) %>
               <a href="#" data-tab="tab3">Income Tax</a>
             <% else %>
               <span class="non-clickable">Income Tax</span>
             <% end %>
           </li>
-          <li>
+          <li id="item-tab4">
             <% if relevant_page?(pages_documentupload_path) %>
               <a href="#" data-tab="tab4">Pay Slip</a>
             <% else %>
               <span class="non-clickable">Pay Slip</span>
             <% end %>
           </li>
-          <li>
+          <li id="item-tab5">
             <% if relevant_page?(pages_documentupload_path) %>
               <a href="#" data-tab="tab5">Proof of Singapore Address</a>
             <% else %>

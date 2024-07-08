@@ -89,6 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
       label.parentElement.style.display = 'none';
       label.control.disabled = true;
     });
+    document.getElementById('item-tab3').style.display = 'block';  // Show Income Tax by default
+    document.getElementById('item-tab4').style.display = 'block';  // Show Pay Slip by default
   }
 
   function restoreTabs(tabIds) {
@@ -115,8 +117,10 @@ document.addEventListener("DOMContentLoaded", function () {
       restoreTabs(['tab1', 'tab2', 'tab3', 'tab4', 'tab5']);
     } else if (groupNumber === 2) {
       restoreTabs(['tab1', 'tab2', 'tab4', 'tab5']);
+      document.getElementById('item-tab3').style.display = 'none';
     } else if (groupNumber === 3) {
       restoreTabs(['tab1', 'tab2', 'tab3', 'tab5']);
+      document.getElementById('item-tab4').style.display = 'none';
     }
 
     updateIndicator();
