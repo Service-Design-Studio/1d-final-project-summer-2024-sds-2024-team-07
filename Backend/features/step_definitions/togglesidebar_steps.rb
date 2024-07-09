@@ -1,9 +1,9 @@
 Given('that I am on the document upload page') do
-  visit upload_documents_path
+  visit pages_documentupload_path
 end
 
 Given('that I am on the application form page') do
-  visit application_form_path
+  visit pages_applicationform_path
 end
 
 When('I want to find the information of the documents required on the document upload page') do
@@ -14,16 +14,21 @@ When('I want to find the information of the application form without having subm
   # This step is informational; no specific action needed
 end
 
-Then('I should be able to click onto the sidebar') do
+# Scenario 1: Viewing details within the same page on the sidebar
+Then('I should see the sidebar') do
   expect(page).to have_css('.sidebar', visible: true)
 end
 
-Then('I should see information of each section of each page within the sidebar') do
-  expect(page).to have_css('.sidebar .nav-links .iocn-link', minimum: 1)
+Then('I should see each page of the aplication within the sidebar') do
+  expect(page).to have_css('.link_name', minimum: 4)
 end
 
-When('I click on a section that belongs to the current page') do
-  find('.sidebar .nav-links .iocn-link a', text: '1. Documents').click
+And('I click on a section that belongs to the current page') do
+  find('.sidebar .link_name', text: '1. Documents').click
+end
+
+Then('I should see the contents of the current section') do
+  # Add relevant expectations here
 end
 
 Then('my screen slides to the respective section') do
@@ -34,6 +39,7 @@ Then('my screen slides to the respective section') do
   expect(page).to have_css('a[data-tab="tab4"]')
 end
 
+# Scenario 2: Viewing details of application page on the sidebar
 Then('I should see other pages\' headers on the sidebar such as "2. Particulars"') do
   expect(page).to have_css('.sidebar .nav-links .iocn-link a .link_name', text: '2. Particulars', visible: true)
 end
@@ -66,7 +72,7 @@ end
 
 Then('I should be brought to the application form page') do
   find('a', text: 'Next').click
-  expect(current_path).to eq(application_form_path)
+  expect(current_path).to eq(pages_applicationform_path) # Ensure the path is correct
 end
 
 When('I want to find the information of the document upload page') do

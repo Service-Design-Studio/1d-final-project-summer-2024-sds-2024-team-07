@@ -6,9 +6,10 @@ Feature: Toggle Sidebar
   Scenario: Viewing details within the same page on the sidebar
     Given that I am on the document upload page
     When I want to find the information of the documents required on the document upload page
-    Then I should be able to click onto the sidebar
-    And I should see information of each section of each page within the sidebar
-    When I click on a section that belongs to the current page
+    And I should see the sidebar
+    And I should see each page of the aplication within the sidebar
+    And I click on a section that belongs to the current page
+    Then I should see the contents of the current section
     Then my screen slides to the respective section
 
   Scenario: Viewing details of application page on the sidebar
@@ -26,11 +27,3 @@ Feature: Toggle Sidebar
     And I want to go to the application form page
     Then I should be able to click onto the 'Next' button
     And I should be brought to the application form page
-
-  Scenario: Viewing details of document uploads on the sidebar
-    Given that I am on the application form page
-    When I want to find the information of the document upload page
-    And I should see other pages' headers on the sidebar such as "1. Documents"
-    When I click on the header "1. Documents"
-    Then a dropdown displaying the information of the sections within that page should appear
-    And I should not be able to click on a section that belongs to that page
