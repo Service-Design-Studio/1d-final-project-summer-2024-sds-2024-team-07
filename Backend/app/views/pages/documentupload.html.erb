@@ -21,13 +21,13 @@
       <li title="Valid Passport">
         <label id="l1" for="tab1" role="button">
           <div class="icon">📕</div>
-          <br><span>Valid Passport</span>
+          <br><span>Passport</span>
         </label>
       </li>
-      <li title="Valid Employment Pass">
+      <li title= "Employment Pass">
         <label id="l2" for="tab2" role="button">
           <div class="icon">📝</div>
-          <br><span>Valid Employment Pass</span>
+          <br><span>Employment Pass</span>
         </label>
       </li>
       <li id="it" title="Income Tax">
@@ -42,10 +42,10 @@
           <br><span>Pay Slip</span>
         </label>
       </li>
-      <li title="Proof of Singapore Address">
+      <li title="Proof of SG Address">
         <label id="l5" for="tab5" role="button">
           <div class="icon">🏠</div>
-          <br><span>Proof of Singapore Address</span>
+          <br><span>Proof of Address</span>
         </label>
       </li>
     </ul>
@@ -63,14 +63,15 @@
         <%=image_tag 'IncomeSlip.jpg', alt:"Pay Slip", class: 'content-image' %>
       </section>
       <section id="content5">
-        <img src="image5.jpg" alt="Content 5 Image", class: 'content-image' >
+        <%=image_tag 'poa.jpg', alt:"Proof of Address", class: 'content-image' %>
       </section>
     </div>
 
-        <div style="text-align: center; margin-top: -25px;">
-        <button style='display: inline-block; padding: 10px 20x; font-size: 16px; text-decoration: none; background-color: #428bff; color: white; border-radius: 2px;'>Upload</button>
+        <div class="upload-btn-wrapper">
+          <button class="btnUp">Upload a file</button>
+          <input type="file" name="myfile" />
         </div>
-     
+
         <div style="text-align: right; margin-top: 80px;">
         <%= link_to 'Next', pages_applicationform_path, style: 'display: inline-block; padding: 10px 20px; font-size: 16px; text-decoration: none; background-color: red; color: white; border-radius: 5px;' %>
         </div>

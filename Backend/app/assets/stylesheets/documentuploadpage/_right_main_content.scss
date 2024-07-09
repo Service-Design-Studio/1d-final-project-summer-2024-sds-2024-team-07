@@ -133,6 +133,33 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 }
 
 
+.upload-btn-wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin-top: -40px;
+}
+
+.btnUp {
+  border: 2px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+
 
 
 
@@ -194,6 +221,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
         transition: all 0.2s ease-in-out;
         white-space: nowrap;
         -webkit-touch-callout: none;
+        
 
         br {
           display: none;
