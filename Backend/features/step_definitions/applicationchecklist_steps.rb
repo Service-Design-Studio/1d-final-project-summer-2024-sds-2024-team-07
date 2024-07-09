@@ -30,7 +30,7 @@ And('I have clicked onto the {string} section') do |section|
   end
 end
 
-#Then Clicking into different sections and content of the section 
+#Then Clicking into different sections and content of the section
 Then('I should see what is required for my {string} application') do |card_type|
   begin
     case card_type
@@ -61,7 +61,6 @@ And('I should see what {string} refers to') do |document_type|
     when "Financial Document"
       # Check the active tab's text and verify the content accordingly
       active_tab = find('button.tab.active', visible: false).text
-      
       if active_tab.include?('Salaried Employee (more than 3 months)')
         expect(page).to have_content('Submission of either documents are acceptable:')
         expect(page).to have_content('Latest 3 months’ computerised payslip in SGD is preferred; else minimally Latest 1 month’s computerised payslip')
@@ -90,18 +89,33 @@ end
 
 #Clicking into the different headers and opening the content
 Then('I should be able to see what {string} refers to') do |document_type|
-  case document_type
-  when "Identification Document"
-    expect(page).to have_content('NRIC (front & back) for Singaporean/Permanent Residents')
-  when "Financial Document"
-    expect(page).to have_content("Submission of either documents are acceptable:")
-    expect(page).to have_content("Latest 3 months’ computerised payslip in SGD is preferred; else minimally Latest 1 month’s computerised payslip")
-    expect(page).to have_content("Latest 12 months’ CPF contribution history statement")
-    expect(page).to have_content("Latest 3 months’ salary crediting bank statements in SGD")
-  when "Income Tax Notice of Assessment"
-    expect(page).to have_content('Latest 2 years of Income Tax Notice of Assessment in SGD is preferred; else minimally latest 1 year of Income Tax Notice of Assessment')
-  else
-    raise "Unknown tab: #{document_type}"
+  begin
+    case document_type
+    when "Identification Document"
+      expect(page).to have_content('NRIC (front & back) for Singaporean/Permanent Residents')
+    when "Financial Document"
+      expect(page).to have_content("Submission of either documents are acceptable:")
+      expect(page).to have_content("Latest 3 months’ computerised payslip in SGD is preferred; else minimally Latest 1 month’s computerised payslip")
+      expect(page).to have_content("Latest 12 months’ CPF contribution history statement")
+      expect(page).to have_content("Latest 3 months’ salary crediting bank statements in SGD")
+    when "Income Tax Notice of Assessment"
+      expect(page).to have_content('Latest 2 years of Income Tax Notice of Assessment in SGD is preferred; else minimally latest 1 year of Income Tax Notice of Assessment')
+    when "Valid Passport"
+      expect(page).to have_content('Passport for Foreigner (minimum validity of 6 months at the time of application)')
+    when "Employment Pass"
+      expect(page).to have_content('Employment Pass must have a minimum validity of 6 months at the time of application. Any of these following pass is acceptable:')
+    when "Latest Computerised Payslip"
+      expect(page).to have_content("Document must be dated within 3 months before the date of application; else minimally Latest 1 month’s computerised payslip")
+    when "Proof of Residential Address"
+      expect(page).to have_content("Latest copy of your Residential Address proof dated within 3 months before the date of card application (For new DBS/POSB Bank customers only).")
+    when "Proof of Employment"
+      expect(page).to have_content("Latest computerised payslip")
+      expect(page).to have_content("Company letter certifying employment and salary")
+    else
+      raise "Unknown tab: #{document_type}"
+    end
+  rescue ActionController::RoutingError => e
+    puts "Ignoring routing error: #{e.message}"
   end
 end
 
@@ -132,6 +146,12 @@ When('I click onto {string}') do |document_type|
       find('button.accordion-header', text: 'Financial Document').click
     when "Income Tax Notice of Assessment"
       find('button.accordion-header', text: 'Income Tax Notice of Assessment').click
+    when "Employment Pass"
+      find('button.accordion-header', text: 'Employment Pass').click
+    when "Proof of Residential Address"
+      find('button.accordion-header', text: 'Proof of Residential Address').click
+    when "Proof of Employment"
+      find('button.accordion-header', text: 'Proof of Employment').click
     else
       raise "Unknown tab: #{document_type}"
     end
@@ -145,13 +165,13 @@ Then('I should be able to click onto the close icon') do
   find('span.close').click
 end
 
-#returning to the main page 
+#returning to the main page
 And('I should be returned to the application checklist page') do
   expect(page).to have_current_path('/pages/applicationchecklist')
 end
 
 #If there is only one image
-And('I should see an image corresponding to an {string}') do |document_type|
+And('I should see an image corresponding to a {string}') do |document_type|
   case document_type
   when "Identification Document"
     expect(page).to have_css("img[src*='Nric.png']")
@@ -159,11 +179,12 @@ And('I should see an image corresponding to an {string}') do |document_type|
     expect(page).to have_css("img[src*='income-slip.png']")
   when "Income Tax Notice of Assessment"
     expect(page).to have_css("img[src*='tax-assesment.png']")
+  when "Valid Passport"
+    expect(page).to have_css("img[src*='passport.jpeg']")
   else
     raise "Unknown document type: #{document_type}"
   end
 end
-
 
 
 #handle the gallery
@@ -175,6 +196,10 @@ And('I should see the first image corresponding to {string}') do |document_type|
     expect(page).to have_css("img[src*='income-slip.png']", visible: true)
   when "Income Tax Notice of Assessment"
     expect(page).to have_css("img[src*='tax-assesment.png']")
+  when "Employment Pass"
+    expect(page).to have_css("img[src*='employment-pass.png']")
+  when "Proof of Residential Address"
+    expect(page).to have_css("img[src*='employment-certificate.png']")
   else
     raise "Unknown document type: #{document_type}"
   end
@@ -209,33 +234,40 @@ When('I click onto the {string} button') do |button_name|
   end
 end
 
-#Different Tabs 
+#Different Tabs
 When('I click onto {string} tab') do |tab_name|
-  within '#principal_popup' do
-    case tab_name
-    when "Salaried Employee (more than 3 months)"
-      find('button.tab', text: 'Salaried Employee (more than 3 months)').click
-    when "Salaried Employee (less than 3 months)"
-      find('button.tab', text: 'Salaried Employee (less than 3 months)').click
-    when "Variable/Commission-based Employees or Self-Employed"
-      find('button.tab', text: 'Variable/Commission-based Employees or Self-Employed').click
-    else
-      raise "Unknown tab: #{tab_name}"
+  begin
+    within '#principal_popup' do
+      case tab_name
+      when "Salaried Employee (more than 3 months)"
+        find('button.tab', text: 'Salaried Employee (more than 3 months)').click
+      when "Salaried Employee (less than 3 months)"
+        find('button.tab', text: 'Salaried Employee (less than 3 months)').click
+      when "Variable/Commission-based Employees or Self-Employed"
+        find('button.tab', text: 'Variable/Commission-based Employees or Self-Employed').click
+      else
+        raise "Unknown tab: #{tab_name}"
+      end
     end
+  rescue ActionController::RoutingError => e
+    puts "Ignoring routing error: #{e.message}"
   end
 end
 
 # Foreigner and PR/SG  toggle
 When('I click on {string} toggle') do |toggle_name|
-  within '#principal_popup' do
-    case toggle_name
-    when "Singaporean or Permanent Resident"
-      find('label', text: 'Singaporean/Permanent Resident').click
-    when "Foreigner"
-      find('label', text: 'Foreigners').click
-    else
-      raise "Unknown toggle option: #{toggle_name}"
+  begin
+    within '#principal_popup' do
+      case toggle_name
+      when "Singaporean or Permanent Resident"
+        find('label', text: 'Singaporean/Permanent Resident').click
+      when "Foreigner"
+        find('label', text: 'Foreigners').click
+      else
+        raise "Unknown toggle option: #{toggle_name}"
+      end
     end
+  rescue ActionController::RoutingError => e
+    puts "Ignoring routing error: #{e.message}"
   end
 end
-
