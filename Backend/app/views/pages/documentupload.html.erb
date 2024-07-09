@@ -19,31 +19,31 @@
     <input type="radio" id="tab5" name="tab-control">
     <ul>
       <li title="Valid Passport">
-        <label id="l1" for="tab1" role="button">
+        <label id="label1" for="tab1" role="button">
           <div class="icon">📕</div>
           <br><span>Passport</span>
         </label>
       </li>
       <li title= "Employment Pass">
-        <label id="l2" for="tab2" role="button">
+        <label id="label2" for="tab2" role="button">
           <div class="icon">📝</div>
           <br><span>Employment Pass</span>
         </label>
       </li>
       <li id="it" title="Income Tax">
-        <label id="l3" for="tab3" role="button">
+        <label id="label3" for="tab3" role="button">
           <div class="icon">💵</div>
           <br><span>Income Tax</span>
         </label>
       </li>
       <li title="PaySlip">
-        <label id="l4" for="tab4" role="button">
+        <label id="label4" for="tab4" role="button">
           <div class="icon">💼</div>
           <br><span>Pay Slip</span>
         </label>
       </li>
       <li title="Proof of SG Address">
-        <label id="l5" for="tab5" role="button">
+        <label id="label5" for="tab5" role="button">
           <div class="icon">🏠</div>
           <br><span>Proof of Address</span>
         </label>
@@ -86,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const tabs = tabsContainer.querySelectorAll("input[type='radio']");
   const labels = tabsContainer.querySelectorAll("label");
   const indicator = tabsContainer.querySelector(".indicator");
+  const fileInput = document.querySelector(".upload-btn-wrapper input[type='file']");
 
   function updateIndicator() {
     const activeTab = Array.from(tabs).find(tab => tab.checked);
@@ -151,6 +152,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     document.querySelector(`#content${activeTabId.slice(-1)}`).style.display = "block";
   }
+
+  function clickNextLabel() {
+    const activeTab = Array.from(tabs).find(tab => tab.checked);
+    if (activeTab) {
+      const activeIndex = Array.from(tabs).indexOf(activeTab);
+      const nextIndex = (activeIndex + 1) % tabs.length;
+      labels[nextIndex].click();
+    }
+  }
+
+  fileInput.addEventListener("change", clickNextLabel);
 
   document.getElementById('button1').addEventListener('click', () => showTabGroup(1));
   document.getElementById('button2').addEventListener('click', () => showTabGroup(2));
