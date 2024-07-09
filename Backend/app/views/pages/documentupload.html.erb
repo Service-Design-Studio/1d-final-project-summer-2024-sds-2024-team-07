@@ -1,62 +1,80 @@
 <div class="custom-container">
-  <div class="left-div">
-      <%= render 'shared/left_toggle-sidebar' %>
-  </div>
-  <div class="right-div">
-    <%= render 'shared/right_header' %>
-    <div class="btn-group">
-        <button type="button" onclick="showTabGroup(1)" id=button1 class="btn btn-outline-danger">Salaried Employer A:<br> More than 3 Months </button>
-        <button type="button" onclick="showTabGroup(2)" id=button2 class="btn btn-outline-danger">Salaried Employer B:<br> Less than 3 months</button>
-        <button type="button" onclick="showTabGroup(3)" id=button3 class="btn btn-outline-danger">Self-Employed/Commision-Based</button>
+    <div class="left-div">
+        <%= render 'shared/left_toggle-sidebar' %>
+    </div>
+    <div class="right-div">
+        <%= render 'shared/right_header' %>
+        <div class="btn-group">
+            <button type="button" onclick="showTabGroup(1)" id=button1 class="btn btn-outline-danger">Salaried Employer A:<br> More than 3 Months </button>
+            <button type="button" onclick="showTabGroup(2)" id=button2 class="btn btn-outline-danger">Salaried Employer B:<br> Less than 3 months</button>
+            <button type="button" onclick="showTabGroup(3)" id=button3 class="btn btn-outline-danger">Self-Employed/Commision-Based</button>
 
+        </div>
+
+  <div class="tabs">
+    <input type="radio" id="tab1" name="tab-control" checked>
+    <input type="radio" id="tab2" name="tab-control">
+    <input type="radio" id="tab3" name="tab-control">
+    <input type="radio" id="tab4" name="tab-control">
+    <input type="radio" id="tab5" name="tab-control">
+    <ul>
+      <li title="Valid Passport">
+        <label id="l1" for="tab1" role="button">
+          <div class="icon">📕</div>
+          <br><span>Valid Passport</span>
+        </label>
+      </li>
+      <li title="Valid Employment Pass">
+        <label id="l2" for="tab2" role="button">
+          <div class="icon">📝</div>
+          <br><span>Valid Employment Pass</span>
+        </label>
+      </li>
+      <li id="it" title="Income Tax">
+        <label id="l3" for="tab3" role="button">
+          <div class="icon">💵</div>
+          <br><span>Income Tax</span>
+        </label>
+      </li>
+      <li title="PaySlip">
+        <label id="l4" for="tab4" role="button">
+          <div class="icon">💼</div>
+          <br><span>Pay Slip</span>
+        </label>
+      </li>
+      <li title="Proof of Singapore Address">
+        <label id="l5" for="tab5" role="button">
+          <div class="icon">🏠</div>
+          <br><span>Proof of Singapore Address</span>
+        </label>
+      </li>
+    </ul>
+    <div class="content">
+      <section id="content1">
+        <%=image_tag 'Passport.jpg', alt:"Passport", class: 'content-image' %>
+      </section>
+      <section id="content2">
+        <%=image_tag 'WorkPass.jpg', alt:"Employment Pass", class: 'content-image'  %>
+      </section>
+      <section id="content3">
+        <%=image_tag 'TaxAsessment.jpg', alt:"Income Tax", class: 'content-image' %>
+      </section>
+      <section id="content4">
+        <%=image_tag 'IncomeSlip.jpg', alt:"Pay Slip", class: 'content-image' %>
+      </section>
+      <section id="content5">
+        <img src="image5.jpg" alt="Content 5 Image", class: 'content-image' >
+      </section>
     </div>
 
-    <div class="tabs">
-      <input type="radio" id="tab1" name="tab-control" checked>
-      <input type="radio" id="tab2" name="tab-control">
-      <input type="radio" id="tab3" name="tab-control">
-      <input type="radio" id="tab4" name="tab-control">
-      <input type="radio" id="tab5" name="tab-control">
-      <ul>
-        <li title="Valid Passport">
-          <label id="l1" for="tab1" role="button">
-            <div class="icon">📕</div>
-            <br><span>Valid Passport</span>
-          </label>
-        </li>
-        <li title="Valid Employment Pass">
-          <label id="l2" for="tab2" role="button">
-            <div class="icon">📝</div>
-            <br><span>Valid Employment Pass</span>
-          </label>
-        </li>
-        <li id="it" title="Income Tax">
-          <label id="l3" for="tab3" role="button">
-            <div class="icon">💵</div>
-            <br><span>Income Tax</span>
-          </label>
-        </li>
-        <li title="PaySlip">
-          <label id="l4" for="tab4" role="button">
-            <div class="icon">💼</div>
-            <br><span>Pay Slip</span>
-          </label>
-        </li>
-        <li title="Proof of Singapore Address">
-          <label id="l5" for="tab5" role="button">
-            <div class="icon">🏠</div>
-            <br><span>Proof of Singapore Address</span>
-          </label>
-        </li>
-      </ul>
-      <div class="indicator"></div>
+        <div style="text-align: center; margin-top: -25px;">
+        <button style='display: inline-block; padding: 10px 20x; font-size: 16px; text-decoration: none; background-color: #428bff; color: white; border-radius: 2px;'>Upload</button>
+        </div>
+     
+        <div style="text-align: right; margin-top: 80px;">
+        <%= link_to 'Next', pages_applicationform_path, style: 'display: inline-block; padding: 10px 20px; font-size: 16px; text-decoration: none; background-color: red; color: white; border-radius: 5px;' %>
+        </div>
     </div>
-
-
-    <div style="text-align: center; margin-top: 20px;">
-    <%= link_to 'Next', pages_applicationform_path, style: 'display: inline-block; padding: 10px 20px; font-size: 16px; text-decoration: none; background-color: red; color: white; border-radius: 5px;' %>
-    </div>
-  </div>
 </div>
 
 
@@ -104,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function showTabGroup(groupNumber) {
     resetTabs();
+
     var buttons = document.querySelectorAll('.btn-group .btn');
     buttons.forEach(function(button) {
       button.classList.remove('active');
@@ -125,6 +144,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateIndicator();
   }
+  function showContent(activeTabId) {
+    contentSections.forEach(section => {
+      section.style.display = "none";
+    });
+    document.querySelector(`#content${activeTabId.slice(-1)}`).style.display = "block";
+  }
 
   document.getElementById('button1').addEventListener('click', () => showTabGroup(1));
   document.getElementById('button2').addEventListener('click', () => showTabGroup(2));
@@ -135,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Update the indicator on load
   updateIndicator();
+  showContent('tab1');
 });
 
 </script>
