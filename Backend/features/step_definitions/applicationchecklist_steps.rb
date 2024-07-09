@@ -2,6 +2,7 @@ Given('that I am on the application checklist page') do
   visit pages_applicationchecklist_path
 end
 
+#Clicking into different sections of the web - types of card
 When('I click onto the {string} section') do |section|
   case section
   when "Principal Credit Card"
@@ -15,23 +16,21 @@ When('I click onto the {string} section') do |section|
   end
 end
 
-When('I click onto {string}') do |document_type|
-  begin
-    case document_type
-    when "Identification Document"
-      find('button.accordion-header', text: 'Identification Document').click
-    when "Financial Document"
-      find('button.accordion-header', text: 'Financial Document').click
-    when "Income Tax Notice of Assessment"
-      find('button.accordion-header', text: 'Income Tax Notice of Assessment').click
-    else
-      raise "Unknown tab: #{document_type}"
-    end
-  rescue ActionController::RoutingError => e
-    puts "Ignoring routing error: #{e.message}"
+#an And case for the clicking into different sections of the web - types of card
+And('I have clicked onto the {string} section') do |section|
+  case section
+  when "Principal Credit Card"
+    find('div#section1').click
+  when "Supplementary Credit Card"
+    find('div#section2').click
+  when "DBS Live Fresh Student Card"
+    find('div#section3').click
+  else
+    raise "Section not recognized: #{section}"
   end
 end
 
+#Then Clicking into different sections and content of the section 
 Then('I should see what is required for my {string} application') do |card_type|
   begin
     case card_type
@@ -53,10 +52,43 @@ Then('I should see what is required for my {string} application') do |card_type|
   end
 end
 
-Then('I should be able to click onto the close icon') do
-  find('span.close').click
+#an And for the looking inside the content of each header
+And('I should see what {string} refers to') do |document_type|
+  within '#principal_popup' do
+    case document_type
+    when "Identification Document"
+      expect(page).to have_content('NRIC (front & back) for Singaporean/Permanent Residents')
+    when "Financial Document"
+      # Check the active tab's text and verify the content accordingly
+      active_tab = find('button.tab.active', visible: false).text
+      
+      if active_tab.include?('Salaried Employee (more than 3 months)')
+        expect(page).to have_content('Submission of either documents are acceptable:')
+        expect(page).to have_content('Latest 3 months’ computerised payslip in SGD is preferred; else minimally Latest 1 month’s computerised payslip')
+        expect(page).to have_content('Latest 12 months’ CPF Contribution History Statement')
+        expect(page).to have_content('Latest 3 months’ salary crediting bank statements in SGD')
+      elsif active_tab.include?('Salaried Employee (less than 3 months)')
+        expect(page).to have_content('Submission of either documents are acceptable:')
+        expect(page).to have_content('Latest computerised payslip in SGD')
+        expect(page).to have_content('Full Set of Letter of Appointment (Signed copy by HR and you) + Copy of Staff Pass')
+      elsif active_tab.include?('Variable/ Commission-based Employees/ Self-Employed')
+        expect(page).to have_content('Submission of either documents are acceptable:')
+        expect(page).to have_content('Latest 2 years Income Tax Notice of Assessment')
+        expect(page).to have_content('Latest 6 months’ salary crediting bank statements in SGD')
+      else
+        raise "Unknown tab for Financial Document"
+      end
+    when "Income Tax Notice of Assessment"
+      expect(page).to have_content('Latest 2 years of Income Tax Notice of Assessment in SGD is preferred; else minimally latest 1 year of Income Tax Notice of Assessment')
+    else
+      raise "Unknown document type: #{document_type}"
+    end
+  end
 end
 
+
+
+#Clicking into the different headers and opening the content
 Then('I should be able to see what {string} refers to') do |document_type|
   case document_type
   when "Identification Document"
@@ -73,6 +105,7 @@ Then('I should be able to see what {string} refers to') do |document_type|
   end
 end
 
+#Sad Case where you cannot see the previous tab content
 Then('I should no longer see the section under {string}') do |document_type|
   case document_type
   when "Identification Document"
@@ -89,35 +122,120 @@ Then('I should no longer see the section under {string}') do |document_type|
   end
 end
 
-And('I should see what {string} refers to') do |document_type|
-  case document_type
-  when "Identification Document"
-    expect(page).to have_content('NRIC (front & back) for Singaporean/Permanent Residents')
-  when "Financial Document"
-    expect(page).to have_content("Submission of either documents are acceptable:")
-    expect(page).to have_content("Latest 3 months’ computerised payslip in SGD is preferred; else minimally Latest 1 month’s computerised payslip")
-    expect(page).to have_content("Latest 12 months’ CPF contribution history statement")
-    expect(page).to have_content("Latest 3 months’ salary crediting bank statements in SGD")
-  when "Income Tax Notice of Assessment"
-    expect(page).to have_content('Latest 2 years of Income Tax Notice of Assessment in SGD is preferred; else minimally latest 1 year of Income Tax Notice of Assessment')
-  else
-    raise "Unknown tab: #{document_type}"
+#Clicking into different headers inside a tab
+When('I click onto {string}') do |document_type|
+  begin
+    case document_type
+    when "Identification Document"
+      find('button.accordion-header', text: 'Identification Document').click
+    when "Financial Document"
+      find('button.accordion-header', text: 'Financial Document').click
+    when "Income Tax Notice of Assessment"
+      find('button.accordion-header', text: 'Income Tax Notice of Assessment').click
+    else
+      raise "Unknown tab: #{document_type}"
+    end
+  rescue ActionController::RoutingError => e
+    puts "Ignoring routing error: #{e.message}"
   end
 end
 
+# Closing the popup
+Then('I should be able to click onto the close icon') do
+  find('span.close').click
+end
+
+#returning to the main page 
 And('I should be returned to the application checklist page') do
   expect(page).to have_current_path('/pages/applicationchecklist')
 end
 
-And('I have clicked onto the {string} section') do |section|
-  case section
-  when "Principal Credit Card"
-    find('div#section1').click
-  when "Supplementary Credit Card"
-    find('div#section2').click
-  when "DBS Live Fresh Student Card"
-    find('div#section3').click
+#If there is only one image
+And('I should see an image corresponding to an {string}') do |document_type|
+  case document_type
+  when "Identification Document"
+    expect(page).to have_css("img[src*='Nric.png']")
+  when "Financial Document"
+    expect(page).to have_css("img[src*='income-slip.png']")
+  when "Income Tax Notice of Assessment"
+    expect(page).to have_css("img[src*='tax-assesment.png']")
   else
-    raise "Section not recognized: #{section}"
+    raise "Unknown document type: #{document_type}"
   end
 end
+
+
+
+#handle the gallery
+And('I should see the first image corresponding to {string}') do |document_type|
+  case document_type
+  when "Identification Document"
+    expect(page).to have_css("img[src*='Nric.png']")
+  when "Financial Document"
+    expect(page).to have_css("img[src*='income-slip.png']", visible: true)
+  when "Income Tax Notice of Assessment"
+    expect(page).to have_css("img[src*='tax-assesment.png']")
+  else
+    raise "Unknown document type: #{document_type}"
+  end
+end
+
+Then('I should see the next image corresponding to {string}') do |document_type|
+  case document_type
+  when "Financial Document"
+    expect(page).to have_css("img[src*='cpf-contribution-history.jpg']", visible: true)
+  else
+    raise "Unknown document type: #{document_type}"
+  end
+end
+
+Then('I should see the previous image corresponding to {string}') do |document_type|
+  case document_type
+  when "Financial Document"
+    expect(page).to have_css("img[src*='income-slip.png']", visible: true)
+  else
+    raise "Unknown document type: #{document_type}"
+  end
+end
+
+When('I click onto the {string} button') do |button_name|
+  case button_name
+  when "Next"
+    find('.next').click
+  when "Prev"
+    find('.prev').click
+  else
+    raise "Unknown button: #{button_name}"
+  end
+end
+
+#Different Tabs 
+When('I click onto {string} tab') do |tab_name|
+  within '#principal_popup' do
+    case tab_name
+    when "Salaried Employee (more than 3 months)"
+      find('button.tab', text: 'Salaried Employee (more than 3 months)').click
+    when "Salaried Employee (less than 3 months)"
+      find('button.tab', text: 'Salaried Employee (less than 3 months)').click
+    when "Variable/Commission-based Employees or Self-Employed"
+      find('button.tab', text: 'Variable/Commission-based Employees or Self-Employed').click
+    else
+      raise "Unknown tab: #{tab_name}"
+    end
+  end
+end
+
+# Foreigner and PR/SG  toggle
+When('I click on {string} toggle') do |toggle_name|
+  within '#principal_popup' do
+    case toggle_name
+    when "Singaporean or Permanent Resident"
+      find('label', text: 'Singaporean/Permanent Resident').click
+    when "Foreigner"
+      find('label', text: 'Foreigners').click
+    else
+      raise "Unknown toggle option: #{toggle_name}"
+    end
+  end
+end
+

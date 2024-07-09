@@ -22,6 +22,10 @@ Feature: Customised User Experience for Document Upload
     When I click onto the "Principal Credit Card" section
     Then I should see what is required for my "Principal Credit Card" application
 
+
+
+
+
   Scenario: Viewing Identification Document requirements for Singaporean salaried employee (more than 3 months)
     Given that I am on the application checklist page
     And I have clicked onto the "Principal Credit Card" section
@@ -43,7 +47,7 @@ Feature: Customised User Experience for Document Upload
     And I click onto the "Next" button
     Then I should see the next image corresponding to "Financial Document"
     When I click onto the "Prev" button
-    Then I should see the previous image corresponding to "Financial Document"
+    And I should see the previous image corresponding to "Financial Document"
 
   Scenario: Viewing Income Tax Notice of Assessment requirements for Singaporean salaried employee (more than 3 months)
     Given that I am on the application checklist page
@@ -51,11 +55,75 @@ Feature: Customised User Experience for Document Upload
     When I click onto "Income Tax Notice of Assessment"
     Then I should no longer see the section under "Financial Document"
     And I should see what "Income Tax Notice of Assessment" refers to
-    And I should see an image corresponding to "Income Tax Notice of Assessment"
+    And I should see an image corresponding to an "Income Tax Notice of Assessment"
 
   Scenario: Returning to application checklist page for Singaporean salaried employee (more than 3 months)
     Given that I am on the application checklist page
     And I have clicked onto the "Principal Credit Card" section
     When I click onto "Income Tax Notice of Assessment"
-    When I click onto the close icon
+    Then I should be able to click onto the close icon
     Then I should be returned to the application checklist page
+
+
+
+
+  Scenario: Viewing Identification Document requirements for Singaporean salaried employee (less than 3 months)
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click onto "Salaried Employee (less than 3 months)" tab
+    Then I should be able to see what "Identification Document" refers to
+    And I should see an image corresponding to an "Identification Document"
+
+  Scenario: Viewing Financial Document requirements for Singaporean salaried employee (less than 3 months)
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click onto "Salaried Employee (less than 3 months)" tab
+    And I click onto "Financial Document"
+    Then I should no longer see the section under "Identification Document"
+    And I should see what "Financial Document" refers to
+    And I should see an image corresponding to an "Financial Document"
+
+  Scenario: Returning to application checklist page for Singaporean salaried employee (less than 3 months)
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click onto "Salaried Employee (less than 3 months)" tab
+    Then I should be able to click onto the close icon
+    And I should be returned to the application checklist page
+
+
+
+
+
+  Scenario: Viewing Identification Document requirements for Singaporean Variable/Commission-based Employees or Self-Employed
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click onto "Variable/Commission-based Employees or Self-Employed" tab
+    Then I should be able to see what "Identification Document" refers to
+    And I should see an image corresponding to an "Identification Document"
+
+  Scenario: Viewing Income Tax Notice of Assessment requirements for Singaporean Variable/Commission-based Employees or Self-Employed
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click onto "Variable/Commission-based Employees or Self-Employed" tab
+    And I click onto "Income Tax Notice of Assessment"
+    Then I should no longer see the section under "Identification Document"
+    And I should see what "Income Tax Notice of Assessment" refers to
+    And I should see an image corresponding to an "Income Tax Notice of Assessment"
+
+  Scenario: Returning to application checklist page for Singaporean Variable/Commission-based Employees or Self-Employed
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click onto "Variable/Commission-based Employees or Self-Employed" tab
+    Then I should be able to click onto the close icon
+    And I should be returned to the application checklist page
+
+
+
+
+  
+  Scenario: Viewing Identification Document requirements for Foreigners salaried employee (more than 3 months)
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click on "Singaporean or Permanent Resident" toggle 
+    Then I should be able to see what "Identification Document" refers to
+    And I should see an image corresponding to an "Identification Document"
