@@ -12,7 +12,7 @@ Feature: Toggle Sidebar
     Then my screen slides to the respective section
 
   Scenario: Viewing details of application page on the sidebar
-    Given I want to find the information of the other pages without having submitted my documents yet
+    Given I am on the document upload page and I want to find information of the application form page without having submitted my documents yet
     Then I should see other pages' headers on the sidebar
     When I click on the header "2. Particulars"
     Then a dropdown displaying the information of the sections within that page should appear
