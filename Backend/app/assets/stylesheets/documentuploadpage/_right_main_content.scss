@@ -139,7 +139,9 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   text-align: center;
   margin-top: -40px;
 }
-
+.upload-btn-wrapper:hover {
+  cursor: pointer;
+}
 .btnUp {
   border: 2px solid rgb(0, 0, 0);
   color: rgb(0, 0, 0);
@@ -148,8 +150,8 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   border-radius: 8px;
   font-size: 20px;
   font-weight: bold;
-  
 }
+
 
 .upload-btn-wrapper input[type=file] {
   font-size: 100px;
