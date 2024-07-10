@@ -6,9 +6,3 @@
 //= link documentuploadpage/application_documentuploadpage.css
 //= link applicationformpage/application_formpage.css
 //= link applypage/application_applypage.css
-//= link cardoptionspage/application_cardoptionspage.css
-//= link shared/mcq.css
-//= link application.css
-//= link shared/_left_toggle-sidebar.css
-//= link shared/_right_header_creditcard.css
-//= link documentuploadpage/_right_main_content.css

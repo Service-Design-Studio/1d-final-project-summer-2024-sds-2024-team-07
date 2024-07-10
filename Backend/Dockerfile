@@ -48,8 +48,8 @@ RUN yarn install --silent && \
     yarn add tailwindcss-animate flowbite 
     # webpack webpack-cli shakapacker webpack-assets-manifest
     
-# Precompile assets
-RUN bundle exec rake assets:precompile
+# # Precompile assets
+# RUN bundle exec rake assets:precompile
 
 # # Run database setup tasks
 # RUN bundle exec rake db:create db:migrate db:seed

@@ -4,8 +4,8 @@ Rails.application.config.hosts << "doc-check-mxc46xaqxq-de.a.run.app"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # Ensure code is not reloaded between requests
-  config.cache_classes = true
+  # Code is not reloaded between requests.
+  config.enable_reloading = false
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -25,10 +25,10 @@ Rails.application.configure do
   # config.require_master_key = true
 
   # Disable serving static files from `public/`, relying on NGINX/Apache to do so instead.
-  config.public_file_server.enabled = true
+  # config.public_file_server.enabled = false
 
   # Compress CSS using a preprocessor.
-  # config.assets.css_compressor = :sass
+  config.assets.css_compressor = :sass
 
   # Compress JS using a preprocessor.
   # config.assets.js_compressor = :terser
@@ -93,15 +93,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  # Suppress logger output for asset requests
-  config.assets.quiet = true
-
-  # Enable serving static files from the /public folder by default
-  config.public_file_server.enabled = true
-
-  # Generate digests for assets URLs
-  config.assets.digest = true
 
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
