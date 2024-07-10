@@ -1,9 +1,9 @@
 Given('that I am on the document upload page') do
-  visit upload_documents_path
+  visit pages_documentupload_path
 end
 
 Given('that I am on the application form page') do
-  visit application_form_path
+  visit pages_applicationform_path
 end
 
 When('I want to find the information of the documents required on the document upload page') do
