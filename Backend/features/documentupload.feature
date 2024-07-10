@@ -46,3 +46,16 @@ Feature: Document Upload
     And I should be able to see "Income Tax" information
     Then I should be able to click onto the "Proof of Address" tab
     And I should be able to see "Proof of Address" information
+
+  Scenario: Side Bar Change according to the type of user
+    Given that I am at the document upload page
+    When I want to find the documents I am required to upload
+    Then I should be able to click on the Document side bar 
+    When I click on to the Document side bar
+    Then I should see the documents required for Salaried Employer A
+    And I should be able to click on the Salaried Employer B
+    When I click on to the Salaried Employer B button
+    Then I should see the documents required for Salaried Employer B
+    And I should be able to click on to the Self-Employed or Commision-Based button
+    When I click on the Self-Employed or Commision-Based button
+    And I should see the documents required for Self-Employed or Commision-Based button
