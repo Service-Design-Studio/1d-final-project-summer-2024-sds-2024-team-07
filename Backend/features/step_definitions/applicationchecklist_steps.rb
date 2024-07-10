@@ -348,3 +348,29 @@ And(/^I have clicked on "(.*?)" toggle$/) do |toggle_name|
     puts "Ignoring routing error: #{e.message}"
   end
 end
+
+And('I should not be able to see an image corresponding to a {string}') do |document_type|
+  case document_type
+  when "Income Tax Notice of Assessment"
+    expect(page).to have_no_css("img[src*='tax-assesment.png']")
+  when "Financial Document"
+    expect(page).to have_no_css("img[src*='income-slip.png']")
+  else
+    raise "Unknown document type: #{document_type}"
+  end
+end
+
+Then('I should not be able to see what {string} refers to') do |document_type|
+  case document_type
+  when "Income Tax Notice of Assessment"
+    expect(page).to have_no_content("Latest 2 years of Income Tax Notice of Assessment in SGD is preferred; else minimally latest 1 year of Income Tax Notice of Assessment")
+  when "Financial Document"
+    expect(page).to have_no_content("Submission of either documents are acceptable:")
+    expect(page).to have_no_content("Latest 3 months’ computerised payslip in SGD is preferred; else minimally Latest 1 month’s computerised payslip")
+    expect(page).to have_no_content("Latest 12 months’ CPF contribution history statement")
+    expect(page).to have_no_content("Latest 3 months’ salary crediting bank statements in SGD")
+  else
+    raise "Unknown document type: #{document_type}"
+  end
+end
+
