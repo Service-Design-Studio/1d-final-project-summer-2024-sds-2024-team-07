@@ -82,7 +82,7 @@ img {
 .btn-wrapper.target {
     background-color: white !important;
     display: inline-block;
-    padding: 30px;
+    padding: 30px 0px 30px 70px;
     position: relative;
     border: 1px solid #c0c0c0;
     border-radius: 4px;
@@ -139,7 +139,7 @@ span.divider_vertical2{
     position: absolute;
     margin: 30px 0;
     top: 0;
-    left: calc(30%);
+    left: calc(34%);
     width: 1px;
     height: calc(100% - 60px);
     background: #c0c0c0;
@@ -172,6 +172,7 @@ span.divider_vertical2{
     border-color: #ff3333;
     background-color: #ff3333;
     color: white;
+    text-decoration: none;
 }
 
 .page-wrapper > .wrapper > .btn-wrapper.target > .btn2 {
@@ -208,4 +209,8 @@ span.divider_vertical2{
     text-align: start; /* Center align the text */
     margin-top: 20px; /* Increase the margin to move it further down */
     font-weight: 600;
+}
+
+button#apply-yes {
+    border-width: 0;
 }
