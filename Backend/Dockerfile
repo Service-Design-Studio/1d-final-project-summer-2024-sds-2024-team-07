@@ -20,12 +20,6 @@ ENV RAILS_MASTER_KEY=${MASTER_KEY}
 # COPY scripts/setupdb.sh /usr/local/bin/setupdb.sh
 # RUN chmod +x /usr/local/bin/setupdb.sh
 
-# Copy the application code into the container
-COPY . /app
-
-# Ensure /app/bin/rails and other scripts have execute permissions
-RUN chmod -R +x /app/bin/*
-
 # Copy Gemfile and Gemfile.lock and install gems
 COPY Gemfile Gemfile.lock ./
 
@@ -37,15 +31,22 @@ RUN bundle config set --local deployment 'true' && \
 RUN bundle install
 # RUN bundle install
 
+# Copy the application code into the container
+COPY . /app
+
+
 # Set production environment variables
 ENV RAILS_ENV=production
 ENV RAILS_LOG_TO_STDOUT=true
 ENV RAILS_SERVE_STATIC_FILES=true
-# ENV SECRET_KEY_BASE=563915888282c710e5def9c751f9f8ec1438aec954321e7c8e5fba801ac12b8731061c39f7722c2000a04fad3e0e34ec1c2d9d746b1049b6d329b69b3fcbe135
+ENV SECRET_KEY_BASE=563915888282c710e5def9c751f9f8ec1438aec954321e7c8e5fba801ac12b8731061c39f7722c2000a04fad3e0e34ec1c2d9d746b1049b6d329b69b3fcbe135
 
-# RUN yarn install --silent && \
-#     yarn add tailwindcss-animate flowbite 
-#     # webpack webpack-cli shakapacker webpack-assets-manifest
+# RUN mkdir /cloudsql && \
+#     touch /cloudsql/team6sds:asia-southeast1:natgallerysql
+
+RUN yarn install --silent && \
+    yarn add tailwindcss-animate flowbite 
+    # webpack webpack-cli shakapacker webpack-assets-manifest
     
 # Precompile assets
 RUN bundle exec rake assets:precompile
