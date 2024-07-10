@@ -132,3 +132,56 @@ Scenario: Viewing documents required for Foreigners salaried employee (less than
     Then I should see the next image corresponding to "Proof of Residential Address"
     When I click onto the "Prev" button
     And I should see the previous image corresponding to "Proof of Residential Address"
+
+
+  Scenario: The choosen header will restart to the default header when change type of User
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    Then I should be able to see what "Identification Document" refers to
+    And I should see an image corresponding to a "Identification Document"
+    When I click onto "Income Tax Notice of Assessment"
+    Then I should be able to see what "Latest Income Tax Notice of Assessment" refers to
+    And I should see an image corresponding to a "Latest Income Tax Notice of Assessment"
+    When I click onto "Salaried Employee (less than 3 months)" tab
+    Then I should be able to see what "Identification Document" refers to
+    And I should see an image corresponding to a "Identification Document"
+    And I click onto "Financial Document"
+    Then I should no longer see the section under "Identification Document"
+    And I should see what "Financial Document" refers to
+    And I should see an image corresponding to a "Financial Document"
+    When I click onto "Variable/Commission-based Employees or Self-Employed" tab
+    Then I should be able to see what "Identification Document" refers to
+    And I should see an image corresponding to a "Identification Document"
+    And I click onto "Income Tax Notice of Assessment"
+    Then I should no longer see the section under "Identification Document"
+    And I should see what "Income Tax Notice of Assessment" refers to
+    And I should see an image corresponding to a "Income Tax Notice of Assessment"
+    When I click onto "Salaried Employee (less than 3 months)" tab
+    Then I should not be able to see what "Income Tax Notice of Assessment" refers to 
+    And I should not be able to see an image corresponding to a "Income Tax Notice of Assessment"
+    And I should be able to see what "Identification Document" refers to
+    And I should see an image corresponding to a "Identification Document"
+    When I click onto "Salaried Employee (more than 3 months)" tab
+    Then I should not be able to see what "Financial Document" refers to
+    And I should not be able to see an image corresponding to a "Financial Document"
+    And I should be able to see what "Identification Document" refers to
+    And I should see an image corresponding to a "Identification Document"
+
+  Scenario: The choosen header will restart to the default header when the toggle is clicked
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    Then I should be able to see what "Identification Document" refers to
+    And I should see an image corresponding to a "Identification Document"
+    When I click onto "Income Tax Notice of Assessment"
+    Then I should be able to see what "Latest Income Tax Notice of Assessment" refers to
+    And I should see an image corresponding to a "Latest Income Tax Notice of Assessment"
+    When I click on "Singaporean or Permanent Resident" toggle 
+    And I have clicked on "Singaporean or Permanent Resident" toggle
+    Then I should be able to see what "Valid Passport" refers to
+    And I should see an image corresponding to a "Valid Passport"
+    When I click on "Singaporean or Permanent Resident" toggle 
+    And I have clicked on "Singaporean or Permanent Resident" toggle
+    Then I should not be able to see what "Financial Document" refers to
+    And I should not be able to see an image corresponding to a "Financial Document"
+    And I should be able to see what "Identification Document" refers to
+    And I should see an image corresponding to a "Identification Document"
