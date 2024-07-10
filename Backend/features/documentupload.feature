@@ -59,3 +59,15 @@ Feature: Document Upload
     And I should be able to click on to the Self-Employed or Commission-Based button
     When I click on the Self-Employed or Commission-Based button
     And I should see the documents required for Self-Employed or Commission-Based button
+    
+  Scenario: Failed document upload
+    Given that I am on the document upload page
+    When I click “Document Upload” button
+    And I choose a wrong file
+    Then I should not be able to see "Document Uploaded" button
+
+  Scenario: Uploading documents successfully
+    Given that I am on the document upload page
+    When I click “Document Upload” button
+    And I should be able to choose a file
+    Then I should see “Document Uploaded”

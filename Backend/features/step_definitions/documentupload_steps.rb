@@ -151,3 +151,30 @@ And('I should see the documents required for Self-Employed or Commission-Based b
   expect(page).to have_content('Income Tax')
   expect(page).to have_content('Proof of Singapore Address')
 end
+
+When('I click “Document Upload” button') do
+  page.execute_script("document.getElementById('fileInput1').style.display = 'block';")
+  page.execute_script("document.getElementById('fileInput1').click();")
+end
+
+And('I should be able to choose a file') do
+  file_path = File.expand_path(File.join('features', 'support', 'test.jpg'))
+  attach_file('fileInput1', file_path, make_visible: true)
+end
+
+And('I choose a wrong file') do
+  file_path = File.expand_path(File.join('features', 'support', 'fail.txt'))
+  attach_file('fileInput1', file_path, make_visible: true)
+end
+
+Then('I should see “Document Uploaded”') do
+  expect(page).to have_button('Document Uploaded')
+end
+
+Then('I should be able to click “Employment Pass” tab') do
+  find('label', text: 'Employment Pass').click
+end
+
+Then('I should not be able to see "Document Uploaded" button') do
+  expect(page).not_to have_button('Document Uploaded')
+end
