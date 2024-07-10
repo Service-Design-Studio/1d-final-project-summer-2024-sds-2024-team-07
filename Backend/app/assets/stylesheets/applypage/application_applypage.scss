@@ -202,3 +202,10 @@ span.divider_vertical2{
     text-decoration: none;
     outline: none;
 }
+
+.custom-line {
+    width: 150%;
+    text-align: start; /* Center align the text */
+    margin-top: 20px; /* Increase the margin to move it further down */
+    font-weight: 600;
+}
