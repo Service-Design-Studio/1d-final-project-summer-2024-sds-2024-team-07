@@ -173,15 +173,13 @@ Scenario: Viewing documents required for Foreigners salaried employee (less than
     Then I should be able to see what "Identification Document" refers to
     And I should see an image corresponding to a "Identification Document"
     When I click onto "Income Tax Notice of Assessment"
-    Then I should be able to see what "Latest Income Tax Notice of Assessment" refers to
-    And I should see an image corresponding to a "Latest Income Tax Notice of Assessment"
+    Then I should be able to see what "Income Tax Notice of Assessment" refers to
+    And I should see an image corresponding to a "Income Tax Notice of Assessment"
     When I click on "Singaporean or Permanent Resident" toggle 
-    And I have clicked on "Singaporean or Permanent Resident" toggle
     Then I should be able to see what "Valid Passport" refers to
     And I should see an image corresponding to a "Valid Passport"
     When I click on "Singaporean or Permanent Resident" toggle 
-    And I have clicked on "Singaporean or Permanent Resident" toggle
-    Then I should not be able to see what "Financial Document" refers to
-    And I should not be able to see an image corresponding to a "Financial Document"
+    Then I should not be able to see what "Income Tax Notice of Assessment" refers to
+    And I should not be able to see an image corresponding to a "Income Tax Notice of Assessment"
     And I should be able to see what "Identification Document" refers to
     And I should see an image corresponding to a "Identification Document"
