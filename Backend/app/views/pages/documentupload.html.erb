@@ -5,174 +5,221 @@
     <div class="right-div">
         <%= render 'shared/right_header' %>
         <div class="btn-group">
-            <button type="button" onclick="showTabGroup(1)" id=button1 class="btn btn-outline-danger">Salaried Employer A:<br> More than 3 Months </button>
-            <button type="button" onclick="showTabGroup(2)" id=button2 class="btn btn-outline-danger">Salaried Employer B:<br> Less than 3 months</button>
-            <button type="button" onclick="showTabGroup(3)" id=button3 class="btn btn-outline-danger">Self-Employed/Commision-Based</button>
-
+            <button type="button" onclick="changeDiv(1)" id="button1" class="btn btn-outline-danger">Salaried Employer A:<br> More than 3 Months </button>
+            <button type="button" onclick="changeDiv(2)" id="button2" class="btn btn-outline-danger">Salaried Employer B:<br> Less than 3 months</button>
+            <button type="button" onclick="changeDiv(3)" id="button3" class="btn btn-outline-danger">Self-Employed/Commission-Based</button>
         </div>
 
-  <div class="tabs">
-    <input type="radio" id="tab1" name="tab-control" checked>
-    <input type="radio" id="tab2" name="tab-control">
-    <input type="radio" id="tab3" name="tab-control">
-    <input type="radio" id="tab4" name="tab-control">
-    <input type="radio" id="tab5" name="tab-control">
-    <ul>
-      <li title="Valid Passport">
-        <label id="label1" for="tab1" role="button">
-          <div class="icon">📕</div>
-          <br><span>Passport</span>
-        </label>
-      </li>
-      <li title= "Employment Pass">
-        <label id="label2" for="tab2" role="button">
-          <div class="icon">📝</div>
-          <br><span>Employment Pass</span>
-        </label>
-      </li>
-      <li id="it" title="Income Tax">
-        <label id="label3" for="tab3" role="button">
-          <div class="icon">💵</div>
-          <br><span>Income Tax</span>
-        </label>
-      </li>
-      <li title="PaySlip">
-        <label id="label4" for="tab4" role="button">
-          <div class="icon">💼</div>
-          <br><span>Pay Slip</span>
-        </label>
-      </li>
-      <li title="Proof of SG Address">
-        <label id="label5" for="tab5" role="button">
-          <div class="icon">🏠</div>
-          <br><span>Proof of Address</span>
-        </label>
-      </li>
-    </ul>
-    <div class="content">
-      <section id="content1">
-        <%=image_tag 'Passport.jpg', alt:"Passport", class: 'content-image' %>
-      </section>
-      <section id="content2">
-        <%=image_tag 'WorkPass.jpg', alt:"Employment Pass", class: 'content-image'  %>
-      </section>
-      <section id="content3">
-        <%=image_tag 'TaxAsessment.jpg', alt:"Income Tax", class: 'content-image' %>
-      </section>
-      <section id="content4">
-        <%=image_tag 'IncomeSlip.jpg', alt:"Pay Slip", class: 'content-image' %>
-      </section>
-      <section id="content5">
-        <%=image_tag 'poa.jpg', alt:"Proof of Address", class: 'content-image' %>
-      </section>
-    </div>
+        <div class="tabs">
+            <input type="radio" id="tab1" name="tab-control" checked>
+            <input type="radio" id="tab2" name="tab-control">
+            <input type="radio" id="tab3" name="tab-control">
+            <input type="radio" id="tab4" name="tab-control">
+            <input type="radio" id="tab5" name="tab-control">
+            <ul>
+                <li title="Valid Passport">
+                    <label id="label1" for="tab1" role="button">
+                        <div class="icon">📕</div>
+                        <br><span>Passport</span>
+                    </label>
+                </li>
+                <li title="Employment Pass">
+                    <label id="label2" for="tab2" role="button">
+                        <div class="icon">📝</div>
+                        <br><span>Employment Pass</span>
+                    </label>
+                </li>
+                <li id="item-tab3" title="Income Tax">
+                    <label id="label3" for="tab3" role="button">
+                        <div class="icon">💵</div>
+                        <br><span>Income Tax</span>
+                    </label>
+                </li>
+                <li id="item-tab4" title="PaySlip">
+                    <label id="label4" for="tab4" role="button">
+                        <div class="icon">💼</div>
+                        <br><span>Pay Slip</span>
+                    </label>
+                </li>
+                <li title="Proof of SG Address">
+                    <label id="label5" for="tab5" role="button">
+                        <div class="icon">🏠</div>
+                        <br><span>Proof of Address</span>
+                    </label>
+                </li>
+            </ul>
+            <div class="content">
+                <section id="content1">
+                    <%= image_tag 'Passport.jpg', alt: "Passport", class: 'content-image' %>
+                </section>
+                <section id="content2">
+                    <%= image_tag 'WorkPass.jpg', alt: "Employment Pass", class: 'content-image' %>
+                </section>
+                <section id="content3">
+                    <%= image_tag 'TaxAsessment.jpg', alt: "Income Tax", class: 'content-image' %>
+                </section>
+                <section id="content4">
+                    <%= image_tag 'IncomeSlip.jpg', alt: "Pay Slip", class: 'content-image' %>
+                </section>
+                <section id="content5">
+                    <%= image_tag 'poa.jpg', alt: "Proof of Address", class: 'content-image' %>
+                </section>
+            </div>
 
-        <div class="upload-btn-wrapper">
-          <button class="btnUp">Upload Document</button>
-          <input type="file" name="myfile" />
-        </div>
+            <div class="upload-btn-wrapper">
+                <button class="btnUp" id="uploadButton1">Upload Document</button>
+                <input type="file" name="myfile" id="fileInput1" style="display:none;" />
+                
+                <button class="btnUp" id="uploadButton2" style="display:none;">Upload Document</button>
+                <input type="file" name="myfile" id="fileInput2" style="display:none;" />
+                
+                <button class="btnUp" id="uploadButton3" style="display:none;">Upload Document</button>
+                <input type="file" name="myfile" id="fileInput3" style="display:none;" />
+                
+                <button class="btnUp" id="uploadButton4" style="display:none;">Upload Document</button>
+                <input type="file" name="myfile" id="fileInput4" style="display:none;" />
+                
+                <button class="btnUp" id="uploadButton5" style="display:none;">Upload Document</button>
+                <input type="file" name="myfile" id="fileInput5" style="display:none;" />
+            </div>
 
-        <div style="text-align: right; margin-top: 80px;">
-        <%= link_to 'Next', pages_applicationform_path, style: 'display: inline-block; padding: 10px 20px; font-size: 16px; text-decoration: none; background-color: red; color: white; border-radius: 5px;' %>
+            <div style="text-align: right; margin-top: 80px;">
+                <%= link_to 'Next', pages_applicationform_path, style: 'display: inline-block; padding: 10px 20px; font-size: 16px; text-decoration: none; background-color: red; color: white; border-radius: 5px;' %>
+            </div>
         </div>
     </div>
 </div>
 
-
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const tabsContainer = document.querySelector(".tabs");
-  const tabs = tabsContainer.querySelectorAll("input[type='radio']");
-  const labels = tabsContainer.querySelectorAll("label");
-  const indicator = tabsContainer.querySelector(".indicator");
-  const fileInput = document.querySelector(".upload-btn-wrapper input[type='file']");
+    const tabsContainer = document.querySelector(".tabs");
+    const tabs = tabsContainer.querySelectorAll("input[type='radio']");
+    const labels = tabsContainer.querySelectorAll("label");
+    const uploadButtons = {
+        tab1: document.getElementById('uploadButton1'),
+        tab2: document.getElementById('uploadButton2'),
+        tab3: document.getElementById('uploadButton3'),
+        tab4: document.getElementById('uploadButton4'),
+        tab5: document.getElementById('uploadButton5')
+    };
+    const fileInputs = {
+        tab1: document.getElementById('fileInput1'),
+        tab2: document.getElementById('fileInput2'),
+        tab3: document.getElementById('fileInput3'),
+        tab4: document.getElementById('fileInput4'),
+        tab5: document.getElementById('fileInput5')
+    };
 
-  function updateIndicator() {
-    const activeTab = Array.from(tabs).find(tab => tab.checked);
-    if (activeTab) {
-      const label = tabsContainer.querySelector(`label[for="${activeTab.id}"]`);
-      const labelRect = label.getBoundingClientRect();
-      const containerRect = tabsContainer.getBoundingClientRect();
-      
-      indicator.style.width = `${labelRect.width}px`;
-      indicator.style.transform = `translateX(${labelRect.left - containerRect.left}px)`;
-    }
-  }
+    let currentDiv = 1;
+    let divUploadedFiles = {
+        1: { tab1: null, tab2: null, tab3: null, tab4: null, tab5: null },
+        2: { tab1: null, tab2: null, tab3: null, tab4: null, tab5: null },
+        3: { tab1: null, tab2: null, tab3: null, tab4: null, tab5: null }
+    };
 
-  tabs.forEach(tab => {
-    tab.addEventListener("change", updateIndicator);
-  });
-  function resetTabs() {
-    labels.forEach(label => {
-      label.parentElement.style.display = 'none';
-      label.control.disabled = true;
-    });
-    document.getElementById('item-tab3').style.display = 'block';  // Show Income Tax by default
-    document.getElementById('item-tab4').style.display = 'block';  // Show Pay Slip by default
-  }
-
-  function restoreTabs(tabIds) {
-    tabIds.forEach(id => {
-      const tab = document.getElementById(id);
-      const label = document.querySelector(`label[for='${id}']`);
-      tab.disabled = false;
-      label.parentElement.style.display = 'block';
-    });
-  }
-
-  function showTabGroup(groupNumber) {
-    resetTabs();
-
-    var buttons = document.querySelectorAll('.btn-group .btn');
-    buttons.forEach(function(button) {
-      button.classList.remove('active');
-    });
-
-    // Add the 'active' class to the clicked button
-    var clickedButton = document.getElementById('button' + groupNumber);
-    clickedButton.classList.add('active');
-
-    if (groupNumber === 1) {
-      restoreTabs(['tab1', 'tab2', 'tab3', 'tab4', 'tab5']);
-    } else if (groupNumber === 2) {
-      restoreTabs(['tab1', 'tab2', 'tab4', 'tab5']);
-      document.getElementById('item-tab3').style.display = 'none';
-    } else if (groupNumber === 3) {
-      restoreTabs(['tab1', 'tab2', 'tab3', 'tab5']);
-      document.getElementById('item-tab4').style.display = 'none';
+    function updateUploadButtons() {
+        const activeTab = Array.from(tabs).find(tab => tab.checked).id;
+        for (const tab in uploadButtons) {
+            if (tab === activeTab) {
+                uploadButtons[tab].style.display = 'inline-block';
+                fileInputs[tab].style.display = 'inline-block';
+                uploadButtons[tab].textContent = divUploadedFiles[currentDiv][tab] ? 'Document Uploaded' : 'Upload Document';
+            } else {
+                uploadButtons[tab].style.display = 'none';
+                fileInputs[tab].style.display = 'none';
+            }
+        }
     }
 
-    updateIndicator();
-  }
-  function showContent(activeTabId) {
-    contentSections.forEach(section => {
-      section.style.display = "none";
+    tabs.forEach(tab => {
+        tab.addEventListener("change", function() {
+            updateUploadButtons();
+        });
     });
-    document.querySelector(`#content${activeTabId.slice(-1)}`).style.display = "block";
-  }
 
-  function clickNextLabel() {
-    const activeTab = Array.from(tabs).find(tab => tab.checked);
-    if (activeTab) {
-      const activeIndex = Array.from(tabs).indexOf(activeTab);
-      const nextIndex = (activeIndex + 1) % tabs.length;
-      labels[nextIndex].click();
+    function resetTabs() {
+        labels.forEach(label => {
+            label.parentElement.style.display = 'none';
+            label.control.disabled = true;
+        });
     }
-  }
 
-  fileInput.addEventListener("change", clickNextLabel);
+    function restoreTabs(tabIds) {
+        tabIds.forEach(id => {
+            const tab = document.getElementById(id);
+            const label = document.querySelector(`label[for='${id}']`);
+            tab.disabled = false;
+            label.parentElement.style.display = 'block';
+        });
+    }
 
-  document.getElementById('button1').addEventListener('click', () => showTabGroup(1));
-  document.getElementById('button2').addEventListener('click', () => showTabGroup(2));
-  document.getElementById('button3').addEventListener('click', () => showTabGroup(3));
+    function showTabGroup(groupNumber) {
+        resetTabs();
 
-  // Initialize tab group 1 by default
-  showTabGroup(1);
+        if (groupNumber === 1) {
+            restoreTabs(['tab1', 'tab2', 'tab3', 'tab4', 'tab5']);
+        } else if (groupNumber === 2) {
+            restoreTabs(['tab1', 'tab2', 'tab4', 'tab5']);
+            document.getElementById('item-tab3').style.display = 'none';
+        } else if (groupNumber === 3) {
+            restoreTabs(['tab1', 'tab2', 'tab3', 'tab5']);
+            document.getElementById('item-tab4').style.display = 'none';
+        }
 
-  // Update the indicator on load
-  updateIndicator();
-  showContent('tab1');
+        updateUploadButtons();
+    }
+
+    function changeDiv(groupNumber) {
+        const hasUploadedFiles = Object.values(divUploadedFiles[currentDiv]).some(file => file !== null);
+
+        if (currentDiv !== groupNumber) {
+            if (hasUploadedFiles && !confirm("Do you wish to change your employment type? Your changes will be discarded.")) {
+                return;
+            }
+            resetCurrentDivUploads();
+
+            // Update active button style
+            document.querySelectorAll('.btn-group .btn').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.getElementById('button' + groupNumber).classList.add('active');
+
+            currentDiv = groupNumber;
+            document.getElementById('tab1').checked = true; // Reset to the first tab by default
+            showTabGroup(groupNumber);
+        }
+    }
+
+    function resetCurrentDivUploads() {
+        Object.keys(divUploadedFiles[currentDiv]).forEach(tabId => {
+            divUploadedFiles[currentDiv][tabId] = null;
+        });
+        updateUploadButtons();
+    }
+
+    Object.values(fileInputs).forEach((fileInput, index) => {
+        fileInput.addEventListener("change", function() {
+            var file = this.files[0];
+            if (file) {
+                var fileType = file.type;
+                var validTypes = ['application/pdf', 'image/png', 'image/jpeg'];
+                if (validTypes.indexOf(fileType) === -1) {
+                    alert('Invalid file type! Please upload a PDF, PNG, or JPG document.');
+                    this.value = ''; 
+                } else {
+                    const activeTab = `tab${index + 1}`;
+                    divUploadedFiles[currentDiv][activeTab] = file;
+                    uploadButtons[activeTab].textContent = 'Document Uploaded';
+                }
+            }
+        });
+    });
+
+    document.getElementById('button1').addEventListener('click', () => changeDiv(1));
+    document.getElementById('button2').addEventListener('click', () => changeDiv(2));
+    document.getElementById('button3').addEventListener('click', () => changeDiv(3));
+
+    updateUploadButtons(); // Initialize the upload buttons
+    showTabGroup(1); // Initialize the first group of tabs
 });
-
 </script>
