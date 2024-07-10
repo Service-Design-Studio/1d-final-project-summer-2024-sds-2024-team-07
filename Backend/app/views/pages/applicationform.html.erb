@@ -7,10 +7,10 @@
     
 
     <div class="content">
-
+      <h1 id="tab6">Personal Information</h1>
       <h2>Hello! Please help us to know you.</h2>
 
-      <div class ="form-name" id="tab5">
+      <div class ="form-name">
         <div class= "form-name-left">
           <h4>Title</h4>
           <select id="title" name="title" class="form-control">
@@ -32,18 +32,18 @@
       <span class="button-help">or press ENTER</span>
     </div>
 
-    <div class ="form-preferredname" id="tab6">
+    <div class ="form-preferredname">
         <%= image_tag("DBS_Black_Visa_Card_Small.png", alt: "DBS_Black_Visa_Card_Small", class:"dbs_blackvisacard_image") %>
         <h2>Your preferred name to appear on the card(s)</h2>
         <input type="text" placeholder="" />
     </div>
 
-    <div id="tab6">
+    <div>
       <h2>Date of Birth</h2>
       <input type="date" />
     </div>
 
-    <div id="tab7">
+    <div>
       <h2>Gender</h2>
       <select>
         <option value="male">Male</option>
@@ -53,37 +53,37 @@
     </div>
 
     <div>
-      <h1>Contact Information</h1>
-      <div id="tab8">
+      <h1 id="tab7">Contact Information</h1>
+      <div>
         <h3>Mobile Number</h3>
         <input type="text" id="mobile-number" placeholder="Enter your mobile number" />
         <span id="mobile-number-validation"></span>
       </div>
-      <div id="tab9">
+      <div>
         <h3>Email Address</h3>
         <input type="text" placeholder="Enter your email address" />
       </div>
-      <div id="tab10">
+      <div>
         <h3>Home Number</h3>
         <input type="text" placeholder="Enter your home number" />
       </div>
-      <div id="tab11">
+      <div>
         <h3>Office Number</h3>
         <input type="text" placeholder="Enter your office number" />
       </div>
     </div>
 
     <div>
-      <h1>Passport Details</h1>
-      <div id="tab12">
+      <h1 id="tab8">Passport Details</h1>
+      <div>
         <h3>Nationality</h3>
         <input type="text" placeholder="Enter your nationality" />
       </div>
-      <div id="tab13">
+      <div>
         <h3>Passport Number</h3>
         <input type="text" placeholder="Enter your passport number" />
       </div>
-      <div id="tab14">
+      <div>
         <h3>Passport Expiry Date</h3>
         <input type="date" />
       </div>
@@ -91,7 +91,7 @@
 
     <%# Residential Portion %>
     <div class="residential-container" id="tab5">
-      <h1>Residential Details</h1>
+      <h1 id="tab9">Residential Details</h1>
 
       <h2>Residential Address</h2>
       <div class ="residential-address-layer1">
@@ -131,7 +131,7 @@
         </div>
       </div>
 
-      <div class="residence-status"> 
+      <div class="residence-status">
         <h2>Your residential status</h2>
         <div class="residence-status-toggle-buttons">
           <button class="residence-status-toggle-button" id="ownedFP">Owned (Fully Paid)</button>
@@ -155,7 +155,8 @@
     </div>
 
     <%# Education level %>
-    <div class="education-level"> 
+    <h1 id="tab10">Professional Details</h1>
+    <div class="education-level">
       <h2>Your education level</h2>
       <div class="education-level-toggle-buttons">
         <button class="education-level-toggle-button" id="uni">University/Post-Grad</button>
@@ -217,7 +218,7 @@
     </div>
 
     <%# Your Company Name %>
-    <div class ="" id="">
+    <div>
       <h2>Your Company name</h2>
       <input type="text" placeholder="Your Company name" />
     </div>

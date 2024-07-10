@@ -74,28 +74,19 @@
           <li><a class="link_name" href="#">2. Particulars</a></li>
           <li>
             <% if relevant_page?(pages_applicationform_path) %>
-              <a href="#tab5" data-tab="tab5">Name</a>
+              <a href="#tab6" data-tab="tab6">Personal Information</a>
             <% else %>
-              <span class="non-clickable">Name</span>
+              <span class="non-clickable">Personal Information</span>
             <% end %>
           </li>
+            <ul class="sub-menu ">
+              <li><span class="non-clickable">Name</span></li>
+              <li><span class="non-clickable">Date of Birth</span></li>
+              <li><span class="non-clickable">Gender</span></li>
+            </ul>
           <li>
             <% if relevant_page?(pages_applicationform_path) %>
-              <a href="#tab6" data-tab="tab6">Date of Birth</a>
-            <% else %>
-              <span class="non-clickable">Date of Birth</span>
-            <% end %>
-          </li>
-          <li>
-            <% if relevant_page?(pages_applicationform_path) %>
-              <a href="#tab7" data-tab="tab7">Gender</a>
-            <% else %>
-              <span class="non-clickable">Gender</span>
-            <% end %>
-          </li>
-          <li>
-            <% if relevant_page?(pages_applicationform_path) %>
-              <a href="#tab8" data-tab="tab8">Contact Information</a>
+              <a href="#tab7" data-tab="tab7">Contact Information</a>
             <% else %>
               <span class="non-clickable">Contact Information</span>
             <% end %>
@@ -108,7 +99,7 @@
             </ul>
           <li>
             <% if relevant_page?(pages_applicationform_path) %>
-              <a href="#tab11" data-tab="tab11">Passport Details</a>
+              <a href="#tab8" data-tab="tab8">Passport Details</a>
             <% else %>
               <span class="non-clickable">Passport Details</span>
             <% end %>
@@ -117,6 +108,36 @@
             <li><span class="non-clickable">Nationality</span></li>
             <li><span class="non-clickable">Passport Number</span></li>
             <li><span class="non-clickable">Passport Expiry Date</span></li>
+          </ul>
+          <li>
+            <% if relevant_page?(pages_applicationform_path) %>
+              <a href="#tab9" data-tab="tab9">Residential Details</a>
+            <% else %>
+              <span class="non-clickable">Residential Details</span>
+            <% end %>
+          </li>
+          <ul class="sub-menu">
+            <li><span class="non-clickable">Residential Address</span></li>
+            <li><span class="non-clickable">Type of Residence</span></li>
+            <li><span class="non-clickable">Residential Status</span></li>
+            <li><span class="non-clickable">Number of years at this residence</span></li>
+          </ul>
+          <li>
+            <% if relevant_page?(pages_applicationform_path) %>
+              <a href="#tab10" data-tab="tab10">Professional Details</a>
+            <% else %>
+              <span class="non-clickable">Professional Details</span>
+            <% end %>
+          </li>
+          <ul class="sub-menu">
+            <li><span class="non-clickable">Education Level</span></li>
+            <li><span class="non-clickable">Current Job Status</span></li>
+            <li><span class="non-clickable">Occupation</span></li>
+            <li><span class="non-clickable">Job Industry</span></li>
+            <li><span class="non-clickable">Company Name</span></li>
+            <li><span class="non-clickable">Length of Current Employment</span></li>
+            <li><span class="non-clickable">Current Job Status</span></li>
+            <li><span class="non-clickable">Current Office Address</span></li>
           </ul>
         </ul>
       </li>
