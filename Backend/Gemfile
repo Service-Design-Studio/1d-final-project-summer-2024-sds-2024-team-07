@@ -13,8 +13,8 @@ gem 'phonelib'
 gem 'sinatra-cross_origin'
 gem 'nokogiri', '1.16.5'
 gem 'rspec-expectations'
+
 gem 'dotenv-rails', groups: [:development, :test, :production]
-# gem 'dartsass-rails'
 
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick', '~> 4.11'
@@ -87,7 +87,7 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-  gem "webdrivers", '~> 5.3.0' # For automatic browser driver management
+  gem "webdrivers" # For automatic browser driver management
 
   # Add cucumber-rails and database_cleaner-active_record
   gem 'cucumber-rails', require: false
@@ -96,7 +96,7 @@ group :test do
 end
 
 
-group :production do
+group :production do 
   gem 'execjs'
   gem 'pg', '~> 1.5.6' # for gcloud deployment
 end

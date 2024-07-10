@@ -2,16 +2,8 @@
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = "1.0"
-Rails.application.config.assets.precompile += %w( bootstrap.min.js)
-Rails.application.config.assets.precompile += %w( application.js application.css )
-Rails.application.config.assets.precompile += %w( application_documentuploadpage.css )
-Rails.application.config.assets.precompile += %w( application_formpage.css )
-Rails.application.config.assets.precompile += %w( application_applypage.css )
-Rails.application.config.assets.precompile += %w( application_cardoptionspage.css )
-Rails.application.config.assets.precompile += %w( _right_main_content.css )
-Rails.application.config.assets.precompile += %w( _left_toggle-sidebar.css )
-Rails.application.config.assets.precompile += %w( _right_header_creditcard.css )
-Rails.application.config.assets.precompile += %w( mcq.css )
+Rails.application.config.assets.precompile += %w( bootstrap.min.js )
+
 
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
@@ -19,4 +11,4 @@ Rails.application.config.assets.precompile += %w( mcq.css )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-# Rails.application.config.assets.precompile += %w( application.js application.scss )
+# Rails.application.config.assets.precompile += %w( admin.js admin.css )

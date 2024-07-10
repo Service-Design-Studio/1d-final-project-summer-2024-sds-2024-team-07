@@ -17,4 +17,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_164456) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", primary_key: "name", id: :string, force: :cascade do |t|
+    t.string "id"
+    t.string "document"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
