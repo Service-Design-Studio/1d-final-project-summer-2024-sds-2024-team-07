@@ -160,6 +160,29 @@ When('I click onto {string}') do |document_type|
   end
 end
 
+And('I have clicked onto {string}') do |document_type|
+  begin
+    case document_type
+    when "Income Tax Notice of Assessment"
+      find('button.accordion-header', text: 'Income Tax Notice of Assessment').click
+    when "Employment Pass"
+      find('button.accordion-header', text: 'Employment Pass').click
+    when "Proof of Residential Address"
+      find('button.accordion-header', text: 'Proof of Residential Address').click
+    when "Proof of Employment"
+      find('button.accordion-header', text: 'Proof of Employment').click
+    when 'Latest Computerised Payslip'
+      find('button.accordion-header', text: 'Latest Computerised Payslip').click
+    when 'Latest Income Tax Notice of Assessment'
+      find('button.accordion-header', text: 'Latest Income Tax Notice of Assessment').click
+    else
+      raise "Unknown tab: #{document_type}"
+    end
+  rescue ActionController::RoutingError => e
+    puts "Ignoring routing error: #{e.message}"
+  end
+end
+
 # Closing the popup
 Then('I should be able to click onto the close icon') do
   find('span.close').click
@@ -236,6 +259,25 @@ end
 
 #Different Tabs
 When('I click onto {string} tab') do |tab_name|
+  begin
+    within '#principal_popup' do
+      case tab_name
+      when "Salaried Employee (more than 3 months)"
+        find('button.tab', text: 'Salaried Employee (more than 3 months)').click
+      when "Salaried Employee (less than 3 months)"
+        find('button.tab', text: 'Salaried Employee (less than 3 months)').click
+      when "Variable/Commission-based Employees or Self-Employed"
+        find('button.tab', text: 'Variable/Commission-based Employees or Self-Employed').click
+      else
+        raise "Unknown tab: #{tab_name}"
+      end
+    end
+  rescue ActionController::RoutingError => e
+    puts "Ignoring routing error: #{e.message}"
+  end
+end
+
+And('I have clicked onto {string} tab') do |tab_name|
   begin
     within '#principal_popup' do
       case tab_name

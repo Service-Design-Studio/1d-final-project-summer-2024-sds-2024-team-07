@@ -116,14 +116,16 @@ Feature: Customised User Experience for Document Upload
   Scenario: Viewing Employment Pass requirements for Foreigners salaried employee (more than 3 months)
     Given that I am on the application checklist page
     And I have clicked onto the "Principal Credit Card" section
-    When I click on "Singaporean or Permanent Resident" toggle 
+    When I click on "Singaporean or Permanent Resident" toggle
+    And I have clicked onto "Employment Pass"
     Then I should be able to see what "Employment Pass" refers to
     And I should see the first image corresponding to "Employment Pass"
 
   Scenario: Navigating through Employment Pass images for Foreigners salaried employee (more than 3 months)
     Given that I am on the application checklist page
     And I have clicked onto the "Principal Credit Card" section
-    When I click onto "Employment Pass"
+    When I click on "Singaporean or Permanent Resident" toggle 
+    And I have clicked onto "Employment Pass"
     And I click onto the "Next" button
     Then I should see the next image corresponding to "Employment Pass"
     When I click onto the "Prev" button
@@ -133,6 +135,7 @@ Feature: Customised User Experience for Document Upload
     Given that I am on the application checklist page
     And I have clicked onto the "Principal Credit Card" section
     When I click on "Singaporean or Permanent Resident" toggle 
+    And I have clicked onto "Income Tax Notice of Assessment"
     Then I should be able to see what "Income Tax Notice of Assessment" refers to
     And I should see an image corresponding to a "Income Tax Notice of Assessment"
 
@@ -140,6 +143,7 @@ Feature: Customised User Experience for Document Upload
     Given that I am on the application checklist page
     And I have clicked onto the "Principal Credit Card" section
     When I click on "Singaporean or Permanent Resident" toggle 
+    And I have clicked onto "Latest Computerised Payslip"
     Then I should be able to see what "Latest Computerised Payslip" refers to
     And I should see an image corresponding to a "Latest Computerised Payslip"
 
@@ -147,13 +151,140 @@ Feature: Customised User Experience for Document Upload
     Given that I am on the application checklist page
     And I have clicked onto the "Principal Credit Card" section
     When I click on "Singaporean or Permanent Resident" toggle 
+    And I have clicked onto "Proof of Residential Address"
     Then I should be able to see what "Proof of Residential Address" refers to
     And I should see the first image corresponding to "Proof of Residential Address"
 
   Scenario: Navigating through Proof of Residential Address images for Foreigners salaried employee (more than 3 months)
     Given that I am on the application checklist page
     And I have clicked onto the "Principal Credit Card" section
-    When I click onto "Proof of Residential Address"
+    When I click on "Singaporean or Permanent Resident" toggle
+    And I have clicked onto "Proof of Residential Address"
+    And I click onto the "Next" button
+    Then I should see the next image corresponding to "Proof of Residential Address"
+    When I click onto the "Prev" button
+    And I should see the previous image corresponding to "Proof of Residential Address"
+
+  Scenario: Viewing Valid Passport requirements for Foreigners salaried employee (less than 3 months)
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click on "Singaporean or Permanent Resident" toggle 
+    And I have clicked onto "Salaried Employee (less than 3 months)" tab
+    Then I should be able to see what "Valid Passport" refers to
+    And I should see an image corresponding to a "Valid Passport"
+
+  Scenario: Viewing Employment Pass requirements for Foreigners salaried employee (less than 3 months)
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click on "Singaporean or Permanent Resident" toggle
+    And I have clicked onto "Salaried Employee (less than 3 months)" tab
+    And I have clicked onto "Employment Pass"
+    Then I should be able to see what "Employment Pass" refers to
+    And I should see the first image corresponding to "Employment Pass"
+
+  Scenario: Navigating through Employment Pass images for Foreigners salaried employee (less than 3 months)
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click onto "Employment Pass"
+    And I have clicked onto "Salaried Employee (less than 3 months)" tab
+    And I have clicked onto "Employment Pass"
+    And I click onto the "Next" button
+    Then I should see the next image corresponding to "Employment Pass"
+    When I click onto the "Prev" button
+    And I should see the previous image corresponding to "Employment Pass"
+
+  Scenario: Viewing Proof of Employment requirements for Foreigners salaried employee (less than 3 months)
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click on "Singaporean or Permanent Resident" toggle 
+    And I have clicked onto "Salaried Employee (less than 3 months)" tab
+    And I have clicked onto "Proof of Employment"
+    Then I should be able to see what "Proof of Employment" refers to
+    And I should see an image corresponding to a "Proof of Employment"
+
+  Scenario: Navigating through Proof of Employment images for Foreigners salaried employee (less than 3 months)
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click on "Singaporean or Permanent Resident" toggle 
+    And I have clicked onto "Salaried Employee (less than 3 months)" tab
+    And I have clicked onto "Proof of Employment"
+    And I click onto the "Next" button
+    Then I should see the next image corresponding to "Proof of Employment"
+    When I click onto the "Prev" button
+    And I should see the previous image corresponding to "Proof of Employment"
+
+  Scenario: Viewing Proof of Residential Address requirements for Foreigners salaried employee (less than 3 months)
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click on "Singaporean or Permanent Resident" toggle
+    And I have clicked onto "Salaried Employee (less than 3 months)" tab
+    And I have clicked onto "Proof of Residential Address"
+    Then I should be able to see what "Proof of Residential Address" refers to
+    And I should see the first image corresponding to "Proof of Residential Address"
+
+  Scenario: Navigating through Proof of Residential Address images for Foreigners salaried employee (less than 3 months)
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click on "Singaporean or Permanent Resident" toggle
+    And I have clicked onto "Salaried Employee (less than 3 months)" tab    
+    And I have clicked onto "Proof of Residential Address"
+    And I click onto the "Next" button
+    Then I should see the next image corresponding to "Proof of Residential Address"
+    When I click onto the "Prev" button
+    And I should see the previous image corresponding to "Proof of Residential Address"
+
+  Scenario: Viewing Valid Passport requirements for Foreigners Variable/Commission-based Employees or Self-Employed
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click on "Singaporean or Permanent Resident" toggle
+    And I have clicked onto "Variable/Commission-based Employees or Self-Employed" tab
+    Then I should be able to see what "Valid Passport" refers to
+    And I should see an image corresponding to a "Valid Passport"
+
+  Scenario: Viewing Employment Pass requirements for Foreigners Variable/Commission-based Employees or Self-Employed
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click on "Singaporean or Permanent Resident" toggle
+    And I have clicked onto "Variable/Commission-based Employees or Self-Employed" tab
+    And I have clicked onto "Employment Pass"
+    Then I should be able to see what "Employment Pass" refers to
+    And I should see the first image corresponding to "Employment Pass"
+
+  Scenario: Navigating through Employment Pass images for Foreigners Variable/Commission-based Employees or Self-Employed
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click on "Singaporean or Permanent Resident" toggle
+    And I have clicked onto "Variable/Commission-based Employees or Self-Employed" tab
+    And I have clicked onto "Employment Pass"
+    And I click onto the "Next" button
+    Then I should see the next image corresponding to "Employment Pass"
+    When I click onto the "Prev" button
+    And I should see the previous image corresponding to "Employment Pass"
+
+  Scenario: Viewing Latest Income Tax Notice of Assessment requirements for Foreigners Variable/Commission-based Employees or Self-Employed
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click on "Singaporean or Permanent Resident" toggle 
+    And I have clicked onto "Variable/Commission-based Employees or Self-Employed" tab
+    And I have clicked onto "Latest Income Tax Notice of Assessment"
+    Then I should be able to see what "Latest Income Tax Notice of Assessment" refers to
+    And I should see an image corresponding to a "Latest Income Tax Notice of Assessment"
+
+  Scenario: Viewing Proof of Residential Address requirements for Foreigners Variable/Commission-based Employees or Self-Employed
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click on "Singaporean or Permanent Resident" toggle 
+    And I have clicked onto "Variable/Commission-based Employees or Self-Employed" tab
+    And I have clicked onto "Proof of Residential Address"
+    Then I should be able to see what "Proof of Residential Address" refers to
+    And I should see the first image corresponding to "Proof of Residential Address"
+
+  Scenario: Navigating through Proof of Residential Address images for Foreigners Variable/Commission-based Employees or Self-Employed
+    Given that I am on the application checklist page
+    And I have clicked onto the "Principal Credit Card" section
+    When I click on "Singaporean or Permanent Resident" toggle 
+    And I have clicked onto "Variable/Commission-based Employees or Self-Employed" tab
+    And I have clicked onto "Proof of Residential Address"
     And I click onto the "Next" button
     Then I should see the next image corresponding to "Proof of Residential Address"
     When I click onto the "Prev" button
