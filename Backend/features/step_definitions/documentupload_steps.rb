@@ -7,17 +7,17 @@ When('I want to find the documents I\'m required to upload') do
 end
 
 Then('I should be able to see 3 different buttons for the different employment status') do
-  expect(page).to have_button('Salaried Employer A: More than 3 Months')
-  expect(page).to have_button('Salaried Employer B: Less than 3 months')
-  expect(page).to have_button('Self-Employed/Commision-Based')
+  expect(page).to have_button('Salaried Employee : More than 3 Months')
+  expect(page).to have_button('Salaried Employee : Less than 3 months')
+  expect(page).to have_button('Self-Employed/Commission-Based')
 end
 
-And('I should be able to click onto the Salaried Employee A button') do
-  find_button('Salaried Employer A: More than 3 Months').click
+And('I should be able to click onto the Salaried Employee : More than 3 Months button') do
+  find_button('Salaried Employee : More than 3 Months').click
 end
 
-When('I click on the Salaried Employee A button') do
-  click_button('Salaried Employer A: More than 3 Months')
+When('I click on the Salaried Employee : More than 3 Months button') do
+  click_button('Salaried Employee : More than 3 Months')
 end
 
 Then("I should be able to see a {string} information") do |info_type|
@@ -71,12 +71,12 @@ Given('I am a salaried employee of less than 3 months') do
   # hais
 end
 
-And('I should be able to click onto the Salaried Employee B button') do
-  find_button('Salaried Employer B: Less than 3 months').click
+And('I should be able to click onto the Salaried Employee : Less than 3 months button') do
+  find_button('Salaried Employee : Less than 3 months').click
 end
 
-When('I click on the Salaried Employee B button') do
-  click_button('Salaried Employer B: Less than 3 months')
+When('I click on the Salaried Employee : Less than 3 months button') do
+  click_button('Salaried Employee : Less than 3 months')
 end
 
 Then('I should be able to see 4 documents: Passport, Employment Pass, PaySlip and Proof of Address') do
@@ -90,12 +90,12 @@ Given('I am a commissioned-Based Employee/Self-Employed') do
   # hais
 end
 
-And('I should be able to click onto the Self-Employed or Commision-Based button') do
-  find_button('Self-Employed/Commision-Based').click
+And('I should be able to click onto the Self-Employed or Commission-Based button') do
+  find_button('Self-Employed/Commission-Based').click
 end
 
-When('I click on the Self-Employed or Commision-Based button') do
-  click_button('Self-Employed/Commision-Based')
+When('I click on the Self-Employed or Commission-Based button') do
+  click_button('Self-Employed/Commission-Based')
 end
 
 Given("that I am at the document upload page") do
@@ -114,7 +114,7 @@ When('I click on to the Document side bar') do
   find('.sidebar .nav-links .icon-link a', text: '1. Documents').click
 end
 
-Then('I should see the documents required for Salaried Employer A') do
+Then('I should see the documents required for Salaried Employee : More than 3 Months') do
   expect(page).to have_content('Valid Passport')
   expect(page).to have_content('Valid Employment Pass')
   expect(page).to have_content('Income Tax')
@@ -122,30 +122,30 @@ Then('I should see the documents required for Salaried Employer A') do
   expect(page).to have_content('Proof of Singapore Address')
 end
 
-And('I should be able to click on the Salaried Employer B') do
-  find_button('Salaried Employer B: Less than 3 months').click
+And('I should be able to click on Salaried Employee : Less than 3 months') do
+  find_button('Salaried Employee : Less than 3 months').click
 end
 
-When('I click on to the Salaried Employer B button') do
-  click_button('Salaried Employer B: Less than 3 months')
+When('I click on to the Salaried Employee : Less than 3 months button') do
+  click_button('Salaried Employee : Less than 3 months')
 end
 
-Then('I should see the documents required for Salaried Employer B') do
+Then('I should see the documents required for Salaried Employee : Less than 3 months') do
   expect(page).to have_content('Valid Passport')
   expect(page).to have_content('Valid Employment Pass')
   expect(page).to have_content('Pay Slip')
   expect(page).to have_content('Proof of Singapore Address')
 end
 
-And('I should be able to click on to the Self-Employed or Commision-Based button') do
-  find_button('Self-Employed/Commision-Based').click
+And('I should be able to click on to the Self-Employed or Commission-Based button') do
+  find_button('Self-Employed/Commission-Based').click
 end
 
 When('I click on to the Self-Employed or Commision-Based button') do
   click_button('Self-Employed/Commision-Based')
 end
 
-Then('I should see the documents required for Self-Employed or Commision-Based button') do
+And('I should see the documents required for Self-Employed or Commission-Based button') do
   expect(page).to have_content('Valid Passport')
   expect(page).to have_content('Valid Employment Pass')
   expect(page).to have_content('Income Tax')

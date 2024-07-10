@@ -7,8 +7,8 @@ Feature: Document Upload
     Given that I am on the document upload page
     When I want to find the documents I'm required to upload
     Then I should be able to see 3 different buttons for the different employment status 
-    And I should be able to click onto the Salaried Employee A button
-    When I click on the Salaried Employee A button
+    And I should be able to click onto the Salaried Employee : More than 3 Months button
+    When I click on the Salaried Employee : More than 3 Months button
     Then I should be able to see a "Passport" information
     Then I should be able to click onto the "Employment Pass" tab
     And I should be able to see "Employment Pass" information
@@ -23,8 +23,8 @@ Feature: Document Upload
     Given that I am on the document upload page
     When I want to find the documents I'm required to upload
     Then I should be able to see 3 different buttons for the different employment status 
-    And I should be able to click onto the Salaried Employee B button
-    When I click on the Salaried Employee B button
+    And I should be able to click onto the Salaried Employee : Less than 3 months button
+    When I click on the Salaried Employee : Less than 3 months button
     Then I should be able to see a "Passport" information
     Then I should be able to click onto the "Employment Pass" tab
     And I should be able to see "Employment Pass" information
@@ -37,8 +37,8 @@ Feature: Document Upload
     Given that I am on the document upload page
     When I want to find the documents I'm required to upload
     Then I should be able to see 3 different buttons for the different employment status 
-    And I should be able to click onto the Self-Employed or Commision-Based button
-    When I click on the Self-Employed or Commision-Based button
+    And I should be able to click onto the Self-Employed or Commission-Based button
+    When I click on the Self-Employed or Commission-Based button
     Then I should be able to see a "Passport" information
     Then I should be able to click onto the "Employment Pass" tab
     And I should be able to see "Employment Pass" information
@@ -52,10 +52,10 @@ Feature: Document Upload
     When I want to find the documents I am required to upload
     Then I should be able to click on the Document side bar 
     When I click on to the Document side bar
-    Then I should see the documents required for Salaried Employer A
-    And I should be able to click on the Salaried Employer B
-    When I click on to the Salaried Employer B button
-    Then I should see the documents required for Salaried Employer B
-    And I should be able to click on to the Self-Employed or Commision-Based button
-    When I click on the Self-Employed or Commision-Based button
-    And I should see the documents required for Self-Employed or Commision-Based button
+    Then I should see the documents required for Salaried Employee : More than 3 Months
+    And I should be able to click on Salaried Employee : Less than 3 months
+    When I click on to the Salaried Employee : Less than 3 months button
+    Then I should see the documents required for Salaried Employee : Less than 3 months
+    And I should be able to click on to the Self-Employed or Commission-Based button
+    When I click on the Self-Employed or Commission-Based button
+    And I should see the documents required for Self-Employed or Commission-Based button
