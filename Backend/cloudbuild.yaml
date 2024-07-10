@@ -57,5 +57,4 @@ availableSecrets:
     env: RAILS_MASTER_KEY
 
 images:
-  - "gcr.io/dbs-db-doc/${_SERVICE_NAME}"
-# [END cloudrun_rails_cloudbuild]
+  - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"

@@ -1,10 +1,10 @@
-# Use the official Ruby image from Docker Hub
-FROM ruby:3.3.1
+# syntax = docker/dockerfile:1
 
-# Set the working directory in the container
-WORKDIR /app
+# Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
+ARG RUBY_VERSION=3.3.1
+FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 
-# Install dependencies
+# Install Node.js for asset compilation
 RUN apt-get update -qq && \
     apt-get install -y build-essential bash-completion libffi-dev tzdata git libvips libpq-dev nodejs npm && \
     npm install -g yarn
