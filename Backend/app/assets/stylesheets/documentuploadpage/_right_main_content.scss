@@ -45,10 +45,12 @@ body {
 
 .tabs {
   display: flex;
+  z-index: 999;
   flex-direction: column;
   width: 100%;
   position: relative;
   font-family: Arial, sans-serif;
+  z-index: 2;
 }
 .tabs input[type="radio"] {
   display: none;
@@ -56,6 +58,7 @@ body {
 .tabs ul {
   display: flex;
   list-style: none;
+  z-index: 3;
   padding: 0;
   margin: -40px;
   position: relative;
@@ -72,6 +75,7 @@ body {
   border: 1px solid #ffffff;
   border-bottom: none;
   background-color: #ffffff;
+  z-index: 4;
 }
 .tabs label:hover {
   background-color: #e0e0e0;
@@ -79,6 +83,7 @@ body {
 .tabs .indicator {
   position: absolute;
   bottom: 0;
+  z-index: 90;
   height: 4px;
   background: #428bff;
   transition: transform 0.3s ease, width 0.3s ease;
@@ -108,10 +113,10 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 .content-image {
   width: 100%;   /* Set the desired width */
   height: auto;  /* Maintain aspect ratio */
-  max-width: 800px; /* Maximum width of the image */
-  max-height: 500px; /* Maximum height of the image */
+  max-width: 900px; /* Maximum width of the image */
+  max-height: 800px; /* Maximum height of the image */
   display: block;
-  margin: -20px auto; /* Center the image */
+  margin: -60px auto; /* Center the image */
 }
 
 .btn-group {
@@ -134,24 +139,36 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 
 
 .upload-btn-wrapper {
-  position: relative;
-  display: inline-block;
+  position: fixed;
   text-align: center;
-  margin-top: -40px;
+  top: 80%;
+  left: 40%;
+  animation: content 0.3s ease-in-out;
+  display: inline-block;
+  align-items: center;
+  gap: 8px;
+  overflow: visible;
+  z-index: 999;
 }
-.upload-btn-wrapper:hover {
+.upload-btn-wrapper p {
   cursor: pointer;
+  margin: 0; /* Remove default margin */
 }
 .btnUp {
-  border: 2px solid rgb(0, 0, 0);
-  color: rgb(0, 0, 0);
-  background-color: white;
-  padding: 8px 20px;
-  border-radius: 8px;
-  font-size: 20px;
+  background-color: #4285F4;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
   font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 999;
 }
-
+.upload-button:hover {
+  background-color: #3367D6;
+  cursor: pointer;
+}
 
 .upload-btn-wrapper input[type=file] {
   font-size: 100px;
@@ -159,10 +176,99 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   left: 0;
   top: 0;
   opacity: 0;
+  cursor: pointer;
+}
+
+.carousel {
+  width: 100%;   /* Set the desired width */
+  height: 800px;  /* Maintain aspect ratio */
+  max-width: 2000; /* Maximum width of the image */
+  max-height: 800; /* Maximum height of the image */
+  display: block;
+  margin-top: 0px;
+  z-index: 1;
+  margin-left: 21px;
+}
+
+.carousel > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 200ms opacity ease-in-out;
+  transition-delay: 200ms;
+  
+
+}
+
+.slide > img {
+  display: block;
+  width: 800%;
+  height: auto;
+  margin-left: 24px;
+}
+
+.slide[data-active] {
+  opacity: 1;
+  z-index: 1;
+  transition-delay: 0ms;
+}
+
+.carousel-button {
+  position: absolute;
+  z-index: 999;
+  background: none;
+  border: none;
+  font-size: 4rem;
+  margin-top: 180px;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, .5);
+  cursor: pointer;
+  border-radius: .25rem;
+  padding: 0 .5rem;
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+  color: white;
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.carousel-button:focus {
+  outline: 1px solid black;
+}
+
+.carousel-button.prev {
+  left: -0.8rem;
+}
+
+.carousel-button.next {
+  right: 1rem;
 }
 
 
 
+
+
+.Next{
+  position: fixed;
+  color: white;
+  z-index: 99;
+  top: 105%;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: red;
+  text-align: right;
+  border-radius: 5px;
+}
 
 
 
@@ -213,7 +319,6 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
       text-align: center;
 
       label {
-        transition: all 0.3s ease-in-out;
         color: darken($secondary, 20%);
         padding: 5px auto;
         overflow: hidden;

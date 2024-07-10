@@ -62,18 +62,35 @@
       <section id="content4">
         <%=image_tag 'IncomeSlip.jpg', alt:"Pay Slip", class: 'content-image' %>
       </section>
-      <section id="content5">
-        <%=image_tag 'poa.jpg', alt:"Proof of Address", class: 'content-image' %>
+
+      <section id="content5", class="carousel" data-carousel>
+        
+      <button class="carousel-button prev" data-carousel-button="prev">&#60;</button>
+      <button class="carousel-button next" data-carousel-button="next">&#62;</button>
+      <ul data-slides>
+        <li class="slide" data-active>
+          <%=image_tag 'poa.jpg', alt:"Proof of Address", class: 'content-image' %>
+        </li>
+        <li class="slide">
+          <%=image_tag 'poa1.jpg', alt:"Proof of Address1", class: 'content-image' %>
+        </li>
+        <li class="slide">
+          <%=image_tag 'poa2.jpg', alt:"Proof of Address2", class: 'content-image' %>
+        </li>
+      </ul>
       </section>
+
     </div>
+    
 
         <div class="upload-btn-wrapper">
-          <button class="btnUp">Upload Document</button>
+          <p>Drop your files here or</p>
+          <button class="btnUp">UPLOAD ▼</button>
           <input type="file" name="myfile" />
         </div>
 
-        <div style="text-align: right; margin-top: 80px;">
-        <%= link_to 'Next', pages_applicationform_path, style: 'display: inline-block; padding: 10px 20px; font-size: 16px; text-decoration: none; background-color: red; color: white; border-radius: 5px;' %>
+        <div style="text-align: right">
+        <%= link_to 'Next', pages_applicationform_path, class: 'Next' %>
         </div>
     </div>
 </div>
@@ -174,5 +191,26 @@ document.addEventListener("DOMContentLoaded", function () {
   updateIndicator();
   showContent('tab1');
 });
+
+
+
+const buttons = document.querySelectorAll("[data-carousel-button]")
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    const offset = button.dataset.carouselButton === "next" ? 1 : -1
+    const slides = button
+      .closest("[data-carousel]")
+      .querySelector("[data-slides]")
+
+    const activeSlide = slides.querySelector("[data-active]")
+    let newIndex = [...slides.children].indexOf(activeSlide) + offset
+    if (newIndex < 0) newIndex = slides.children.length - 1
+    if (newIndex >= slides.children.length) newIndex = 0
+
+    slides.children[newIndex].dataset.active = true
+    delete activeSlide.dataset.active
+  })
+})
 
 </script>
