@@ -9,7 +9,6 @@ $accent-inactive: desaturate($accent, 85%);
 $secondary: $accent-inactive;
 
 /* tab setting */
-
 $tab-count: 5; 
 $indicator-width: 50px;
 $indicator-height: 4px;
@@ -19,62 +18,6 @@ $breakpoints: (
   medium: #{$tab-count * 250px},
   small: #{$tab-count * 150px},
 );
-
-.tabs {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  position: relative;
-  font-family: Arial, sans-serif;
-}
-.tabs input[type="radio"] {
-  display: none;
-}
-.tabs ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  position: relative;
-}
-.tabs ul li {
-  flex: 1;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-.tabs label {
-  display: block;
-  padding: 10px;
-  cursor: pointer;
-  border: 1px solid #ddd;
-  border-bottom: none;
-  background-color: #f0f0f0;
-}
-.tabs label:hover {
-  background-color: #e0e0e0;
-}
-.tabs .indicator {
-  position: absolute;
-  bottom: 0;
-  height: 4px;
-  background: #333;
-  transition: transform 0.3s ease, width 0.3s ease;
-}
-/* Additional styling for active states */
-input[id="tab1"]:checked ~ ul li label[for="tab1"],
-input[id="tab2"]:checked ~ ul li label[for="tab2"],
-input[id="tab3"]:checked ~ ul li label[for="tab3"],
-input[id="tab4"]:checked ~ ul li label[for="tab4"],
-input[id="tab5"]:checked ~ ul li label[for="tab5"] {
-  background: #fff;
-  border-bottom: 2px solid #333;
-  color: #333;
-}
-
-/* Hidden tab styles */
-.hidden-tab {
-  display: none !important;
-}
 
 html {
   width: 100%;
@@ -95,6 +38,82 @@ body {
     margin: 0;
   }
 }
+
+
+
+
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+.tabs input[type="radio"] {
+  display: none;
+}
+.tabs ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: -40px;
+  position: relative;
+}
+.tabs ul li {
+  flex: 1;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.tabs label {
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #ffffff;
+  border-bottom: none;
+  background-color: #ffffff;
+}
+.tabs label:hover {
+  background-color: #e0e0e0;
+}
+.tabs .indicator {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  background: #428bff;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+/* Additional styling for active states */
+input[id="tab1"]:checked ~ ul li label[for="tab1"],
+input[id="tab2"]:checked ~ ul li label[for="tab2"],
+input[id="tab3"]:checked ~ ul li label[for="tab3"],
+input[id="tab4"]:checked ~ ul li label[for="tab4"],
+input[id="tab5"]:checked ~ ul li label[for="tab5"] {
+  background: #fff;
+  border-bottom: 3px solid #428bff;
+}
+
+.tabs .content section {
+  display: none;
+}
+
+.tabs input[id="tab1"]:checked ~ .content #content1,
+.tabs input[id="tab2"]:checked ~ .content #content2,
+.tabs input[id="tab3"]:checked ~ .content #content3,
+.tabs input[id="tab4"]:checked ~ .content #content4,
+.tabs input[id="tab5"]:checked ~ .content #content5 {
+  display: block;
+}
+
+.content-image {
+  width: 100%;   /* Set the desired width */
+  height: auto;  /* Maintain aspect ratio */
+  max-width: 800px; /* Maximum width of the image */
+  max-height: 500px; /* Maximum height of the image */
+  display: block;
+  margin: -20px auto; /* Center the image */
+}
+
 .btn-group {
   position: relative;
   left: 5%;
@@ -102,15 +121,53 @@ body {
   margin-top: 30px;
   background-color: #ffffff;
   outline: none;
-  
 }
-.btn-group button{
+
+.btn-group button {
   font-weight: bold;
 }
+
 .btn-group .btn.active {
   background-color: #fa3943;
   color: white;
 }
+
+
+.upload-btn-wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin-top: -40px;
+}
+.upload-btn-wrapper:hover {
+  cursor: pointer;
+}
+.btnUp {
+  border: 2px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+
+
+
+
+
+
+
 
 .tabs {
   margin-top: 1px;
@@ -166,6 +223,7 @@ body {
         transition: all 0.2s ease-in-out;
         white-space: nowrap;
         -webkit-touch-callout: none;
+        
 
         br {
           display: none;
@@ -193,11 +251,9 @@ body {
     }
   }
 
-
   .content {
     margin-top: 30px;
-    padding: 30px 300px 30px 300px;
-    
+
     section {
       display: none;
       animation: content 0.3s ease-in-out;
@@ -215,44 +271,44 @@ body {
           height: 3px;
           background: $accent;
           margin-top: 5px;
-          left: 0px;
+          left: 1px;
         }
       }
     }
   }
 
-input[name="tab-control"] {
-  &:nth-of-type(1):checked ~ ul li label[for="tab1"] {
-    color: $accent;
-    svg {
-      fill: $accent;
+  input[name="tab-control"] {
+    &:nth-of-type(1):checked ~ ul li label[for="tab1"] {
+      color: $accent;
+      svg {
+        fill: $accent;
+      }
+    }
+    &:nth-of-type(2):checked ~ ul li label[for="tab2"] {
+      color: $accent;
+      svg {
+        fill: $accent;
+      }
+    }
+    &:nth-of-type(3):checked ~ ul li label[for="tab3"] {
+      color: $accent;
+      svg {
+        fill: $accent;
+      }
+    }
+    &:nth-of-type(4):checked ~ ul li label[for="tab4"] {
+      color: $accent;
+      svg {
+        fill: $accent;
+      }
+    }
+    &:nth-of-type(5):checked ~ ul li label[for="tab5"] {
+      color: $accent;
+      svg {
+        fill: $accent;
+      }
     }
   }
-  &:nth-of-type(2):checked ~ ul li label[for="tab2"] {
-    color: $accent;
-    svg {
-      fill: $accent;
-    }
-  }
-  &:nth-of-type(3):checked ~ ul li label[for="tab3"] {
-    color: $accent;
-    svg {
-      fill: $accent;
-    }
-  }
-  &:nth-of-type(4):checked ~ ul li label[for="tab4"] {
-    color: $accent;
-    svg {
-      fill: $accent;
-    }
-  }
-  &:nth-of-type(5):checked ~ ul li label[for="tab5"] {
-    color: $accent;
-    svg {
-      fill: $accent;
-    }
-  }
-}
 
   @keyframes content {
     from {
