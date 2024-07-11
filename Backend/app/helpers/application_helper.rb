@@ -15,4 +15,9 @@ module ApplicationHelper
       ''
     end
   end
+
+  def relevant_page?(path)
+    current_page?(path)
+  end
+  
 end

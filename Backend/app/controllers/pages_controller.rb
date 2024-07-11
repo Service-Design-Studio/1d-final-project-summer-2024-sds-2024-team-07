@@ -10,6 +10,8 @@ class PagesController < ApplicationController
       'application_formpage'
     when 'applicationchecklist'
       'application_checklistpage'
+    when 'cardoptions'
+      'application_cardoptionspage'
     else
       'application'
     end

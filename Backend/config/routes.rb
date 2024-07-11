@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'test/one'
   get 'pages/cardoptions', to: 'pages#cardoptions', as: 'pages_cardoptions'
   get 'pages/apply', to: 'pages#apply', as: 'pages_apply'
   get 'pages/documentupload', to: 'pages#documentupload', as: 'pages_documentupload'

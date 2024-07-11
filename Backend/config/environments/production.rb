@@ -1,6 +1,6 @@
 require "active_support/core_ext/integer/time"
 
-Rails.application.config.hosts << "dbsdoccheckteam7-44nyvt7saq-as.a.run.app"
+Rails.application.config.hosts << "doc-check-mxc46xaqxq-de.a.run.app"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -28,7 +28,10 @@ Rails.application.configure do
   # config.public_file_server.enabled = false
 
   # Compress CSS using a preprocessor.
-  # config.assets.css_compressor = :sass
+  config.assets.css_compressor = :sass
+
+  # Compress JS using a preprocessor.
+  # config.assets.js_compressor = :terser
 
   # Do not fall back to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false

@@ -30,12 +30,10 @@ body {
   width: fit-content;
   height: 100%;
   overflow-y: auto;
-  border: 2px solid black;
 }
 
 .right-div {
   flex-grow: 1;
-  padding: 20px;
   background-color: #f8f9fa; /* Optional: Background color for main content */
   transition: margin-left 0.5s ease; /* Smooth transition for margin-left */
   margin-left: 260px; /* Default margin-left when sidebar is open */
@@ -46,6 +44,278 @@ h2 {
   margin-bottom: 0.5em;
   color: #333;
 }
+
+h4 {
+  font-size: 1em; /* Adjust as needed */
+  color: #333;
+  margin: 0 0 5px 0; /* Reduce bottom margin */
+}
+
+.content {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+// Title amd Name as NRIC
+.form-name {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.form-name-left {
+  width: 10%;
+}
+.form-control {
+  height: 45px;
+  margin-top: 10.5px;
+}
+.form-name-right {
+  width: 90%;
+  margin-left: 5px;
+}
+
+//Residential Details
+.residential-container {
+  display: flex;
+  flex-direction: column;
+}
+//Residential Details (Residential Address)
+.residential-address-layer2 {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.residential-address-layer2-left {
+  width: 25%;
+}
+.residential-address-layer2-right {
+  width: 75%;
+  margin-left: 7px;
+}
+.residential-address-layer1,
+.residential-address-layer5 {
+  width: 25%;
+}
+
+//Residential Details (Type of Residence)
+.residence-type {
+  text-align: left;
+}
+.residence-type-toggle-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.residence-type-toggle-button {
+  width: 24%;
+  color: black;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 7px;
+  margin-top: 7px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-size: 16px;
+}
+.residence-type-toggle-button:hover {
+  background-color: white;
+  border: 1px solid #ff4a53;
+}
+.residence-type-toggle-button.active {
+  background-color: #ff4a53;
+  border-color: #ff4a53;
+  color: white;
+}
+
+//Residential Details (Residential Status)
+.residence-status {
+  text-align: left;
+}
+.residence-status-toggle-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.residence-status-toggle-button {
+  width: 45%;
+  color: black;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 7px;
+  margin-top: 7px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-size: 16px;
+}
+.residence-status-toggle-button:hover {
+  background-color: white;
+  border: 1px solid #ff4a53;
+}
+.residence-status-toggle-button.active {
+  background-color: #ff4a53;
+  border-color: #ff4a53;
+  color: white;
+}
+
+//Residential Details (Years at Residence)
+.residential-years {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.residential-years-left {
+  width: 40%;
+}
+.residential-years-right {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  margin-left: 12px;
+}
+
+//Education Level
+.education-level {
+  text-align: left;
+}
+.education-level-toggle-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.education-level-toggle-button {
+  width: 60%;
+  color: black;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 7px;
+  margin-top: 7px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-size: 16px;
+}
+.education-level-toggle-button:hover {
+  background-color: white;
+  border: 1px solid #ff4a53;
+}
+.education-level-toggle-button.active {
+  background-color: #ff4a53;
+  border-color: #ff4a53;
+  color: white;
+}
+
+//Current Job Status
+.current-job-status {
+  text-align: left;
+}
+.current-job-status-toggle-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.current-job-status-toggle-button {
+  width: 60%;
+  color: black;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 7px;
+  margin-top: 7px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-size: 16px;
+}
+.current-job-status-toggle-button:hover {
+  background-color: white;
+  border: 1px solid #ff4a53;
+}
+.current-job-status-toggle-button.active {
+  background-color: #ff4a53;
+  border-color: #ff4a53;
+  color: white;
+}
+
+//Length of Current Employment
+.length-current-employment {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.length-current-employment-1, .length-current-employment-3{
+  width: 25%;
+}
+.length-current-employment-2, .length-current-employment-4 {
+  display: flex;
+  align-items: center;
+  width: 15%;
+  margin-left: 12px;
+}
+
+//Mailing Address
+//Current Job Status
+.mailing-address {
+  text-align: left;
+}
+.mailing-address-toggle-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.mailing-address-toggle-button {
+  width: 40%;
+  color: black;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 7px;
+  margin-top: 7px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-size: 16px;
+}
+.mailing-address-toggle-button:hover {
+  background-color: white;
+  border: 1px solid #ff4a53;
+}
+.mailing-address-toggle-button.active {
+  background-color: #ff4a53;
+  border-color: #ff4a53;
+  color: white;
+}
+
+//Current Office Address
+.current-office-address-layer2 {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.current-office-address-layer2-left {
+  width: 25%;
+}
+.current-office-address-layer2-right {
+  width: 75%;
+  margin-left: 7px;
+}
+.current-office-address-layer1,
+.current-office-address-layer5 {
+  width: 25%;
+}
+
+
 
 input[type="text"],
 input[type="number"],
@@ -88,4 +358,16 @@ button:hover {
 /* Specific margin for the first heading (e.g., Name) */
 .content > div:first-child h2 {
   margin-top: 20px;
+}
+
+.button-holder {
+  visibility: hidden;
+}
+
+.next-button {
+  background-color: #ff3333;
+}
+
+.next-button:hover {
+  background-color: #cc0000;
 }
