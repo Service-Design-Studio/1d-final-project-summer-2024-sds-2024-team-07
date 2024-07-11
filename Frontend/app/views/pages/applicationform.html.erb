@@ -1,0 +1,393 @@
+<div class="custom-container">
+  <div class="left-div">
+    <%= render 'shared/left_toggle-sidebar' %>
+  </div>
+  <div class="right-div">
+    <%= render 'shared/right_header' %>
+    
+
+    <div class="content">
+      <h1 id="tab6">Personal Information</h1>
+      <h2>Hello! Please help us to know you.</h2>
+
+      <div class ="form-name">
+        <div class= "form-name-left">
+          <h4>Title</h4>
+          <select id="title" name="title" class="form-control">
+            <option value="">Select</option>
+            <option value="mr">Mr.</option>
+            <option value="mrs">Mrs.</option>
+            <option value="ms">Ms.</option>
+            <option value="dr">Dr.</option>
+          </select>
+        </div>
+        <div class= "form-name-right">
+          <h4>Your name as in NRIC/Passport</h4>
+          <input type="text" id="name" placeholder="Enter your name" />
+        </div>
+      </div>
+
+      <div class="button-holder" style="visibility: hidden;">
+      <button id="next-button" class="btn btn-primary next-button">Next</button> 
+      <span class="button-help">or press ENTER</span>
+    </div>
+
+    <div class ="form-preferredname">
+        <%= image_tag("DBS_Black_Visa_Card_Small.png", alt: "DBS_Black_Visa_Card_Small", class:"dbs_blackvisacard_image") %>
+        <h2>Your preferred name to appear on the card(s)</h2>
+        <input type="text" placeholder="" />
+    </div>
+
+    <div>
+      <h2>Date of Birth</h2>
+      <input type="date" />
+    </div>
+
+    <div>
+      <h2>Gender</h2>
+      <select>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div>
+      <h1 id="tab7">Contact Information</h1>
+      <div>
+        <h3>Mobile Number</h3>
+        <input type="text" id="mobile-number" placeholder="Enter your mobile number" />
+        <span id="mobile-number-validation"></span>
+      </div>
+      <div>
+        <h3>Email Address</h3>
+        <input type="text" placeholder="Enter your email address" />
+      </div>
+      <div>
+        <h3>Home Number</h3>
+        <input type="text" placeholder="Enter your home number" />
+      </div>
+      <div>
+        <h3>Office Number</h3>
+        <input type="text" placeholder="Enter your office number" />
+      </div>
+    </div>
+
+    <div>
+      <h1 id="tab8">Passport Details</h1>
+      <div>
+        <h3>Nationality</h3>
+        <input type="text" placeholder="Enter your nationality" />
+      </div>
+      <div>
+        <h3>Passport Number</h3>
+        <input type="text" placeholder="Enter your passport number" />
+      </div>
+      <div>
+        <h3>Passport Expiry Date</h3>
+        <input type="date" />
+      </div>
+    </div>
+
+    <%# Residential Portion %>
+    <div class="residential-container" id="tab5">
+      <h1 id="tab9">Residential Details</h1>
+
+      <h2>Residential Address</h2>
+      <div class ="residential-address-layer1">
+        <h4>Postal Code</h4>
+        <input type="text" placeholder="Postal Code" />
+      </div>
+      <div class= "residential-address-layer2">
+        <div class= "residential-address-layer2-left">
+          <h4>Block/House Number</h4>
+          <input type="text" placeholder="Block/House Number" />          
+        </div>
+        <div class= "residential-address-layer2-right">
+          <h4>Street Name 1</h4>
+          <input type="text" placeholder="Street Name 1" />          
+        </div>
+      </div>
+      <div class ="residential-address-layer3">
+        <h4>Street Name 2</h4>
+        <input type="text" placeholder="Street Name 2" />
+      </div>
+      <div class ="residential-address-layer4">
+        <h4>Street Name 3</h4>
+        <input type="text" placeholder="Street Name 3" />
+      </div>
+      <div class ="residential-address-layer5">
+        <h4>Unit Number</h4>
+        <input type="text" placeholder="Unit Number" />
+      </div>
+
+      <div class="residence-type"> 
+        <h2>Type of residence</h2>
+        <div class="residence-type-toggle-buttons">
+          <button class="residence-type-toggle-button" id="hdb">HDB</button>
+          <button class="residence-type-toggle-button" id="condo">Condo/Apt</button>
+          <button class="residence-type-toggle-button" id="landed">Landed</button>
+          <button class="residence-type-toggle-button" id="others">Others</button>
+        </div>
+      </div>
+
+      <div class="residence-status">
+        <h2>Your residential status</h2>
+        <div class="residence-status-toggle-buttons">
+          <button class="residence-status-toggle-button" id="ownedFP">Owned (Fully Paid)</button>
+          <button class="residence-status-toggle-button" id="ownedM">Owned (Mortgaged)</button>
+          <button class="residence-status-toggle-button" id="rented">Rented</button>
+          <button class="residence-status-toggle-button" id="parents">Parents'</button>
+          <button class="residence-status-toggle-button" id="employers">Employer's</button>
+          <button class="residence-status-toggle-button" id="others">Others</button>
+        </div>
+      </div>
+
+      <h2>Number of years at this residence</h2>
+      <div class="residential-years"> 
+        <div class= "residential-years-left">
+          <input type="text" placeholder="No. of years" />          
+        </div>
+        <div class= "residential-years-right">
+          <h4>Years</h4>
+        </div>
+      </div>
+    </div>
+
+    <%# Education level %>
+    <h1 id="tab10">Professional Details</h1>
+    <div class="education-level">
+      <h2>Your education level</h2>
+      <div class="education-level-toggle-buttons">
+        <button class="education-level-toggle-button" id="uni">University/Post-Grad</button>
+        <button class="education-level-toggle-button" id="diploma">Diploma</button>
+        <button class="education-level-toggle-button" id="alevel">'A'-level/Pre-University</button>
+        <button class="education-level-toggle-button" id="secondary">Secondary</button>
+        <button class="education-level-toggle-button" id="technical">Technical</button>
+        <button class="education-level-toggle-button" id="others">Others</button>
+      </div>
+    </div>
+
+    <%# Current Job Status %>
+    <div class="current-job-status"> 
+      <h2>Your current job status</h2>
+      <div class="current-job-status-toggle-buttons">
+        <button class="current-job-status-toggle-button" id="employee">Employee</button>
+        <button class="current-job-status-toggle-button" id="selfemployed">Self-Employed</button>
+        <button class="current-job-status-toggle-button" id="variable">Variable/Commissioned Earner</button>
+        <button class="current-job-status-toggle-button" id="others">Others</button>
+      </div>
+    </div>
+
+    <%# Occupation %>
+    <h2>Your occupation</h2>
+    <div class="occupation"> 
+      <select id="title" name="title" class="form-control">
+        <option selected="selected" value="" class="">Please Select Here</option>
+        <option label="Senior Management" value="string:01">Senior Management</option>
+        <option label="Director" value="string:12">Director</option>
+        <option label="Professional" value="string:02">Professional</option>
+        <option label="Executive" value="string:04">Executive</option>
+        <option label="Teacher" value="string:27">Teacher</option>
+        <option label="Managerial" value="string:03">Managerial</option>
+        <option label="Supervisor" value="string:19">Supervisor</option>
+        <option label="Sales" value="string:06">Sales</option>
+        <option label="Diplomat" value="string:50">Diplomat</option>
+        <option label="Others" value="string:10">Others</option>
+      </select>
+    </div>
+
+    <%# Job Industry %>
+    <h2>Your job industry</h2>
+    <div class="occupation"> 
+      <select id="title" name="title" class="form-control">
+        <option selected="selected" value="" class="">Please Select Here</option>
+        <option label="IT/Telco" value="string:05">IT/Telco</option>
+        <option label="Retail" value="string:27">Retail</option>
+        <option label="Banking &amp; Finance" value="string:04">Banking &amp; Finance</option>
+        <option label="Government" value="string:11">Government</option>
+        <option label="Shipping/ Transport" value="string:20">Shipping/ Transport</option>
+        <option label="Building/ Construction" value="string:02">Building/ Construction</option>
+        <option label="Travel Related" value="string:29">Travel Related</option>
+        <option label="Insurance" value="string:24">Insurance</option>
+        <option label="Hotel/ Restaurant" value="string:23">Hotel/ Restaurant</option>
+        <option label="Entertainment" value="string:22">Entertainment</option>
+        <option label="Manufacturing/ Production" value="string:17">Manufacturing/ Production</option>
+        <option label="Others" value="string:19">Others</option></select>
+      </select>
+    </div>
+
+    <%# Your Company Name %>
+    <div>
+      <h2>Your Company name</h2>
+      <input type="text" placeholder="Your Company name" />
+    </div>
+
+    <%# Length of Current Employment  %>
+    <h2>Length of Current Employment</h2>
+    <div class="length-current-employment"> 
+      <div class= "length-current-employment-1">
+        <input type="text" placeholder="No. of years" />          
+      </div>
+      <div class= "length-current-employment-2">
+        <h4>Years</h4>
+      </div>
+      <div class= "length-current-employment-3">
+        <input type="text" placeholder="No. of months" />          
+      </div>
+      <div class= "length-current-employment-4">
+        <h4>Months</h4>
+      </div>
+    </div>
+    
+    <%# Mailing Address %>
+    <div class="mailing-address"> 
+      <h2>Your current job status</h2>
+      <div class="mailing-address-toggle-buttons">
+        <button class="mailing-address-toggle-button" id="residential">Residential</button>
+        <button class="mailing-address-toggle-button" id="office">Office</button>
+      </div>
+    </div>
+
+    <%# Your current office address %>
+    <h2>Your current office address</h2>
+    <div class ="current-office-address-layer1">
+      <h4>Postal Code</h4>
+      <input type="text" placeholder="Postal Code" />
+    </div>
+    <div class= "current-office-address-layer2">
+      <div class= "current-office-address-layer2-left">
+        <h4>Block/House Number</h4>
+        <input type="text" placeholder="Block/House Number" />          
+      </div>
+      <div class= "current-office-address-layer2-right">
+        <h4>Street Name 1</h4>
+        <input type="text" placeholder="Street Name 1" />          
+      </div>
+    </div>
+    <div class ="current-office-address-layer3">
+      <h4>Street Name 2</h4>
+      <input type="text" placeholder="Street Name 2" />
+    </div>
+    <div class ="current-office-address-layer4">
+      <h4>Street Name 3</h4>
+      <input type="text" placeholder="Street Name 3" />
+    </div>
+    <div class ="current-office-address-layer5">
+      <h4>Unit Number</h4>
+      <input type="text" placeholder="Unit Number" />
+    </div>
+
+    <br/>
+    <br/>
+
+    <%# Promo Code / Fine Prints / Continue Button %>
+    <div class="clearfix relative">
+      <input type="checkbox"> 
+      <label class="label " for="promo" data-focus="first" data-tab="true">
+        I have a promo code for this application
+      </label>
+    </div>
+    <div class="clearfix agreement">
+      By clicking on the Continue button below, I have read and agreed to be bound by the <a href="https://www.dbs.com.sg/iwov-resources/pdf/cards/credit-card-declaration.pdf" target="_new"><u>declaration, important notes, fee and charges.</u></a>
+    </div>
+    <br/>
+    <button type="submit">Continue</button>
+
+  </div>
+</div>
+
+<script>
+  //Mobile Number validation
+  document.addEventListener("DOMContentLoaded", () => {
+    const mobileNumberInput = document.getElementById("mobile-number");
+    const validationMessage = document.getElementById("mobile-number-validation");
+
+    const titleField = document.getElementById('title');
+    const nameField = document.getElementById('name');
+    const buttonHolder = document.querySelector('.button-holder');
+
+    function buttonVisibility() {
+      if (titleField.value && titleField.value !== "" && nameField.value.trim()){
+        buttonHolder.style.visibility = 'visible';
+      } else {
+        buttonHolder.style.visibility = 'hidden';
+      }
+    }
+
+    titleField.addEventListener('change', buttonVisibility);
+    nameField.addEventListener('input', buttonVisibility);
+
+    mobileNumberInput.addEventListener("blur", async () => {
+      const mobileNumber = mobileNumberInput.value;
+
+      try {
+        const response = await fetch(`http://127.0.0.1:4567/validate?mobile_number=${mobileNumber}`);
+        const result = await response.json();
+
+        if (result.valid_mobile_number) {
+        } else {
+          validationMessage.textContent = "Invalid mobile number.";
+          validationMessage.style.color = "red";
+        }
+      } catch (error) {
+        validationMessage.textContent = "Error validating mobile number.";
+        validationMessage.style.color = "red";
+      }
+    });
+
+    buttonVisibility();
+  });
+
+  //Toggle Button JS (Residence Type)
+  document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".residence-type-toggle-button");
+    buttons.forEach(button => {
+      button.addEventListener("click", function() {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  });
+  //Toggle Button JS (Residential Status)
+  document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".residence-status-toggle-button");
+    buttons.forEach(button => {
+      button.addEventListener("click", function() {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  });
+  //Toggle Button JS (Education Level)
+  document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".education-level-toggle-button");
+    buttons.forEach(button => {
+      button.addEventListener("click", function() {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  });
+  //Toggle Button JS (Current Job Status)
+  document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".current-job-status-toggle-button");
+    buttons.forEach(button => {
+      button.addEventListener("click", function() {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  });
+  //Toggle Button JS (Mailing Address)
+  document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".mailing-address-toggle-button");
+    buttons.forEach(button => {
+      button.addEventListener("click", function() {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  });
+
+</script>
