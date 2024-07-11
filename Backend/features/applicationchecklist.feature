@@ -53,7 +53,6 @@ Feature: Customised User Experience for Document Upload
     Given that I am on the application checklist page
     And I have clicked onto the "Principal Credit Card" section
     When I click on "Singaporean or Permanent Resident" toggle
-    And I have clicked on "Singaporean or Permanent Resident" toggle
     Then I should be able to see what "Valid Passport" refers to
     And I should see an image corresponding to a "Valid Passport"
     And I have clicked onto "Employment Pass"
@@ -81,7 +80,6 @@ Scenario: Viewing documents required for Foreigners salaried employee (less than
     Given that I am on the application checklist page
     And I have clicked onto the "Principal Credit Card" section
     When I click on "Singaporean or Permanent Resident" toggle 
-    And I have clicked on "Singaporean or Permanent Resident" toggle
     And I have clicked onto "Salaried Employee (less than 3 months)" tab
     Then I should be able to see what "Valid Passport" refers to
     And I should see an image corresponding to a "Valid Passport"
@@ -111,7 +109,6 @@ Scenario: Viewing documents required for Foreigners salaried employee (less than
     Given that I am on the application checklist page
     And I have clicked onto the "Principal Credit Card" section
     When I click on "Singaporean or Permanent Resident" toggle
-    And I have clicked on "Singaporean or Permanent Resident" toggle
     And I have clicked onto "Variable/Commission-based Employees or Self-Employed" tab
     Then I should be able to see what "Valid Passport" refers to
     And I should see an image corresponding to a "Valid Passport"

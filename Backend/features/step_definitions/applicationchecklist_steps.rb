@@ -204,17 +204,17 @@ And('I should see an image corresponding to a {string}') do |document_type|
   begin
     case document_type
     when "Identification Document"
-      expect(page).to have_css("img[src*='Nric.png']")
+      expect(page).to have_css("img[src*='Nric-c859373acea659332f601402c8738708f67598479ea4e4ebf6df29bc47252af8.png']")
     when "Financial Document"
-      expect(page).to have_css("img[src*='income-slip.png']")
+      expect(page).to have_css("img[src*='income-slip-a9663ea0923f09a528b4e6c212a252fc7cd358888d467a5c9061a1ea876570b7.png']")
     when "Income Tax Notice of Assessment"
-      expect(page).to have_css("img[src*='tax-assesment.png']")
+      expect(page).to have_css("img[src*='tax-assesment-dda2ef0e856cecb0f63c77f0afec41287953466de0bf7cba351a45850c75a133.png']")
     when "Valid Passport"
-      expect(page).to have_css("img[src*='passport.jpeg']")
+      expect(page).to have_css("img[src*='passport-cc0817ead656fd3141e2fec625c93dfd7f90a637b8ed5e6298158e38021e733f.jpeg']")
     when "Latest Computerised Payslip"
-      expect(page).to have_css("img[src*='income-slip.png']")
+      expect(page).to have_css("img[src*='income-slip-a9663ea0923f09a528b4e6c212a252fc7cd358888d467a5c9061a1ea876570b7.png']")
     when "Latest Income Tax Notice of Assessment"
-      expect(page).to have_css("img[src*='tax-assesment.png']")
+      expect(page).to have_css("img[src*='tax-assesment-dda2ef0e856cecb0f63c77f0afec41287953466de0bf7cba351a45850c75a133.png']")
     else
       raise "Unknown document type: #{document_type}"
     end
@@ -229,17 +229,17 @@ And('I should see the first image corresponding to {string}') do |document_type|
   begin
     case document_type
     when "Identification Document"
-      expect(page).to have_css("img[src*='Nric.png']")
+      expect(page).to have_css("img[src*='Nric-c859373acea659332f601402c8738708f67598479ea4e4ebf6df29bc47252af8.png']")
     when "Financial Document"
-      expect(page).to have_css("img[src*='income-slip.png']", visible: true)
+      expect(page).to have_css("img[src*='income-slip-a9663ea0923f09a528b4e6c212a252fc7cd358888d467a5c9061a1ea876570b7.png']", visible: true)
     when "Income Tax Notice of Assessment"
-      expect(page).to have_css("img[src*='tax-assesment.png']")
+      expect(page).to have_css("img[src*='tax-assesment-dda2ef0e856cecb0f63c77f0afec41287953466de0bf7cba351a45850c75a133.png']")
     when "Employment Pass"
-      expect(page).to have_css("img[src*='employment-pass.jpg']")
+      expect(page).to have_css("img[src*='employment-pass-375cb1d16186a31ab2577ff57f86791fc63833bc446392ca3133d144bd1a6d4d.jpg']")
     when "Proof of Residential Address"
-      expect(page).to have_css("img[src*='employment-certificate.jpg']")
+      expect(page).to have_css("img[src*='employment-certificate-34d0fe303fccd5297cf7a115d0dc4e6a3e4d02209fc78a304250cd5479fd96ab.jpg']")
     when "Proof of Employment"
-      expect(page).to have_css("img[src*='income-slip.png']")
+      expect(page).to have_css("img[src*='income-slip-a9663ea0923f09a528b4e6c212a252fc7cd358888d467a5c9061a1ea876570b7.png']")
     else
       raise "Unknown document type: #{document_type}"
     end
@@ -251,13 +251,13 @@ end
 Then('I should see the next image corresponding to {string}') do |document_type|
   case document_type
   when "Financial Document"
-    expect(page).to have_css("img[src*='cpf-contribution-history.jpg']", visible: true)
+    expect(page).to have_css("img[src*='cpf-contribution-history-c4e4d31275c54d803677fccd98b882bd98a7a29fb472d7ac88ee7612f9cdc2ea.jpg']", visible: true)
   when "Employment Pass"
-    expect(page).to have_css("img[src*='spass.jpg']", visible: true)
+    expect(page).to have_css("img[src*='spass-72d953824975cf6dc4c6bc1bbf0331401f58ceb25b01aac165124e73a920e34f.jpg']", visible: true)
   when "Proof of Residential Address"
-    expect(page).to have_css("img[src*='utility-bill.webp']", visible: true)
+    expect(page).to have_css("img[src*='utility-bill-e6f89c3b4ee88d2b915033758464f716588d6d2c5b1ae6481cef0f564667f57a.webp']", visible: true)
   when "Proof of Employment"
-    expect(page).to have_css("img[src*='employment-certificate.jpg']", visible: true)
+    expect(page).to have_css("img[src*='employment-certificate-34d0fe303fccd5297cf7a115d0dc4e6a3e4d02209fc78a304250cd5479fd96ab.jpg']", visible: true)
   else
     raise "Unknown document type: #{document_type}"
   end
@@ -266,13 +266,13 @@ end
 Then('I should see the previous image corresponding to {string}') do |document_type|
   case document_type
   when "Financial Document"
-    expect(page).to have_css("img[src*='income-slip.png']", visible: true)
+    expect(page).to have_css("img[src*='income-slip-a9663ea0923f09a528b4e6c212a252fc7cd358888d467a5c9061a1ea876570b7.png']", visible: true)
   when "Employment Pass"
-    expect(page).to have_css("img[src*='employment-pass.jpg']", visible: true)
+    expect(page).to have_css("img[src*='employment-pass-375cb1d16186a31ab2577ff57f86791fc63833bc446392ca3133d144bd1a6d4d.jpg']", visible: true)
   when "Proof of Residential Address"
-    expect(page).to have_css("img[src*='employment-certificate.jpg']", visible: true)
+    expect(page).to have_css("img[src*='employment-certificate-34d0fe303fccd5297cf7a115d0dc4e6a3e4d02209fc78a304250cd5479fd96ab.jpg']", visible: true)
   when "Proof of Employment"
-    expect(page).to have_css("img[src*='income-slip.png']", visible: true)
+    expect(page).to have_css("img[src*='income-slip-a9663ea0923f09a528b4e6c212a252fc7cd358888d467a5c9061a1ea876570b7.png']", visible: true)
   else
     raise "Unknown document type: #{document_type}"
   end
@@ -352,9 +352,9 @@ end
 And('I should not be able to see an image corresponding to a {string}') do |document_type|
   case document_type
   when "Income Tax Notice of Assessment"
-    expect(page).to have_no_css("img[src*='tax-assesment.png']")
+    expect(page).to have_no_css("img[src*='tax-assesment-dda2ef0e856cecb0f63c77f0afec41287953466de0bf7cba351a45850c75a133.png']")
   when "Financial Document"
-    expect(page).to have_no_css("img[src*='income-slip.png']")
+    expect(page).to have_no_css("img[src*='income-slip-a9663ea0923f09a528b4e6c212a252fc7cd358888d467a5c9061a1ea876570b7.png']")
   else
     raise "Unknown document type: #{document_type}"
   end
@@ -373,4 +373,3 @@ Then('I should not be able to see what {string} refers to') do |document_type|
     raise "Unknown document type: #{document_type}"
   end
 end
-
