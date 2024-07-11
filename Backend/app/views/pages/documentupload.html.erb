@@ -63,7 +63,7 @@
         <%=image_tag 'IncomeSlip.jpg', alt:"Pay Slip", class: 'content-image' %>
       </section>
 
-      <section id="content5", class="carousel" data-carousel>
+      <section id="content5" class="carousel" data-carousel>
         
       <button class="carousel-button prev" data-carousel-button="prev">&#60;</button>
       <button class="carousel-button next" data-carousel-button="next">&#62;</button>
@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const labels = tabsContainer.querySelectorAll("label");
   const indicator = tabsContainer.querySelector(".indicator");
   const fileInput = document.querySelector(".upload-btn-wrapper input[type='file']");
+  const contentSections = tabsContainer.querySelectorAll(".content section");
 
   function updateIndicator() {
     const activeTab = Array.from(tabs).find(tab => tab.checked);
@@ -120,13 +121,16 @@ document.addEventListener("DOMContentLoaded", function () {
   tabs.forEach(tab => {
     tab.addEventListener("change", updateIndicator);
   });
+
   function resetTabs() {
     labels.forEach(label => {
       label.parentElement.style.display = 'none';
       label.control.disabled = true;
     });
-    document.getElementById('item-tab3').style.display = 'block';  // Show Income Tax by default
-    document.getElementById('item-tab4').style.display = 'block';  // Show Pay Slip by default
+    document.getElementById('label3').parentElement.style.display = 'block';  // Show Income Tax by default
+    document.getElementById('tab3').disabled = false;
+    document.getElementById('label4').parentElement.style.display = 'block';  // Show Pay Slip by default
+    document.getElementById('tab4').disabled = false;
   }
 
   function restoreTabs(tabIds) {
@@ -154,14 +158,17 @@ document.addEventListener("DOMContentLoaded", function () {
       restoreTabs(['tab1', 'tab2', 'tab3', 'tab4', 'tab5']);
     } else if (groupNumber === 2) {
       restoreTabs(['tab1', 'tab2', 'tab4', 'tab5']);
-      document.getElementById('item-tab3').style.display = 'none';
+      document.getElementById('label3').parentElement.style.display = 'none';
+      document.getElementById('tab3').disabled = true;
     } else if (groupNumber === 3) {
       restoreTabs(['tab1', 'tab2', 'tab3', 'tab5']);
-      document.getElementById('item-tab4').style.display = 'none';
+      document.getElementById('label4').parentElement.style.display = 'none';
+      document.getElementById('tab4').disabled = true;
     }
 
     updateIndicator();
   }
+
   function showContent(activeTabId) {
     contentSections.forEach(section => {
       section.style.display = "none";
@@ -173,8 +180,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const activeTab = Array.from(tabs).find(tab => tab.checked);
     if (activeTab) {
       const activeIndex = Array.from(tabs).indexOf(activeTab);
-      const nextIndex = (activeIndex + 1) % tabs.length;
+      let nextIndex = (activeIndex + 1) % tabs.length;
+      
+      while (tabs[nextIndex].disabled) {
+        nextIndex = (nextIndex + 1) % tabs.length;
+      }
+      
+      tabs[nextIndex].checked = true;
       labels[nextIndex].click();
+      showContent(tabs[nextIndex].id);
+      updateIndicator();
     }
   }
 
@@ -191,26 +206,5 @@ document.addEventListener("DOMContentLoaded", function () {
   updateIndicator();
   showContent('tab1');
 });
-
-
-
-const buttons = document.querySelectorAll("[data-carousel-button]")
-
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-    const offset = button.dataset.carouselButton === "next" ? 1 : -1
-    const slides = button
-      .closest("[data-carousel]")
-      .querySelector("[data-slides]")
-
-    const activeSlide = slides.querySelector("[data-active]")
-    let newIndex = [...slides.children].indexOf(activeSlide) + offset
-    if (newIndex < 0) newIndex = slides.children.length - 1
-    if (newIndex >= slides.children.length) newIndex = 0
-
-    slides.children[newIndex].dataset.active = true
-    delete activeSlide.dataset.active
-  })
-})
 
 </script>
