@@ -1,6 +1,6 @@
 require "active_support/core_ext/integer/time"
 
-Rails.application.config.hosts << "doc-check-mxc46xaqxq-de.a.run.app"
+Rails.application.config.hosts << "dbsdoccheckteam7-44nyvt7saq-de.a.run.app"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -98,7 +98,7 @@ Rails.application.configure do
   config.assets.quiet = true
 
   # Enable serving static files from the /public folder by default
-  config.public_file_server.enabled = true
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Generate digests for assets URLs
   config.assets.digest = true

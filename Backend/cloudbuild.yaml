@@ -2,12 +2,12 @@ steps:
   - id: "build image"
     name: "gcr.io/cloud-builders/docker"
     entrypoint: 'bash'
-    args: ["-c", "docker build --build-arg MASTER_KEY=$$RAILS_KEY -t gcr.io/dbs-db-doc/${_SERVICE_NAME} . "]
-    secretEnv: ["RAILS_KEY"]
+    args: ["-c", "docker build --build-arg MASTER_KEY=$$RAILS_MASTER_KEY -t gcr.io/dbsdoccheckteam7/${_SERVICE_NAME} . "]
+    secretEnv: ["RAILS_MASTER_KEY"]
 
   - id: "push image"
     name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/dbs-db-doc/${_SERVICE_NAME}"]
+    args: ["push", "gcr.io/dbsdoccheckteam7/${_SERVICE_NAME}"]
 
 
   - id: "apply migrations"
@@ -16,10 +16,10 @@ steps:
     args:
       [
         "-c",
-        "source /workspace/.env && /buildstep/execute.sh -i gcr.io/dbs-db-doc/${_SERVICE_NAME} -s dbs-db-doc:${_REGION}:${_INSTANCE_NAME} -e RAILS_MASTER_KEY=$$RAILS_KEY -- bundle exec rake db:migrate"
-        # "/buildstep/execute.sh -i gcr.io/dbs-db-doc/${_SERVICE_NAME} -s dbs-db-doc:${_REGION}:${_INSTANCE_NAME} -e RAILS_MASTER_KEY=$$RAILS_KEY -- bundle exec rake db:migrate"
+        # "source /workspace/.env && /buildstep/execute.sh -i gcr.io/dbsdoccheckteam7/${_SERVICE_NAME} -s dbsdoccheckteam7:${_REGION}:${_INSTANCE_NAME} -e RAILS_MASTER_KEY=$$RAILS_MASTER_KEY -- bundle exec rake db:migrate"
+        "/buildstep/execute.sh -i gcr.io/dbsdoccheckteam7/${_SERVICE_NAME} -s dbsdoccheckteam7:${_REGION}:${_INSTANCE_NAME} -e RAILS_MASTER_KEY=$$RAILS_MASTER_KEY -- bundle exec rake db:migrate"
       ]
-    secretEnv: ["RAILS_KEY"]
+    secretEnv: ["RAILS_MASTER_KEY"]
   
   # - id: "seed database"
   #   name: "gcr.io/google-appengine/exec-wrapper"
@@ -27,9 +27,9 @@ steps:
   #   args:
   #     [
   #       "-c",
-  #       "/buildstep/execute.sh -i gcr.io/dbs-db-doc/${_SERVICE_NAME} -s dbs-db-doc:${_REGION}:${_INSTANCE_NAME} -- bundle exec rake db:seed"
+  #       "/buildstep/execute.sh -i gcr.io/dbsdoccheckteam7/${_SERVICE_NAME} -s dbsdoccheckteam7:${_REGION}:${_INSTANCE_NAME} -- bundle exec rake db:seed"
   #     ]
-  #   secretEnv: ["RAILS_KEY"]
+  #   secretEnv: ["RAILS_MASTER_KEY"]
 
   - id: "run deploy"
     name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
@@ -40,21 +40,22 @@ steps:
         "${_SERVICE_NAME}",
         "--platform", "managed",
         "--region", "${_REGION}",
-        "--image", "gcr.io/dbs-db-doc/${_SERVICE_NAME}",
-        "--add-cloudsql-instances", "${_INSTANCE_NAME}"
+        "--image", "gcr.io/dbsdoccheckteam7/${_SERVICE_NAME}",
+        "--add-cloudsql-instances", "${_INSTANCE_NAME}",
+        "--update-secrets=RAILS_MASTER_KEY=${_SECRET_NAME}:latest"
       ]
 
 substitutions:
   _REGION: "asia-east1"
-  _SERVICE_NAME: "doc-check"
-  _INSTANCE_NAME: 'dbs-doccheck'
-  _SECRET_NAME: rails_secret
+  _SERVICE_NAME: "dbsdoccheckteam7"
+  _INSTANCE_NAME: 'dbs-database'
+  _SECRET_NAME: 'rails_production_secret'
 
 availableSecrets:
   secretManager:
-  - versionName: projects/dbs-db-doc/secrets/${_SECRET_NAME}/versions/latest
-    env: RAILS_KEY
+  - versionName: projects/dbsdoccheckteam7/secrets/${_SECRET_NAME}/versions/latest
+    env: RAILS_MASTER_KEY
 
 images:
-  - "gcr.io/dbs-db-doc/${_SERVICE_NAME}"
+  - "gcr.io/dbsdoccheckteam7/${_SERVICE_NAME}"
 # [END cloudrun_rails_cloudbuild]

@@ -1,6 +1,6 @@
 require "active_support/core_ext/integer/time"
 
-Rails.application.config.hosts << "doc-check-mxc46xaqxq-de.a.run.app"
+Rails.application.config.hosts << "dbsdoccheckteam7-44nyvt7saq-de.a.run.app"
 Rails.application.configure do
   # Configure 'rails notes' to inspect Cucumber files
   config.annotations.register_directories('features')
