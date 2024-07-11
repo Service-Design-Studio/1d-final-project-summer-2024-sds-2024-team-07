@@ -6,7 +6,7 @@ require 'cucumber/rails'
 
 # Registering the Selenium driver with Safari
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :firefox)
+  Capybara::Selenium::Driver.new(app, browser: :safari)
 end
 
 # Setting the default driver to Selenium

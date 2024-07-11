@@ -1,11 +1,3 @@
-Given('I am a salaried employee of more than 3 months') do
-  # hais
-end
-
-When('I want to find the documents I\'m required to upload') do
-  # sighpie
-end
-
 Then('I should be able to see 3 different buttons for the different employment status') do
   expect(page).to have_button('Salaried Employee : More than 3 Months')
   expect(page).to have_button('Salaried Employee : Less than 3 months')
@@ -86,10 +78,6 @@ Then('I should be able to see 4 documents: Passport, Employment Pass, PaySlip an
   expect(page).to have_content('Proof of Singapore Address')
 end
 
-Given('I am a commissioned-Based Employee/Self-Employed') do
-  # hais
-end
-
 And('I should be able to click onto the Self-Employed or Commission-Based button') do
   find_button('Self-Employed/Commission-Based').click
 end
@@ -100,10 +88,6 @@ end
 
 Given("that I am at the document upload page") do
   visit pages_documentupload_path
-end
-
-When('I want to find the documents I am required to upload') do
-  # sighpie
 end
 
 Then('I should be able to click on the Document side bar') do
@@ -177,4 +161,10 @@ end
 
 Then('I should not be able to see "Document Uploaded" button') do
   expect(page).not_to have_button('Document Uploaded')
+end
+
+Then('I should see a pop up warning') do
+  alert = page.driver.browser.switch_to.alert
+  expect(alert.text).to eq("Invalid file type! Please upload a PDF, PNG, or JPG document.")
+  alert.accept
 end
