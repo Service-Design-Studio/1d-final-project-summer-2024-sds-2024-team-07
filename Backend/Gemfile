@@ -70,6 +70,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
   gem 'byebug'
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -93,7 +94,6 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner-active_record'
   gem 'rspec-rails'
-  gem 'simplecov', '~> 0.21.0', require: false
 end
 
 
@@ -101,4 +101,3 @@ group :production do
   gem 'execjs'
   gem 'pg', '~> 1.5.6' # for gcloud deployment
 end
-

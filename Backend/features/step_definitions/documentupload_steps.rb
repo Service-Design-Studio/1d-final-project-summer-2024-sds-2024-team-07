@@ -168,3 +168,33 @@ Then('I should see a pop up warning') do
   expect(alert.text).to eq("Invalid file type! Please upload a PDF, PNG, or JPG document.")
   alert.accept
 end
+
+Given('that I am on the apply page') do
+  visit pages_apply_path
+end
+
+When('I click on the {string}') do |link_text|
+  case link_text
+  when "Application Page"
+    click_link('application page')
+  when "Document Upload Button"
+    click_link('Document Upload')
+  when "Application Checklist Page"
+    click_link('application checklist')
+  else
+    raise "Unknown link: #{link_text}"
+  end
+end
+
+Then('I should be brought to the {string}') do |page_name|
+  case page_name
+  when "Application Page"
+    expect(page).to have_current_path('/pages/apply')
+  when "Document Upload Page"
+    expect(page).to have_current_path('/pages/documentupload')
+  when "Application Checklist Page"
+    expect(page).to have_current_path('/pages/applicationchecklist')
+  else
+    raise "Unknown page: #{page_name}"
+  end
+end

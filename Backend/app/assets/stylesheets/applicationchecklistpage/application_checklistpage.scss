@@ -499,3 +499,11 @@
   .prev:hover, .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
   }
+
+  .custom-line {
+    text-align: center; /* Center align the text */
+    margin-top: 20px; /* Increase the margin to move it further down */
+    font-weight: 600;
+    padding-bottom: 100px;
+    font-size: xx-large;
+  }

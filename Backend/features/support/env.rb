@@ -4,6 +4,15 @@ require 'rspec/expectations'
 require File.expand_path('../../../config/environment', __FILE__) # Adjust the path as needed
 require 'cucumber/rails'
 
+# Include Rails URL helpers and RSpec expectations
+World(Rails.application.routes.url_helpers)
+World(RSpec::Matchers)
+
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_filter 'features/'
+end
+
 # Registering the Selenium driver with Safari
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :safari)
@@ -23,6 +32,5 @@ After do
   Capybara.reset_sessions! # Reset the sessions to avoid invalid session errors
 end
 
-# Include Rails URL helpers and RSpec expectations
-World(Rails.application.routes.url_helpers)
-World(RSpec::Matchers)
+
+# The rest of your env.rb code

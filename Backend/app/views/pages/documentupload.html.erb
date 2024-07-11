@@ -95,6 +95,33 @@ document.addEventListener("DOMContentLoaded", function () {
     const tabsContainer = document.querySelector(".tabs");
     const tabs = tabsContainer.querySelectorAll("input[type='radio']");
     const labels = tabsContainer.querySelectorAll("label");
+    const indicator = tabsContainer.querySelector(".indicator");
+
+    function updateIndicator() {
+        const activeTab = Array.from(tabs).find(tab => tab.checked);
+        if (activeTab) {
+        const label = tabsContainer.querySelector(`label[for="${activeTab.id}"]`);
+        const labelRect = label.getBoundingClientRect();
+        const containerRect = tabsContainer.getBoundingClientRect();
+        
+        indicator.style.width = `${labelRect.width}px`;
+        indicator.style.transform = `translateX(${labelRect.left - containerRect.left}px)`;
+        }
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener("change", updateIndicator);
+    });
+
+    function resetTabs() {
+        labels.forEach(label => {
+        label.parentElement.style.display = 'none';
+        label.control.disabled = true;
+        });
+        document.getElementById('item-tab3').style.display = 'block';  // Show Income Tax by default
+        document.getElementById('item-tab4').style.display = 'block';  // Show Pay Slip by default
+    }
+
     const uploadButtons = {
         tab1: document.getElementById('uploadButton1'),
         tab2: document.getElementById('uploadButton2'),
@@ -137,12 +164,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    function resetTabs() {
-        labels.forEach(label => {
-            label.parentElement.style.display = 'none';
-            label.control.disabled = true;
-        });
-    }
 
     function restoreTabs(tabIds) {
         tabIds.forEach(id => {
@@ -152,22 +173,34 @@ document.addEventListener("DOMContentLoaded", function () {
             label.parentElement.style.display = 'block';
         });
     }
-
+    
     function showTabGroup(groupNumber) {
         resetTabs();
+        var buttons = document.querySelectorAll('.btn-group .btn');
+        buttons.forEach(function(button) {
+        button.classList.remove('active');
+        });
+
+        // Add the 'active' class to the clicked button
+        var clickedButton = document.getElementById('button' + groupNumber);
+        clickedButton.classList.add('active');
 
         if (groupNumber === 1) {
-            restoreTabs(['tab1', 'tab2', 'tab3', 'tab4', 'tab5']);
+        restoreTabs(['tab1', 'tab2', 'tab3', 'tab4', 'tab5']);
         } else if (groupNumber === 2) {
-            restoreTabs(['tab1', 'tab2', 'tab4', 'tab5']);
-            document.getElementById('item-tab3').style.display = 'none';
+        restoreTabs(['tab1', 'tab2', 'tab4', 'tab5']);
+        document.getElementById('item-tab3').style.display = 'none';
         } else if (groupNumber === 3) {
-            restoreTabs(['tab1', 'tab2', 'tab3', 'tab5']);
-            document.getElementById('item-tab4').style.display = 'none';
+        restoreTabs(['tab1', 'tab2', 'tab3', 'tab5']);
+        document.getElementById('item-tab4').style.display = 'none';
         }
 
-        updateUploadButtons();
+        updateIndicator();
     }
+
+    document.getElementById('button1').addEventListener('click', () => showTabGroup(1));
+    document.getElementById('button2').addEventListener('click', () => showTabGroup(2));
+    document.getElementById('button3').addEventListener('click', () => showTabGroup(3));
 
     function changeDiv(groupNumber) {
         const hasUploadedFiles = Object.values(divUploadedFiles[currentDiv]).some(file => file !== null);

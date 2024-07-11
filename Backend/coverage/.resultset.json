@@ -1,157 +1,93 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "D:/Coding Projects/(School)/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/channels/application_cable/channel.rb": {
+      "/Users/kangjunong/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/controllers/pages_controller.rb": {
         "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
+          1,
+          1,
+          1,
+          24,
+          null,
+          3,
+          null,
+          10,
+          null,
+          1,
+          null,
+          10,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
       },
-      "D:/Coding Projects/(School)/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/channels/application_cable/connection.rb": {
+      "/Users/kangjunong/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/controllers/application_controller.rb": {
         "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
+          1,
+          null
+        ]
       },
-      "D:/Coding Projects/(School)/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/controllers/application_controller.rb": {
+      "/Users/kangjunong/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/helpers/application_helper.rb": {
         "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
+          1,
+          1,
+          44,
+          null,
+          11,
+          null,
+          11,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          22,
+          null,
+          null,
+          null,
+          1,
+          110,
+          null,
+          null,
+          null
+        ]
       },
-      "D:/Coding Projects/(School)/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/controllers/home_controller.rb": {
+      "/Users/kangjunong/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/helpers/home_helper.rb": {
         "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
+          1,
+          null
+        ]
       },
-      "D:/Coding Projects/(School)/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/controllers/pages_controller.rb": {
+      "/Users/kangjunong/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/helpers/pages_helper.rb": {
         "lines": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
+          1,
+          null
+        ]
       },
-      "D:/Coding Projects/(School)/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/helpers/application_helper.rb": {
+      "/Users/kangjunong/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/helpers/test_helper.rb": {
         "lines": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "D:/Coding Projects/(School)/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/helpers/home_helper.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "D:/Coding Projects/(School)/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/helpers/pages_helper.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "D:/Coding Projects/(School)/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/jobs/application_job.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "D:/Coding Projects/(School)/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/mailers/application_mailer.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "D:/Coding Projects/(School)/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Backend/app/models/application_record.rb": {
-        "lines": [
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1719914059
+    "timestamp": 1720674776
   }
 }

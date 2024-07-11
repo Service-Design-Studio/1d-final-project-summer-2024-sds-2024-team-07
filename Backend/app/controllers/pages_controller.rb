@@ -10,15 +10,15 @@ class PagesController < ApplicationController
       'application_formpage'
     when 'applicationchecklist'
       'application_checklistpage'
-    when 'cardoptions'
-      'application_cardoptionspage'
-    else
-      'application'
+    # when 'cardoptions'
+    #   'application_cardoptionspage'
+    # else
+    #   'application'
     end
   end
 
-  def cardoptions
-  end
+  # def cardoptions
+  # end
 
   def apply
   end
