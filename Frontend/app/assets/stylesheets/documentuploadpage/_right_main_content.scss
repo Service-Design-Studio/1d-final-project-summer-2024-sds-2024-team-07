@@ -49,6 +49,7 @@ body {
   width: 100%;
   position: relative;
   font-family: Arial, sans-serif;
+  z-index: 2;
 }
 .tabs input[type="radio"] {
   display: none;
@@ -59,6 +60,7 @@ body {
   padding: 0;
   margin: -40px;
   position: relative;
+  z-index: 3;
 }
 .tabs ul li {
   flex: 1;
@@ -72,6 +74,7 @@ body {
   border: 1px solid #ffffff;
   border-bottom: none;
   background-color: #ffffff;
+  z-index: 4;
 }
 .tabs label:hover {
   background-color: #e0e0e0;
@@ -108,10 +111,10 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 .content-image {
   width: 100%;   /* Set the desired width */
   height: auto;  /* Maintain aspect ratio */
-  max-width: 800px; /* Maximum width of the image */
-  max-height: 500px; /* Maximum height of the image */
+  max-width: 1100px; /* Maximum width of the image */
+  max-height: 1100px; /* Maximum height of the image */
   display: block;
-  margin: -20px auto; /* Center the image */
+  margin: -80px auto; /* Center the image */
 }
 
 .btn-group {
@@ -132,13 +135,17 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   color: white;
 }
 
-
 .upload-btn-wrapper {
-  position: relative;
-  display: inline-block;
+  position: fixed;
   text-align: center;
-  margin-top: -40px;
+  top: 88%;
+  left: 40%;
+  animation: content 0.3s ease-in-out;
+  display: inline-block;
+  align-items: center;
+  z-index: 999;
 }
+
 .upload-btn-wrapper:hover {
   cursor: pointer;
 }
@@ -161,6 +168,19 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   opacity: 0;
 }
 
+.Next{
+  position: fixed;
+  color: white;
+  z-index: 99;
+  top: 105%;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: red;
+  text-align: right;
+  border-radius: 5px;
+}
 
 
 
@@ -182,6 +202,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   border-radius: 5px;
   min-width: #{$tab-count * 60px};
+  z-index: 2;
 
   input[name="tab-control"] {
     display: none;
@@ -357,4 +378,77 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
       }
     }
   }
+}
+
+
+.carousel {
+  width: 100%;   /* Set the desired width */
+  height: 800px;  /* Maintain aspect ratio */
+  max-width: 2000; /* Maximum width of the image */
+  max-height: 800; /* Maximum height of the image */
+  display: block;
+  margin-top: 0px;
+  z-index: 1;
+}
+
+.carousel > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 200ms opacity ease-in-out;
+  transition-delay: 200ms;
+  
+
+}
+
+.slide > img {
+  display: block;
+  width: 550%;
+  height: auto;
+  margin-right: 15px;
+}
+
+.slide[data-active] {
+  opacity: 1;
+  z-index: 1;
+  transition-delay: 0ms;
+}
+
+.carousel-button {
+  position: absolute;
+  z-index: 999;
+  background: none;
+  border: none;
+  font-size: 3.5rem;
+  margin-top: 180px;
+  transform: translateY(-50%);
+  color: #FFFFFF;
+  cursor: pointer;
+  border-radius: .25rem;
+  padding: 0 .2rem;
+  background-color: #EDEDED;
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+  color: white;
+  background-color: rgba(72, 72, 72, 0.2);
+}
+
+.carousel-button:focus {
+  outline: 1px solid black;
+}
+
+.carousel-button.prev {
+  left: 1.4rem;
+}
+
+.carousel-button.next {
+  right: 30.8rem;
 }
