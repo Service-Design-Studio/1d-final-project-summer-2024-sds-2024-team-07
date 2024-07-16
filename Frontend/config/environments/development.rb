@@ -1,6 +1,6 @@
 require "active_support/core_ext/integer/time"
 
-Rails.application.config.hosts << "doc-check-mxc46xaqxq-de.a.run.app"
+Rails.application.config.hosts << "dbsdoccheckteam7-44nyvt7saq-de.a.run.app"
 Rails.application.configure do
   # Configure 'rails notes' to inspect Cucumber files
   config.annotations.register_directories('features')
@@ -86,7 +86,7 @@ Rails.application.configure do
   config.assets.compile = true
 
   # Disable asset digest generation in development
-  config.assets.digest = true
+  config.assets.digest = false
 
   # Enable debug mode for assets
   config.assets.debug = true

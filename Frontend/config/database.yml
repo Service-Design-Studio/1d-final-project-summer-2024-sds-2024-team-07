@@ -15,16 +15,18 @@ test:
   database: storage/test.sqlite3
  
 production:
+  # <<: *default
+  # database: storage/production.sqlite3
   adapter: postgresql
   encoding: utf8
   # host: <%= ENV['PRODUCTION_DB_HOST'] %>
-  host: <%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/<%= ENV["CLOUD_SQL_CONNECTION_NAME"] %>
-  database: <%= ENV['PRODUCTION_DB_NAME'] %>
-  username: <%= ENV['PRODUCTION_DB_USERNAME'] %>
-  password: <%= ENV['PRODUCTION_DB_PASSWORD'] %>
+  # host: <%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/<%= ENV["CLOUD_SQL_CONNECTION_NAME"] %>
+  # database: <%= ENV['PRODUCTION_DB_NAME'] %>
+  # username: <%= ENV['PRODUCTION_DB_USERNAME'] %>
+  # password: <%= ENV['PRODUCTION_DB_PASSWORD'] %>
   
-  # host: "/cloudsql/dbs-db-doc:asia-east1:dbs-doccheck"
-  # database: "dbs-db"
-  # username: "dbadmin"
-  # password: "ilovedbs" 
+  host: "/cloudsql/dbsdoccheckteam7:asia-east1:dbs-database"
+  database: "dbs-db"
+  username: "dbs-admin"
+  password: "ilovedbs" 
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
