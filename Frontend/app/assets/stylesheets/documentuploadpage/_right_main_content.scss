@@ -138,7 +138,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 .upload-btn-wrapper {
   position: fixed;
   text-align: center;
-  top: 88%;
+  top: 85%;
   left: 40%;
   animation: content 0.3s ease-in-out;
   display: inline-block;
@@ -148,17 +148,23 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 
 .upload-btn-wrapper:hover {
   cursor: pointer;
+  color: #fa3943;
 }
 .btnUp {
+  font-family: "Montserrat";
+
   border: 2px solid rgb(0, 0, 0);
   color: rgb(0, 0, 0);
   background-color: white;
   padding: 8px 20px;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
-
+.btnUp:hover {
+  background-color: #fa3943;
+  color: white;
+}
 
 .upload-btn-wrapper input[type=file] {
   font-size: 100px;
@@ -409,7 +415,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 
 .slide > img {
   display: block;
-  width: 550%;
+  width: 550%;  
   height: auto;
   margin-right: 15px;
 }
@@ -425,21 +431,21 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   z-index: 999;
   background: none;
   border: none;
-  font-size: 3.5rem;
-  margin-top: 180px;
+  font-size: 2.5rem;
+  margin-top: 190px;
   transform: translateY(-50%);
-  color: #FFFFFF;
+  color: black;
   cursor: pointer;
   border-radius: .25rem;
   padding: 0 .2rem;
   background-color: #EDEDED;
 }
 
-.carousel-button:hover,
-.carousel-button:focus {
-  color: white;
-  background-color: rgba(72, 72, 72, 0.2);
-}
+// .carousel-button:hover,
+// .carousel-button:focus {
+//   color: black;
+//   background-color: rgba(72, 72, 72, 0.2);
+// }
 
 .carousel-button:focus {
   outline: 1px solid black;
@@ -450,5 +456,5 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 }
 
 .carousel-button.next {
-  right: 30.8rem;
+  right: 30.9rem;
 }
