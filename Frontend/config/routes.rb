@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'employment_passport', to: 'your_controller#employment_passport', as: 'employment_passport'
   get 'verify_details', to: 'your_controller#verify_details', as: 'verify_details'
   get 'create_pin', to: 'your_controller#create_pin', as: 'create_pin'
+  post 'ocr', to: 'ocr#create'
+  get 'ocr/new', to: 'ocr#new'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
