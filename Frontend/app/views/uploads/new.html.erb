@@ -1,0 +1,20 @@
+<!-- app/views/uploads/new.html.erb -->
+<h1>Upload a File</h1>
+
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<% if flash[:alert] %>
+  <p class="alert"><%= flash[:alert] %></p>
+<% end %>
+
+<%= form_with url: uploads_path, local: true, method: :post, multipart: true do |form| %>
+  <div class="field">
+    <%= form.label :file, "Choose a file to upload" %>
+    <%= form.file_field :file %>
+  </div>
+  <div class="actions">
+    <%= form.submit 'Upload File' %>
+  </div>
+<% end %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'uploads/new'
+  get 'uploads/create'
   get 'test/one'
   get 'pages/cardoptions', to: 'pages#cardoptions', as: 'pages_cardoptions'
   get 'pages/apply', to: 'pages#apply', as: 'pages_apply'
@@ -19,6 +21,8 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
+
+  resources :uploads, only: [:new, :create]
   # Defines the root path route ("/")
   # root "home#index"
   root "pages#apply"
