@@ -33,3 +33,13 @@
 /config/master.key
 
 /config/credentials/production.key
+
+# Ignore virtual environment
+myenv/
+
+# Ignore other common files and directories
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.vscode/
