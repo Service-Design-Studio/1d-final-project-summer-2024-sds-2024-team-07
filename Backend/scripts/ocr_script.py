@@ -15,7 +15,7 @@ genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-1.5-pro-latest')
 
 text_prompt = "What are the total gross wages?"
-income_slip_image = Image.open('./app/assets/images/income-slip.png')
+income_slip_image = Image.open('../../Frontend/app/assets/images/income-slip.png')
 
 prompt = [text_prompt, income_slip_image]
 response = model.generate_content(prompt)
