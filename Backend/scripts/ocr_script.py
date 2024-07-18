@@ -1,37 +1,26 @@
-import google.generativeai as genai
-from google.generativeai.types import ContentType
-from PIL import Image
-from IPython.display import Markdown
-import time
-import cv2
+import os
+import vertexai
+from vertexai.preview.generative_models import GenerativeModel, Image
+from google.oauth2 import service_account
 
-GOOGLE_API_KEY = "AIzaSyAvkyTyL2uLZVONtp8duRy46b7I2plzCRw"
-genai.configure(api_key=GOOGLE_API_KEY)
+PROJECT_ID = "dbsdoccheckteam7"
+REGION = "asia-east1"
 
-# for m in genai.list_models():
-#     if 'generateContent' in m.supported_generation_methods:
-#     	print(m.name)
+# Get the directory of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
 
-model = genai.GenerativeModel('gemini-1.5-pro-latest')
+# Construct the relative path to the service account file
+SERVICE_ACCOUNT_FILE = os.path.join(script_dir, '../dbsdoccheckteam7-7b5fc6a831cc.json')
 
-text_prompt = "What are the total gross wages?"
-income_slip_image = Image.open('./app/assets/images/income-slip.png')
+# Authenticate using the service account key file
+credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE)
+vertexai.init(project=PROJECT_ID, location=REGION, credentials=credentials)
 
-prompt = [text_prompt, income_slip_image]
-response = model.generate_content(prompt)
+# Construct the relative path to the image file
+IMAGE_FILE = "./app/assets/images/income-slip.png"
+image = Image.load_from_file(IMAGE_FILE)
 
-# Print the entire response for debugging purposes
+generative_multimodal_model = GenerativeModel("gemini-1.5-pro-001")
+response = generative_multimodal_model.generate_content(["What is shown in this image?", image])
+
 print(response)
-
-# Check if the response contains any candidates
-if response and 'candidates' in response and response.candidates:
-    for candidate in response.candidates:
-        if candidate.text:
-            print(candidate.text)
-        else:
-            print("Content generation was blocked due to safety reasons.")
-            print("Safety Ratings:")
-            for rating in candidate.safety_ratings:
-                print(f"Category: {rating.category}, Probability: {rating.probability}")
-else:
-    print("No valid response received.")
