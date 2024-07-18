@@ -1,0 +1,16 @@
+steps:
+  # Step 1: Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/flask-app', '.']
+
+  # Step 2: Push the Docker image to Google Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/flask-app']
+
+  # Step 3: Deploy the Docker image to Google Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args: ['run', 'deploy', 'flask-app', '--image', 'gcr.io/$PROJECT_ID/flask-app', '--platform', 'managed', '--region', 'asia-east1', '--allow-unauthenticated']
+
+images:
+  - 'gcr.io/$PROJECT_ID/flask-app'
