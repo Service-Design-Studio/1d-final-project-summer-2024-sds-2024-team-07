@@ -1,0 +1,4 @@
+google-cloud-aiplatform==1.17.1
+google-auth==2.6.6
+google-auth-oauthlib==0.4.6
+google-auth-httplib2==0.1.0
