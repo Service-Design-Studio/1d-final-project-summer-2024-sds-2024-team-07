@@ -1,5 +1,6 @@
 annotated-types
 Flask==2.0.3
+Werkzeug==2.0.3
 gunicorn==20.1.0
 asttokens
 cachetools
@@ -7,12 +8,13 @@ certifi
 charset-normalizer
 decorator
 executing
+google-generativeai>=0.2.0
+google-cloud-aiplatform>=1.12.0
 google-ai-generativelanguage
 google-api-core
 google-api-python-client
 google-auth
 google-auth-httplib2
-google-generativeai
 googleapis-common-protos
 grpcio
 grpcio-status
