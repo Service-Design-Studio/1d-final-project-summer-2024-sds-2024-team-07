@@ -29,12 +29,15 @@ class UploadsController < ApplicationController
   rescue StandardError => e
     flash[:alert] = "File upload failed: #{e.message}"
     redirect_to new_upload_path
+  ensure
+    # Delete the temporary file
+    File.delete(file_path) if File.exist?(file_path)
   end
 
   private
 
   def send_file_to_flask_backend(file_path)
-    uri = URI.parse('http://127.0.0.1:5000/upload')
+    uri = URI.parse('https://flask-app-44nyvt7saq-de.a.run.app/upload')
     request = Net::HTTP::Post.new(uri)
     form_data = [['file', File.open(file_path)]]
     request.set_form form_data, 'multipart/form-data'
