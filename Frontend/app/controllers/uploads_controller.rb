@@ -30,8 +30,8 @@ class UploadsController < ApplicationController
     flash[:alert] = "File upload failed: #{e.message}"
     redirect_to new_upload_path
   ensure
-    # Delete the temporary file
-    File.delete(file_path) if File.exist?(file_path)
+    # Commenting out the line that deletes the temporary file
+    # File.delete(file_path) if File.exist?(file_path)
   end
 
   private
