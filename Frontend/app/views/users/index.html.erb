@@ -1,0 +1,30 @@
+<!-- app/views/users/index.html.erb -->
+<p style="color: green"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table class="user-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Passport Number</th>
+      <th>Passport Expiry</th>
+      <th>Date of Birth</th>
+      <th>Doc (Passport)</th>
+      <th>Doc (Employment Pass)</th>
+      <th>Doc (Income Tax)</th>
+      <th>Doc (Payslip)</th>
+      <th>Doc (Proof of Address)</th>
+      <th>Others</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <%= render partial: "user", locals: { user: user } %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New user", new_user_path %>

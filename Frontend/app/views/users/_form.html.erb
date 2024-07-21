@@ -1,0 +1,67 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :passport_number, style: "display: block" %>
+    <%= form.text_field :passport_number %>
+  </div>
+
+  <div>
+    <%= form.label :passport_expiry, style: "display: block" %>
+    <%= form.date_field :passport_expiry %>
+  </div>
+
+  <div>
+    <%= form.label :date_of_birth, style: "display: block" %>
+    <%= form.date_field :date_of_birth %>
+  </div>
+
+  <div>
+    <%= form.label :doc_passport, style: "display: block" %>
+    <%= form.text_field :doc_passport %>
+  </div>
+
+  <div>
+    <%= form.label :doc_employment_pass, style: "display: block" %>
+    <%= form.text_field :doc_employment_pass %>
+  </div>
+
+  <div>
+    <%= form.label :doc_income_tax, style: "display: block" %>
+    <%= form.text_field :doc_income_tax %>
+  </div>
+
+  <div>
+    <%= form.label :doc_payslip, style: "display: block" %>
+    <%= form.text_field :doc_payslip %>
+  </div>
+
+  <div>
+    <%= form.label :doc_proof_of_address, style: "display: block" %>
+    <%= form.text_field :doc_proof_of_address %>
+  </div>
+
+  <div>
+    <%= form.label :others, style: "display: block" %>
+    <%= form.text_field :others %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

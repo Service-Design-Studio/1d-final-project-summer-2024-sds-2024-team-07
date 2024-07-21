@@ -10,11 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_08_164456) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_21_040259) do
   create_table "tests", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "passport_number"
+    t.date "passport_expiry"
+    t.date "date_of_birth"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "doc_passport"
+    t.integer "doc_employment_pass"
+    t.integer "doc_income_tax"
+    t.integer "doc_payslip"
+    t.integer "doc_proof_of_address"
+    t.integer "others"
   end
 
 end

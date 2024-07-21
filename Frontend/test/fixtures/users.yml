@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  passport_number: MyString
+  passport_expiry: 2024-07-21
+  date_of_birth: 2024-07-21
+  doc_passport: MyString
+  doc_employment_pass: MyString
+  doc_income_tax: MyString
+  doc_payslip: MyString
+  doc_proof_of_address: MyString
+  others: MyString
+
+two:
+  name: MyString
+  passport_number: MyString
+  passport_expiry: 2024-07-21
+  date_of_birth: 2024-07-21
+  doc_passport: MyString
+  doc_employment_pass: MyString
+  doc_income_tax: MyString
+  doc_payslip: MyString
+  doc_proof_of_address: MyString
+  others: MyString

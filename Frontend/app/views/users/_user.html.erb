@@ -1,0 +1,19 @@
+<!-- app/views/users/_user.html.erb -->
+<tr id="<%= dom_id user %>">
+  <td><%= user.id %></td>
+  <td><%= user.name %></td>
+  <td><%= user.passport_number %></td>
+  <td><%= user.passport_expiry %></td>
+  <td><%= user.date_of_birth %></td>
+  <td><%= user.doc_passport %></td>
+  <td><%= user.doc_employment_pass %></td>
+  <td><%= user.doc_income_tax %></td>
+  <td><%= user.doc_payslip %></td>
+  <td><%= user.doc_proof_of_address %></td>
+  <td><%= user.others %></td>
+  <td>
+    <%= link_to 'Show', user %> |
+    <%= link_to 'Edit', edit_user_path(user) %> |
+    <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </td>
+</tr>

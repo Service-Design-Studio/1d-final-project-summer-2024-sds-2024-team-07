@@ -23,6 +23,9 @@ Rails.application.routes.draw do
 
 
   resources :uploads, only: [:new, :create]
+  resources :users
+
+  get 'users_list', to: 'users#index', as: 'users_list'
   # Defines the root path route ("/")
   # root "home#index"
   root "pages#apply"
