@@ -43,6 +43,7 @@ Then('my screen slides to the respective section') do
   end
 end
 
+
 # Scenario 2: Viewing details of other pages on the sidebar
 Given ('I am on the document upload page and I want to find information of the application form page without having submitted my documents yet') do
   begin
@@ -61,6 +62,20 @@ And('all headers should be clickable') do
   find('.sidebar .link_name', text: '3. Verify Particulars').click
   find('.sidebar .link_name', text: '4. Create Pin').click
 end
+# And('all headers should be clickable') do
+#   headers = [
+#     '2. Particulars',
+#     '3. Verify Particulars',
+#     '4. Create Pin'
+#   ]
+#   headers.each do |header_text|
+#     # Find the specific header element within the sidebar
+#     header = find(:xpath, "//a[contains(., '#{header_text}')]/span[@class='link_name']", visible: false)
+#     page.execute_script("arguments[0].scrollIntoView(true);", header.native)
+#     page.execute_script("arguments[0].click();", header.native)
+#   end
+# end
+
 
 And ('I should see information of each section of each page within the sidebar') do
   expect(page).to have_css('.sub-menu', visible: true)
