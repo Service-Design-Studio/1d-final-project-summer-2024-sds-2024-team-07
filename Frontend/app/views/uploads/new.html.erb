@@ -4,6 +4,18 @@
     <%= form.label :file %>
     <%= form.file_field :file %>
   </div>
+  
+  <div class="field">
+    <%= form.label :file_type, "Select File Type" %>
+    <%= form.select :file_type, options_for_select([
+      ['Passport', 'passport'],
+      ['Employment Pass', 'employment_pass'],
+      ['Income Tax', 'income_tax'],
+      ['Proof of Address', 'proof_of_address'],
+      ['Payslip', 'payslip']
+    ]) %>
+  </div>
+  
   <div class="actions">
     <%= form.submit 'Upload' %>
   </div>

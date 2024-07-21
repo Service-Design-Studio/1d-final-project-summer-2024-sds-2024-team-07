@@ -9,6 +9,7 @@ class UploadsController < ApplicationController
 
   def create
     uploaded_file = params[:file]
+    file_type = params[:file_type] || 'generic'
     file_path = Rails.root.join('tmp', uploaded_file.original_filename)
 
     # Save the file temporarily to the server
@@ -17,7 +18,7 @@ class UploadsController < ApplicationController
     end
 
     # Send the file to the Flask backend
-    response = send_file_to_flask_backend(file_path)
+    response = send_file_to_flask_backend(file_path, file_type)
 
     if response['result']
       @result = 'File processed successfully: ' + response.to_s
@@ -36,8 +37,17 @@ class UploadsController < ApplicationController
 
   private
 
-  def send_file_to_flask_backend(file_path)
-    uri = URI.parse('https://flask-app-44nyvt7saq-de.a.run.app/upload')
+  def send_file_to_flask_backend(file_path, file_type)
+    endpoint_map = {
+      'passport' => '/upload/passport',
+      'employment_pass' => '/upload/employment_pass',
+      'income_tax' => '/upload/income_tax',
+      'proof_of_address' => '/upload/proof_of_address',
+      'payslip' => '/upload/payslip'
+    }
+
+    endpoint = endpoint_map[file_type] || '/upload/generic'
+    uri = URI.parse("http://127.0.0.1:5000#{endpoint}")
     request = Net::HTTP::Post.new(uri)
     form_data = [['file', File.open(file_path)]]
     request.set_form form_data, 'multipart/form-data'
