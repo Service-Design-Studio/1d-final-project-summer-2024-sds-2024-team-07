@@ -23,7 +23,12 @@ Rails.application.routes.draw do
 
 
   resources :uploads, only: [:new, :create]
-  resources :users
+  resources :users do
+    collection do
+      post 'apply', to: 'users#apply', as: 'apply'
+      post 'upload_document', to: 'users#upload_document', as: 'upload_document'
+    end
+  end
 
   get 'users_list', to: 'users#index', as: 'users_list'
   # Defines the root path route ("/")

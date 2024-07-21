@@ -39,7 +39,10 @@
                 <span class="divider_vertical1"></span>
         <button class="btn2" id="apply-yes">Apply with digibank</button>
                 
-        <button class="btn3" id="apply-yes"><%= link_to 'Document Upload', pages_documentupload_path, class: 'btn3' %></button>
+
+        <%= form_with url: apply_users_path, method: :post, local: true, html: { class: 'inline' } do %>
+            <button type="submit" class="btn3" id="apply-yes">Document Upload</button>
+        <% end %>
         </div>
         <div class="custom-line">
             Visit <%= link_to 'application checklist', pages_applicationchecklist_path %> to get more information on the documents required
