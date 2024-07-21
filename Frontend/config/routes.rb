@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
   get 'uploads/new'
   get 'uploads/create'
-  get 'test/one'
+
   get 'pages/cardoptions', to: 'pages#cardoptions', as: 'pages_cardoptions'
   get 'pages/apply', to: 'pages#apply', as: 'pages_apply'
   get 'pages/documentupload', to: 'pages#documentupload', as: 'pages_documentupload'
   get 'pages/applicationform', to: 'pages#applicationform', as: 'pages_applicationform'
   get 'pages/applicationchecklist', to: 'pages#applicationchecklist', as: 'pages_applicationchecklist'
-  get 'pages/page_one'
-
   get 'employment_passport', to: 'your_controller#employment_passport', as: 'employment_passport'
   get 'verify_details', to: 'your_controller#verify_details', as: 'verify_details'
   get 'create_pin', to: 'your_controller#create_pin', as: 'create_pin'
