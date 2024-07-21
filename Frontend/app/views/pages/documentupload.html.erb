@@ -1,116 +1,236 @@
-<div class="custom-container">
-    <div class="left-div">
-        <%= render 'shared/left_toggle-sidebar' %>
-    </div>
-    <div class="right-div">
-        <%= render 'shared/right_header' %>
-        <div class="btn-group">
-            <button type="button" onclick="changeDiv(1)" id="button1" class="btn btn-outline-danger">Salaried Employee :<br> More than 3 Months </button>
-            <button type="button" onclick="changeDiv(2)" id="button2" class="btn btn-outline-danger">Salaried Employee :<br> Less than 3 months</button>
-            <button type="button" onclick="changeDiv(3)" id="button3" class="btn btn-outline-danger">Self-Employed/Commission-Based</button>
+<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="_right_main_content.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+</head>
+
+<body>
+    <div class="custom-container">
+        <div class="left-div">
+            <%= render 'shared/left_toggle-sidebar' %>
         </div>
-
-        <div class="tabs">
-            <input type="radio" id="tab1" name="tab-control" checked>
-            <input type="radio" id="tab2" name="tab-control">
-            <input type="radio" id="tab3" name="tab-control">
-            <input type="radio" id="tab4" name="tab-control">
-            <input type="radio" id="tab5" name="tab-control">
-            <ul>
-                <li title="Valid Passport">
-                    <label id="label1" for="tab1" role="button">
-                        <div class="icon">📕</div>
-                        <br><span>Passport</span>
-                    </label>
-                </li>
-                <li title="Employment Pass">
-                    <label id="label2" for="tab2" role="button">
-                        <div class="icon">📝</div>
-                        <br><span>Employment Pass</span>
-                    </label>
-                </li>
-                <li id="item-tab3" title="Income Tax">
-                    <label id="label3" for="tab3" role="button">
-                        <div class="icon">💵</div>
-                        <br><span>Income Tax</span>
-                    </label>
-                </li>
-                <li id="item-tab4" title="PaySlip">
-                    <label id="label4" for="tab4" role="button">
-                        <div class="icon">💼</div>
-                        <br><span>Pay Slip</span>
-                    </label>
-                </li>
-                <li title="Proof of SG Address">
-                    <label id="label5" for="tab5" role="button">
-                        <div class="icon">🏠</div>
-                        <br><span>Proof of Address</span>
-                    </label>
-                </li>
-            </ul>
-            <div class="content">
-                <section id="content1">
-                    <%= image_tag 'Passport.png', alt: "Passport", class: 'content-image' %>
-                </section>
-                <section id="content2">
-                    <%= image_tag 'WorkPass.png', alt: "Employment Pass", class: 'content-image' %>
-                </section>
-                <section id="content3">
-                    <%= image_tag 'TaxAsessment.png', alt: "Income Tax", class: 'content-image' %>
-                </section>
-                <section id="content4">
-                    <%= image_tag 'IncomeSlip.png', alt: "Pay Slip", class: 'content-image' %>
-                </section>
-                <section id="content5" class="carousel" data-carousel>        
-                    <button class="carousel-button prev" data-carousel-button="prev">&#60;</button>
-                    <button class="carousel-button next" data-carousel-button="next">&#62;</button>
-
-                    <ul data-slides>
-                        <li class="slide" data-active>
-                        <%=image_tag 'poa.png', alt:"Proof of Address", class: 'content-image' %>
-                        </li>
-                        <li class="slide">
-                        <%=image_tag 'poa1.png', alt:"Proof of Address1", class: 'content-image' %>
-                        </li>
-                        <li class="slide">
-                        <%=image_tag 'poa2.png', alt:"Proof of Address2", class: 'content-image' %>
-                        </li>
-                    </ul>
-                </section>
-
+        <div class="right-div">
+            <%= render 'shared/right_header' %>
+            <div class="btn-group">
+                <button type="button" onclick="changeDiv(1)" id="button1" class="btn btn-outline-danger">Salaried Employee :<br> More than 3 Months </button>
+                <button type="button" onclick="changeDiv(2)" id="button2" class="btn btn-outline-danger">Salaried Employee :<br> Less than 3 months</button>
+                <button type="button" onclick="changeDiv(3)" id="button3" class="btn btn-outline-danger">Self-Employed/Commission-Based</button>
             </div>
 
-            <div class="upload-btn-wrapper">
-                <button class="btnUp" id="uploadButton1">Upload Document</button>
-                <input type="file" name="myfile" id="fileInput1" style="display:none;" />                
-                <button class="btnUp" id="uploadButton2" style="display:none;">Upload Document</button>
-                <input type="file" name="myfile" id="fileInput2" style="display:none;" />
-                
-                <button class="btnUp" id="uploadButton3" style="display:none;">Upload Document</button>
-                <input type="file" name="myfile" id="fileInput3" style="display:none;" />
-                
-                <button class="btnUp" id="uploadButton4" style="display:none;">Upload Document</button>
-                <input type="file" name="myfile" id="fileInput4" style="display:none;" />
-                
-                <button class="btnUp" id="uploadButton5" style="display:none;">Upload Document</button>
-                <input type="file" name="myfile" id="fileInput5" style="display:none;" />
-                <p>Or Drop File Here (PDF/PNG/JPG)</p>
-            </div>
+            <div class="tabs">
+                <%# <span class="overlay"></span>
+                <div class="modal-box">
+                <i>&#9746;</i>
+                <h2>Upload Error</h2>
+                <h3>Invalid file type! Please upload a PDF, PNG, or JPG document.<h3>
+                <div class="buttons">
+                    <button class="closebtn">Ok, Close</button>
+                    <button>Open File</button>
+                </div>
+            </div> %>
 
-            <div style="text-align: right">
-                <%= link_to 'Next', pages_applicationform_path, class: 'Next' %>
-            </div>
+                <input type="radio" id="tab1" name="tab-control" checked>
+                <input type="radio" id="tab2" name="tab-control">
+                <input type="radio" id="tab3" name="tab-control">
+                <input type="radio" id="tab4" name="tab-control">
+                <input type="radio" id="tab5" name="tab-control">
+                <ul>
+                    <li title="Valid Passport">
+                        <label id="label1" for="tab1" role="button">
+                            <div class="icon">📕</div>
+                            <br><span>Passport</span>
+                        </label>
+                    </li>
+                    <li title="Employment Pass">
+                        <label id="label2" for="tab2" role="button">
+                            <div class="icon">📝</div>
+                            <br><span>Employment Pass</span>
+                        </label>
+                    </li>
+                    <li id="item-tab3" title="Income Tax">
+                        <label id="label3" for="tab3" role="button">
+                            <div class="icon">💵</div>
+                            <br><span>Income Tax</span>
+                        </label>
+                    </li>
+                    <li id="item-tab4" title="PaySlip">
+                        <label id="label4" for="tab4" role="button">
+                            <div class="icon">💼</div>
+                            <br><span>Pay Slip</span>
+                        </label>
+                    </li>
+                    <li title="Proof of SG Address">
+                        <label id="label5" for="tab5" role="button">
+                            <div class="icon">🏠</div>
+                            <br><span>Proof of Address</span>
+                        </label>
+                    </li>
+                </ul>
+                <div class="content">
+                    
+                    <section id="content1">
+                        <%= image_tag 'Passport.png', alt: "Passport", class: 'content-image' %>
+                    </section>
+                    <section id="content2" class="carousel" data-carousel>
+                        <button class="carousel-button prev" data-carousel-button="prev">&#10094;</button>
+                        <button class="carousel-button next" data-carousel-button="next">&#10095;</button>
+                        <ul data-slides>
+                            <li class="slide" data-active>
+                            <%=image_tag 'WorkPass.png', alt:"Employment Pass", class: 'content-image' %>
+                            </li>
+                            <li class="slide">
+                            <%=image_tag 'WorkPass1.png', alt:"Employment Pass1", class: 'content-image' %>
+                            </li>
+                            <li class="slide">
+                            <%=image_tag 'WorkPass2.png', alt:"Employment Pass2", class: 'content-image' %>
+                            </li>
+                        </ul>
+                    </section>
 
+                    <section id="content3" class="carousel" data-carousel data-carousel>
+                        <button class="carousel-button prev" data-carousel-button="prev">&#10094;</button>
+                        <button class="carousel-button next" data-carousel-button="next">&#10095;</button>
+                        <ul data-slides>
+                            <li class="slide" data-active>
+                            <%=image_tag 'TaxAsessment.png', alt:"Tax Asessment", class: 'content-image' %>
+                            </li>
+                            <li class="slide">
+                            <%=image_tag 'TaxAsessment1.png', alt:"Tax Asessment1", class: 'content-image' %>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="content4" class="carousel" data-carousel data-carousel>
+                        <button class="carousel-button prev" data-carousel-button="prev">&#10094;</button>
+                        <button class="carousel-button next" data-carousel-button="next">&#10095;</button>
+                        <ul data-slides>
+                            <li class="slide" data-active>
+                            <%=image_tag 'IncomeSlip.png', alt:"Pay Slip", class: 'content-image' %>
+                            </li>
+                            <li class="slide">
+                            <%=image_tag 'IncomeSlip1.png', alt:"Pay Slip1", class: 'content-image' %>
+                            </li>
+                            <li class="slide">
+                            <%=image_tag 'IncomeSlip2.png', alt:"Pay Slip2", class: 'content-image' %>
+                            </li>
+                            <li class="slide">
+                            <%=image_tag 'IncomeSlip3.png', alt:"Pay Slip3", class: 'content-image' %>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="content5" class="carousel" data-carousel>        
+                        <button class="carousel-button prev" data-carousel-button="prev">&#10094;</button>
+                        <button class="carousel-button next" data-carousel-button="next">&#10095;</button>
+
+                        <ul data-slides>
+                            <li class="slide" data-active>
+                            <%=image_tag 'poa.png', alt:"Proof of Address", class: 'content-image' %>
+                            </li>
+                            <li class="slide">
+                            <%=image_tag 'poa1.png', alt:"Proof of Address1", class: 'content-image' %>
+                            </li>
+                            <li class="slide">
+                            <%=image_tag 'poa2.png', alt:"Proof of Address2", class: 'content-image' %>
+                            </li>
+                            <li class="slide">
+                            <%=image_tag 'poa3.png', alt:"Proof of Address3", class: 'content-image' %>
+                            </li>
+                            <li class="slide">
+                            <%=image_tag 'poa4.png', alt:"Proof of Address4", class: 'content-image' %>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+                
+                <div class="upload-btn-wrapper">
+                    <button class="btnUp" id="uploadButton1">Upload Document</button>
+                    <input type="file" name="myfile" id="fileInput1" style="display:none;" />                
+                    <button class="btnUp" id="uploadButton2" style="display:none;">Upload Document</button>
+                    <input type="file" name="myfile" id="fileInput2" style="display:none;" />
+                    
+                    <button class="btnUp" id="uploadButton3" style="display:none;">Upload Document</button>
+                    <input type="file" name="myfile" id="fileInput3" style="display:none;" />
+                    
+                    <button class="btnUp" id="uploadButton4" style="display:none;">Upload Document</button>
+                    <input type="file" name="myfile" id="fileInput4" style="display:none;" />
+                    
+                    <button class="btnUp" id="uploadButton5" style="display:none;">Upload Document</button>
+                    <input type="file" name="myfile" id="fileInput5" style="display:none;" />
+                    <p>Or Drop File Here (PDF/PNG/JPG)</p>
+                </div>
+
+                <div style="text-align: right">
+                    <%= link_to 'Next', pages_applicationform_path, class: 'Next' %>
+                </div>
+
+            </div>
         </div>
     </div>
+
+<div class="titles">
+    <div class="title title-1"><h1><span>Begin</span> your<br>Credit Card Journey</h1></div>
+    <div class="title title-2"><h1>With <span>Us</span>,</h1></div>
+    <div class="title title-3"><h1>
+        <%= image_tag("dbs_logo.svg", alt: "DBS", class: "logo-icon1") %>
+    </h1></div>
 </div>
 
+</body>
+
+
 <script>
+            TweenMax.staggerFrom(
+				".titles > div",
+				0.8,
+				{
+					x: "-60",
+					ease: Power3.easeInOut,
+					opacity: "0",
+				},
+				2
+			);
+
+			TweenMax.staggerTo(
+				".titles > div",
+				0.8,
+				{
+					x: "60",
+					ease: Power3.easeInOut,
+					delay: 1.2,
+					opacity: "0",
+				},
+				2
+			);
+			var textWrapper = document.querySelector(".custom-container");
+
+			anime.timeline().add({
+				targets: ".custom-container",
+				opacity: [0, 1],
+				translateY: [80, 0],
+				translateZ: 0,
+				easing: "easeOutExpo",
+				duration: 2000,
+				delay: (el, i) => 6400 + 40 * i,
+			});
+
 document.addEventListener("DOMContentLoaded", function () {
     const tabsContainer = document.querySelector(".tabs");
     const tabs = tabsContainer.querySelectorAll("input[type='radio']");
     const labels = tabsContainer.querySelectorAll("label");
     const indicator = tabsContainer.querySelector(".indicator");
+    // const overlay = document.querySelector(".overlay");
+    // const modal = document.querySelector(".modal-box");
+
+    // const closebtn = document.querySelector(".closebtn");
+    // closebtn.addEventListener('click', () => {
+    //     console.log('Close button clicked');
+    //     overlay.style.display = "none";
+    //     modal.style.opacity= 0;
+    // });
 
     function updateIndicator() {
         const activeTab = Array.from(tabs).find(tab => tab.checked);
@@ -262,22 +382,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 var validTypes = ['application/pdf', 'image/png', 'image/jpeg'];
                 if (validTypes.indexOf(fileType) === -1) {
                     alert('Invalid file type! Please upload a PDF, PNG, or JPG document.');
+                    // overlay.style.display = "flex";
+                    // modal.style.opacity= 1;                       
                     this.value = ''; 
                 } else {
                     const activeTab = `tab${index + 1}`;
                     divUploadedFiles[currentDiv][activeTab] = file;
                     uploadButtons[activeTab].textContent = 'Document Uploaded';
+                    uploadButtons[activeTab].style.backgroundColor = 'red';
+                    uploadButtons[activeTab].style.color = 'white';
                 }
             }
         });
     });
-
+                         
     document.getElementById('button1').addEventListener('click', () => changeDiv(1));
     document.getElementById('button2').addEventListener('click', () => changeDiv(2));
     document.getElementById('button3').addEventListener('click', () => changeDiv(3));
 
     updateUploadButtons(); // Initialize the upload buttons
     showTabGroup(1); // Initialize the first group of tabs
+
 });
 
 const buttons = document.querySelectorAll("[data-carousel-button]")
@@ -298,6 +423,5 @@ buttons.forEach(button => {
     delete activeSlide.dataset.active
   })
 })
-
 
 </script>

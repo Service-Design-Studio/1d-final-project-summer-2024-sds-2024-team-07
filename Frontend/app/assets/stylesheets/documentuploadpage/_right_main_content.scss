@@ -49,7 +49,7 @@ body {
   width: 100%;
   position: relative;
   font-family: Arial, sans-serif;
-  z-index: 2;
+  z-index: 3;
 }
 .tabs input[type="radio"] {
   display: none;
@@ -60,7 +60,7 @@ body {
   padding: 0;
   margin: -40px;
   position: relative;
-  z-index: 3;
+  z-index: 4;
 }
 .tabs ul li {
   flex: 1;
@@ -74,7 +74,7 @@ body {
   border: 1px solid #ffffff;
   border-bottom: none;
   background-color: #ffffff;
-  z-index: 4;
+  z-index: 5;
 }
 .tabs label:hover {
   background-color: #e0e0e0;
@@ -143,7 +143,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   animation: content 0.3s ease-in-out;
   display: inline-block;
   align-items: center;
-  z-index: 999;
+  z-index: 5;
 }
 
 .upload-btn-wrapper:hover {
@@ -177,7 +177,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 .Next{
   position: fixed;
   color: white;
-  z-index: 99;
+  z-index: 5;
   top: 105%;
   display: inline-block;
   padding: 10px 20px;
@@ -394,7 +394,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   max-height: 800; /* Maximum height of the image */
   display: block;
   margin-top: 0px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .carousel > ul {
@@ -422,33 +422,34 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 
 .slide[data-active] {
   opacity: 1;
-  z-index: 1;
+  z-index: 2;
   transition-delay: 0ms;
 }
 
 .carousel-button {
+  height: 310px;
+  width: 30px;
   position: absolute;
-  z-index: 999;
+  z-index: 6;
   background: none;
   border: none;
-  font-size: 2.5rem;
-  margin-top: 190px;
+  font-size: 1.5rem;
+  margin-top: 195px;
   transform: translateY(-50%);
-  color: black;
+  color: rgb(53, 52, 52);
   cursor: pointer;
   border-radius: .25rem;
   padding: 0 .2rem;
   background-color: #EDEDED;
 }
 
-// .carousel-button:hover,
-// .carousel-button:focus {
-//   color: black;
-//   background-color: rgba(72, 72, 72, 0.2);
-// }
+.carousel-button:hover,
+.carousel-button:focus {
+  background-color: rgba(72, 72, 72, 0.2);
+}
 
 .carousel-button:focus {
-  outline: 1px solid black;
+  outline: 1px solid rgb(33, 33, 33);
 }
 
 .carousel-button.prev {
@@ -457,4 +458,103 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 
 .carousel-button.next {
   right: 30.9rem;
+}
+
+.modal-box {
+  z-index: 999;
+  background-color: #fff;
+  max-width: 380px;
+  width: 100%;
+  padding: 30px 20px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 24px;
+  display: flex;
+  opacity: 0;
+  pointer-events: none; 
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.modal-box i {
+  font-size: 70px;
+  color: #fa3943;  
+}
+
+.modal-box h2 {
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 500px;
+  color: #333;  
+}
+
+.modal-box h3 {
+  font-size: 16px;
+  font-weight: 400px;
+  color: #333;
+  text-align: center;
+  
+}
+
+.modal-box .buttons {
+  margin-top: 14px;
+  cursor: pointer;
+}
+.modal-box button {
+  font-size: 14px;
+  padding: 6px 12px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.overlay {
+  top: -30%;
+  right: -130%;
+  height: 900px;
+  width: 3000px;
+  position: fixed;
+  background: #ff636b;
+  display: none;
+  z-index: 7;  
+}
+
+
+
+.titles {
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  width: 150%;
+  z-index: 1;
+}
+
+.titles h1 {
+	font-weight: 500;
+	font-size: 80px;
+	font-family: "Barracuda" !important;
+	position: absolute;
+	top: 50%;
+ -webkit-text-fill-color: #000000;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+ul.titles {
+	display: flex;
+}
+.logo-icon1 {
+  height: 100px;
+  width: auto;
+  z-index: 1;
+}
+
+.titles h1 span{
+  -webkit-text-fill-color: #fa3943;
+  font-family: "Barracuda" !important;
 }
