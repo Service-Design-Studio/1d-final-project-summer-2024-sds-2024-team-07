@@ -1,10 +1,6 @@
 class UploadsController < ApplicationController
   protect_from_forgery with: :null_session
 
-  def new
-    @result = params[:result]
-  end
-
   def create
     uploaded_file = params[:file]
     file_type = params[:file_type]
@@ -25,19 +21,22 @@ class UploadsController < ApplicationController
       response = send_file_to_flask_backend(file_path, file_type)
 
       if response['result']
-        result = 'File processed successfully: ' + response.to_s
+        result = 'File processed successfully'
       else
-        result = 'File processing failed: ' + response.to_s
+        result = 'File processing failed'
       end
     rescue StandardError => e
       result = "File upload failed: #{e.message}"
     ensure
-      File.delete(file_path) if File.exist?(file_path)
+      # Ensure that the file is deleted after processing
+      begin
+        # File.delete(file_path) if File.exist?(file_path)
+      rescue StandardError => e
+        # Rails.logger.error "Failed to delete temporary file: #{e.message}"
+      end
     end
 
-    respond_to do |format|
-      format.json { render json: { result: response['result'], message: result } }
-    end
+    render json: { result: response['result'], message: result }
   end
 
   private

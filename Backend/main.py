@@ -59,6 +59,7 @@ def upload_and_process_file(file, prompt):
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(file_path)
         result = process_image_with_prompt(file_path, prompt)
+        print(result)
         return jsonify(result=result, message='File processed successfully', file_path=file_path)
     else:
         return jsonify(result=False, message='File upload failed'), 500
