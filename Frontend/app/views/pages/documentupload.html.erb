@@ -69,23 +69,23 @@
             <div class="upload-btn-wrapper">
                 <form id="uploadForm" enctype="multipart/form-data">
                     <label class="btnUp" id="uploadButton1">
-                        Upload Passport
+                        <span>Upload Passport</span>
                         <%= file_field_tag 'file', id: 'fileInput1', style: 'display:none;', data: { file_type: 'passport' } %>
                     </label>
                     <label class="btnUp" id="uploadButton2" style="display:none;">
-                        Upload Employment Pass
+                        <span>Upload Employment Pass</span>
                         <%= file_field_tag 'file', id: 'fileInput2', style: 'display:none;', data: { file_type: 'employment_pass' } %>
                     </label>
                     <label class="btnUp" id="uploadButton3" style="display:none;">
-                        Upload Income Tax Document
+                        <span>Upload Income Tax</span>
                         <%= file_field_tag 'file', id: 'fileInput3', style: 'display:none;', data: { file_type: 'income_tax' } %>
                     </label>
                     <label class="btnUp" id="uploadButton4" style="display:none;">
-                        Upload Payslip
+                        <span>Upload Pay Slip</span>
                         <%= file_field_tag 'file', id: 'fileInput4', style: 'display:none;', data: { file_type: 'payslip' } %>
                     </label>
                     <label class="btnUp" id="uploadButton5" style="display:none;">
-                        Upload Proof of Address
+                        <span>Upload Proof of Address</span>
                         <%= file_field_tag 'file', id: 'fileInput5', style: 'display:none;', data: { file_type: 'proof_of_address' } %>
                     </label>
                 </form>
@@ -104,16 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tabsContainer = document.querySelector(".tabs");
     const tabs = tabsContainer.querySelectorAll("input[type='radio']");
     const labels = tabsContainer.querySelectorAll(".tab-label");
-
-    function resetTabs() {
-        labels.forEach(label => {
-            label.parentElement.style.display = 'none';
-            label.control.disabled = true;
-        });
-        document.getElementById('item-tab3').style.display = 'block';  // Show Income Tax by default
-        document.getElementById('item-tab4').style.display = 'block';  // Show Pay Slip by default
-    }
-
+    const form = document.getElementById('uploadForm');
     const uploadButtons = {
         tab1: document.getElementById('uploadButton1'),
         tab2: document.getElementById('uploadButton2'),
@@ -129,12 +120,14 @@ document.addEventListener("DOMContentLoaded", function () {
         tab5: document.getElementById('fileInput5')
     };
 
-    let currentDiv = 1;
-    let divUploadedFiles = {
-        1: { tab1: null, tab2: null, tab3: null, tab4: null, tab5: null },
-        2: { tab1: null, tab2: null, tab3: null, tab4: null, tab5: null },
-        3: { tab1: null, tab2: null, tab3: null, tab4: null, tab5: null }
-    };
+    function resetTabs() {
+        labels.forEach(label => {
+            label.parentElement.style.display = 'none';
+            label.control.disabled = true;
+        });
+        document.getElementById('item-tab3').style.display = 'block';  // Show Income Tax by default
+        document.getElementById('item-tab4').style.display = 'block';  // Show Pay Slip by default
+    }
 
     function updateUploadButtons() {
         const activeTab = Array.from(tabs).find(tab => tab.checked).id;
@@ -142,8 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (tab === activeTab) {
                 uploadButtons[tab].style.display = 'inline-block';
                 fileInputs[tab].style.display = 'inline-block';
-                // update the button text if necessary
-                // Example: uploadButtons[tab].textContent = divUploadedFiles[currentDiv][tab] ? 'Document Uploaded' : 'Upload Document';
             } else {
                 uploadButtons[tab].style.display = 'none';
                 fileInputs[tab].style.display = 'none';
@@ -158,7 +149,9 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append('file', file);
         formData.append('file_type', fileInput.dataset.fileType);
 
-        fetch('/uploads', {
+        const actionUrl = `/upload/${fileInput.dataset.fileType}`;
+
+        fetch(actionUrl, {
             method: 'POST',
             body: formData,
             headers: {
@@ -185,8 +178,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-
-    // Add event listener to file inputs
     Object.keys(fileInputs).forEach(tab => {
         fileInputs[tab].addEventListener('change', (event) => {
             if (event.target.files.length > 0) {
@@ -238,6 +229,8 @@ document.addEventListener("DOMContentLoaded", function () {
             restoreTabs(['tab1', 'tab2', 'tab3', 'tab5']);
             document.getElementById('item-tab4').style.display = 'none';
         }
+
+        updateUploadButtons();
     }
 
     document.getElementById('button1').addEventListener('click', () => showTabGroup(1));
@@ -297,5 +290,4 @@ document.addEventListener("DOMContentLoaded", function () {
     updateUploadButtons(); // Initialize the upload buttons
     showTabGroup(1); // Initialize the first group of tabs
 });
-
 </script>
