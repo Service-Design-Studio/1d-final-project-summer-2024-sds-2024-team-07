@@ -25,5 +25,11 @@ module Backend
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Set the time zone to your local time zone
+    config.time_zone = 'Asia/Singapore'
+
+    # Ensure Active Record stores time in UTC and converts to local time zone when reading
+    config.active_record.default_timezone = :local
   end
 end
