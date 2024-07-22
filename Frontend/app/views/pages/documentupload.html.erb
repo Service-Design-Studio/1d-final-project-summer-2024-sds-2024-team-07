@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append('file', file);
         formData.append('file_type', fileInput.dataset.fileType);
 
-        const actionUrl = `/uploads`;
+        const actionUrl = '/uploads';
 
         fetch(actionUrl, {
             method: 'POST',
@@ -122,25 +122,22 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
         .then(response => {
-            // console.log(`Response status: ${response.status}`);
             if (!response.ok) {
                 throw new Error('Network response was not ok: ' + response.statusText);
             }
             return response.json();
         })
         .then(data => {
-            // console.log('Response data:', data);
             alert(`Result: ${data.result} - ${data.message}`);
         })
         .catch(error => {
-            // console.error('Error:', error);
+            console.error('Error:', error);
             alert('File upload failed: ' + error.message);
         });
     }
 
     fileInputs.forEach(fileInput => {
         fileInput.addEventListener("change", function () {
-            // console.log(`File input changed: ${fileInput.id}`);
             uploadFile(this);
         });
     });

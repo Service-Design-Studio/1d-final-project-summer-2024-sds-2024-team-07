@@ -20,20 +20,20 @@ class UploadsController < ApplicationController
       # Send the file to the Flask backend
       response = send_file_to_flask_backend(file_path, file_type)
 
-      if response['result']
-        result = 'File processed successfully'
+      if response['result'] == 'true'
+        user = User.find_by(session_id: session[:user_session_id]) # Use the session ID to find the user
+        if user
+          column_name = "doc_#{file_type}"
+          user.update(column_name => SecureRandom.uuid)
+        end
+        result = 'File processed successfully and UUID generated'
       else
         result = 'File processing failed'
       end
     rescue StandardError => e
       result = "File upload failed: #{e.message}"
     ensure
-      # Ensure that the file is deleted after processing
-      begin
-        # File.delete(file_path) if File.exist?(file_path)
-      rescue StandardError => e
-        # Rails.logger.error "Failed to delete temporary file: #{e.message}"
-      end
+      # File.delete(file_path) if File.exist?(file_path)
     end
 
     render json: { result: response['result'], message: result }

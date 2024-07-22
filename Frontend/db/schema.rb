@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_21_040259) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_22_220156) do
   create_table "tests", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -24,12 +24,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_21_040259) do
     t.date "date_of_birth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "doc_passport"
-    t.integer "doc_employment_pass"
-    t.integer "doc_income_tax"
-    t.integer "doc_payslip"
-    t.integer "doc_proof_of_address"
-    t.integer "others"
+    t.string "doc_passport"
+    t.string "doc_employment_pass"
+    t.string "doc_income_tax"
+    t.string "doc_payslip"
+    t.string "doc_proof_of_address"
+    t.string "others"
+    t.string "session_id"
   end
 
 end
