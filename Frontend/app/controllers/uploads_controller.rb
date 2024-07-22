@@ -1,38 +1,43 @@
-require 'net/http'
-require 'uri'
-require 'json'
-
 class UploadsController < ApplicationController
+  protect_from_forgery with: :null_session
+
   def new
     @result = params[:result]
   end
 
   def create
     uploaded_file = params[:file]
-    file_type = params[:file_type] || 'generic'
+    file_type = params[:file_type]
     file_path = Rails.root.join('tmp', uploaded_file.original_filename)
 
-    # Save the file temporarily to the server
-    File.open(file_path, 'wb') do |file|
-      file.write(uploaded_file.read)
+    if uploaded_file.nil?
+      render json: { result: false, message: 'No file uploaded' }, status: :unprocessable_entity
+      return
     end
 
-    # Send the file to the Flask backend
-    response = send_file_to_flask_backend(file_path, file_type)
+    begin
+      # Save the file temporarily to the server
+      File.open(file_path, 'wb') do |file|
+        file.write(uploaded_file.read)
+      end
 
-    if response['result']
-      @result = 'File processed successfully: ' + response.to_s
-    else
-      @result = 'File processing failed: ' + response.to_s
+      # Send the file to the Flask backend
+      response = send_file_to_flask_backend(file_path, file_type)
+
+      if response['result']
+        result = 'File processed successfully: ' + response.to_s
+      else
+        result = 'File processing failed: ' + response.to_s
+      end
+    rescue StandardError => e
+      result = "File upload failed: #{e.message}"
+    ensure
+      File.delete(file_path) if File.exist?(file_path)
     end
 
-    redirect_to new_upload_path(result: @result)
-  rescue StandardError => e
-    flash[:alert] = "File upload failed: #{e.message}"
-    redirect_to new_upload_path
-  ensure
-    # Commenting out the line that deletes the temporary file
-    # File.delete(file_path) if File.exist?(file_path)
+    respond_to do |format|
+      format.json { render json: { result: response['result'], message: result } }
+    end
   end
 
   private
@@ -52,14 +57,12 @@ class UploadsController < ApplicationController
     form_data = [['file', File.open(file_path)]]
     request.set_form form_data, 'multipart/form-data'
 
-    req_options = {
-      use_ssl: uri.scheme == 'https'
-    }
-
-    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+    response = Net::HTTP.start(uri.hostname, uri.port) do |http|
       http.request(request)
     end
 
     JSON.parse(response.body)
+  rescue JSON::ParserError => e
+    { 'result' => false, 'message' => "Failed to parse JSON response from Flask: #{e.message}" }
   end
 end
