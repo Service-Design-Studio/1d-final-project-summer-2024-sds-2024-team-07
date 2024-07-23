@@ -10,7 +10,7 @@ REGION = "asia-east1"
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Construct the relative path to the service account file
-SERVICE_ACCOUNT_FILE = os.path.join(script_dir,  '..', 'dbsdoccheckteam7-7b5fc6a831cc.json')
+SERVICE_ACCOUNT_FILE = os.path.join(script_dir, 'dbsdoccheckteam7-7b5fc6a831cc.json')
 
 
 # Authenticate using the service account key file

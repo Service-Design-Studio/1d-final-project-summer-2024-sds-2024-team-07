@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_22_220156) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_23_074249) do
+  create_table "documents", force: :cascade do |t|
+    t.string "file"
+    t.text "processed_output"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tests", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -31,6 +38,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_22_220156) do
     t.string "doc_proof_of_address"
     t.string "others"
     t.string "session_id"
+    t.string "uuid"
+    t.index ["uuid"], name: "index_users_on_uuid", unique: true
   end
 
 end
