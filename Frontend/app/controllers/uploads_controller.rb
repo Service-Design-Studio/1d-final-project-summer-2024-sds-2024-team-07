@@ -56,19 +56,24 @@ class UploadsController < ApplicationController
     }
 
     endpoint = endpoint_map[file_type] || '/upload/generic'
-    # uri = URI.parse("http://127.0.0.1:5000#{endpoint}") #This is for Local Development for Backend Server
-    uri = URI.parse("http://127.0.0.1:5000#{endpoint}") #This is for Production for Backend Server
+    # uri = URI.parse("http://127.0.0.1:5000#{endpoint}") # This is for Local Development for Backend Server
+    uri = URI.parse("https://flask-app-44nyvt7saq-de.a.run.app#{endpoint}") # This is for Production for Backend Server
+
     request = Net::HTTP::Post.new(uri)
     form_data = [['file', File.open(file_path)]]
     request.set_form form_data, 'multipart/form-data'
 
-    response = Net::HTTP.start(uri.hostname, uri.port) do |http|
+    response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == 'https') do |http|
       http.request(request)
     end
 
     JSON.parse(response.body)
   rescue JSON::ParserError => e
+    puts "Failed to parse JSON response from Flask: #{e.message}"
     { 'result' => false, 'message' => "Failed to parse JSON response from Flask: #{e.message}" }
+  rescue StandardError => e
+    puts "Error sending file to Flask: #{e.message}"
+    { 'result' => false, 'message' => "Error sending file to Flask: #{e.message}" }
   end
 
   def upload_to_gcloud(file_path, uuid, original_filename)
