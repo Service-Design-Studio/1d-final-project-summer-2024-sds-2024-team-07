@@ -56,7 +56,8 @@ class UploadsController < ApplicationController
     }
 
     endpoint = endpoint_map[file_type] || '/upload/generic'
-    uri = URI.parse("http://127.0.0.1:5000#{endpoint}")
+    # uri = URI.parse("http://127.0.0.1:5000#{endpoint}") #This is for Local Development for Backend Server
+    uri = URI.parse("http://127.0.0.1:5000#{endpoint}") #This is for Production for Backend Server
     request = Net::HTTP::Post.new(uri)
     form_data = [['file', File.open(file_path)]]
     request.set_form form_data, 'multipart/form-data'

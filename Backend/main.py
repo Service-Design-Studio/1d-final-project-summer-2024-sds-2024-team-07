@@ -56,7 +56,7 @@ def process_image_with_prompts(image_file_path, first_prompt, second_prompts=Non
         convert_pdf_to_image(image_file_path, image_path)
         image = Image.load_from_file(image_path)
     else:  
-        image = Image.load_from_file(image_path)
+        image = Image.load_from_file(image_file_path)
     
     # First attempt
     response = generate_content_with_backoff(first_prompt, image)
