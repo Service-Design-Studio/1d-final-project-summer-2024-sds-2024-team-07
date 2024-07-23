@@ -67,29 +67,90 @@
             </div>
 
             <div class="upload-btn-wrapper">
-                <form id="uploadForm" enctype="multipart/form-data">
-                    <label class="btnUp" id="uploadButton1">
-                        <span>Upload Passport</span>
-                        <input type="file" id="fileInput1" style="display:none;" data-file-type="passport">
-                    </label>
-                    <label class="btnUp" id="uploadButton2" style="display:none;">
-                        <span>Upload Employment Pass</span>
-                        <input type="file" id="fileInput2" style="display:none;" data-file-type="employment_pass">
-                    </label>
-                    <label class="btnUp" id="uploadButton3" style="display:none;">
-                        <span>Upload Income Tax</span>
-                        <input type="file" id="fileInput3" style="display:none;" data-file-type="income_tax">
-                    </label>
-                    <label class="btnUp" id="uploadButton4" style="display:none;">
-                        <span>Upload Pay Slip</span>
-                        <input type="file" id="fileInput4" style="display:none;" data-file-type="payslip">
-                    </label>
-                    <label class="btnUp" id="uploadButton5" style="display:none;">
-                        <span>Upload Proof of Address</span>
-                        <input type="file" id="fileInput5" style="display:none;" data-file-type="proof_of_address">
-                    </label>
-                </form>
+                <div class="wrapper-col-left"></div>
+                <div class="wrapper-col-middle">
+                        <form id="uploadForm" enctype="multipart/form-data">
+                            <label class="btnUp" id="uploadButton1">
+                                <span>Upload Passport</span>
+                                <input type="file" id="fileInput1" style="display:none;" data-file-type="passport">
+                            </label>
+                            <div class="file-item" id="fileItem1">
+                                <div class="file-icon">
+                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name">IncomeTax-StupidMichelle.png</div>
+                                </div>
+                                <div class="file-actions">
+                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                </div>
+                            </div>   
+                            <label class="btnUp" id="uploadButton2" style="display:none;">
+                                <span>Upload Employment Pass</span>
+                                <input type="file" id="fileInput2" style="display:none;" data-file-type="employment_pass">
+                            </label>
+                            <div class="file-item" id="fileItem2">
+                                <div class="file-icon">
+                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name">IncomeTax-StupidMichelle.png</div>
+                                </div>
+                                <div class="file-actions">
+                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                </div>
+                            </div>   
+                            <label class="btnUp" id="uploadButton3" style="display:none;">
+                                <span>Upload Income Tax</span>
+                                <input type="file" id="fileInput3" style="display:none;" data-file-type="income_tax">                         
+                            </label>
+                            <div class="file-item" id="fileItem3">
+                                <div class="file-icon">
+                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name">IncomeTax-StupidMichelle.png</div>
+                                </div>
+                                <div class="file-actions">
+                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                </div>
+                            </div>   
+                            <label class="btnUp" id="uploadButton4" style="display:none;">
+                                <span>Upload Pay Slip</span>
+                                <input type="file" id="fileInput4" style="display:none;" data-file-type="payslip">                         
+                            </label>
+                            <div class="file-item" id="fileItem4">
+                                <div class="file-icon">
+                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name"></div>
+                                </div>
+                                <div class="file-actions">
+                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                </div>
+                            </div>   
+                            <label class="btnUp" id="uploadButton5" style="display:none;">
+                                <span>Upload Proof of Address</span>
+                                <input type="file" id="fileInput5" style="display:none;" data-file-type="proof_of_address">                          
+                            </label>
+                            <div class="file-item" id="fileItem5">
+                                <div class="file-icon">
+                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name">IncomeTax-StupidMichelle.png</div>
+                                </div>
+                                <div class="file-actions">
+                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                </div>
+                            </div>   
+                        </form>
+                </div>
+                <div class="wrapper-col-right">
+                </div>
             </div>
+            
 
             <div style="text-align: right; margin-top: 80px;">
                 <%= link_to 'Next', pages_applicationform_path, style: 'display: inline-block; padding: 10px 20px; font-size: 16px; text-decoration: none; background-color: red; color: white; border-radius: 5px;' %>
@@ -101,7 +162,7 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     // File Upload Requests
-    const fileInputs = document.querySelectorAll(".upload-btn-wrapper input[type='file']");
+    const fileInputs = document.querySelectorAll(".btnUp input[type='file']");
 
     function uploadFile(fileInput) {
         const file = fileInput.files[0];
@@ -112,6 +173,15 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append('file_type', fileInput.dataset.fileType);
 
         const actionUrl = '/uploads';
+        
+        const button = fileInput.closest('label');
+        const span = button.querySelector('span');
+        const fileitem = button.nextElementSibling;
+        const filename = fileitem.querySelector('.file-name');
+        const originalCursor = button.style.cursor; // Save the original span text
+        span.textContent = 'Pending...';
+        fileInput.disabled = true;
+        button.style.cursor = 'not-allowed';
 
         fetch(actionUrl, {
             method: 'POST',
@@ -129,10 +199,23 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(data => {
             alert(`Result: ${data.result} - ${data.message}`);
+            if (data.result === 'true') {
+                fileitem.style.display = 'flex';
+                button.style.display = 'none';
+                button.style.cursor = originalCursor;
+                filename.textContent = `${file.name}`;
+            } else {
+                span.textContent = span.dataset.originalText;
+                fileInput.disabled = false;
+                button.style.cursor = originalCursor;
+            }
         })
         .catch(error => {
             console.error('Error:', error);
             alert('File upload failed: ' + error.message);
+            span.textContent = span.dataset.originalText;
+            fileInput.disabled = false;
+            button.style.cursor = originalCursor;
         });
     }
 
