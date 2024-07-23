@@ -20,7 +20,12 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
 
-  resources :uploads, only: [:new, :create]
+  resources :uploads, only: [:new, :create] do
+    collection do
+      delete :delete_document
+    end
+  end
+  
   resources :users do
     collection do
       post 'apply', to: 'users#apply', as: 'apply'

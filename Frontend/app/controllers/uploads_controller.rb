@@ -45,6 +45,23 @@ class UploadsController < ApplicationController
     end
   end
 
+  def delete_document
+    file_type = params[:file_type]
+    user = User.find_by(session_id: session[:user_id])
+
+    if user
+      column_name = "doc_#{file_type}"
+      if user[column_name].present?
+        user.update(column_name => nil)
+        render json: { result: 'true', message: 'File deleted successfully' }
+      else
+        render json: { result: 'false', message: 'File not found' }
+      end
+    else
+      render json: { result: 'false', message: 'User not found' }
+    end
+  end
+
   private
 
   def send_file_to_flask_backend(file_path, file_type)
@@ -57,8 +74,7 @@ class UploadsController < ApplicationController
     }
 
     endpoint = endpoint_map[file_type] || '/upload/generic'
-    # uri = URI.parse("http://127.0.0.1:5000#{endpoint}") # This is for Local Development for Backend Server
-    uri = URI.parse("https://flask-app-44nyvt7saq-de.a.run.app#{endpoint}") # This is for Production for Backend Server
+    uri = URI.parse("https://flask-app-44nyvt7saq-de.a.run.app#{endpoint}")
 
     request = Net::HTTP::Post.new(uri)
     form_data = [['file', File.open(file_path)]]
@@ -83,7 +99,6 @@ class UploadsController < ApplicationController
       file_name = "#{uuid}_#{original_filename}"
       puts "Uploading file: #{file_path} to GCS as #{file_name}"
 
-      # Ensure the file is being read correctly before uploading
       file = File.open(file_path)
       gcs_file = bucket.create_file file, file_name
       file.close

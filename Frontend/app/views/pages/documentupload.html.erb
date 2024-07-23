@@ -216,7 +216,46 @@ document.addEventListener("DOMContentLoaded", function () {
                 const deleteButton = fileitem.querySelector('.delete-icon');
                 if (deleteButton) {
                     deleteButton.addEventListener('click', function() {
-                        deleteFile(fileitem, button, fileInput, span, data.file_id, fileInput.dataset.fileType); // Pass the file ID and file type
+                        const deleteUrl = `/uploads/delete_document`; // URL endpoint to handle file deletion
+
+                        fetch(deleteUrl, {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                                'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                            },
+                            body: JSON.stringify({ file_type: fileInput.dataset.fileType, file_id: data.file_id })
+                        })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok: ' + response.statusText);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data.result === 'true') {
+                                button.style.display = 'block';
+                                fileitem.style.display = 'none';
+                                span.textContent = 'Pending...';
+                                setTimeout(() => {
+                                    span.textContent = 'File Deleted!';
+                                    setTimeout(() => {
+                                        fileitem.style.display = 'none';
+                                        button.style.display = 'block';
+                                        fileInput.disabled = false;
+                                        span.textContent = spanContext;
+                                        fileInput.value = '';
+                                        const tabKey = button.id.replace('uploadButton', 'tab');
+                                        sessionStorage.removeItem(`fileUploaded_${tabKey}`);
+                                    }, 1000);
+                                }, 1000);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('File delete failed: ' + error.message);
+                        });
                     });
                 }
             } else {
@@ -234,11 +273,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+
     fileInputs.forEach(fileInput => {
         fileInput.addEventListener("change", function () {
             uploadFile(this);
         });
     });
+
+
     // Tab and Upload Button Handling
     const tabsContainer = document.querySelector(".tabs");
     const tabs = tabsContainer.querySelectorAll("input[type='radio']");
