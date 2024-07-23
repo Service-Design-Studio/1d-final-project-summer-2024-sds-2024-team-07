@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 import vertexai
 from vertexai.preview.generative_models import GenerativeModel, Image
 from google.oauth2 import service_account
+import fitz  # PyMuPDF
+from PIL import Image as PIL_Image
 import os
 import time
 import random
@@ -42,8 +44,19 @@ def generate_content_with_backoff(prompt, image, retries=10):
                 raise e
     raise Exception("Maximum retries exceeded")
 
+def convert_pdf_to_image(pdf_path, image_path):
+    pdf_doc = fitz.open(pdf_path)
+    page = pdf_doc.load_page(0) #get the first pg
+    pix =  page.get_pixmap() # render pg to an image
+    pix.save(image_path)
+
 def process_image_with_prompts(image_file_path, first_prompt, second_prompts=None):
-    image = Image.load_from_file(image_file_path)
+    if image_file_path.lower().endswith('.pdf'):
+        image_path = image_file_path.replace('.pdf', '.png')
+        convert_pdf_to_image(image_file_path, image_path)
+        image = Image.load_from_file(image_path)
+    else:  
+        image = Image.load_from_file(image_path)
     
     # First attempt
     response = generate_content_with_backoff(first_prompt, image)
