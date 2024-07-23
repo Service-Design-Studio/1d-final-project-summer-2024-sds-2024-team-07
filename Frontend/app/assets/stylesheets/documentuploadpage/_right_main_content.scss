@@ -43,6 +43,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 140%;
   position: relative;
   font-family: Arial, sans-serif;
 }
@@ -67,11 +68,12 @@ body {
 
 .tabs label {
   display: block;
-  padding: 10px;
+  padding: 10px 0px;
   cursor: pointer;
   border: 1px solid #ffffff;
   border-bottom: none;
   background-color: #ffffff;
+  border-radius: 4px;
 }
 
 .tabs label:hover {
@@ -109,12 +111,13 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 }
 
 .content-image {
-  width: 100%;   /* Set the desired width */
+  width: 80%;   /* Set the desired width */
   height: auto;  /* Maintain aspect ratio */
-  max-width: 800px; /* Maximum width of the image */
-  max-height: 500px; /* Maximum height of the image */
+  // max-width: 800px; /* Maximum width of the image */
+  // max-height: 500px; /* Maximum height of the image */
   display: block;
-  margin: -20px auto; /* Center the image */
+  margin: -50px auto auto; /* Center the image */
+  z-index: 1;
 }
 
 
@@ -128,7 +131,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   padding: 50px;
   padding-bottom: 80px;
   width: 90%;
-  height: 650px;
+  height: 67%;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   border-radius: 5px;
   min-width: #{$tab-count * 60px};
@@ -333,7 +336,8 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   align-items: center;
   text-align: center;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: -50px;
+  z-index: 2;
 }
 
 .btnUp {
@@ -373,4 +377,3 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   pointer-events: none;
   cursor: pointer;
 }
-
