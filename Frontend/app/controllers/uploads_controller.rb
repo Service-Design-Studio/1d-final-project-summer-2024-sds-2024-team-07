@@ -16,15 +16,22 @@ class UploadsController < ApplicationController
       File.open(file_path, 'wb') do |file|
         file.write(uploaded_file.read)
       end
+      puts "File saved temporarily at: #{file_path}"
 
       # Send the file to the Flask backend
       response = send_file_to_flask_backend(file_path, file_type)
+      puts "Response from Flask: #{response}"
 
       if response['result'] == 'true'
-        user = User.find_by(session_id: session[:user_session_id]) # Use the session ID to find the user
+        user = User.find_by(session_id: session[:user_id]) # Use the session ID to find the user
         if user
+          uuid = SecureRandom.uuid
           column_name = "doc_#{file_type}"
-          user.update(column_name => SecureRandom.uuid)
+          user.update(column_name => uuid)
+          puts "Updated user #{user.id} with UUID #{uuid} for #{column_name}"
+
+          # Upload the file to Google Cloud Storage
+          upload_to_gcloud(file_path, uuid, uploaded_file.original_filename)
         end
         result = 'File processed successfully and UUID generated'
       else
@@ -63,5 +70,23 @@ class UploadsController < ApplicationController
     JSON.parse(response.body)
   rescue JSON::ParserError => e
     { 'result' => false, 'message' => "Failed to parse JSON response from Flask: #{e.message}" }
+  end
+
+  def upload_to_gcloud(file_path, uuid, original_filename)
+    begin
+      bucket = $storage.bucket $bucket_name
+      file_name = "#{uuid}_#{original_filename}"
+      puts "Uploading file: #{file_path} to GCS as #{file_name}"
+
+      # Ensure the file is being read correctly before uploading
+      file = File.open(file_path)
+      bucket.create_file file, file_name
+      file.close
+
+      puts "File uploaded successfully."
+    rescue => e
+      puts "Failed to upload file: #{e.message}"
+      raise "File upload failed: #{e.message}"
+    end
   end
 end

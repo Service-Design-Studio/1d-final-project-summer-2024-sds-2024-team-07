@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
 
   def apply
-    @user = User.create(name: "New User") # Adjust as needed
-    session[:user_id] = @user.id
+    session[:user_id] = SecureRandom.uuid
+    @user = User.create(name: "New User", session_id: session[:user_id]) # Adjust as needed
     redirect_to pages_documentupload_path # Redirect to the document upload page
   end
 
