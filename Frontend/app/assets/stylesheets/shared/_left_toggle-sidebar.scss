@@ -157,6 +157,26 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
+/*for 3 and 4*/
+.sidebar .nav-links li.non-expandable .icon-link {
+  justify-content: flex-start; /* Align items to the start */
+}
+
+.sidebar .nav-links li.non-expandable i.arrow {
+  display: none; /* Hide the arrow icon */
+}
+
+.sidebar .nav-links li.non-expandable .sub-menu {
+  display: none !important; /* Ensure sub-menu doesn't display */
+}
+
+/* Optional: Adjust hover effect for non-expandable items */
+.sidebar .nav-links li.non-expandable:hover {
+  background: none; /* Prevent background change on hover */
+}
+
+
 @media (max-width: 400px) {
   .sidebar.close .nav-links li .sub-menu {
     display: none;
