@@ -9,165 +9,165 @@
         <div class="icon-link">
           <a class="toggle-btn">
             <i class='bx bx-menu'></i>
-            <span class="link_name">Application Checklist</span>
+            <span class="link_name 1">Application Checklist</span>
           </a>
         </div>
       </li>
+      <div class="sb">
+        <li>
+          <div class="icon-link">
+            <a href="#">
+              <i class='bx bx-collection'></i>
+              <span class="link_name 2">1. Documents</span>
+            </a>
+            <i class='bx bxs-chevron-down arrow'></i>
+          </div>
+          <ul class="sub-menu">
+            <li id="item-documents"><a class="link_name 2">1. Documents</a></li>
+            <li id="item-tab1">
+              <% if relevant_page?(pages_documentupload_path) %>
+                <a href="#" data-tab="tab1">Valid Passport</a>
+              <% else %>
+                <span class="non-clickable">Valid Passport</span>
+              <% end %>
+            </li>
+            <li id="item-tab2">
+              <% if relevant_page?(pages_documentupload_path) %>
+                <a href="#" data-tab="tab2">Valid Employment Pass</a>
+              <% else %>
+                <span class="non-clickable">Valid Employment Pass</span>
+              <% end %>
+            </li>
+            <li id="item-tab3">
+              <% if relevant_page?(pages_documentupload_path) %>
+                <a href="#" data-tab="tab3">Income Tax</a>
+              <% else %>
+                <span class="non-clickable">Income Tax</span>
+              <% end %>
+            </li>
+            <li id="item-tab4">
+              <% if relevant_page?(pages_documentupload_path) %>
+                <a href="#" data-tab="tab4">Pay Slip</a>
+              <% else %>
+                <span class="non-clickable">Pay Slip</span>
+              <% end %>
+            </li>
+            <li id="item-tab5">
+              <% if relevant_page?(pages_documentupload_path) %>
+                <a href="#" data-tab="tab5">Proof of Singapore Address</a>
+              <% else %>
+                <span class="non-clickable">Proof of Singapore Address</span>
+              <% end %>
+            </li>
+          </ul>
+        </li>
 
-      <li>
-        <div class="icon-link">
-          <a href="#">
-            <i class='bx bx-collection'></i>
-            <span class="link_name">1. Documents</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow'></i>
-        </div>
-        <ul class="sub-menu">
-          <li id="item-documents"><a class="link_name">1. Documents</a></li>
-          <li id="item-tab1">
-            <% if relevant_page?(pages_documentupload_path) %>
-              <a href="#" data-tab="tab1">Valid Passport</a>
-            <% else %>
-              <span class="non-clickable">Valid Passport</span>
-            <% end %>
-          </li>
-          <li id="item-tab2">
-            <% if relevant_page?(pages_documentupload_path) %>
-              <a href="#" data-tab="tab2">Valid Employment Pass</a>
-            <% else %>
-              <span class="non-clickable">Valid Employment Pass</span>
-            <% end %>
-          </li>
-          <li id="item-tab3">
-            <% if relevant_page?(pages_documentupload_path) %>
-              <a href="#" data-tab="tab3">Income Tax</a>
-            <% else %>
-              <span class="non-clickable">Income Tax</span>
-            <% end %>
-          </li>
-          <li id="item-tab4">
-            <% if relevant_page?(pages_documentupload_path) %>
-              <a href="#" data-tab="tab4">Pay Slip</a>
-            <% else %>
-              <span class="non-clickable">Pay Slip</span>
-            <% end %>
-          </li>
-          <li id="item-tab5">
-            <% if relevant_page?(pages_documentupload_path) %>
-              <a href="#" data-tab="tab5">Proof of Singapore Address</a>
-            <% else %>
-              <span class="non-clickable">Proof of Singapore Address</span>
-            <% end %>
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        <div class="icon-link">
-          <a href="#">
-            <i class='bx bx-book-alt'></i>
-            <span class="link_name">2. Particulars</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow'></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">2. Particulars</a></li>
-          <li>
-            <% if relevant_page?(pages_applicationform_path) %>
-              <a href="#tab6" data-tab="tab6">Personal Information</a>
-            <% else %>
-              <span class="non-clickable">Personal Information</span>
-            <% end %>
-          </li>
-            <ul class="sub-menu ">
-              <li><span class="non-clickable">Name</span></li>
-              <li><span class="non-clickable">Date of Birth</span></li>
-              <li><span class="non-clickable">Gender</span></li>
+        <li>
+          <div class="icon-link">
+            <a href="#">
+              <i class='bx bx-book-alt'></i>
+              <span class="link_name 2">2. Particulars</span>
+            </a>
+            <i class='bx bxs-chevron-down arrow'></i>
+          </div>
+          <ul class="sub-menu">
+            <li><a class="link_name 2" href="#">2. Particulars</a></li>
+            <li>
+              <% if relevant_page?(pages_applicationform_path) %>
+                <a href="#tab6" data-tab="tab6">Personal Information</a>
+              <% else %>
+                <span class="non-clickable">Personal Information</span>
+              <% end %>
+            </li>
+              <ul class="sub-menu ">
+                <li><span class="non-clickable">Name</span></li>
+                <li><span class="non-clickable">Date of Birth</span></li>
+                <li><span class="non-clickable">Gender</span></li>
+              </ul>
+            <li>
+              <% if relevant_page?(pages_applicationform_path) %>
+                <a href="#tab7" data-tab="tab7">Contact Information</a>
+              <% else %>
+                <span class="non-clickable">Contact Information</span>
+              <% end %>
+            </li>
+              <ul class="sub-menu ">
+                <li><span class="non-clickable">Mobile Number</span></li>
+                <li><span class="non-clickable">Email Address</span></li>
+                <li><span class="non-clickable">Home Number</span></li>
+                <li><span class="non-clickable">Office Number</span></li>
+              </ul>
+            <li>
+              <% if relevant_page?(pages_applicationform_path) %>
+                <a href="#tab8" data-tab="tab8">Passport Details</a>
+              <% else %>
+                <span class="non-clickable">Passport Details</span>
+              <% end %>
+            </li>
+            <ul class="sub-menu">
+              <li><span class="non-clickable">Nationality</span></li>
+              <li><span class="non-clickable">Passport Number</span></li>
+              <li><span class="non-clickable">Passport Expiry Date</span></li>
             </ul>
-          <li>
-            <% if relevant_page?(pages_applicationform_path) %>
-              <a href="#tab7" data-tab="tab7">Contact Information</a>
-            <% else %>
-              <span class="non-clickable">Contact Information</span>
-            <% end %>
-          </li>
-            <ul class="sub-menu ">
-              <li><span class="non-clickable">Mobile Number</span></li>
-              <li><span class="non-clickable">Email Address</span></li>
-              <li><span class="non-clickable">Home Number</span></li>
-              <li><span class="non-clickable">Office Number</span></li>
+            <li>
+              <% if relevant_page?(pages_applicationform_path) %>
+                <a href="#tab9" data-tab="tab9">Residential Details</a>
+              <% else %>
+                <span class="non-clickable">Residential Details</span>
+              <% end %>
+            </li>
+            <ul class="sub-menu">
+              <li><span class="non-clickable">Residential Address</span></li>
+              <li><span class="non-clickable">Type of Residence</span></li>
+              <li><span class="non-clickable">Residential Status</span></li>
+              <li><span class="non-clickable">Number of years at this residence</span></li>
             </ul>
-          <li>
-            <% if relevant_page?(pages_applicationform_path) %>
-              <a href="#tab8" data-tab="tab8">Passport Details</a>
-            <% else %>
-              <span class="non-clickable">Passport Details</span>
-            <% end %>
-          </li>
-          <ul class="sub-menu">
-            <li><span class="non-clickable">Nationality</span></li>
-            <li><span class="non-clickable">Passport Number</span></li>
-            <li><span class="non-clickable">Passport Expiry Date</span></li>
+            <li>
+              <% if relevant_page?(pages_applicationform_path) %>
+                <a href="#tab10" data-tab="tab10">Professional Details</a>
+              <% else %>
+                <span class="non-clickable">Professional Details</span>
+              <% end %>
+            </li>
+            <ul class="sub-menu">
+              <li><span class="non-clickable">Education Level</span></li>
+              <li><span class="non-clickable">Current Job Status</span></li>
+              <li><span class="non-clickable">Occupation</span></li>
+              <li><span class="non-clickable">Job Industry</span></li>
+              <li><span class="non-clickable">Company Name</span></li>
+              <li><span class="non-clickable">Length of Current Employment</span></li>
+              <li><span class="non-clickable">Current Job Status</span></li>
+              <li><span class="non-clickable">Current Office Address</span></li>
+            </ul>
           </ul>
-          <li>
-            <% if relevant_page?(pages_applicationform_path) %>
-              <a href="#tab9" data-tab="tab9">Residential Details</a>
-            <% else %>
-              <span class="non-clickable">Residential Details</span>
-            <% end %>
-          </li>
+        </li>
+
+        <li>
+          <div class="icon-link">
+            <a href="#">
+              <i class='bx bx-collection'></i>
+              <span class="link_name 2">3. Verify Particulars</span>
+            </a>
+            <i class='bx bxs-chevron-down arrow'></i>
+          </div>
           <ul class="sub-menu">
-            <li><span class="non-clickable">Residential Address</span></li>
-            <li><span class="non-clickable">Type of Residence</span></li>
-            <li><span class="non-clickable">Residential Status</span></li>
-            <li><span class="non-clickable">Number of years at this residence</span></li>
+            <li><a class="link_name 2" href="#">3. Verify Particulars</a></li>
           </ul>
-          <li>
-            <% if relevant_page?(pages_applicationform_path) %>
-              <a href="#tab10" data-tab="tab10">Professional Details</a>
-            <% else %>
-              <span class="non-clickable">Professional Details</span>
-            <% end %>
-          </li>
+        </li>
+
+        <li>
+          <div class="icon-link">
+            <a href="#">
+              <i class='bx bx-collection'></i>
+              <span class="link_name 2">4. Create Pin</span>
+            </a>
+            <i class='bx bxs-chevron-down arrow'></i>
+          </div>
           <ul class="sub-menu">
-            <li><span class="non-clickable">Education Level</span></li>
-            <li><span class="non-clickable">Current Job Status</span></li>
-            <li><span class="non-clickable">Occupation</span></li>
-            <li><span class="non-clickable">Job Industry</span></li>
-            <li><span class="non-clickable">Company Name</span></li>
-            <li><span class="non-clickable">Length of Current Employment</span></li>
-            <li><span class="non-clickable">Current Job Status</span></li>
-            <li><span class="non-clickable">Current Office Address</span></li>
+            <li><a class="link_name 2" href="#">4. Create Pin</a></li>
           </ul>
-        </ul>
-      </li>
-
-      <li>
-        <div class="icon-link">
-          <a href="#">
-            <i class='bx bx-collection'></i>
-            <span class="link_name">3. Verify Particulars</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow'></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">3. Verify Particulars</a></li>
-        </ul>
-      </li>
-
-      <li>
-        <div class="icon-link">
-          <a href="#">
-            <i class='bx bx-collection'></i>
-            <span class="link_name">4. Create Pin</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow'></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">4. Create Pin</a></li>
-        </ul>
-      </li>
-
+        </li>
+      </div>
     </ul>
   </div>
 

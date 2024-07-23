@@ -4,7 +4,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="_right_main_content.css" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -172,15 +173,14 @@
     </div>
 
 <div class="titles">
-    <div class="title title-1"><h1><span>Begin</span> your<br>Credit Card Journey</h1></div>
-    <div class="title title-2"><h1>With <span>Us</span>,</h1></div>
+    <div class="title title-1"><h1><span>Begin</span> your<br>Credit Card Journey with <span>us</span>,</h1></h1></div>
+    <%# <div class="title title-2"><h1>With <span>Us</span>,</h1></div> %>
     <div class="title title-3"><h1>
         <%= image_tag("dbs_logo.svg", alt: "DBS", class: "logo-icon1") %>
     </h1></div>
 </div>
 
 </body>
-
 
 <script>
             TweenMax.staggerFrom(
@@ -214,8 +214,54 @@
 				translateZ: 0,
 				easing: "easeOutExpo",
 				duration: 2000,
-				delay: (el, i) => 6400 + 40 * i,
+				delay: (el, i) => 3500 + 40 * i,
 			});
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
+<script>
+setTimeout(function() {
+    introJs().setOptions({
+        steps:[{
+            title:'Welcome',
+            intro:'Start Tour'
+            },
+            {
+                element:document.querySelector('.custom-steps'),
+                intro:'A. Complete all 4 sections to submit application'
+                
+            },
+            {
+                element:document.querySelector('.link_name'),
+                intro:'B. Open/Close the sidebar'
+                
+            },
+            {
+                element:document.querySelector('.sb'),
+                intro:'C. Open/Close each sub-menus to see details of each section'
+                
+            },
+            {
+                element:document.querySelector('.btn-group'),
+                intro:'1. Select based on your Employment Type'
+                
+            },
+            {
+                element:document.querySelector('.tabs'),
+                intro:'2. Upload all required documents and follow respective guidelines'
+            },
+            {
+                element:document.querySelector('.Next'),
+                intro:'3.Once all documents are successfully uploaded, click to the next section'
+            }
+        ]
+    }).start();
+}, 4500);
+</script>
+
+
+<script>
 
 document.addEventListener("DOMContentLoaded", function () {
     const tabsContainer = document.querySelector(".tabs");
