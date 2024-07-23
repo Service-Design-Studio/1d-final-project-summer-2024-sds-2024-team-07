@@ -19,6 +19,7 @@ gem 'dotenv-rails', groups: [:development, :test, :production]
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick', '~> 4.11'
 gem 'google-cloud-storage'
+gem 'httparty'
 
 
 
