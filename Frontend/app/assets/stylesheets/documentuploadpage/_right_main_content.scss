@@ -337,7 +337,8 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   align-items: center;
   text-align: center;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: -50px;
+  z-index: 2;
 }
 
 .wrapper-col-left{
