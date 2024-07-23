@@ -135,6 +135,6 @@ def upload_payslip():
     first_prompt = "Is this a payslip containing keywords like cpf, bank? Answer with 'True' or 'False'."
     return upload_and_process_file(request.files.get('file'), first_prompt)
 
-if __name__ == 'main':
+if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8080))
     app.run(debug=True, host='0.0.0.0', port=port)

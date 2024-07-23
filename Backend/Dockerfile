@@ -10,7 +10,7 @@ COPY . /app
 # Install the required packages
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Make port 5000 available to the world outside this container
+# Make port 8080 available to the world outside this container
 EXPOSE 8080
 
 ENV PYTHONUNBUFFERED=1
