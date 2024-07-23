@@ -8,7 +8,7 @@ def google_cloud_credentials
     {
       project_id: "dbsdoccheckteam7",
       credentials: Rails.root.join("config", "credentials", "development1.json").to_s,
-      bucket_name: "dbs-bucket"
+      bucket_name: "dbs-doc-bucket"
     }
   else
     {
