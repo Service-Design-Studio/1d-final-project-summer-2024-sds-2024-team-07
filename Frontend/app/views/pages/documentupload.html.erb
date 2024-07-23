@@ -161,6 +161,10 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".btnUp span").forEach(span => {
+        span.dataset.originalText = span.textContent;
+    });
+
     // File Upload Requests
     const fileInputs = document.querySelectorAll(".btnUp input[type='file']");
 
@@ -331,6 +335,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 sessionStorage.removeItem(key);
             }
         });
+        // Reset all spans to their original text content
+        document.querySelectorAll(".btnUp span").forEach(span => {
+            span.textContent = span.dataset.originalText;
+        });
     }
 
     window.addEventListener('load', resetUploadState);
@@ -378,56 +386,73 @@ document.addEventListener("DOMContentLoaded", function () {
         updateUploadButtons();
     }
 
-    document.getElementById('button1').addEventListener('click', () => showTabGroup(1));
-    document.getElementById('button2').addEventListener('click', () => showTabGroup(2));
-    document.getElementById('button3').addEventListener('click', () => showTabGroup(3));
+    document.getElementById('button1').addEventListener('click', () => changeDiv(1));
+document.getElementById('button2').addEventListener('click', () => changeDiv(2));
+document.getElementById('button3').addEventListener('click', () => changeDiv(3));
 
-    function changeDiv(groupNumber) {
-        // Assuming divUploadedFiles and currentDiv are defined and managed elsewhere in your code
-        const hasUploadedFiles = Object.values(divUploadedFiles[currentDiv]).some(file => file !== null);
+let currentDiv = 1;
+const divUploadedFiles = {
+    1: {},
+    2: {},
+    3: {}
+};
 
-        if (currentDiv !== groupNumber) {
-            if (hasUploadedFiles && !confirm("Do you wish to change your employment type? Your changes will be discarded.")) {
+function changeDiv(groupNumber) {
+    // Check if there are any uploaded files in the current group
+    const hasUploadedFiles = Object.keys(sessionStorage).some(key => key.startsWith(`fileUploaded_${currentDiv}_`));
+
+    if (currentDiv !== groupNumber) {
+        if (hasUploadedFiles) {
+            if (!confirm("Do you wish to change your Employee Type? Your changes will be discarded.")) {
                 return;
+            } else {
+                resetUploadState();
             }
-            resetCurrentDivUploads();
-
-            // Update active button style
-            document.querySelectorAll('.btn-group .btn').forEach(button => {
-                button.classList.remove('active');
-            });
-            document.getElementById('button' + groupNumber).classList.add('active');
-
-            currentDiv = groupNumber;
-            document.getElementById('tab1').checked = true; // Reset to the first tab by default
-            showTabGroup(groupNumber);
         }
-    }
+        resetCurrentDivUploads();
 
-    function resetCurrentDivUploads() {
-        Object.keys(divUploadedFiles[currentDiv]).forEach(tabId => {
-            divUploadedFiles[currentDiv][tabId] = null;
+        // Update active button style
+        document.querySelectorAll('.btn-group .btn').forEach(button => {
+            button.classList.remove('active');
         });
-        updateUploadButtons();
-    }
+        document.getElementById('button' + groupNumber).classList.add('active');
 
-    Object.values(fileInputs).forEach((fileInput, index) => {
-        fileInput.addEventListener("change", function() {
-            var file = this.files[0];
-            if (file) {
-                var fileType = file.type;
-                var validTypes = ['application/pdf', 'image/png', 'image/jpeg'];
-                if (validTypes.indexOf(fileType) === -1) {
-                    alert('Invalid file type! Please upload a PDF, PNG, or JPG document.');
-                    this.value = ''; 
-                } else {
-                    const activeTab = `tab${index + 1}`;
-                    divUploadedFiles[currentDiv][activeTab] = file;
-                    uploadButtons[activeTab].querySelector('span').textContent = 'Document Uploaded';
+        currentDiv = groupNumber;
+        document.getElementById('tab1').checked = true; // Reset to the first tab by default
+        showTabGroup(groupNumber);
+    }
+}
+
+function resetCurrentDivUploads() {
+    Object.keys(divUploadedFiles[currentDiv]).forEach(tabId => {
+        divUploadedFiles[currentDiv][tabId] = null;
+        sessionStorage.removeItem(`fileUploaded_${currentDiv}_${tabId}`);
+    });
+    updateUploadButtons();
+}
+
+// Handle file input change
+document.querySelectorAll(".btnUp input[type='file']").forEach((fileInput, index) => {
+    fileInput.addEventListener("change", function() {
+        var file = this.files[0];
+        if (file) {
+            var fileType = file.type;
+            var validTypes = ['application/pdf', 'image/png', 'image/jpeg'];
+            if (validTypes.indexOf(fileType) === -1) {
+                alert('Invalid file type! Please upload a PDF, PNG, or JPG document.');
+                this.value = '';
+            } else {
+                const activeTab = `tab${index + 1}`;
+                divUploadedFiles[currentDiv][activeTab] = file;
+                sessionStorage.setItem(`fileUploaded_${currentDiv}_${activeTab}`, file.name);
+                const uploadButton = document.querySelector(`#uploadButton_${currentDiv}_${activeTab} span`);
+                if (uploadButton) {
+                    uploadButton.textContent = 'Document Uploaded';
                 }
             }
-        });
+        }
     });
+});
 
     updateUploadButtons(); // Initialize the upload buttons
     showTabGroup(1); // Initialize the first group of tabs
