@@ -224,12 +224,12 @@
 setTimeout(function() {
     introJs().setOptions({
         steps:[{
-            title:'Welcome',
-            intro:'Start Tour'
+            title:'Welcome!',
+            intro:'Start the Tour?'
             },
             {
                 element:document.querySelector('.custom-steps'),
-                intro:'A. Complete all 4 sections to submit application'
+                intro:'A. Complete all 4 sections to submit your application'
                 
             },
             {
@@ -239,23 +239,31 @@ setTimeout(function() {
             },
             {
                 element:document.querySelector('.sb'),
-                intro:'C. Open/Close each sub-menus to see details of each section'
+                intro:'C. Open/Close each sub-menus to preview details of each section'
                 
             },
             {
                 element:document.querySelector('.btn-group'),
-                intro:'1. Select based on your Employment Type'
+                title:'First Step',
+                intro:'1. Select based on your Employment Type',
                 
             },
             {
                 element:document.querySelector('.tabs'),
-                intro:'2. Upload all required documents and follow respective guidelines'
+                title:'Second Step',
+                intro:'2. Upload all required documents. Make sure to follow respective guidelines',
             },
             {
                 element:document.querySelector('.Next'),
-                intro:'3.Once all documents are successfully uploaded, click to the next section'
+                title:'Third Step',
+                intro:'3.Once all documents are successfully uploaded, click to the next section',
+            },
+            {
+                title:'Thats it!',
+                intro:'Tour Completed, all the best!',
             }
-        ]
+        ],
+        dontShowAgain: true,
     }).start();
 }, 4500);
 </script>
