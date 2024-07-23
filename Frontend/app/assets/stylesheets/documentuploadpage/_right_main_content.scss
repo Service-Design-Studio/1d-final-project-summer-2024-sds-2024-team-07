@@ -43,7 +43,6 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 140%;
   position: relative;
   font-family: Arial, sans-serif;
 }
@@ -131,7 +130,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   padding: 50px;
   padding-bottom: 80px;
   width: 90%;
-  height: 67%;
+  height: 530px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   border-radius: 5px;
   min-width: #{$tab-count * 60px};
@@ -316,7 +315,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   position: relative;
   left: 5%;
   width: 90%;
-  margin-top: 30px;
+  margin-top: 20px;
   background-color: #ffffff;
   outline: none;
 }
@@ -334,10 +333,9 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 .upload-btn-wrapper {
   width: 100%; /* Ensure it takes the full width of the parent */
   display: flex;
-  align-items: center;
   text-align: center;
   justify-content: center;
-  margin-top: -50px;
+  margin-top: -80px;
   z-index: 2;
 }
 
@@ -375,6 +373,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 
 .file-details {
   flex-grow: 1;
+  overflow: hidden;
 }
 
 .file-name {
@@ -432,4 +431,21 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   background-color: #f9f9f9; 
   pointer-events: none;
   cursor: pointer;
+}
+
+
+/* Next Button */
+.next-link {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  pointer-events: none;
+}
+.next-link:hover {
+  background-color: darkred;
 }

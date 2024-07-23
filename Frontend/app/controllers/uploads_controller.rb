@@ -32,16 +32,17 @@ class UploadsController < ApplicationController
           puts "Updated user #{user.id} with URL #{file_url} for #{column_name}"
         end
         result = 'File processed successfully and URL generated'
+        render json: { result: 'true', message: result, file_id: uuid }
       else
         result = 'File processing failed'
+        render json: { result: 'false', message: result }
       end
     rescue StandardError => e
       result = "File upload failed: #{e.message}"
+      render json: { result: 'false', message: result }
     ensure
       # File.delete(file_path) if File.exist?(file_path)
     end
-
-    render json: { result: response['result'], message: result }
   end
 
   private

@@ -69,91 +69,91 @@
             <div class="upload-btn-wrapper">
                 <div class="wrapper-col-left"></div>
                 <div class="wrapper-col-middle">
-                        <form id="uploadForm" enctype="multipart/form-data">
-                            <label class="btnUp" id="uploadButton1">
-                                <span>Upload Passport</span>
-                                <input type="file" id="fileInput1" style="display:none;" data-file-type="passport">
-                            </label>
-                            <div class="file-item" id="fileItem1">
-                                <div class="file-icon">
-                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
-                                </div>
-                                <div class="file-details">
-                                    <div class="file-name">IncomeTax-StupidMichelle.png</div>
-                                </div>
-                                <div class="file-actions">
-                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                                </div>
-                            </div>   
-                            <label class="btnUp" id="uploadButton2" style="display:none;">
-                                <span>Upload Employment Pass</span>
-                                <input type="file" id="fileInput2" style="display:none;" data-file-type="employment_pass">
-                            </label>
-                            <div class="file-item" id="fileItem2">
-                                <div class="file-icon">
-                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
-                                </div>
-                                <div class="file-details">
-                                    <div class="file-name">IncomeTax-StupidMichelle.png</div>
-                                </div>
-                                <div class="file-actions">
-                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                                </div>
-                            </div>   
-                            <label class="btnUp" id="uploadButton3" style="display:none;">
-                                <span>Upload Income Tax</span>
-                                <input type="file" id="fileInput3" style="display:none;" data-file-type="income_tax">                         
-                            </label>
-                            <div class="file-item" id="fileItem3">
-                                <div class="file-icon">
-                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
-                                </div>
-                                <div class="file-details">
-                                    <div class="file-name">IncomeTax-StupidMichelle.png</div>
-                                </div>
-                                <div class="file-actions">
-                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                                </div>
-                            </div>   
-                            <label class="btnUp" id="uploadButton4" style="display:none;">
-                                <span>Upload Pay Slip</span>
-                                <input type="file" id="fileInput4" style="display:none;" data-file-type="payslip">                         
-                            </label>
-                            <div class="file-item" id="fileItem4">
-                                <div class="file-icon">
-                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
-                                </div>
-                                <div class="file-details">
-                                    <div class="file-name"></div>
-                                </div>
-                                <div class="file-actions">
-                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                                </div>
-                            </div>   
-                            <label class="btnUp" id="uploadButton5" style="display:none;">
-                                <span>Upload Proof of Address</span>
-                                <input type="file" id="fileInput5" style="display:none;" data-file-type="proof_of_address">                          
-                            </label>
-                            <div class="file-item" id="fileItem5">
-                                <div class="file-icon">
-                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
-                                </div>
-                                <div class="file-details">
-                                    <div class="file-name">IncomeTax-StupidMichelle.png</div>
-                                </div>
-                                <div class="file-actions">
-                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                                </div>
-                            </div>   
-                        </form>
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <label class="btnUp" id="uploadButton1">
+                            <span>Upload Passport</span>
+                            <input type="file" id="fileInput1" style="display:none;" data-file-type="passport">
+                        </label>
+                        <div class="file-item" id="fileItem1" style="display: none;">
+                            <div class="file-icon">
+                                <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                            </div>
+                            <div class="file-details">
+                                <div class="file-name"></div>
+                            </div>
+                            <div class="file-actions">
+                                <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                            </div>
+                        </div>   
+                        <label class="btnUp" id="uploadButton2">
+                            <span>Upload Employment Pass</span>
+                            <input type="file" id="fileInput2" style="display:none;" data-file-type="employment_pass">
+                        </label>
+                        <div class="file-item" id="fileItem2" style="display: none;">
+                            <div class="file-icon">
+                                <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                            </div>
+                            <div class="file-details">
+                                <div class="file-name"></div>
+                            </div>
+                            <div class="file-actions">
+                                <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                            </div>
+                        </div>   
+                        <label class="btnUp" id="uploadButton3">
+                            <span>Upload Income Tax</span>
+                            <input type="file" id="fileInput3" style="display:none;" data-file-type="income_tax">                         
+                        </label>
+                        <div class="file-item" id="fileItem3" style="display: none;">
+                            <div class="file-icon">
+                                <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                            </div>
+                            <div class="file-details">
+                                <div class="file-name"></div>
+                            </div>
+                            <div class="file-actions">
+                                <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                            </div>
+                        </div>   
+                        <label class="btnUp" id="uploadButton4">
+                            <span>Upload Pay Slip</span>
+                            <input type="file" id="fileInput4" style="display:none;" data-file-type="payslip">                         
+                        </label>
+                        <div class="file-item" id="fileItem4" style="display: none;">
+                            <div class="file-icon">
+                                <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                            </div>
+                            <div class="file-details">
+                                <div class="file-name"></div>
+                            </div>
+                            <div class="file-actions">
+                                <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                            </div>
+                        </div>   
+                        <label class="btnUp" id="uploadButton5">
+                            <span>Upload Proof of Address</span>
+                            <input type="file" id="fileInput5" style="display:none;" data-file-type="proof_of_address">                          
+                        </label>
+                        <div class="file-item" id="fileItem5" style="display: none;">
+                            <div class="file-icon">
+                                <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                            </div>
+                            <div class="file-details">
+                                <div class="file-name"></div>
+                            </div>
+                            <div class="file-actions">
+                                <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                            </div>
+                        </div>   
+                    </form>
+
+
                 </div>
                 <div class="wrapper-col-right">
+                    <div style="text-align: right;">
+                    <%= link_to 'Next', pages_applicationform_path, class: 'next-link' %>
+                    </div>
                 </div>
-            </div>
-            
-
-            <div style="text-align: right; margin-top: 60px;">
-                <%= link_to 'Next', pages_applicationform_path, style: 'display: inline-block; padding: 10px 20px; font-size: 16px; text-decoration: none; background-color: red; color: white; border-radius: 5px;' %>
             </div>
         </div>
     </div>
@@ -178,7 +178,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const span = button.querySelector('span');
         const fileitem = button.nextElementSibling;
         const filename = fileitem.querySelector('.file-name');
-        const originalCursor = button.style.cursor; // Save the original span text
+        const originalCursor = button.style.cursor;
+        const spanContext = span.textContent; // Save the original span text
+
         span.textContent = 'Pending...';
         fileInput.disabled = true;
         button.style.cursor = 'not-allowed';
@@ -204,8 +206,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 button.style.display = 'none';
                 button.style.cursor = originalCursor;
                 filename.textContent = `${file.name}`;
+
+                // Persist the state
+                const tabKey = button.id.replace('uploadButton', 'tab');
+                console.log(`Setting sessionStorage for ${tabKey}`);
+                sessionStorage.setItem(`fileUploaded_${tabKey}`, 'true');
+
+                // Add delete button functionality
+                const deleteButton = fileitem.querySelector('.delete-icon');
+                if (deleteButton) {
+                    deleteButton.addEventListener('click', function() {
+                        deleteFile(fileitem, button, fileInput, span, data.file_id, fileInput.dataset.fileType); // Pass the file ID and file type
+                    });
+                }
             } else {
-                span.textContent = span.dataset.originalText;
+                span.textContent = spanContext;
                 fileInput.disabled = false;
                 button.style.cursor = originalCursor;
             }
@@ -213,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => {
             console.error('Error:', error);
             alert('File upload failed: ' + error.message);
-            span.textContent = span.dataset.originalText;
+            span.textContent = spanContext;
             fileInput.disabled = false;
             button.style.cursor = originalCursor;
         });
@@ -224,7 +239,6 @@ document.addEventListener("DOMContentLoaded", function () {
             uploadFile(this);
         });
     });
-
     // Tab and Upload Button Handling
     const tabsContainer = document.querySelector(".tabs");
     const tabs = tabsContainer.querySelectorAll("input[type='radio']");
@@ -236,14 +250,28 @@ document.addEventListener("DOMContentLoaded", function () {
         tab4: document.getElementById('uploadButton4'),
         tab5: document.getElementById('uploadButton5')
     };
+    const fileItems = {
+        tab1: document.getElementById('fileItem1'),
+        tab2: document.getElementById('fileItem2'),
+        tab3: document.getElementById('fileItem3'),
+        tab4: document.getElementById('fileItem4'),
+        tab5: document.getElementById('fileItem5')
+    };
 
     function updateUploadButtons() {
         const activeTab = Array.from(tabs).find(tab => tab.checked).id;
         Object.keys(uploadButtons).forEach(tab => {
             if (tab === activeTab) {
                 uploadButtons[tab].style.display = 'inline-block';
+                if (sessionStorage.getItem(`fileUploaded_${tab}`) === 'true') {
+                    fileItems[tab].style.display = 'flex';
+                    uploadButtons[tab].style.display = 'none';
+                } else {
+                    fileItems[tab].style.display = 'none';
+                }
             } else {
                 uploadButtons[tab].style.display = 'none';
+                fileItems[tab].style.display = 'none';
             }
         });
     }
@@ -252,7 +280,19 @@ document.addEventListener("DOMContentLoaded", function () {
         tab.addEventListener('change', updateUploadButtons);
     });
 
-    updateUploadButtons(); // Initialize the upload buttons
+    updateUploadButtons(); // Initialize the upload buttons and file items
+
+    // Reset SessionStorage on refresh of page
+    function resetUploadState() {
+        Object.keys(sessionStorage).forEach(key => {
+            if (key.startsWith('fileUploaded_')) {
+                sessionStorage.removeItem(key);
+            }
+        });
+    }
+
+    window.addEventListener('load', resetUploadState);
+
 
     function resetTabs() {
         labels.forEach(label => {
