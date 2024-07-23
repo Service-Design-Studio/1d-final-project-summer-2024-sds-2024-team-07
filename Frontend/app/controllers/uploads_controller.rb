@@ -27,13 +27,11 @@ class UploadsController < ApplicationController
         if user
           uuid = SecureRandom.uuid
           column_name = "doc_#{file_type}"
-          user.update(column_name => uuid)
-          puts "Updated user #{user.id} with UUID #{uuid} for #{column_name}"
-
-          # Upload the file to Google Cloud Storage
-          upload_to_gcloud(file_path, uuid, uploaded_file.original_filename)
+          file_url = upload_to_gcloud(file_path, uuid, uploaded_file.original_filename)
+          user.update(column_name => file_url)
+          puts "Updated user #{user.id} with URL #{file_url} for #{column_name}"
         end
-        result = 'File processed successfully and UUID generated'
+        result = 'File processed successfully and URL generated'
       else
         result = 'File processing failed'
       end
@@ -80,10 +78,11 @@ class UploadsController < ApplicationController
 
       # Ensure the file is being read correctly before uploading
       file = File.open(file_path)
-      bucket.create_file file, file_name
+      gcs_file = bucket.create_file file, file_name
       file.close
 
       puts "File uploaded successfully."
+      gcs_file.public_url
     rescue => e
       puts "Failed to upload file: #{e.message}"
       raise "File upload failed: #{e.message}"
