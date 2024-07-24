@@ -471,9 +471,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function checkNextButton() {
         if (currentFileUploaded === noFileRequired) {
             nextButton.style.pointerEvents = 'auto';
+            nextButton.style.backgroundColor = 'red';
         }
         else{
             nextButton.style.pointerEvents = 'none';
+            nextButton.style.backgroundColor = 'grey';
         }
     }
 
