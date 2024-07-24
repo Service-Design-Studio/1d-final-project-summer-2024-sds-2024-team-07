@@ -222,54 +222,54 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
 <script>
     //onboarding tour
-setTimeout(function() {
-    introJs().setOptions({
-        steps:[{
-            title:'Welcome!',
-            intro:'Start the Tour?'
-            },
-            {
-                element:document.querySelector('.custom-steps'),
-                title:'Tip 1',
-                intro:'A. Complete all 4 sections to submit your application'
-                
-            },
-            {
-                element:document.querySelector('.link_name'),
-                title:'Tip 2',
-                intro:'B. Open/Close the sidebar'
-                
-            },
-            {
-                element:document.querySelector('.sb'),
-                title:'Tip 3',
-                intro:'C. Open/Close each sub-menus to preview details of each section'
-                
-            },
-            {
-                element:document.querySelector('.btn-group'),
-                title:'First Step',
-                intro:'1. Select based on your Employment Type',
-                
-            },
-            {
-                element:document.querySelector('.tabs'),
-                title:'Second Step',
-                intro:'2. Upload all required documents. Make sure to follow respective guidelines',
-            },
-            {
-                element:document.querySelector('.Next'),
-                title:'Third Step',
-                intro:'3.Once all documents are successfully uploaded, click to the next section',
-            },
-            {
-                title:'Tour Completed',
-                intro:'Thats it, all the best!',
-            }
-        ],
-        dontShowAgain: false,
-    }).start();
-}, 4500);
+// function startTour() {
+    setTimeout(function() {
+        introJs().setOptions({
+            steps: [
+                {
+                    title: 'Welcome!',
+                    intro: 'Start Tour?'
+                },
+                {
+                    element: document.querySelector('.custom-steps'),
+                    title: 'Tip 1',
+                    intro: 'A. Complete all 4 sections to submit your application'
+                },
+                {
+                    element: document.querySelector('.link_name'),
+                    title: 'Tip 2',
+                    intro: 'B. Open/Close the sidebar'
+                },
+                {
+                    element: document.querySelector('.sb'),
+                    title: 'Tip 3',
+                    intro: 'C. Open/Close each sub-menus to preview details of each section'
+                },
+                {
+                    element: document.querySelector('.btn-group'),
+                    title: 'First Step',
+                    intro: '1. Select based on your Employment Type',
+                },
+                {
+                    element: document.querySelector('.tabs'),
+                    title: 'Second Step',
+                    intro: '2. Upload all required documents. Make sure to follow respective guidelines',
+                },
+                {
+                    element: document.querySelector('.Next'),
+                    title: 'Third Step',
+                    intro: '3. Once all documents are successfully uploaded, click to the next section',
+                },
+                {
+                    title: 'Tour Completed',
+                    intro: 'That’s it, all the best!',
+                }
+            ],
+            dontShowAgain: false,
+        }).start();
+    }, 4500);
+// }
+
 </script>
 
 
@@ -323,15 +323,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const tabs = tabsContainer.querySelectorAll("input[type='radio']");
     const labels = tabsContainer.querySelectorAll("label");
     const indicator = tabsContainer.querySelector(".indicator");
-    // const overlay = document.querySelector(".overlay");
-    // const modal = document.querySelector(".modal-box");
-
-    // const closebtn = document.querySelector(".closebtn");
-    // closebtn.addEventListener('click', () => {
-    //     console.log('Close button clicked');
-    //     overlay.style.display = "none";
-    //     modal.style.opacity= 0;
-    // });
 
     function updateIndicator() {
         const activeTab = Array.from(tabs).find(tab => tab.checked);
