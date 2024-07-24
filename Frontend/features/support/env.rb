@@ -13,15 +13,15 @@ SimpleCov.start 'rails' do
   add_filter 'features/'
 end
 
-# Registering the Selenium driver with Firefox
-Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :firefox)
-end
-
-# # Registering the Selenium driver with Safari
+# # Registering the Selenium driver with Firefox
 # Capybara.register_driver :selenium do |app|
-#   Capybara::Selenium::Driver.new(app, browser: :safari)
+#   Capybara::Selenium::Driver.new(app, browser: :firefox)
 # end
+
+# Registering the Selenium driver with Safari
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :safari)
+end
 
 
 # Setting the default driver to Selenium
