@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "dbsdoccheckteam7",
+  "private_key_id": "7b5fc6a831cccb56938fa6a0e459f353136860af",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCI+5KhZzzCJ3be\nhSzlYDpk+hZ/H+SZI0I6DfnNk6CpJsPjUn3s4lOCL8Svk5aUyl0Qs4GVPN5aCtxg\neXKK9yoqvD3SOOgg+iiJVWPTqfh5qHCnRNKc+OO9a+Xl+FpmHqsCgKRZpQh3HKwy\nVec4hoZuMNKWmvhHazqMDPa/FsIaUFfKH7cc3JNXIoVAtwnlVIixCWV0mdGFgdPC\nSoFmF36SCZJb9bXOJ6/iRyCbIy4ew1O3PbYOPxJ5mBhR2OkPhtvtxTE/nKLFAhZT\n+7FSbQC3Q91UuvFuOxBbftFY5uku2tvsMx3riNUzO3yG50vTpeD8Cvtkd6aYo2tA\nSiSeFMmvAgMBAAECggEABUP5kVxXW/WjmBu+a6kue9sxKjA4dVQc1szauvasLyEr\n8bA/ru9ndMWpTEAVtbp7QVax6hUUGjOSRqyxPnsQLK+RU/3KaBocAzHV5VKcGCRL\n0EidxllUevklNf9wWiSSDKwtPrtQfzBwkUhdqJdjOEq5wMt/Z7kARla2CKDM7UrC\n742lWBZy7XKzfWhiEnALMvxcG7ra7j0oH6uJ+bytJpKluLwEu7zCIIct0MyO/1SN\nFo6KH0ECNQM1IkG8KL4lwQd+KJRclOlpgnNXlzd9f3zoELAx/9kma+8/IcUuibmm\nyEIAwEZtZJWSODaIrzn6y/hV7aK7OmczS7n7mWdtoQKBgQC7vUPseguhutkYQbN+\nrAt2g0H4EHuc3EeB0gA/T4M5k1QO43fqDPfsQMpk+7u2Cc9Q+7k+uDW/TA4ITLwq\nKBZPbDvdVPSP8pLFSs9sZm/SEuRhOubkm224cpTEjeoibQ0AlDJvd0a1bts6Md/0\nlKqcwubomGlZr2tAUyWNwL0j9QKBgQC6yeSkk3jrXHeBolmGtbJYWrLzmeDh30fR\npsB1F++D1Ny/2thKmcTqMmLOKQpTL1a+DAm41zjloT3qEZWMp8ttdBPGiUCMJfd8\nDiBvv50ZcktebbLu+8e/SfltrOBKpftUr82wF6os9MVZkGEUz6kyOKj2JK6wtUTC\nKfwXX8IUkwKBgDXDbcA68znNmH4p0o1kF6RI0ouHrN6u9otm6Es5KgtC9b+NxLly\nHU27ADsLHCZ1iLlYXSRo/Htb/GjEEN7BvCHijQJFYgQXI5D8a4pPi5ZNcrmldJnj\nKPi5V4EyYuqY8DBKQGdLcSRkKsPvpIMWUAW0iwvxGbplUgGJzidaGtBBAoGBALog\nnlakoTSe4nLp7R4ABmRmlLWLW3yX+r/d0x+bJ0+NmB8Rmr/TtFXOuYhHewNjQ6OC\n6VkoFYk0gDazKPuM5Hf/2AjZEdnVp2QVy5qvLIOD0biZxVjAyc1CkGsKfkHEXcqI\nmITlP+0mR1U1Opf7SdVCgpMsAGsTZh24qnw8LnBDAoGARjaW7BMOXUDU9guuYjT4\nxQ7cAW8rE33GH+uqQQAfIIkAubx/HPYfKSGm/HMl7KWtgZg23bx5KPSmA5iPMQFg\nSNMUa5phJcw4hKZnkXUr7GQf0hYN5oP0ZsA2XqWuHURUpXm8TsiGKv7lGLDrPwoV\nC3/vBREXxk/qu6QixijXtWA=\n-----END PRIVATE KEY-----\n",
+  "client_email": "rails-app-service-account@dbsdoccheckteam7.iam.gserviceaccount.com",
+  "client_id": "104913472239792290007",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/rails-app-service-account%40dbsdoccheckteam7.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

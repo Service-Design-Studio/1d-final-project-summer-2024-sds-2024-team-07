@@ -5,11 +5,11 @@
   <td><%= user.passport_number %></td>
   <td><%= user.passport_expiry %></td>
   <td><%= user.date_of_birth %></td>
-  <td><%= user.doc_passport %></td>
-  <td><%= user.doc_employment_pass %></td>
-  <td><%= user.doc_income_tax %></td>
-  <td><%= user.doc_payslip %></td>
-  <td><%= user.doc_proof_of_address %></td>
+  <td><%= link_to user.doc_passport, user.doc_passport, target: "_blank" if user.doc_passport.present? %></td>
+  <td><%= link_to user.doc_employment_pass, user.doc_employment_pass, target: "_blank" if user.doc_employment_pass.present? %></td>
+  <td><%= link_to user.doc_income_tax, user.doc_income_tax, target: "_blank" if user.doc_income_tax.present? %></td>
+  <td><%= link_to user.doc_payslip, user.doc_payslip, target: "_blank" if user.doc_payslip.present? %></td>
+  <td><%= link_to user.doc_proof_of_address, user.doc_proof_of_address, target: "_blank" if user.doc_proof_of_address.present? %></td>
   <td><%= user.others %></td>
   <td><%= user.created_at %></td>
   <td><%= user.updated_at %></td>

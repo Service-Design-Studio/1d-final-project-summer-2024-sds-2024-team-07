@@ -67,11 +67,12 @@ body {
 
 .tabs label {
   display: block;
-  padding: 10px;
+  padding: 10px 0px;
   cursor: pointer;
   border: 1px solid #ffffff;
   border-bottom: none;
   background-color: #ffffff;
+  border-radius: 4px;
 }
 
 .tabs label:hover {
@@ -109,12 +110,13 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 }
 
 .content-image {
-  width: 100%;   /* Set the desired width */
+  width: 80%;   /* Set the desired width */
   height: auto;  /* Maintain aspect ratio */
-  max-width: 800px; /* Maximum width of the image */
-  max-height: 500px; /* Maximum height of the image */
+  // max-width: 800px; /* Maximum width of the image */
+  // max-height: 500px; /* Maximum height of the image */
   display: block;
-  margin: -20px auto; /* Center the image */
+  margin: -50px auto auto; /* Center the image */
+  z-index: 1;
 }
 
 
@@ -128,7 +130,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   padding: 50px;
   padding-bottom: 80px;
   width: 90%;
-  height: 650px;
+  height: 530px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   border-radius: 5px;
   min-width: #{$tab-count * 60px};
@@ -313,7 +315,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   position: relative;
   left: 5%;
   width: 90%;
-  margin-top: 30px;
+  margin-top: 20px;
   background-color: #ffffff;
   outline: none;
 }
@@ -329,17 +331,74 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 
 
 .upload-btn-wrapper {
+  width: 100%; /* Ensure it takes the full width of the parent */
   display: flex;
-  align-items: center;
   text-align: center;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: -80px;
+  z-index: 2;
 }
+
+.wrapper-col-left{
+  flex: 1;
+}
+.wrapper-col-middle{
+  flex: 0.7;
+}
+.wrapper-col-right{
+  flex:1;
+}
+
+.file-item {
+  display: none;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1;
+  color: black;
+  // margin: 10px;
+  max-width: 250px;
+}
+
+.file-icon {
+  width: 28px;
+  height: 28px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  margin-right: 7px;
+}
+
+.file-details {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.file-name {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+.file-actions {
+  margin-left: auto;
+}
+
+.delete-icon {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+
+
+
 
 .btnUp {
   border: 2px solid rgb(0, 0, 0);
-  color: rgb(0, 0, 0);
-  background-color: white;
+  color: white;
+  background-color: #fa3943;
   display: inline-block;
   border-radius: 8px;
   font-size: 16px;
@@ -362,9 +421,9 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 
 .btnUp span {
   position: relative;
-  z-index: 1;
+  z-index: 0;
   padding: 10px 20px;
-  border: 1px solid black; 
+  background-color: #fa3943;
   border-radius: 4px;
 }
 
@@ -374,3 +433,19 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   cursor: pointer;
 }
 
+
+/* Next Button */
+.next-link {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  pointer-events: none;
+}
+.next-link:hover {
+  background-color: darkred;
+}
