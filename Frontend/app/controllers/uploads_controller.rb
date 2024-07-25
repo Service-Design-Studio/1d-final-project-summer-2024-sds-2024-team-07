@@ -18,11 +18,11 @@ class UploadsController < ApplicationController
       File.open(file_path, 'wb') do |file|
         file.write(uploaded_file.read)
       end
-      puts "File saved temporarily at: #{file_path}"
+      # puts "File saved temporarily at: #{file_path}"
 
       # Send the file to the Flask backend
       response = send_file_to_flask_backend(file_path, file_type)
-      puts "Response from Flask: #{response}"
+      # puts "Response from Flask: #{response}"
 
       if response['result'] == 'true'
         user = User.find_by(session_id: session[:user_id]) # Use the session ID to find the user
@@ -31,7 +31,7 @@ class UploadsController < ApplicationController
           column_name = "doc_#{file_type}"
           file_url = upload_to_gcloud(file_path, uuid, uploaded_file.original_filename)
           user.update(column_name => file_url)
-          puts "Updated user #{user.id} with URL #{file_url} for #{column_name}"
+          # puts "Updated user #{user.id} with URL #{file_url} for #{column_name}"
         end
         result = 'File processed successfully and URL generated'
         render json: { result: 'true', message: result, file_id: uuid }
@@ -43,7 +43,7 @@ class UploadsController < ApplicationController
       result = "File upload failed: #{e.message}"
       render json: { result: 'false', message: result }
     ensure
-      File.delete(file_path) if File.exist?(file_path)
+      # File.delete(file_path) if File.exist?(file_path)
     end
   end
 
@@ -86,10 +86,10 @@ class UploadsController < ApplicationController
       gcs_file = bucket.create_file file, file_name
       file.close
 
-      puts "File uploaded successfully."
+      # puts "File uploaded successfully."
       gcs_file.public_url
     rescue => e
-      puts "Failed to upload file: #{e.message}"
+      # puts "Failed to upload file: #{e.message}"
       raise "File upload failed: #{e.message}"
     end
   end
