@@ -1,15 +1,17 @@
+# app/controllers/uploads_controller.rb
 class UploadsController < ApplicationController
   protect_from_forgery with: :null_session
 
   def create
     uploaded_file = params[:file]
     file_type = params[:file_type]
-    file_path = Rails.root.join('tmp', uploaded_file.original_filename)
 
     if uploaded_file.nil?
-      # render json: { result: false, message: 'No file uploaded' }, status: :unprocessable_entity
-      # return
+      render json: { result: false, message: 'No file uploaded' }, status: :unprocessable_entity
+      return
     end
+
+    file_path = Rails.root.join('tmp', uploaded_file.original_filename)
 
     begin
       # Save the file temporarily to the server
@@ -37,30 +39,13 @@ class UploadsController < ApplicationController
         result = 'File processing failed'
         render json: { result: 'false', message: result }
       end
-    # rescue StandardError => e
-    #   result = "File upload failed: #{e.message}"
-    #   render json: { result: 'false', message: result }
+    rescue StandardError => e
+      result = "File upload failed: #{e.message}"
+      render json: { result: 'false', message: result }
     ensure
-      # File.delete(file_path) if File.exist?(file_path)
+      File.delete(file_path) if File.exist?(file_path)
     end
   end
-
-  # def delete_document
-  #   file_type = params[:file_type]
-  #   user = User.find_by(session_id: session[:user_id])
-
-  #   if user
-  #     column_name = "doc_#{file_type}"
-  #     if user[column_name].present?
-  #       user.update(column_name => nil)
-  #       render json: { result: 'true', message: 'File deleted successfully' }
-  #     else
-  #       render json: { result: 'false', message: 'File not found' }
-  #     end
-  #   else
-  #     render json: { result: 'false', message: 'User not found' }
-  #   end
-  # end
 
   private
 
@@ -86,11 +71,9 @@ class UploadsController < ApplicationController
 
     JSON.parse(response.body)
   rescue JSON::ParserError => e
-    # puts "Failed to parse JSON response from Flask: #{e.message}"
-    # { 'result' => false, 'message' => "Failed to parse JSON response from Flask: #{e.message}" }
+    { 'result' => false, 'message' => "Failed to parse JSON response from Flask: #{e.message}" }
   rescue StandardError => e
-    # puts "Error sending file to Flask: #{e.message}"
-    # { 'result' => false, 'message' => "Error sending file to Flask: #{e.message}" }
+    { 'result' => false, 'message' => "Error sending file to Flask: #{e.message}" }
   end
 
   def upload_to_gcloud(file_path, uuid, original_filename)
@@ -106,8 +89,8 @@ class UploadsController < ApplicationController
       puts "File uploaded successfully."
       gcs_file.public_url
     rescue => e
-      # puts "Failed to upload file: #{e.message}"
-      # raise "File upload failed: #{e.message}"
+      puts "Failed to upload file: #{e.message}"
+      raise "File upload failed: #{e.message}"
     end
   end
 end

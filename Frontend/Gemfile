@@ -95,6 +95,9 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner-active_record'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'webmock'
+  gem 'factory_bot_rails'
 end
 
 
