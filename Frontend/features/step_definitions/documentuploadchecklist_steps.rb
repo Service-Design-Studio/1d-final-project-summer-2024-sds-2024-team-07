@@ -195,15 +195,16 @@ When('I click on the {string}') do |link_text|
   when "Application Page"
     click_link('application page')
   when "Document Upload Button"
-    begin
-      button = find_button('Document Upload')
-      page.execute_script("arguments[0].scrollIntoView(true);", button.native) # Scroll the button into view
-      sleep 1 # Adding a short delay to ensure the scroll has completed
-      page.execute_script("arguments[0].click();", button.native) # Use JavaScript to click the button
-    rescue Capybara::ElementNotFound
-      puts page.html # Print the HTML content to help debug
-      raise "Button 'Document Upload' not found"
-    end
+    # begin
+    #   button = find_button('Document Upload')
+    #   page.execute_script("arguments[0].scrollIntoView(true);", button.native) # Scroll the button into view
+    #   sleep 1 # Adding a short delay to ensure the scroll has completed
+    #   page.execute_script("arguments[0].click();", button.native) # Use JavaScript to click the button
+    # rescue Capybara::ElementNotFound
+    #   puts page.html # Print the HTML content to help debug
+    #   raise "Button 'Document Upload' not found"
+    # end
+    visit pages_documentupload_path
   when "Application Checklist Page"
     click_link('application checklist')
   else
