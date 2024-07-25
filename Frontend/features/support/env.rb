@@ -21,6 +21,7 @@ end
 # Registering the Selenium driver with Safari
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :safari)
+  # Capybara::Selenium::Driver.new(app, browser: :firefox)
 end
 
 

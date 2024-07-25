@@ -169,23 +169,6 @@ Then('I should see a pop up warning') do
   alert.accept
 end
 
-Given('that I am on the apply page') do
-  visit pages_apply_path
-end
-
-When('I click on the {string}') do |link_text|
-  case link_text
-  when "Application Page"
-    click_link('application page')
-  when "Document Upload Button"
-    click_button('Document Upload')
-  when "Application Checklist Page"
-    click_link('application checklist')
-  else
-    raise "Unknown link: #{link_text}"
-  end
-end
-
 # Given('that I am on the apply page') do
 #   visit pages_apply_path
 # end
@@ -195,15 +178,7 @@ end
 #   when "Application Page"
 #     click_link('application page')
 #   when "Document Upload Button"
-#     begin
-#       button = find_button('Document Upload')
-#       page.execute_script("arguments[0].scrollIntoView(true);", button.native) # Scroll the button into view
-#       sleep 1 # Adding a short delay to ensure the scroll has completed
-#       page.execute_script("arguments[0].click();", button.native) # Use JavaScript to click the button
-#     rescue Capybara::ElementNotFound
-#       puts page.html # Print the HTML content to help debug
-#       raise "Button 'Document Upload' not found"
-#     end
+#     click_button('Document Upload')
 #   when "Application Checklist Page"
 #     click_link('application checklist')
 #   else
@@ -211,7 +186,33 @@ end
 #   end
 # end
 
+Given('that I am on the apply page') do
+  visit pages_apply_path
+end
+
+When('I click on the {string}') do |link_text|
+  case link_text
+  when "Application Page"
+    click_link('application page')
+  when "Document Upload Button"
+    begin
+      button = find_button('Document Upload')
+      page.execute_script("arguments[0].scrollIntoView(true);", button.native) # Scroll the button into view
+      sleep 1 # Adding a short delay to ensure the scroll has completed
+      page.execute_script("arguments[0].click();", button.native) # Use JavaScript to click the button
+    rescue Capybara::ElementNotFound
+      puts page.html # Print the HTML content to help debug
+      raise "Button 'Document Upload' not found"
+    end
+  when "Application Checklist Page"
+    click_link('application checklist')
+  else
+    raise "Unknown link: #{link_text}"
+  end
+end
+
 Then('I should be brought to the {string}') do |page_name|
+
   case page_name
   when "Application Page"
     expect(page).to have_current_path('/pages/apply')

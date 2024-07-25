@@ -53,24 +53,24 @@ Then("I should see other pages' headers on the sidebar") do
   expect(page).to have_css('.link_name', text: '4. Create Pin')
 end
 
-And('all headers should be clickable') do
-  find('.sidebar .link_name', text: '2. Particulars').click
-  find('.sidebar .link_name', text: '3. Verify Particulars').click
-  find('.sidebar .link_name', text: '4. Create Pin').click
-end
 # And('all headers should be clickable') do
-#   headers = [
-#     '2. Particulars',
-#     '3. Verify Particulars',
-#     '4. Create Pin'
-#   ]
-#   headers.each do |header_text|
-#     # Find the specific header element within the sidebar
-#     header = find(:xpath, "//a[contains(., '#{header_text}')]/span[@class='link_name']", visible: false)
-#     page.execute_script("arguments[0].scrollIntoView(true);", header.native)
-#     page.execute_script("arguments[0].click();", header.native)
-#   end
+#   find('.sidebar .link_name', text: '2. Particulars').click
+#   find('.sidebar .link_name', text: '3. Verify Particulars').click
+#   find('.sidebar .link_name', text: '4. Create Pin').click
 # end
+And('all headers should be clickable') do
+  headers = [
+    '2. Particulars',
+    '3. Verify Particulars',
+    '4. Create Pin'
+  ]
+  headers.each do |header_text|
+    # Find the specific header element within the sidebar
+    header = find(:xpath, "//a[contains(., '#{header_text}')]/span[@class='link_name']", visible: false)
+    page.execute_script("arguments[0].scrollIntoView(true);", header.native)
+    page.execute_script("arguments[0].click();", header.native)
+  end
+end
 
 
 And ('I should see information of each section of each page within the sidebar') do
