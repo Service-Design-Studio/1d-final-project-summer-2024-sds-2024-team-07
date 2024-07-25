@@ -178,24 +178,11 @@ When('I click on the {string}') do |link_text|
   when "Application Page"
     click_link('application page')
   when "Document Upload Button"
-    click_link('Document Upload')
+    click_button('Document Upload')
   when "Application Checklist Page"
     click_link('application checklist')
   else
     raise "Unknown link: #{link_text}"
-  end
-end
-
-Then('I should be brought to the {string}') do |page_name|
-  case page_name
-  when "Application Page"
-    expect(page).to have_current_path('/pages/apply')
-  when "Document Upload Page"
-    expect(page).to have_current_path('/pages/documentupload')
-  when "Application Checklist Page"
-    expect(page).to have_current_path('/pages/applicationchecklist')
-  else
-    raise "Unknown page: #{page_name}"
   end
 end
 
@@ -224,15 +211,17 @@ end
 #   end
 # end
 
-# Then('I should be brought to the {string}') do |page_name|
-#   case page_name
-#   when "Application Page"
-#     expect(page).to have_current_path('/pages/apply')
-#   when "Document Upload Page"
-#     expect(page).to have_current_path('/pages/documentupload')
-#   when "Application Checklist Page"
-#     expect(page).to have_current_path('/pages/applicationchecklist')
-#   else
-#     raise "Unknown page: #{page_name}"
-#   end
-# end
+Then('I should be brought to the {string}') do |page_name|
+  case page_name
+  when "Application Page"
+    expect(page).to have_current_path('/pages/apply')
+  when "Document Upload Page"
+    expect(page).to have_current_path('/pages/documentupload')
+  when "Application Checklist Page"
+    expect(page).to have_current_path('/pages/applicationchecklist')
+  when "Application Form Page"
+    expect(page).to have_current_path('/pages/applicationform')
+  else
+    raise "Unknown page: #{page_name}"
+  end
+end

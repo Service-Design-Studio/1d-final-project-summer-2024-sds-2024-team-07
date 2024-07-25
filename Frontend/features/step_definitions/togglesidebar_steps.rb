@@ -16,10 +16,6 @@ end
 
 
 # Scenario 1: Viewing details within the same page on the sidebar
-Then('I should see the sidebar') do
-  expect(page).to have_css('.sidebar', visible: true)
-end
-
 Then('I should see each page of the aplication within the sidebar') do
   expect(page).to have_css('.link_name', minimum: 4)
 end
@@ -29,7 +25,7 @@ Then ('I should see the contents of the current section') do
 end
 
 And('I click on a section that belongs to the current page') do
-  find('.sidebar .link_name', text: '1. Documents').click
+  find('.sidebar li', text: '1. Documents').click
 end
 
 Then('my screen slides to the respective section') do
