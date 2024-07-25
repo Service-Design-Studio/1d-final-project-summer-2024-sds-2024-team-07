@@ -47,6 +47,23 @@ class UploadsController < ApplicationController
     end
   end
 
+  def delete_document
+    file_type = params[:file_type]
+    user = User.find_by(session_id: session[:user_id])
+
+    if user
+      column_name = "doc_#{file_type}"
+      if user[column_name].present?
+        user.update(column_name => nil)
+        render json: { result: 'true', message: 'File deleted successfully' }
+      else
+        render json: { result: 'false', message: 'File not found' }
+      end
+    else
+      render json: { result: 'false', message: 'User not found' }
+    end
+  end
+
   private
 
   def send_file_to_flask_backend(file_path, file_type)
