@@ -10,6 +10,7 @@
 /env
 myenv/
 venv/
+rbenv/
 
 # Ignore other common files and directories
 __pycache__/

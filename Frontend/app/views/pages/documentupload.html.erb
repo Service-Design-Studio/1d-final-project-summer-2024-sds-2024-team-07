@@ -1,3 +1,12 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css" rel="stylesheet">
+<div class="titles">
+        <div class="title title-1"><h1><span>Begin</span> your<br>Journey with <span>us</span>,</h1></h1></div>
+        <div class="title title-2"><h1>
+        <%= image_tag("dbs_logo.svg", alt: "DBS", class: "logo-icon1") %>
+        </h1></div>
+        </div>
 <div class="custom-container">
     <div class="left-div">
         <%= render 'shared/left_toggle-sidebar' %>
@@ -156,6 +165,97 @@
         </div>
     </div>
 </div>
+
+<script>
+    //animation intro
+            TweenMax.staggerFrom(
+				".titles > div",
+				0.8,
+				{
+					x: "-60",
+					ease: Power3.easeInOut,
+					opacity: "0",
+				},
+				2
+			);
+
+			TweenMax.staggerTo(
+				".titles > div",
+				0.8,
+				{
+					x: "60",
+					ease: Power3.easeInOut,
+					delay: 1.2,
+					opacity: "0",
+				},
+				2
+			);
+			var textWrapper = document.querySelector(".custom-container");
+
+			anime.timeline().add({
+				targets: ".custom-container",
+				opacity: [0, 1],
+				translateY: [80, 0],
+				translateZ: 0,
+				easing: "easeOutExpo",
+				duration: 2000,
+				delay: (el, i) => 3500 + 40 * i,
+			});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
+<script>
+    //onboarding tour
+// function startTour() {
+    setTimeout(function() {
+        introJs().setOptions({
+            steps: [
+                {
+                    title: 'Welcome!',
+                    intro: 'Start Tour?'
+                },
+                {
+                    element: document.querySelector('.custom-steps'),
+                    title: 'Tip 1',
+                    intro: 'A. Complete all 4 sections to submit your application'
+                },
+                {
+                    element: document.querySelector('.link_name'),
+                    title: 'Tip 2',
+                    intro: 'B. Open/Close the sidebar'
+                },
+                {
+                    element: document.querySelector('.sb'),
+                    title: 'Tip 3',
+                    intro: 'C. Open/Close each sub-menus to preview details of each section'
+                },
+                {
+                    element: document.querySelector('.btn-group'),
+                    title: 'First Step',
+                    intro: '1. Select based on your Employment Type',
+                },
+                {
+                    element: document.querySelector('.tabs'),
+                    title: 'Second Step',
+                    intro: '2. Upload all required documents. Make sure to follow respective guidelines',
+                },
+                {
+                    element: document.querySelector('.next-button'),
+                    title: 'Third Step',
+                    intro: '3. Once all documents are successfully uploaded, click to the next section',
+                },
+                {
+                    title: 'Tour Completed',
+                    intro: 'That’s it, all the best!',
+                }
+            ],
+            dontShowAgain: false,
+        }).start();
+    }, 4500);
+// }
+
+</script>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
