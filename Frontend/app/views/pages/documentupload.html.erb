@@ -21,153 +21,150 @@
                 <button type="button" onclick="changeDiv(3)" id="button3" class="btn btn-outline-danger">Self-Employed/Commission-Based</button>
             </div>
 
-            <div class="tabs">
-                <%# <span class="overlay"></span>
-                <div class="modal-box">
-                <i>&#9746;</i>
-                <h2>Upload Error</h2>
-                <h3>Invalid file type! Please upload a PDF, PNG, or JPG document.<h3>
-                <div class="buttons">
-                    <button class="closebtn">Ok, Close</button>
-                    <button>Open File</button>
-                </div>
-            </div> %>
-
-                <input type="radio" id="tab1" name="tab-control" checked>
-                <input type="radio" id="tab2" name="tab-control">
-                <input type="radio" id="tab3" name="tab-control">
-                <input type="radio" id="tab4" name="tab-control">
-                <input type="radio" id="tab5" name="tab-control">
-                <ul>
-                    <li title="Valid Passport">
-                        <label id="label1" for="tab1" role="button">
-                            <div class="icon">📕</div>
-                            <br><span>Passport</span>
-                        </label>
-                    </li>
-                    <li title="Employment Pass">
-                        <label id="label2" for="tab2" role="button">
-                            <div class="icon">📝</div>
-                            <br><span>Employment Pass</span>
-                        </label>
-                    </li>
-                    <li id="item-tab3" title="Income Tax">
-                        <label id="label3" for="tab3" role="button">
-                            <div class="icon">💵</div>
-                            <br><span>Income Tax</span>
-                        </label>
-                    </li>
-                    <li id="item-tab4" title="PaySlip">
-                        <label id="label4" for="tab4" role="button">
-                            <div class="icon">💼</div>
-                            <br><span>Pay Slip</span>
-                        </label>
-                    </li>
-                    <li title="Proof of SG Address">
-                        <label id="label5" for="tab5" role="button">
-                            <div class="icon">🏠</div>
-                            <br><span>Proof of Address</span>
-                        </label>
-                    </li>
-                </ul>
-                <div class="content">
-                    
-                    <section id="content1">
-                        <%= image_tag 'Passport.png', alt: "Passport", class: 'content-image' %>
-                    </section>
-                    <section id="content2" class="carousel" data-carousel>
-                        <button class="carousel-button prev" data-carousel-button="prev">&#10094;</button>
-                        <button class="carousel-button next" data-carousel-button="next">&#10095;</button>
-                        <ul data-slides>
-                            <li class="slide" data-active>
-                            <%=image_tag 'WorkPass.png', alt:"Employment Pass", class: 'content-image' %>
-                            </li>
-                            <li class="slide">
-                            <%=image_tag 'WorkPass1.png', alt:"Employment Pass1", class: 'content-image' %>
-                            </li>
-                            <li class="slide">
-                            <%=image_tag 'WorkPass2.png', alt:"Employment Pass2", class: 'content-image' %>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section id="content3" class="carousel" data-carousel data-carousel>
-                        <button class="carousel-button prev" data-carousel-button="prev">&#10094;</button>
-                        <button class="carousel-button next" data-carousel-button="next">&#10095;</button>
-                        <ul data-slides>
-                            <li class="slide" data-active>
-                            <%=image_tag 'TaxAsessment1.png', alt:"Tax Asessment1", class: 'content-image' %>
-                            </li>
-                            <li class="slide">
-                            <%=image_tag 'TaxAsessment.png', alt:"Tax Asessment", class: 'content-image' %>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section id="content4" class="carousel" data-carousel data-carousel>
-                        <button class="carousel-button prev" data-carousel-button="prev">&#10094;</button>
-                        <button class="carousel-button next" data-carousel-button="next">&#10095;</button>
-                        <ul data-slides>
-                            <li class="slide" data-active>
-                            <%=image_tag 'IncomeSlip.png', alt:"Pay Slip", class: 'content-image' %>
-                            </li>
-                            <li class="slide">
-                            <%=image_tag 'IncomeSlip1.png', alt:"Pay Slip1", class: 'content-image' %>
-                            </li>
-                            <li class="slide">
-                            <%=image_tag 'IncomeSlip2.png', alt:"Pay Slip2", class: 'content-image' %>
-                            </li>
-                            <li class="slide">
-                            <%=image_tag 'IncomeSlip3.png', alt:"Pay Slip3", class: 'content-image' %>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section id="content5" class="carousel" data-carousel>        
-                        <button class="carousel-button prev" data-carousel-button="prev">&#10094;</button>
-                        <button class="carousel-button next" data-carousel-button="next">&#10095;</button>
-
-                        <ul data-slides>
-                            <li class="slide" data-active>
-                            <%=image_tag 'poa.png', alt:"Proof of Address", class: 'content-image' %>
-                            </li>
-                            <li class="slide">
-                            <%=image_tag 'poa1.png', alt:"Proof of Address1", class: 'content-image' %>
-                            </li>
-                            <li class="slide">
-                            <%=image_tag 'poa2.png', alt:"Proof of Address2", class: 'content-image' %>
-                            </li>
-                            <li class="slide">
-                            <%=image_tag 'poa3.png', alt:"Proof of Address3", class: 'content-image' %>
-                            </li>
-                            <li class="slide">
-                            <%=image_tag 'poa4.png', alt:"Proof of Address4", class: 'content-image' %>
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-                <div class="upload-btn-wrapper">
-                <button class="btnUp" id="uploadButton1">Upload Document</button>
-                <input type="file" name="myfile" id="fileInput1" style="display:none;" />
-                
-                <button class="btnUp" id="uploadButton2" style="display:none;">Upload Document</button>
-                <input type="file" name="myfile" id="fileInput2" style="display:none;" />
-                
-                <button class="btnUp" id="uploadButton3" style="display:none;">Upload Document</button>
-                <input type="file" name="myfile" id="fileInput3" style="display:none;" />
-                
-                <button class="btnUp" id="uploadButton4" style="display:none;">Upload Document</button>
-                <input type="file" name="myfile" id="fileInput4" style="display:none;" />
-                
-                <button class="btnUp" id="uploadButton5" style="display:none;">Upload Document</button>
-                <input type="file" name="myfile" id="fileInput5" style="display:none;" />
-                <p>Or Drop File Here (PDF/PNG/JPG)</p>  
+        <div class="tabs">
+            <input type="radio" id="tab1" name="tab-control" checked>
+            <input type="radio" id="tab2" name="tab-control">
+            <input type="radio" id="tab3" name="tab-control">
+            <input type="radio" id="tab4" name="tab-control">
+            <input type="radio" id="tab5" name="tab-control">
+            <ul>
+                <li title="Valid Passport">
+                    <label class="tab-label" id="label1" for="tab1" role="button">
+                        <div class="icon">📕</div>
+                        <br><span>Passport</span>
+                    </label>
+                </li>
+                <li title="Employment Pass">
+                    <label class="tab-label" id="label2" for="tab2" role="button">
+                        <div class="icon">📝</div>
+                        <br><span>Employment Pass</span>
+                    </label>
+                </li>
+                <li id="item-tab3" title="Income Tax">
+                    <label class="tab-label" id="label3" for="tab3" role="button">
+                        <div class="icon">💵</div>
+                        <br><span>Income Tax</span>
+                    </label>
+                </li>
+                <li id="item-tab4" title="PaySlip">
+                    <label class="tab-label" id="label4" for="tab4" role="button">
+                        <div class="icon">💼</div>
+                        <br><span>Pay Slip</span>
+                    </label>
+                </li>
+                <li title="Proof of SG Address">
+                    <label class="tab-label" id="label5" for="tab5" role="button">
+                        <div class="icon">🏠</div>
+                        <br><span>Proof of Address</span>
+                    </label>
+                </li>
+            </ul>
+            <div class="content">
+                <section id="content1">
+                    <%= image_tag 'Passport.png', alt: "Passport", class: 'content-image' %>
+                </section>
+                <section id="content2">
+                    <%= image_tag 'WorkPass1.png', alt: "Employment Pass", class: 'content-image' %>
+                </section>
+                <section id="content3">
+                    <%= image_tag 'TaxAsessment1.png', alt: "Income Tax", class: 'content-image' %>
+                </section>
+                <section id="content4">
+                    <%= image_tag 'IncomeSlip.png', alt: "Pay Slip", class: 'content-image' %>
+                </section>
+                <section id="content5">
+                    <%= image_tag 'poa.png', alt: "Proof of Address", class: 'content-image' %>
+                </section>
             </div>
 
-                <div style="text-align: right">
-                    <%= link_to 'Next', pages_applicationform_path, class: 'Next' %>
-                </div>
+            <div class="upload-btn-wrapper">
+                <div class="wrapper-col-left"></div>
+                <div class="wrapper-col-middle">
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <label class="btnUp" id="uploadButton1">
+                            <span>Upload Passport</span>
+                            <input type="file" id="fileInput1" style="display:none;" data-file-type="passport">
+                        </label>
+                        <div class="file-item" id="fileItem1" style="display: none;">
+                            <div class="file-icon">
+                                <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                            </div>
+                            <div class="file-details">
+                                <div class="file-name"></div>
+                            </div>
+                            <div class="file-actions">
+                                <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                            </div>
+                        </div>   
+                        <label class="btnUp" id="uploadButton2">
+                            <span>Upload Employment Pass</span>
+                            <input type="file" id="fileInput2" style="display:none;" data-file-type="employment_pass">
+                        </label>
+                        <div class="file-item" id="fileItem2" style="display: none;">
+                            <div class="file-icon">
+                                <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                            </div>
+                            <div class="file-details">
+                                <div class="file-name"></div>
+                            </div>
+                            <div class="file-actions">
+                                <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                            </div>
+                        </div>   
+                        <label class="btnUp" id="uploadButton3">
+                            <span>Upload Income Tax</span>
+                            <input type="file" id="fileInput3" style="display:none;" data-file-type="income_tax">                         
+                        </label>
+                        <div class="file-item" id="fileItem3" style="display: none;">
+                            <div class="file-icon">
+                                <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                            </div>
+                            <div class="file-details">
+                                <div class="file-name"></div>
+                            </div>
+                            <div class="file-actions">
+                                <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                            </div>
+                        </div>   
+                        <label class="btnUp" id="uploadButton4">
+                            <span>Upload Pay Slip</span>
+                            <input type="file" id="fileInput4" style="display:none;" data-file-type="payslip">                         
+                        </label>
+                        <div class="file-item" id="fileItem4" style="display: none;">
+                            <div class="file-icon">
+                                <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                            </div>
+                            <div class="file-details">
+                                <div class="file-name"></div>
+                            </div>
+                            <div class="file-actions">
+                                <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                            </div>
+                        </div>   
+                        <label class="btnUp" id="uploadButton5">
+                            <span>Upload Proof of Address</span>
+                            <input type="file" id="fileInput5" style="display:none;" data-file-type="proof_of_address">                          
+                        </label>
+                        <div class="file-item" id="fileItem5" style="display: none;">
+                            <div class="file-icon">
+                                <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                            </div>
+                            <div class="file-details">
+                                <div class="file-name"></div>
+                            </div>
+                            <div class="file-actions">
+                                <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                            </div>
+                        </div>   
+                    </form>
 
+
+                </div>
+                <div class="wrapper-col-right">
+                    <div style="text-align: right;">
+                    <%= link_to 'Next', pages_applicationform_path, class: 'next-link' %>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -276,8 +273,12 @@
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
-    // // File Upload Requests
-    // const fileInputs = document.querySelectorAll(".upload-btn-wrapper input[type='file']");
+    document.querySelectorAll(".btnUp span").forEach(span => {
+        span.dataset.originalText = span.textContent;
+    });
+
+    // File Upload Requests
+    const fileInputs = document.querySelectorAll(".btnUp input[type='file']");
 
     // function uploadFile(fileInput) {
     //     const file = fileInput.files[0];
@@ -287,36 +288,114 @@ document.addEventListener("DOMContentLoaded", function () {
     //     formData.append('file', file);
     //     formData.append('file_type', fileInput.dataset.fileType);
 
-    //     const actionUrl = '/uploads';
+        const actionUrl = '/uploads';
+        
+        const button = fileInput.closest('label');
+        const span = button.querySelector('span');
+        const fileitem = button.nextElementSibling;
+        const filename = fileitem.querySelector('.file-name');
+        const originalCursor = button.style.cursor;
+        const spanContext = span.textContent; // Save the original span text
 
-    //     fetch(actionUrl, {
-    //         method: 'POST',
-    //         body: formData,
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-    //         }
-    //     })
-    //     .then(response => {
-    //         if (!response.ok) {
-    //             throw new Error('Network response was not ok: ' + response.statusText);
-    //         }
-    //         return response.json();
-    //     })
-    //     .then(data => {
-    //         alert(`Result: ${data.result} - ${data.message}`);
-    //     })
-    //     .catch(error => {
-    //         console.error('Error:', error);
-    //         alert('File upload failed: ' + error.message);
-    //     });
-    // }
+        span.textContent = 'Pending...';
+        fileInput.disabled = true;
+        button.style.cursor = 'not-allowed';
 
-    // fileInputs.forEach(fileInput => {
-    //     fileInput.addEventListener("change", function () {
-    //         uploadFile(this);
-    //     });
-    // });
+        fetch(actionUrl, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json',
+                'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert(`Result: ${data.result} - ${data.message}`);
+            if (data.result === 'true') {
+                fileitem.style.display = 'flex';
+                button.style.display = 'none';
+                button.style.cursor = originalCursor;
+                filename.textContent = `${file.name}`;
+
+                // Persist the state
+                const tabKey = button.id.replace('uploadButton', 'tab');
+                console.log(`Setting sessionStorage for ${tabKey}`);
+                sessionStorage.setItem(`fileUploaded_${tabKey}`, 'true');
+
+                // Add delete button functionality
+                const deleteButton = fileitem.querySelector('.delete-icon');
+                if (deleteButton) {
+                    deleteButton.addEventListener('click', function() {
+                        const deleteUrl = `/uploads/delete_document`; // URL endpoint to handle file deletion
+
+                        fetch(deleteUrl, {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                                'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                            },
+                            body: JSON.stringify({ file_type: fileInput.dataset.fileType, file_id: data.file_id })
+                        })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok: ' + response.statusText);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data.result === 'true') {
+                                button.style.display = 'block';
+                                fileitem.style.display = 'none';
+                                span.textContent = 'Pending...';
+                                setTimeout(() => {
+                                    span.textContent = 'File Deleted!';
+                                    setTimeout(() => {
+                                        fileitem.style.display = 'none';
+                                        button.style.display = 'block';
+                                        fileInput.disabled = false;
+                                        span.textContent = spanContext;
+                                        fileInput.value = '';
+                                        const tabKey = button.id.replace('uploadButton', 'tab');
+                                        sessionStorage.removeItem(`fileUploaded_${tabKey}`);
+                                    }, 1000);
+                                }, 1000);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('File delete failed: ' + error.message);
+                        });
+                    });
+                }
+            } else {
+                span.textContent = spanContext;
+                fileInput.disabled = false;
+                button.style.cursor = originalCursor;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('File upload failed: ' + error.message);
+            span.textContent = spanContext;
+            fileInput.disabled = false;
+            button.style.cursor = originalCursor;
+        });
+    }
+
+
+    fileInputs.forEach(fileInput => {
+        fileInput.addEventListener("change", function () {
+            uploadFile(this);
+        });
+    });
+
 
     // Tab and Upload Button Handling
     const tabsContainer = document.querySelector(".tabs");
@@ -356,50 +435,62 @@ document.addEventListener("DOMContentLoaded", function () {
         tab4: document.getElementById('uploadButton4'),
         tab5: document.getElementById('uploadButton5')
     };
-    const fileInputs = {
-        tab1: document.getElementById('fileInput1'),
-        tab2: document.getElementById('fileInput2'),
-        tab3: document.getElementById('fileInput3'),
-        tab4: document.getElementById('fileInput4'),
-        tab5: document.getElementById('fileInput5')
-    };
-
-    let currentDiv = 1;
-    let divUploadedFiles = {
-        1: { tab1: null, tab2: null, tab3: null, tab4: null, tab5: null },
-        2: { tab1: null, tab2: null, tab3: null, tab4: null, tab5: null },
-        3: { tab1: null, tab2: null, tab3: null, tab4: null, tab5: null }
+    const fileItems = {
+        tab1: document.getElementById('fileItem1'),
+        tab2: document.getElementById('fileItem2'),
+        tab3: document.getElementById('fileItem3'),
+        tab4: document.getElementById('fileItem4'),
+        tab5: document.getElementById('fileItem5')
     };
 
     function updateUploadButtons() {
-    const activeTab = Array.from(tabs).find(tab => tab.checked).id;
-    Object.keys(uploadButtons).forEach(tab => {
-        if (tab === activeTab) {
-            uploadButtons[tab].style.display = 'inline-block';
-            fileInputs[tab].style.display = 'inline-block';
-            
-            if (divUploadedFiles[currentDiv][tab]) {
-                uploadButtons[tab].textContent = 'Document Uploaded';
-                uploadButtons[tab].style.backgroundColor = 'red';
-                uploadButtons[tab].style.color = 'white';
+        const activeTab = Array.from(tabs).find(tab => tab.checked).id;
+        Object.keys(uploadButtons).forEach(tab => {
+            if (tab === activeTab) {
+                uploadButtons[tab].style.display = 'inline-block';
+                if (sessionStorage.getItem(`fileUploaded_${tab}`) === 'true') {
+                    fileItems[tab].style.display = 'flex';
+                    uploadButtons[tab].style.display = 'none';
+                } else {
+                    fileItems[tab].style.display = 'none';
+                }
             } else {
-                uploadButtons[tab].textContent = 'Upload Document';
-                uploadButtons[tab].style.backgroundColor = '';
-                uploadButtons[tab].style.color = ''; // Reset to default color
+                uploadButtons[tab].style.display = 'none';
+                fileItems[tab].style.display = 'none';
             }
-        } else {
-            uploadButtons[tab].style.display = 'none';
-            fileInputs[tab].style.display = 'none';
-        }
-    });
-}
+        });
+    }
 
     tabs.forEach(tab => {
-        tab.addEventListener("change", function() {
-            updateUploadButtons();
-        });
+        tab.addEventListener('change', updateUploadButtons);
     });
 
+    updateUploadButtons(); // Initialize the upload buttons and file items
+
+    // Reset SessionStorage on refresh of page
+    function resetUploadState() {
+        Object.keys(sessionStorage).forEach(key => {
+            if (key.startsWith('fileUploaded_')) {
+                sessionStorage.removeItem(key);
+            }
+        });
+        // Reset all spans to their original text content
+        document.querySelectorAll(".btnUp span").forEach(span => {
+            span.textContent = span.dataset.originalText;
+        });
+    }
+
+    window.addEventListener('load', resetUploadState);
+
+
+    function resetTabs() {
+        labels.forEach(label => {
+            label.parentElement.style.display = 'none';
+            label.control.disabled = true;
+        });
+        document.getElementById('item-tab3').style.display = 'block';  // Show Income Tax by default
+        document.getElementById('item-tab4').style.display = 'block';  // Show Pay Slip by default
+    }
 
     function restoreTabs(tabIds) {
         tabIds.forEach(id => {
@@ -434,63 +525,73 @@ document.addEventListener("DOMContentLoaded", function () {
         updateIndicator();
     }
 
-    document.getElementById('button1').addEventListener('click', () => showTabGroup(1));
-    document.getElementById('button2').addEventListener('click', () => showTabGroup(2));
-    document.getElementById('button3').addEventListener('click', () => showTabGroup(3));
+    document.getElementById('button1').addEventListener('click', () => changeDiv(1));
+document.getElementById('button2').addEventListener('click', () => changeDiv(2));
+document.getElementById('button3').addEventListener('click', () => changeDiv(3));
 
-    function changeDiv(groupNumber) {
-        const hasUploadedFiles = Object.values(divUploadedFiles[currentDiv]).some(file => file !== null);
+let currentDiv = 1;
+const divUploadedFiles = {
+    1: {},
+    2: {},
+    3: {}
+};
 
-        if (currentDiv !== groupNumber) {
-            if (hasUploadedFiles && !confirm("Do you wish to change your employment type? Your changes will be discarded.")) {
+function changeDiv(groupNumber) {
+    // Check if there are any uploaded files in the current group
+    const hasUploadedFiles = Object.keys(sessionStorage).some(key => key.startsWith(`fileUploaded_${currentDiv}_`));
+
+    if (currentDiv !== groupNumber) {
+        if (hasUploadedFiles) {
+            if (!confirm("Do you wish to change your Employee Type? Your changes will be discarded.")) {
                 return;
+            } else {
+                resetUploadState();
             }
-            resetCurrentDivUploads();
-
-            // Update active button style
-            document.querySelectorAll('.btn-group .btn').forEach(button => {
-                button.classList.remove('active');
-            });
-            document.getElementById('button' + groupNumber).classList.add('active');
-
-            currentDiv = groupNumber;
-            document.getElementById('tab1').checked = true; // Reset to the first tab by default
-            showTabGroup(groupNumber);
         }
-    }
+        resetCurrentDivUploads();
 
-    function resetCurrentDivUploads() {
-        Object.keys(divUploadedFiles[currentDiv]).forEach(tabId => {
-            divUploadedFiles[currentDiv][tabId] = null;
+        // Update active button style
+        document.querySelectorAll('.btn-group .btn').forEach(button => {
+            button.classList.remove('active');
         });
-        updateUploadButtons();
-    }
+        document.getElementById('button' + groupNumber).classList.add('active');
 
-    Object.values(fileInputs).forEach((fileInput, index) => {
-        fileInput.addEventListener("change", function() {
-            var file = this.files[0];
-            if (file) {
-                var fileType = file.type;
-                var validTypes = ['application/pdf', 'image/png', 'image/jpeg'];
-                if (validTypes.indexOf(fileType) === -1) {
-                    alert('Invalid file type! Please upload a PDF, PNG, or JPG document.');
-                    // overlay.style.display = "flex";
-                    // modal.style.opacity= 1;                       
-                    this.value = ''; 
-                } else {
-                    const activeTab = `tab${index + 1}`;
-                    divUploadedFiles[currentDiv][activeTab] = file;
-                    uploadButtons[activeTab].textContent = 'Document Uploaded';
-                    uploadButtons[activeTab].style.backgroundColor = 'red';
-                    uploadButtons[activeTab].style.color = 'white';
+        currentDiv = groupNumber;
+        document.getElementById('tab1').checked = true; // Reset to the first tab by default
+        showTabGroup(groupNumber);
+    }
+}
+
+function resetCurrentDivUploads() {
+    Object.keys(divUploadedFiles[currentDiv]).forEach(tabId => {
+        divUploadedFiles[currentDiv][tabId] = null;
+        sessionStorage.removeItem(`fileUploaded_${currentDiv}_${tabId}`);
+    });
+    updateUploadButtons();
+}
+
+// Handle file input change
+document.querySelectorAll(".btnUp input[type='file']").forEach((fileInput, index) => {
+    fileInput.addEventListener("change", function() {
+        var file = this.files[0];
+        if (file) {
+            var fileType = file.type;
+            var validTypes = ['application/pdf', 'image/png', 'image/jpeg'];
+            if (validTypes.indexOf(fileType) === -1) {
+                alert('Invalid file type! Please upload a PDF, PNG, or JPG document.');
+                this.value = '';
+            } else {
+                const activeTab = `tab${index + 1}`;
+                divUploadedFiles[currentDiv][activeTab] = file;
+                sessionStorage.setItem(`fileUploaded_${currentDiv}_${activeTab}`, file.name);
+                const uploadButton = document.querySelector(`#uploadButton_${currentDiv}_${activeTab} span`);
+                if (uploadButton) {
+                    uploadButton.textContent = 'Document Uploaded';
                 }
             }
-        });
+        }
     });
-                         
-    document.getElementById('button1').addEventListener('click', () => changeDiv(1));
-    document.getElementById('button2').addEventListener('click', () => changeDiv(2));
-    document.getElementById('button3').addEventListener('click', () => changeDiv(3));
+});
 
     updateUploadButtons(); // Initialize the upload buttons
     showTabGroup(1); // Initialize the first group of tabs
