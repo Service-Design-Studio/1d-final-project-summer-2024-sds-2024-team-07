@@ -1,25 +1,23 @@
-<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="_right_main_content.css" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css" rel="stylesheet">
-</head>
-
-<body>
-    <div class="custom-container">
-        <div class="left-div">
-            <%= render 'shared/left_toggle-sidebar' %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css" rel="stylesheet">
+<div class="titles">
+        <div class="title title-1"><h1><span>Begin</span> your<br>Credit Card Journey with <span>us</span>,</h1></h1></div>
+        <div class="title title-2"><h1>
+        <%= image_tag("dbs_logo.svg", alt: "DBS", class: "logo-icon1") %>
+        </h1></div>
         </div>
-        <div class="right-div">
-            <%= render 'shared/right_header' %>
-            <div class="btn-group">
-                <button type="button" onclick="changeDiv(1)" id="button1" class="btn btn-outline-danger">Salaried Employee :<br> More than 3 Months </button>
-                <button type="button" onclick="changeDiv(2)" id="button2" class="btn btn-outline-danger">Salaried Employee :<br> Less than 3 months</button>
-                <button type="button" onclick="changeDiv(3)" id="button3" class="btn btn-outline-danger">Self-Employed/Commission-Based</button>
-            </div>
+<div class="custom-container">
+    <div class="left-div">
+        <%= render 'shared/left_toggle-sidebar' %>
+    </div>
+    <div class="right-div">
+        <%= render 'shared/right_header' %>
+        <div class="btn-group">
+            <button type="button" onclick="changeDiv(1)" id="button1" class="btn btn-outline-danger">Salaried Employee :<br> More than 3 Months </button>
+            <button type="button" onclick="changeDiv(2)" id="button2" class="btn btn-outline-danger">Salaried Employee :<br> Less than 3 months</button>
+            <button type="button" onclick="changeDiv(3)" id="button3" class="btn btn-outline-danger">Self-Employed/Commission-Based</button>
+        </div>
 
         <div class="tabs">
             <input type="radio" id="tab1" name="tab-control" checked>
@@ -157,27 +155,17 @@
                             </div>
                         </div>   
                     </form>
-
-
                 </div>
                 <div class="wrapper-col-right">
-                    <div style="text-align: right;">
-                    <%= link_to 'Next', pages_applicationform_path, class: 'next-link' %>
-                    </div>
                 </div>
             </div>
         </div>
+        <div class="next-button" id="next-button-ID">
+            <%= link_to 'Next', pages_applicationform_path, class: 'next-link' %>
+        </div>
     </div>
 
-<div class="titles">
-    <div class="title title-1"><h1><span>Begin</span> your<br>Credit Card Journey with <span>us</span>,</h1></h1></div>
-    <div class="title title-2"><h1>
-        <%= image_tag("dbs_logo.svg", alt: "DBS", class: "logo-icon1") %>
-    </h1></div>
 </div>
-
-</body>
-
 <script>
     //animation intro
             TweenMax.staggerFrom(
@@ -214,7 +202,6 @@
 				delay: (el, i) => 3500 + 40 * i,
 			});
 </script>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
 <script>
@@ -253,7 +240,7 @@
                     intro: '2. Upload all required documents. Make sure to follow respective guidelines',
                 },
                 {
-                    element: document.querySelector('.Next'),
+                    element: document.querySelector('.next-button'),
                     title: 'Third Step',
                     intro: '3. Once all documents are successfully uploaded, click to the next section',
                 },
@@ -271,22 +258,24 @@
 
 
 <script>
-
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".btnUp span").forEach(span => {
         span.dataset.originalText = span.textContent;
     });
+    
+    var noFileRequired = 5;
+    var currentFileUploaded = 0;
 
     // File Upload Requests
     const fileInputs = document.querySelectorAll(".btnUp input[type='file']");
 
-    // function uploadFile(fileInput) {
-    //     const file = fileInput.files[0];
-    //     if (!file) return;
+    function uploadFile(fileInput) {
+        const file = fileInput.files[0];
+        if (!file) return;
 
-    //     const formData = new FormData();
-    //     formData.append('file', file);
-    //     formData.append('file_type', fileInput.dataset.fileType);
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('file_type', fileInput.dataset.fileType);
 
         const actionUrl = '/uploads';
         
@@ -325,8 +314,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Persist the state
                 const tabKey = button.id.replace('uploadButton', 'tab');
-                console.log(`Setting sessionStorage for ${tabKey}`);
+                // console.log(`Setting sessionStorage for ${tabKey}`);
                 sessionStorage.setItem(`fileUploaded_${tabKey}`, 'true');
+
+                //Add to Global Variable
+                currentFileUploaded += 1;
+                console.log(currentFileUploaded);
+                console.log(noFileRequired);
+                //Check Next Button
+                checkNextButton();
+
 
                 // Add delete button functionality
                 const deleteButton = fileitem.querySelector('.delete-icon');
@@ -364,6 +361,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                         fileInput.value = '';
                                         const tabKey = button.id.replace('uploadButton', 'tab');
                                         sessionStorage.removeItem(`fileUploaded_${tabKey}`);
+                                        currentFileUploaded -= 1;
                                     }, 1000);
                                 }, 1000);
                             }
@@ -400,34 +398,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Tab and Upload Button Handling
     const tabsContainer = document.querySelector(".tabs");
     const tabs = tabsContainer.querySelectorAll("input[type='radio']");
-    const labels = tabsContainer.querySelectorAll("label");
-    const indicator = tabsContainer.querySelector(".indicator");
-
-    function updateIndicator() {
-        const activeTab = Array.from(tabs).find(tab => tab.checked);
-        if (activeTab) {
-        const label = tabsContainer.querySelector(`label[for="${activeTab.id}"]`);
-        const labelRect = label.getBoundingClientRect();
-        const containerRect = tabsContainer.getBoundingClientRect();
-        
-        indicator.style.width = `${labelRect.width}px`;
-        indicator.style.transform = `translateX(${labelRect.left - containerRect.left}px)`;
-        }
-    }
-
-    tabs.forEach(tab => {
-        tab.addEventListener("change", updateIndicator);
-    });
-
-    function resetTabs() {
-        labels.forEach(label => {
-        label.parentElement.style.display = 'none';
-        label.control.disabled = true;
-        });
-        document.getElementById('item-tab3').style.display = 'block';  // Show Income Tax by default
-        document.getElementById('item-tab4').style.display = 'block';  // Show Pay Slip by default
-    }
-
+    const labels = tabsContainer.querySelectorAll(".tab-label");
     const uploadButtons = {
         tab1: document.getElementById('uploadButton1'),
         tab2: document.getElementById('uploadButton2'),
@@ -500,12 +471,12 @@ document.addEventListener("DOMContentLoaded", function () {
             label.parentElement.style.display = 'block';
         });
     }
-    
+
     function showTabGroup(groupNumber) {
         resetTabs();
         var buttons = document.querySelectorAll('.btn-group .btn');
         buttons.forEach(function(button) {
-        button.classList.remove('active');
+            button.classList.remove('active');
         });
 
         // Add the 'active' class to the clicked button
@@ -513,109 +484,102 @@ document.addEventListener("DOMContentLoaded", function () {
         clickedButton.classList.add('active');
 
         if (groupNumber === 1) {
-        restoreTabs(['tab1', 'tab2', 'tab3', 'tab4', 'tab5']);
+            restoreTabs(['tab1', 'tab2', 'tab3', 'tab4', 'tab5']);
+            noFileRequired = 5;
         } else if (groupNumber === 2) {
-        restoreTabs(['tab1', 'tab2', 'tab4', 'tab5']);
-        document.getElementById('item-tab3').style.display = 'none';
+            restoreTabs(['tab1', 'tab2', 'tab4', 'tab5']);
+            document.getElementById('item-tab3').style.display = 'none';
+            noFileRequired = 4;
         } else if (groupNumber === 3) {
-        restoreTabs(['tab1', 'tab2', 'tab3', 'tab5']);
-        document.getElementById('item-tab4').style.display = 'none';
+            restoreTabs(['tab1', 'tab2', 'tab3', 'tab5']);
+            document.getElementById('item-tab4').style.display = 'none';
+            noFileRequired = 4;
         }
-
-        updateIndicator();
+        updateUploadButtons();
     }
 
     document.getElementById('button1').addEventListener('click', () => changeDiv(1));
-document.getElementById('button2').addEventListener('click', () => changeDiv(2));
-document.getElementById('button3').addEventListener('click', () => changeDiv(3));
+    document.getElementById('button2').addEventListener('click', () => changeDiv(2));
+    document.getElementById('button3').addEventListener('click', () => changeDiv(3));
 
-let currentDiv = 1;
-const divUploadedFiles = {
-    1: {},
-    2: {},
-    3: {}
-};
+    let currentDiv = 1;
+    const divUploadedFiles = {
+        1: {},
+        2: {},
+        3: {}
+    };
 
-function changeDiv(groupNumber) {
-    // Check if there are any uploaded files in the current group
-    const hasUploadedFiles = Object.keys(sessionStorage).some(key => key.startsWith(`fileUploaded_${currentDiv}_`));
+    function changeDiv(groupNumber) {
+        // Check if there are any uploaded files in the current group
+        const hasUploadedFiles = Object.keys(sessionStorage).some(key => key.startsWith('fileUploaded_') && sessionStorage.getItem(key) === 'true');
 
-    if (currentDiv !== groupNumber) {
-        if (hasUploadedFiles) {
-            if (!confirm("Do you wish to change your Employee Type? Your changes will be discarded.")) {
-                return;
-            } else {
-                resetUploadState();
-            }
-        }
-        resetCurrentDivUploads();
-
-        // Update active button style
-        document.querySelectorAll('.btn-group .btn').forEach(button => {
-            button.classList.remove('active');
-        });
-        document.getElementById('button' + groupNumber).classList.add('active');
-
-        currentDiv = groupNumber;
-        document.getElementById('tab1').checked = true; // Reset to the first tab by default
-        showTabGroup(groupNumber);
-    }
-}
-
-function resetCurrentDivUploads() {
-    Object.keys(divUploadedFiles[currentDiv]).forEach(tabId => {
-        divUploadedFiles[currentDiv][tabId] = null;
-        sessionStorage.removeItem(`fileUploaded_${currentDiv}_${tabId}`);
-    });
-    updateUploadButtons();
-}
-
-// Handle file input change
-document.querySelectorAll(".btnUp input[type='file']").forEach((fileInput, index) => {
-    fileInput.addEventListener("change", function() {
-        var file = this.files[0];
-        if (file) {
-            var fileType = file.type;
-            var validTypes = ['application/pdf', 'image/png', 'image/jpeg'];
-            if (validTypes.indexOf(fileType) === -1) {
-                alert('Invalid file type! Please upload a PDF, PNG, or JPG document.');
-                this.value = '';
-            } else {
-                const activeTab = `tab${index + 1}`;
-                divUploadedFiles[currentDiv][activeTab] = file;
-                sessionStorage.setItem(`fileUploaded_${currentDiv}_${activeTab}`, file.name);
-                const uploadButton = document.querySelector(`#uploadButton_${currentDiv}_${activeTab} span`);
-                if (uploadButton) {
-                    uploadButton.textContent = 'Document Uploaded';
+        if (currentDiv !== groupNumber) {
+            if (hasUploadedFiles) {
+                if (!confirm("Do you wish to change your Employee Type? Your changes will be discarded.")) {
+                    return;
+                } else {
+                    resetUploadState();
                 }
             }
+            resetCurrentDivUploads();
+
+            // Update active button style
+            document.querySelectorAll('.btn-group .btn').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.getElementById('button' + groupNumber).classList.add('active');
+
+            currentDiv = groupNumber;
+            document.getElementById('tab1').checked = true; // Reset to the first tab by default
+            showTabGroup(groupNumber);
         }
+    }
+
+    function resetCurrentDivUploads() {
+        Object.keys(divUploadedFiles[currentDiv]).forEach(tabId => {
+            divUploadedFiles[currentDiv][tabId] = null;
+            sessionStorage.removeItem(`fileUploaded_${currentDiv}_${tabId}`);
+        });
+        updateUploadButtons();
+    }
+
+    // Handle file input change
+    document.querySelectorAll(".btnUp input[type='file']").forEach((fileInput, index) => {
+        fileInput.addEventListener("change", function() {
+            var file = this.files[0];
+            if (file) {
+                var fileType = file.type;
+                var validTypes = ['application/pdf', 'image/png', 'image/jpeg'];
+                if (validTypes.indexOf(fileType) === -1) {
+                    alert('Invalid file type! Please upload a PDF, PNG, or JPG document.');
+                    this.value = '';
+                } else {
+                    const activeTab = `tab${index + 1}`;
+                    divUploadedFiles[currentDiv][activeTab] = file;
+                    sessionStorage.setItem(`fileUploaded_${currentDiv}_${activeTab}`, file.name);
+                    const uploadButton = document.querySelector(`#uploadButton_${currentDiv}_${activeTab} span`);
+                    if (uploadButton) {
+                        uploadButton.textContent = 'Document Uploaded';
+                    }
+                }
+            }
+        });
     });
-});
+
+    
+    const nextButton = document.getElementById('next-button-ID');
+    function checkNextButton() {
+        if (currentFileUploaded === noFileRequired) {
+            nextButton.style.pointerEvents = 'auto';
+            nextButton.style.backgroundColor = 'red';
+        }
+        else{
+            nextButton.style.pointerEvents = 'none';
+            nextButton.style.backgroundColor = 'grey';
+        }
+    }
 
     updateUploadButtons(); // Initialize the upload buttons
     showTabGroup(1); // Initialize the first group of tabs
-
 });
-
-const buttons = document.querySelectorAll("[data-carousel-button]")
-
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-    const offset = button.dataset.carouselButton === "next" ? 1 : -1
-    const slides = button
-      .closest("[data-carousel]")
-      .querySelector("[data-slides]")
-
-    const activeSlide = slides.querySelector("[data-active]")
-    let newIndex = [...slides.children].indexOf(activeSlide) + offset
-    if (newIndex < 0) newIndex = slides.children.length - 1
-    if (newIndex >= slides.children.length) newIndex = 0
-
-    slides.children[newIndex].dataset.active = true
-    delete activeSlide.dataset.active
-  })
-})
-
-
 </script>
