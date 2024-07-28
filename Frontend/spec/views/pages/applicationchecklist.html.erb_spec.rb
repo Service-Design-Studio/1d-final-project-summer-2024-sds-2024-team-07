@@ -59,4 +59,9 @@ RSpec.feature "ApplicationChecklist", type: :feature do
       expect(page).to have_css("img.main-image", visible: true)
     end
   end
+  scenario "Returning to apply page via application checklist page" do
+    visit pages_applicationchecklist_path
+    find('a', text: 'application page').click
+    expect(page).to have_current_path('/pages/apply')
+  end
 end
