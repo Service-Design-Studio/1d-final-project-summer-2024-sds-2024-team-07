@@ -10,6 +10,7 @@ executing
 google-generativeai>=0.2.0
 google-cloud-aiplatform>=1.12.0
 google-ai-generativelanguage
+google-cloud-documentai
 google-api-core
 google-api-python-client
 google-auth
