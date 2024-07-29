@@ -27,5 +27,6 @@ class PagesController < ApplicationController
   end
 
   def applicationform
+    @user = User.find_by(session_id: session[:user_id])
   end
 end

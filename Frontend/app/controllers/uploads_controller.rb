@@ -18,13 +18,11 @@ class UploadsController < ApplicationController
       File.open(file_path, 'wb') do |file|
         file.write(uploaded_file.read)
       end
-      # puts "File saved temporarily at: #{file_path}"
 
       # Send the file to the Flask backend
       response = send_file_to_flask_backend(file_path, file_type)
-      # puts "Response from Flask: #{response}"
 
-      if response['result']
+      if response['result'] == true
         user = User.find_by(session_id: session[:user_id]) # Use the session ID to find the user
         if user
           uuid = SecureRandom.uuid
@@ -32,27 +30,25 @@ class UploadsController < ApplicationController
           file_url = upload_to_gcloud(file_path, uuid, uploaded_file.original_filename)
           user.update(column_name => file_url)
 
-          # Update user with extracted data if available
-          extracted_data = response['extracted_data']
-          if extracted_data.present?
+          # Update user attributes based on extracted data
+          if response['extracted_data']
             user.update(
-              name: extracted_data['Name'],
-              date_of_birth: extracted_data['Date of Birth'],
-              passport_number: extracted_data['Passport Number'],
-              passport_expiry: extracted_data['Date of Expiry']
+              name: response['extracted_data']['Name'],
+              passport_number: response['extracted_data']['Passport Number'],
+              date_of_birth: response['extracted_data']['Date of Birth'],
+              passport_expiry: response['extracted_data']['Date of Expiry']
             )
           end
-          # puts "Updated user #{user.id} with URL #{file_url} for #{column_name} and extracted data #{extracted_data}"
         end
         result = 'File processed successfully and URL generated'
-        render json: { result: 'true', message: result, file_id: uuid, extracted_data: response['extracted_data'] }
+        render json: { result: true, message: result, file_id: uuid }
       else
         result = 'File processing failed'
-        render json: { result: 'false', message: result, extracted_data: response['extracted_data'] }
+        render json: { result: false, message: result }
       end
     rescue StandardError => e
       result = "File upload failed: #{e.message}"
-      render json: { result: 'false', message: result }
+      render json: { result: false, message: result }
     ensure
       # File.delete(file_path) if File.exist?(file_path)
     end
@@ -66,12 +62,12 @@ class UploadsController < ApplicationController
       column_name = "doc_#{file_type}"
       if user[column_name].present?
         user.update(column_name => nil)
-        render json: { result: 'true', message: 'File deleted successfully' }
+        render json: { result: true, message: 'File deleted successfully' }
       else
-        render json: { result: 'false', message: 'File not found' }
+        render json: { result: false, message: 'File not found' }
       end
     else
-      render json: { result: 'false', message: 'User not found' }
+      render json: { result: false, message: 'User not found' }
     end
   end
 
@@ -87,7 +83,6 @@ class UploadsController < ApplicationController
     }
 
     endpoint = endpoint_map[file_type] || '/upload/generic'
-    # uri = URI.parse("https://flask-app-44nyvt7saq-de.a.run.app#{endpoint}")
     uri = URI.parse("http://127.0.0.1:5000#{endpoint}")
 
     request = Net::HTTP::Post.new(uri)
@@ -115,10 +110,10 @@ class UploadsController < ApplicationController
       gcs_file = bucket.create_file file, file_name
       file.close
 
-      # puts "File uploaded successfully."
+      puts "File uploaded successfully."
       gcs_file.public_url
     rescue => e
-      # puts "Failed to upload file: #{e.message}"
+      puts "Failed to upload file: #{e.message}"
       raise "File upload failed: #{e.message}"
     end
   end
