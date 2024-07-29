@@ -38,8 +38,8 @@ class UploadsController < ApplicationController
             user.update(
               name: extracted_data['Name'],
               date_of_birth: extracted_data['Date of Birth'],
-              passport_number: extracted_data['Passport Number']
-              # passport_expiry: extracted_data['Date of Expiry'] # assuming the extracted data has this field
+              passport_number: extracted_data['Passport Number'],
+              passport_expiry: extracted_data['Date of Expiry']
             )
           end
           # puts "Updated user #{user.id} with URL #{file_url} for #{column_name} and extracted data #{extracted_data}"
