@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
-import vertexai
-from vertexai.preview.generative_models import GenerativeModel, Image
+from flask_cors import CORS  # Import the CORS module
 from google.oauth2 import service_account
 import fitz  # PyMuPDF
 from PIL import Image as PIL_Image
@@ -14,6 +13,7 @@ from vertexai.preview.generative_models import GenerativeModel
 
 
 app = Flask(__name__)
+CORS(app)
 
 PROJECT_ID = "dbsdoccheckteam7"
 REGION = "asia-east1"
@@ -235,7 +235,7 @@ REGION = "us-central1"
 vertexai.init(project=PROJECT_ID, location=REGION)
 
 # Initialize the Gemini model
-model = vertexai.generative_models.GenerativeModel("gemini-1.0-pro")
+model = vertexai.generative_models.GenerativeModel("gemini-1.5-pro-001")
 
 # Load FAQ content
 with open('dbsfaq.txt', 'r') as file:
@@ -247,13 +247,15 @@ def chat():
         return jsonify({"error": "Request must be JSON"}), 400
     
     data = request.get_json()
+    print("Received data:", data)  # Log the received data
     user_query = data.get("query")
     
     if not user_query:
+        print("No query field in the request")
         return jsonify({"error": "Query field is required"}), 400
     
     # Prepare the input prompt
-    prompt = user_query
+    prompt = f"{faq_content}\nUser asked: {user_query}"
     
     # Make a prediction
     response = model.generate_content(prompt)
@@ -261,8 +263,8 @@ def chat():
     # Extract the response
     generated_text = response.text
     
-    print(generated_text)
-    
+    print("Generated response:", generated_text) 
+
     return jsonify({"answer": generated_text})
 
 

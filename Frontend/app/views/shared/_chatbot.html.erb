@@ -1,143 +1,142 @@
-    <div id="chatbot-icon" class="draggable">
-        <%= image_tag 'faq.svg', alt: "Chatbot Icon", style:"width: 30px;" %>
-    </div>
-    <div id="chatbot-window" class="hidden">
-        <div id="chatbot-header">DBS DocCheck FAQ</div>
-        <div id="chatbot-body">
+<div id="chatbot-icon" class="draggable">
+    <%= image_tag 'faq.svg', alt: "Chatbot Icon", style:"width: 30px;" %>
+</div>
+<div id="chatbot-window" class="hidden">
+    <div id="chatbot-header">DBS DocCheck FAQ</div>
+    <div id="chatbot-body">
         <div id="messages"></div>
         <form id="chatbot-form">
             <input type="text" id="chatbot-input" placeholder="Type your message here..." required>
             <button type="submit">Send</button>
         </form>
-        </div>
     </div>
+</div>
 
-    <script>
-    // script.js
+<script>
     document.addEventListener('DOMContentLoaded', function() {
-    const chatbotIcon = document.getElementById('chatbot-icon');
-    const chatbotWindow = document.getElementById('chatbot-window');
-    const chatbotHeader = document.getElementById('chatbot-header');
-    const chatbotForm = document.getElementById('chatbot-form');
-    const chatbotInput = document.getElementById('chatbot-input');
-    const messagesDiv = document.getElementById('messages');
+        const chatbotIcon = document.getElementById('chatbot-icon');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatbotHeader = document.getElementById('chatbot-header');
+        const chatbotForm = document.getElementById('chatbot-form');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const messagesDiv = document.getElementById('messages');
 
-    // Function to position the chatbot window relative to the icon
-    function positionChatbotWindow() {
-        const iconRect = chatbotIcon.getBoundingClientRect();
-        const windowWidth = chatbotWindow.offsetWidth;
-        const windowHeight = chatbotWindow.offsetHeight;
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
+        // Function to position the chatbot window relative to the icon
+        function positionChatbotWindow() {
+            const iconRect = chatbotIcon.getBoundingClientRect();
+            const windowWidth = chatbotWindow.offsetWidth;
+            const windowHeight = chatbotWindow.offsetHeight;
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
 
-        // Determine if the icon is on the left or right half of the screen
-        const isLeftHalf = (iconRect.left + (chatbotIcon.offsetWidth / 2)) < (viewportWidth / 2);
+            // Determine if the icon is on the left or right half of the screen
+            const isLeftHalf = (iconRect.left + (chatbotIcon.offsetWidth / 2)) < (viewportWidth / 2);
 
-        // Calculate positions based on the half the icon is on
-        let leftPosition = isLeftHalf ? iconRect.right : iconRect.left - windowWidth;
-        let topPosition = iconRect.top;
+            // Calculate positions based on the half the icon is on
+            let leftPosition = isLeftHalf ? iconRect.right : iconRect.left - windowWidth;
+            let topPosition = iconRect.top;
 
-        // Ensure the window stays within the viewport
-        leftPosition = Math.max(0, Math.min(viewportWidth - windowWidth, leftPosition));
-        topPosition = Math.max(0, Math.min(viewportHeight - windowHeight, topPosition));
+            // Ensure the window stays within the viewport
+            leftPosition = Math.max(0, Math.min(viewportWidth - windowWidth, leftPosition));
+            topPosition = Math.max(0, Math.min(viewportHeight - windowHeight, topPosition));
 
-        // Set the final position
-        chatbotWindow.style.left = `${leftPosition}px`;
-        chatbotWindow.style.top = `${topPosition}px`;
-    }
+            // Set the final position
+            chatbotWindow.style.left = `${leftPosition}px`;
+            chatbotWindow.style.top = `${topPosition}px`;
+        }
 
-    // Toggle chatbot window
-    chatbotIcon.addEventListener('click', () => {
-        chatbotWindow.style.display = chatbotWindow.style.display === 'none' ? 'block' : 'none';
-        positionChatbotWindow(); // Position it correctly
-    });
+        // Toggle chatbot window
+        chatbotIcon.addEventListener('click', () => {
+            chatbotWindow.style.display = chatbotWindow.style.display === 'none' ? 'block' : 'none';
+            positionChatbotWindow(); // Position it correctly
+        });
 
-    // Make the chatbot window draggable
-    let isDraggingWindow = false;
-    let isDraggingIcon = false;
-    let offsetX, offsetY;
+        // Make the chatbot window draggable
+        let isDraggingWindow = false;
+        let isDraggingIcon = false;
+        let offsetX, offsetY;
 
-    chatbotHeader.addEventListener('mousedown', (e) => {
-        isDraggingWindow = true;
-        offsetX = e.clientX - chatbotWindow.getBoundingClientRect().left;
-        offsetY = e.clientY - chatbotWindow.getBoundingClientRect().top;
-    });
+        chatbotHeader.addEventListener('mousedown', (e) => {
+            isDraggingWindow = true;
+            offsetX = e.clientX - chatbotWindow.getBoundingClientRect().left;
+            offsetY = e.clientY - chatbotWindow.getBoundingClientRect().top;
+        });
 
         document.addEventListener('mousemove', (e) => {
-        if (isDraggingWindow) {
-            chatbotWindow.style.left = `${Math.max(0, Math.min(window.innerWidth - chatbotWindow.offsetWidth, e.clientX - offsetX))}px`;
-            chatbotWindow.style.top = `${Math.max(0, Math.min(window.innerHeight - chatbotWindow.offsetHeight, e.clientY - offsetY))}px`;
-        }
-        if (isDraggingIcon) {
-            const newLeft = e.clientX - offsetX;
-            const newTop = e.clientY - offsetY;
+            if (isDraggingWindow) {
+                chatbotWindow.style.left = `${Math.max(0, Math.min(window.innerWidth - chatbotWindow.offsetWidth, e.clientX - offsetX))}px`;
+                chatbotWindow.style.top = `${Math.max(0, Math.min(window.innerHeight - chatbotWindow.offsetHeight, e.clientY - offsetY))}px`;
+            }
+            if (isDraggingIcon) {
+                const newLeft = e.clientX - offsetX;
+                const newTop = e.clientY - offsetY;
 
-            // Change these values to restrict the draggable area for the icon
-            const minLeft = 100; // Minimum left position
-            const maxLeft = window.innerWidth - chatbotIcon.offsetWidth - 100; // Maximum left position
-            const minTop = 50; // Minimum top position
-            const maxTop = window.innerHeight - chatbotIcon.offsetHeight - 50; // Maximum top position
+                // Change these values to restrict the draggable area for the icon
+                const minLeft = 0; // Minimum left position
+                const maxLeft = window.innerWidth - chatbotIcon.offsetWidth; // Maximum left position
+                const minTop = 0; // Minimum top position
+                const maxTop = window.innerHeight - chatbotIcon.offsetHeight; // Maximum top position
 
-            // Ensure the icon stays within the specified area
-            chatbotIcon.style.left = `${Math.max(minLeft, Math.min(maxLeft, newLeft))}px`;
-            chatbotIcon.style.top = `${Math.max(minTop, Math.min(maxTop, newTop))}px`;
+                // Ensure the icon stays within the specified area
+                chatbotIcon.style.left = `${Math.max(minLeft, Math.min(maxLeft, newLeft))}px`;
+                chatbotIcon.style.top = `${Math.max(minTop, Math.min(maxTop, newTop))}px`;
 
-            positionChatbotWindow(); // Reposition the chatbot window
-        }
+                positionChatbotWindow(); // Reposition the chatbot window
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDraggingWindow = false;
+            isDraggingIcon = false;
+        });
+
+        // Make the chatbot icon draggable
+        chatbotIcon.addEventListener('mousedown', (e) => {
+            isDraggingIcon = true;
+            offsetX = e.clientX - chatbotIcon.getBoundingClientRect().left;
+            offsetY = e.clientY - chatbotIcon.getBoundingClientRect().top;
+        });
+
+        chatbotIcon.addEventListener('mouseup', () => {
+            isDraggingIcon = false;
         });
 
 
-    document.addEventListener('mouseup', () => {
-        isDraggingWindow = false;
-        isDraggingIcon = false;
-    });
+        
+        // Handle form submission
+        chatbotForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userInput = chatbotInput.value.trim();
+            if (userInput === '') return;
 
-    // Make the chatbot icon draggable
-    chatbotIcon.addEventListener('mousedown', (e) => {
-        isDraggingIcon = true;
-        offsetX = e.clientX - chatbotIcon.getBoundingClientRect().left;
-        offsetY = e.clientY - chatbotIcon.getBoundingClientRect().top;
-    });
+            const userMessageDiv = document.createElement('div');
+            userMessageDiv.textContent = `You: ${userInput}`;
+            messagesDiv.appendChild(userMessageDiv);
 
-    chatbotIcon.addEventListener('mouseup', () => {
-        isDraggingIcon = false;
-    });
-    });
+            chatbotInput.value = '';
 
+            try {
+                console.log('Sending to backend:', JSON.stringify({ query: userInput }));
+                const response = await fetch('http://127.0.0.1:5000/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query: userInput })
+                });
+                const data = await response.json();
 
+                const botMessageDiv = document.createElement('div');
+                botMessageDiv.textContent = `Bot: ${data.answer}`;
+                messagesDiv.appendChild(botMessageDiv);
 
-    // Handle form submission
-    chatbotForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const userInput = chatbotInput.value.trim();
-        if (userInput === '') return;
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            } catch (error) {
+                console.error('Error:', error);
+                const errorMessageDiv = document.createElement('div');
+                errorMessageDiv.textContent = 'Error: Could not get a response from the server.';
+                messagesDiv.appendChild(errorMessageDiv);
 
-        const userMessageDiv = document.createElement('div');
-        userMessageDiv.textContent = `You: ${userInput}`;
-        messagesDiv.appendChild(userMessageDiv);
-
-        chatbotInput.value = '';
-
-        try {
-        const response = await fetch('http://127.0.0.1:5000/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: userInput })
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }
         });
-        const data = await response.json();
-
-        const botMessageDiv = document.createElement('div');
-        botMessageDiv.textContent = `Bot: ${data.reply}`;
-        messagesDiv.appendChild(botMessageDiv);
-
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-        } catch (error) {
-        console.error('Error:', error);
-        const errorMessageDiv = document.createElement('div');
-        errorMessageDiv.textContent = 'Error: Could not get a response from the server.';
-        messagesDiv.appendChild(errorMessageDiv);
-
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-        }
     });
-    </script>
+</script>

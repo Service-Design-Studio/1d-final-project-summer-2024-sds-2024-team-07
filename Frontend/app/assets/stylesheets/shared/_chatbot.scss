@@ -61,4 +61,21 @@
   #messages {
     margin-bottom: 10px;
   }
+
+  #chatbot-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    cursor: move;
+}
+
+#chatbot-form button {
+    padding: 5px 10px;
+    margin-left: 5px;
+    border: 1px solid #007bff;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
   

@@ -50,3 +50,4 @@ uritemplate
 urllib3
 wcwidth
 PyMuPDF
+flask-cors
