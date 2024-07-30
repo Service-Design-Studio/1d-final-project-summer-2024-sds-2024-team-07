@@ -61,7 +61,7 @@
   flex-direction: column;
   margin: 10px 0;
   max-width: 95%;
-  font-size: 13px; /* Default font size */
+  font-size: 12.5px;
 }
 .message.you {
     align-items: flex-end;
@@ -83,7 +83,7 @@
 .bubble.you {
     background-color: #0084ff;
     color: white;
-    text-align: right;
+    text-align: left;
 }
 .sender {
     font-weight: bold;
@@ -124,6 +124,7 @@
   #chatbot-input {
     flex-grow: 1;
     padding: 5px;
+    font-size: 12.5px;
   }
 
   #send-button {
@@ -131,3 +132,33 @@
       margin-left: 5px;
   }
     
+
+
+// This is for BOT OUTPUT Styling
+.header1 {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.header2 {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.paragraph {
+  font-size: 12px;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+.list {
+  padding-left: 20px;
+}
+.list-item {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.link {
+  color: blue;
+  text-decoration: underline;
+  margin-bottom: 5px;
+}

@@ -147,7 +147,7 @@
 
                 const botMessageDiv = document.createElement('div');
                 botMessageDiv.classList.add('message', 'bot');
-                botMessageDiv.innerHTML = `<span class="sender">Bot</span><div class="bubble">${convertMarkdownToHTML(data.answer)}</div>`;
+                botMessageDiv.innerHTML = `<span class="sender">Bot</span><div class="bubble">${data.answer}</div>`;
                 messagesDiv.appendChild(botMessageDiv);
 
                 messagesDiv.scrollTop = messagesDiv.scrollHeight;

@@ -227,17 +227,13 @@ def upload_payslip():
 
 
 
-# Chatbot
+# Chatbot!!!!!!!!
 PROJECT_ID = "dbsdoccheckteam7"
 REGION = "us-central1"
-# MODEL_ID = "gemini-1.5-pro-001"
 
 vertexai.init(project=PROJECT_ID, location=REGION)
-
-# Initialize the Gemini model
 model = vertexai.generative_models.GenerativeModel("gemini-1.5-pro-001")
 
-# Load FAQ content
 with open('dbsfaq.txt', 'r') as file:
     faq_content = file.read()
 
@@ -245,26 +241,34 @@ with open('dbsfaq.txt', 'r') as file:
 def chat():
     if not request.is_json:
         return jsonify({"error": "Request must be JSON"}), 400
-    
     data = request.get_json()
-    print("Received data:", data)  # Log the received data
     user_query = data.get("query")
-    
     if not user_query:
-        print("No query field in the request")
         return jsonify({"error": "Query field is required"}), 400
     
-    # Prepare the input prompt
-    prompt = f"{faq_content}\nUser asked: {user_query}"
+    # Prepare the input prompt with instructions
+    prompt = f"""
+    The following is a well-structured FAQ about the DBS Credit Card Application Process. 
+    Respond to the user's query in a friendly and professional tone using the FAQ below.
+    Provide the response in HTML format with appropriate headers, bullet points, bold and italic text, and links if needed.
+    Use the following CSS classes for styling:
+    - <p class="header1"> for main headers
+    - <p class="header2"> for secondary headers
+    - <p class="paragraph"> for regular text
+    - <ul class="list"> for bullet points
+    - <li class="list-item"> for list items
+    - <a class="link"> for links
+    Keep the layout compact with minimal spacing between elements.
     
-    # Make a prediction
+    FAQ:
+    {faq_content}
+    
+    User asked: {user_query}
+    """
+    
     response = model.generate_content(prompt)
-    
-    # Extract the response
     generated_text = response.text
-    
-    print("Generated response:", generated_text) 
-
+    print(generated_text)
     return jsonify({"answer": generated_text})
 
 
