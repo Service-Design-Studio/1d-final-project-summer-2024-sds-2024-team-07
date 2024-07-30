@@ -9,6 +9,9 @@ import time
 import random
 from google.api_core.client_options import ClientOptions
 from google.cloud import documentai_v1beta3 as documentai
+import vertexai
+from vertexai.preview.generative_models import GenerativeModel
+
 
 app = Flask(__name__)
 
@@ -220,6 +223,48 @@ def upload_payslip():
     print("Processing /upload/payslip request")  # Debugging line
     first_prompt = "Is this a payslip containing keywords like cpf, bank? Answer with 'True' or 'False'."
     return upload_and_process_file(request.files.get('file'), first_prompt)
+
+
+
+
+# Chatbot
+PROJECT_ID = "dbsdoccheckteam7"
+REGION = "us-central1"
+# MODEL_ID = "gemini-1.5-pro-001"
+
+vertexai.init(project=PROJECT_ID, location=REGION)
+
+# Initialize the Gemini model
+model = vertexai.generative_models.GenerativeModel("gemini-1.0-pro")
+
+# Load FAQ content
+with open('dbsfaq.txt', 'r') as file:
+    faq_content = file.read()
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    if not request.is_json:
+        return jsonify({"error": "Request must be JSON"}), 400
+    
+    data = request.get_json()
+    user_query = data.get("query")
+    
+    if not user_query:
+        return jsonify({"error": "Query field is required"}), 400
+    
+    # Prepare the input prompt
+    prompt = user_query
+    
+    # Make a prediction
+    response = model.generate_content(prompt)
+    
+    # Extract the response
+    generated_text = response.text
+    
+    print(generated_text)
+    
+    return jsonify({"answer": generated_text})
+
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8080))

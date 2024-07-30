@@ -45,5 +45,20 @@
     height: calc(100% - 40px); /* Adjust based on header size */
     overflow-y: auto;
   }
-
+  
+  #chatbot-form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  #chatbot-input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  #messages {
+    margin-bottom: 10px;
+  }
   
