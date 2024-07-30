@@ -21,38 +21,27 @@
         const messagesDiv = document.getElementById('messages');
         const sendButton = document.getElementById('send-button');
 
-        // Function to position the chatbot window relative to the icon
         function positionChatbotWindow() {
             const iconRect = chatbotIcon.getBoundingClientRect();
             const windowWidth = chatbotWindow.offsetWidth;
             const windowHeight = chatbotWindow.offsetHeight;
             const viewportWidth = window.innerWidth;
             const viewportHeight = window.innerHeight;
-
-            // Determine if the icon is on the left or right half of the screen
             const isLeftHalf = (iconRect.left + (chatbotIcon.offsetWidth / 2)) < (viewportWidth / 2);
-
-            // Calculate positions based on the half the icon is on
             let leftPosition = isLeftHalf ? iconRect.right : iconRect.left - windowWidth;
             let topPosition = iconRect.top;
-
-            // Ensure the window stays within the viewport
             leftPosition = Math.max(0, Math.min(viewportWidth - windowWidth, leftPosition));
             topPosition = Math.max(0, Math.min(viewportHeight - windowHeight, topPosition));
-
-            // Set the final position
             chatbotWindow.style.left = `${leftPosition}px`;
             chatbotWindow.style.top = `${topPosition}px`;
         }
 
-        // Toggle chatbot window
         chatbotIcon.addEventListener('click', () => {
             chatbotWindow.style.display = chatbotWindow.style.display === 'none' ? 'block' : 'none';
-            positionChatbotWindow(); // Position it correctly
-            initializeChatbot(); // Initialize with a greeting message
+            positionChatbotWindow();
+            initializeChatbot();
         });
 
-        // Make the chatbot icon draggable
         let isDraggingIcon = false;
         let offsetX, offsetY;
 
@@ -60,18 +49,13 @@
             if (isDraggingIcon) {
                 const newLeft = e.clientX - offsetX;
                 const newTop = e.clientY - offsetY;
-
-                // Change these values to restrict the draggable area for the icon
-                const minLeft = 0; // Minimum left position
-                const maxLeft = window.innerWidth - chatbotIcon.offsetWidth; // Maximum left position
-                const minTop = 0; // Minimum top position
-                const maxTop = window.innerHeight - chatbotIcon.offsetHeight; // Maximum top position
-
-                // Ensure the icon stays within the specified area
+                const minLeft = 0;
+                const maxLeft = window.innerWidth - chatbotIcon.offsetWidth;
+                const minTop = 0;
+                const maxTop = window.innerHeight - chatbotIcon.offsetHeight;
                 chatbotIcon.style.left = `${Math.max(minLeft, Math.min(maxLeft, newLeft))}px`;
                 chatbotIcon.style.top = `${Math.max(minTop, Math.min(maxTop, newTop))}px`;
-
-                positionChatbotWindow(); // Reposition the chatbot window
+                positionChatbotWindow();
             }
         });
 
@@ -89,7 +73,6 @@
             isDraggingIcon = false;
         });
 
-        // Prevent form submission on Enter key press while typing
         chatbotInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
@@ -97,38 +80,59 @@
             }
         });
 
-        // Handle form submission when the send image is clicked
         sendButton.addEventListener('click', (e) => {
             e.preventDefault();
             sendMessage();
         });
 
 
-        // Handle form submission when the send image is clicked
-        sendButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            sendMessage();
-        });
-
-        // Function to initialize the chatbot with a greeting message
         function initializeChatbot() {
             if (messagesDiv.childElementCount === 0) {
                 const botMessageDiv = document.createElement('div');
-                botMessageDiv.classList.add('message');
-                botMessageDiv.innerHTML = `<span class="sender">Bot:</span><span>Hi! How can I help you today?</span>`;
+                botMessageDiv.classList.add('message', 'bot');
+                botMessageDiv.innerHTML = `
+                    <span class="sender">Bot</span>
+                    <div class="bubble">
+                        Hi! How can I help you today?<br>Common Questions:
+                        <div class="common-questions">
+                            <button class="common-question">What Required Documents for Foreigners who are salaried employees who have been employed for more than 3 months?</button>
+                            <button class="common-question">What are the eligibility criteria for a DBS credit card?</button>
+                            <button class="common-question">How can I update my address in DBS records?</button>
+                        </div>
+                    </div>
+                `;
                 messagesDiv.appendChild(botMessageDiv);
+
+                document.querySelectorAll('.common-question').forEach(button => {
+                    button.addEventListener('click', handleCommonQuestionClick);
+                });
+
                 messagesDiv.scrollTop = messagesDiv.scrollHeight;
             }
         }
 
-        // Function to handle message sending
+        function handleCommonQuestionClick(event) {
+            const question = event.target.textContent;
+            chatbotInput.value = question;
+            sendMessage();
+        }
+
+        function convertMarkdownToHTML(text) {
+            let html = text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/`(.*?)`/g, '<code>$1</code>')
+                .replace(/\n/g, '<br>');
+            return html;
+        }
+
         async function sendMessage() {
             const userInput = chatbotInput.value.trim();
             if (userInput === '') return;
 
             const userMessageDiv = document.createElement('div');
-            userMessageDiv.classList.add('message');
-            userMessageDiv.innerHTML = `<span class="sender">You:</span><span>${userInput}</span>`;
+            userMessageDiv.classList.add('message', 'you');
+            userMessageDiv.innerHTML = `<span class="sender">You</span><div class="bubble you">${userInput}</div>`;
             messagesDiv.appendChild(userMessageDiv);
 
             chatbotInput.value = '';
@@ -142,16 +146,16 @@
                 const data = await response.json();
 
                 const botMessageDiv = document.createElement('div');
-                botMessageDiv.classList.add('message');
-                botMessageDiv.innerHTML = `<span class="sender">Bot:</span><span>${data.answer}</span>`;
+                botMessageDiv.classList.add('message', 'bot');
+                botMessageDiv.innerHTML = `<span class="sender">Bot</span><div class="bubble">${convertMarkdownToHTML(data.answer)}</div>`;
                 messagesDiv.appendChild(botMessageDiv);
 
                 messagesDiv.scrollTop = messagesDiv.scrollHeight;
             } catch (error) {
                 console.error('Error:', error);
                 const errorMessageDiv = document.createElement('div');
-                errorMessageDiv.classList.add('message');
-                errorMessageDiv.innerHTML = `<span class="sender">Error:</span><span>Could not get a response from the server.</span>`;
+                errorMessageDiv.classList.add('message', 'bot');
+                errorMessageDiv.innerHTML = `<span class="sender">Error</span><div class="bubble">Could not get a response from the server.</div>`;
                 messagesDiv.appendChild(errorMessageDiv);
 
                 messagesDiv.scrollTop = messagesDiv.scrollHeight;
