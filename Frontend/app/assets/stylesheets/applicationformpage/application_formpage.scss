@@ -34,7 +34,6 @@ body {
 
 .right-div {
   flex-grow: 1;
-  background-color: #f8f9fa; /* Optional: Background color for main content */
   transition: margin-left 0.5s ease; /* Smooth transition for margin-left */
   margin-left: 260px; /* Default margin-left when sidebar is open */
 }
@@ -56,6 +55,8 @@ h4 {
   padding-bottom: 5%;
   padding-left: 10%;
   padding-right: 10%;
+  display: flex;
+  justify-content: center;
 }
 
 // Title amd Name as NRIC
@@ -65,12 +66,13 @@ h4 {
   box-sizing: border-box;
 }
 .form-name-left {
-  width: 10%;
+  width: 15%;
 }
+
 .form-control {
-  height: 45px;
-  margin-top: 10.5px;
+  height: 46.5px;
 }
+
 .form-name-right {
   width: 90%;
   margin-left: 5px;
@@ -88,15 +90,15 @@ h4 {
   box-sizing: border-box;
 }
 .residential-address-layer2-left {
-  width: 25%;
+  width: 35%;
 }
 .residential-address-layer2-right {
-  width: 75%;
+  width: 65%;
   margin-left: 7px;
 }
 .residential-address-layer1,
 .residential-address-layer5 {
-  width: 25%;
+  width: 35%;
 }
 
 //Residential Details (Type of Residence)
@@ -110,7 +112,7 @@ h4 {
   margin-bottom: 10px;
 }
 .residence-type-toggle-button {
-  width: 24%;
+  width: 23.8%;
   color: black;
   background-color: white;
   border: 1px solid #ccc;
@@ -143,7 +145,7 @@ h4 {
   margin-bottom: 10px;
 }
 .residence-status-toggle-button {
-  width: 45%;
+  width: 48.8%;
   color: black;
   background-color: white;
   border: 1px solid #ccc;
@@ -172,7 +174,7 @@ h4 {
   box-sizing: border-box;
 }
 .residential-years-left {
-  width: 40%;
+  width: 35%;
 }
 .residential-years-right {
   display: flex;
@@ -192,7 +194,7 @@ h4 {
   margin-bottom: 10px;
 }
 .education-level-toggle-button {
-  width: 60%;
+  width: 48.8%;
   color: black;
   background-color: white;
   border: 1px solid #ccc;
@@ -225,7 +227,7 @@ h4 {
   margin-bottom: 10px;
 }
 .current-job-status-toggle-button {
-  width: 60%;
+  width: 48.8%;
   color: black;
   background-color: white;
   border: 1px solid #ccc;
@@ -254,7 +256,7 @@ h4 {
   box-sizing: border-box;
 }
 .length-current-employment-1, .length-current-employment-3{
-  width: 25%;
+  width: 35%;
 }
 .length-current-employment-2, .length-current-employment-4 {
   display: flex;
@@ -275,7 +277,7 @@ h4 {
   margin-bottom: 10px;
 }
 .mailing-address-toggle-button {
-  width: 40%;
+  width: 48.8%;
   color: black;
   background-color: white;
   border: 1px solid #ccc;
@@ -304,15 +306,15 @@ h4 {
   box-sizing: border-box;
 }
 .current-office-address-layer2-left {
-  width: 25%;
+  width: 35%;
 }
 .current-office-address-layer2-right {
-  width: 75%;
+  width: 65%;
   margin-left: 7px;
 }
 .current-office-address-layer1,
 .current-office-address-layer5 {
-  width: 25%;
+  width: 35%;
 }
 
 
@@ -324,7 +326,7 @@ select,
 textarea {
   width: 100%;
   padding: 10px;
-  margin: 5px 0 20px 0;
+  margin: 0 0 10px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
@@ -355,11 +357,6 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Specific margin for the first heading (e.g., Name) */
-.content > div:first-child h2 {
-  margin-top: 20px;
-}
-
 .button-holder {
   visibility: hidden;
 }
@@ -370,4 +367,20 @@ button:hover {
 
 .next-button:hover {
   background-color: #cc0000;
+}
+
+.form-container {
+  width: 60%;
+}
+
+.dbs_blackvisacard_image {
+  margin: 10px 0;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
 }
