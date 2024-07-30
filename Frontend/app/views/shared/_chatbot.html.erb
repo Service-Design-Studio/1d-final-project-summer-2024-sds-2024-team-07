@@ -1,0 +1,100 @@
+    <div id="chatbot-icon" class="draggable">
+        <%= image_tag 'faq.svg', alt: "Chatbot Icon", style:"width: 30px;" %>
+    </div>
+    <div id="chatbot-window" class="hidden">
+        <div id="chatbot-header">DBS DocCheck FAQ</div>
+        <div id="chatbot-body">
+        <!-- Chatbot content goes here -->
+        </div>
+    </div>
+
+    <script>
+    // script.js
+    document.addEventListener('DOMContentLoaded', function() {
+    const chatbotIcon = document.getElementById('chatbot-icon');
+    const chatbotWindow = document.getElementById('chatbot-window');
+    const chatbotHeader = document.getElementById('chatbot-header');
+
+    // Function to position the chatbot window relative to the icon
+    function positionChatbotWindow() {
+        const iconRect = chatbotIcon.getBoundingClientRect();
+        const windowWidth = chatbotWindow.offsetWidth;
+        const windowHeight = chatbotWindow.offsetHeight;
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+
+        // Determine if the icon is on the left or right half of the screen
+        const isLeftHalf = (iconRect.left + (chatbotIcon.offsetWidth / 2)) < (viewportWidth / 2);
+
+        // Calculate positions based on the half the icon is on
+        let leftPosition = isLeftHalf ? iconRect.right : iconRect.left - windowWidth;
+        let topPosition = iconRect.top;
+
+        // Ensure the window stays within the viewport
+        leftPosition = Math.max(0, Math.min(viewportWidth - windowWidth, leftPosition));
+        topPosition = Math.max(0, Math.min(viewportHeight - windowHeight, topPosition));
+
+        // Set the final position
+        chatbotWindow.style.left = `${leftPosition}px`;
+        chatbotWindow.style.top = `${topPosition}px`;
+    }
+
+    // Toggle chatbot window
+    chatbotIcon.addEventListener('click', () => {
+        chatbotWindow.style.display = chatbotWindow.style.display === 'none' ? 'block' : 'none';
+        positionChatbotWindow(); // Position it correctly
+    });
+
+    // Make the chatbot window draggable
+    let isDraggingWindow = false;
+    let isDraggingIcon = false;
+    let offsetX, offsetY;
+
+    chatbotHeader.addEventListener('mousedown', (e) => {
+        isDraggingWindow = true;
+        offsetX = e.clientX - chatbotWindow.getBoundingClientRect().left;
+        offsetY = e.clientY - chatbotWindow.getBoundingClientRect().top;
+    });
+
+        document.addEventListener('mousemove', (e) => {
+        if (isDraggingWindow) {
+            chatbotWindow.style.left = `${Math.max(0, Math.min(window.innerWidth - chatbotWindow.offsetWidth, e.clientX - offsetX))}px`;
+            chatbotWindow.style.top = `${Math.max(0, Math.min(window.innerHeight - chatbotWindow.offsetHeight, e.clientY - offsetY))}px`;
+        }
+        if (isDraggingIcon) {
+            const newLeft = e.clientX - offsetX;
+            const newTop = e.clientY - offsetY;
+
+            // Change these values to restrict the draggable area for the icon
+            const minLeft = 100; // Minimum left position
+            const maxLeft = window.innerWidth - chatbotIcon.offsetWidth - 100; // Maximum left position
+            const minTop = 50; // Minimum top position
+            const maxTop = window.innerHeight - chatbotIcon.offsetHeight - 50; // Maximum top position
+
+            // Ensure the icon stays within the specified area
+            chatbotIcon.style.left = `${Math.max(minLeft, Math.min(maxLeft, newLeft))}px`;
+            chatbotIcon.style.top = `${Math.max(minTop, Math.min(maxTop, newTop))}px`;
+
+            positionChatbotWindow(); // Reposition the chatbot window
+        }
+        });
+
+
+    document.addEventListener('mouseup', () => {
+        isDraggingWindow = false;
+        isDraggingIcon = false;
+    });
+
+    // Make the chatbot icon draggable
+    chatbotIcon.addEventListener('mousedown', (e) => {
+        isDraggingIcon = true;
+        offsetX = e.clientX - chatbotIcon.getBoundingClientRect().left;
+        offsetY = e.clientY - chatbotIcon.getBoundingClientRect().top;
+    });
+
+    chatbotIcon.addEventListener('mouseup', () => {
+        isDraggingIcon = false;
+    });
+    });
+
+    </script>
