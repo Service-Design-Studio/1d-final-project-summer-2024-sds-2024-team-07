@@ -7,7 +7,7 @@
         <div id="messages"></div>
         <form id="chatbot-form">
             <input type="text" id="chatbot-input" placeholder="Type your message here..." required>
-            <button type="submit">Send</button>
+            <%= image_tag 'send.svg', alt: "Send", id: "send-button", style:"width: 30px; cursor: pointer;" %>
         </form>
     </div>
 </div>
@@ -16,10 +16,10 @@
     document.addEventListener('DOMContentLoaded', function() {
         const chatbotIcon = document.getElementById('chatbot-icon');
         const chatbotWindow = document.getElementById('chatbot-window');
-        const chatbotHeader = document.getElementById('chatbot-header');
         const chatbotForm = document.getElementById('chatbot-form');
         const chatbotInput = document.getElementById('chatbot-input');
         const messagesDiv = document.getElementById('messages');
+        const sendButton = document.getElementById('send-button');
 
         // Function to position the chatbot window relative to the icon
         function positionChatbotWindow() {
@@ -51,22 +51,11 @@
             positionChatbotWindow(); // Position it correctly
         });
 
-        // Make the chatbot window draggable
-        let isDraggingWindow = false;
+        // Make the chatbot icon draggable
         let isDraggingIcon = false;
         let offsetX, offsetY;
 
-        chatbotHeader.addEventListener('mousedown', (e) => {
-            isDraggingWindow = true;
-            offsetX = e.clientX - chatbotWindow.getBoundingClientRect().left;
-            offsetY = e.clientY - chatbotWindow.getBoundingClientRect().top;
-        });
-
         document.addEventListener('mousemove', (e) => {
-            if (isDraggingWindow) {
-                chatbotWindow.style.left = `${Math.max(0, Math.min(window.innerWidth - chatbotWindow.offsetWidth, e.clientX - offsetX))}px`;
-                chatbotWindow.style.top = `${Math.max(0, Math.min(window.innerHeight - chatbotWindow.offsetHeight, e.clientY - offsetY))}px`;
-            }
             if (isDraggingIcon) {
                 const newLeft = e.clientX - offsetX;
                 const newTop = e.clientY - offsetY;
@@ -86,11 +75,9 @@
         });
 
         document.addEventListener('mouseup', () => {
-            isDraggingWindow = false;
             isDraggingIcon = false;
         });
 
-        // Make the chatbot icon draggable
         chatbotIcon.addEventListener('mousedown', (e) => {
             isDraggingIcon = true;
             offsetX = e.clientX - chatbotIcon.getBoundingClientRect().left;
@@ -101,22 +88,40 @@
             isDraggingIcon = false;
         });
 
+        // Prevent form submission on Enter key press while typing
+        chatbotInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
 
-        
-        // Handle form submission
-        chatbotForm.addEventListener('submit', async (e) => {
+        // Handle form submission when the send image is clicked
+        sendButton.addEventListener('click', (e) => {
             e.preventDefault();
+            sendMessage();
+        });
+
+
+        // Handle form submission when the send image is clicked
+        sendButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            sendMessage();
+        });
+
+        // Function to handle message sending
+        async function sendMessage() {
             const userInput = chatbotInput.value.trim();
             if (userInput === '') return;
 
             const userMessageDiv = document.createElement('div');
-            userMessageDiv.textContent = `You: ${userInput}`;
+            userMessageDiv.classList.add('message');
+            userMessageDiv.innerHTML = `<span class="sender">You:</span><span>${userInput}</span>`;
             messagesDiv.appendChild(userMessageDiv);
 
             chatbotInput.value = '';
 
             try {
-                console.log('Sending to backend:', JSON.stringify({ query: userInput }));
                 const response = await fetch('http://127.0.0.1:5000/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -125,18 +130,20 @@
                 const data = await response.json();
 
                 const botMessageDiv = document.createElement('div');
-                botMessageDiv.textContent = `Bot: ${data.answer}`;
+                botMessageDiv.classList.add('message');
+                botMessageDiv.innerHTML = `<span class="sender">Bot:</span><span>${data.answer}</span>`;
                 messagesDiv.appendChild(botMessageDiv);
 
                 messagesDiv.scrollTop = messagesDiv.scrollHeight;
             } catch (error) {
                 console.error('Error:', error);
                 const errorMessageDiv = document.createElement('div');
-                errorMessageDiv.textContent = 'Error: Could not get a response from the server.';
+                errorMessageDiv.classList.add('message');
+                errorMessageDiv.innerHTML = `<span class="sender">Error:</span><span>Could not get a response from the server.</span>`;
                 messagesDiv.appendChild(errorMessageDiv);
 
                 messagesDiv.scrollTop = messagesDiv.scrollHeight;
             }
-        });
+        }
     });
 </script>

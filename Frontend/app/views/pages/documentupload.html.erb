@@ -207,11 +207,11 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(data => {
             alert(`Result: ${data.result} - ${data.message}`);
-            if (data.result === 'true') {
+            if (data.result === true) {
                 fileitem.style.display = 'flex';
                 button.style.display = 'none';
                 button.style.cursor = originalCursor;
-                filename.textContent = `${file.name}`;
+                filename.textContent = `${file.name}`;  
 
                 // Persist the state
                 const tabKey = button.id.replace('uploadButton', 'tab');
@@ -248,10 +248,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             return response.json();
                         })
                         .then(data => {
-                            if (data.result === 'true') {
+                            if (data.result === true) {
                                 button.style.display = 'block';
                                 fileitem.style.display = 'none';
                                 span.textContent = 'Pending...';
+
                                 setTimeout(() => {
                                     span.textContent = 'File Deleted!';
                                     setTimeout(() => {

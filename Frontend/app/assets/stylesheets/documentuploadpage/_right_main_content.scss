@@ -341,7 +341,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 }
 
 .file-item {
-  display: none;
+  display: flex;
   align-items: center;
   border: 1px solid #ccc;
   border-radius: 5px;

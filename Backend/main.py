@@ -9,7 +9,7 @@ import random
 from google.api_core.client_options import ClientOptions
 from google.cloud import documentai_v1beta3 as documentai
 import vertexai
-from vertexai.preview.generative_models import GenerativeModel
+from vertexai.preview.generative_models import GenerativeModel, Image
 
 
 app = Flask(__name__)
