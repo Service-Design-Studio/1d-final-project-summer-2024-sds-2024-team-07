@@ -234,7 +234,7 @@ REGION = "us-central1"
 vertexai.init(project=PROJECT_ID, location=REGION)
 model = vertexai.generative_models.GenerativeModel("gemini-1.5-pro-001")
 
-with open('dbsfaq.txt', 'r') as file:
+with open('dbsfaq.txt', 'r') as file: #UPDATE dbsfaq.txt for more detailed guideline :P
     faq_content = file.read()
 
 @app.route('/chat', methods=['POST'])
@@ -249,7 +249,7 @@ def chat():
     # Prepare the input prompt with instructions
     prompt = f"""
     The following is a well-structured FAQ about the DBS Credit Card Application Process. 
-    Respond to the user's query in a friendly and professional tone using the FAQ below.
+    Respond to the user's query in a friendly, cheerful and professional tone using the FAQ below.
     Provide the response in HTML format with appropriate headers, bullet points, bold and italic text, and links if needed.
     Use the following CSS classes for styling:
     - <p class="header1"> for main headers
@@ -259,9 +259,10 @@ def chat():
     - <li class="list-item"> for list items
     - <a class="link"> for links
     Keep the layout compact with minimal spacing between elements.
+    If user query is not in the document, show them the link to the DBS website. Do not use headers here.
     
     FAQ:
-    {faq_content}
+    {faq_content} 
     
     User asked: {user_query}
     """

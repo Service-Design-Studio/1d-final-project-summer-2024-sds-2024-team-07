@@ -20,6 +20,7 @@
         const chatbotInput = document.getElementById('chatbot-input');
         const messagesDiv = document.getElementById('messages');
         const sendButton = document.getElementById('send-button');
+        let isRequestPending = false; // Flag to track pending requests
 
         function positionChatbotWindow() {
             const iconRect = chatbotIcon.getBoundingClientRect();
@@ -93,10 +94,10 @@
                 botMessageDiv.innerHTML = `
                     <span class="sender">Bot</span>
                     <div class="bubble">
-                        Hi! How can I help you today?<br>Common Questions:
+                        Hello <span class="wave">👋</span> ! How can I help you today?<br><br>Here are some common questions:
                         <div class="common-questions">
                             <button class="common-question">What Required Documents for Foreigners who are salaried employees who have been employed for more than 3 months?</button>
-                            <button class="common-question">What are the eligibility criteria for a DBS credit card?</button>
+                            <button class="common-question">What is the eligibility criteria for a DBS credit card?</button>
                             <button class="common-question">How can I update my address in DBS records?</button>
                         </div>
                     </div>
@@ -127,6 +128,8 @@
         }
 
         async function sendMessage() {
+            if (isRequestPending) return; // Prevent sending another message if a request is pending
+
             const userInput = chatbotInput.value.trim();
             if (userInput === '') return;
 
@@ -136,6 +139,7 @@
             messagesDiv.appendChild(userMessageDiv);
 
             chatbotInput.value = '';
+            isRequestPending = true; // Set flag to indicate request is pending
 
             try {
                 const response = await fetch('http://127.0.0.1:5000/chat', {
@@ -159,6 +163,8 @@
                 messagesDiv.appendChild(errorMessageDiv);
 
                 messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            } finally {
+                isRequestPending = false; // Reset flag after request completes
             }
         }
     });
