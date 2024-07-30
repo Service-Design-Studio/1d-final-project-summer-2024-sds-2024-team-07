@@ -49,6 +49,7 @@
         chatbotIcon.addEventListener('click', () => {
             chatbotWindow.style.display = chatbotWindow.style.display === 'none' ? 'block' : 'none';
             positionChatbotWindow(); // Position it correctly
+            initializeChatbot(); // Initialize with a greeting message
         });
 
         // Make the chatbot icon draggable
@@ -108,6 +109,17 @@
             e.preventDefault();
             sendMessage();
         });
+
+        // Function to initialize the chatbot with a greeting message
+        function initializeChatbot() {
+            if (messagesDiv.childElementCount === 0) {
+                const botMessageDiv = document.createElement('div');
+                botMessageDiv.classList.add('message');
+                botMessageDiv.innerHTML = `<span class="sender">Bot:</span><span>Hi! How can I help you today?</span>`;
+                messagesDiv.appendChild(botMessageDiv);
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }
+        }
 
         // Function to handle message sending
         async function sendMessage() {
