@@ -65,3 +65,70 @@ RSpec.feature "ApplicationChecklist", type: :feature do
     expect(page).to have_current_path('/pages/apply')
   end
 end
+#unit testing
+RSpec.describe 'pages/applicationchecklist.html.erb', type: :view do
+  before do
+    assign(:application_type, 'Salaried Employee (more than 3 months)')
+    render
+  end
+
+  it 'displays the NRIC section correctly' do
+    expect(rendered).to have_selector('div#section1')
+    expect(rendered).to have_content('NRIC (front & back) for Singaporean/Permanent Residents')
+    expect(rendered).to have_css("img.main-image")
+  end
+
+  it 'displays the Financial Document section correctly' do
+    expect(rendered).to have_selector('button.accordion-header', text: 'Financial Document')
+    expect(rendered).to have_content("Latest 3 months’ computerised payslip in SGD is preferred; else minimally Latest 1 month’s computerised payslip")
+    expect(rendered).to have_content("Latest 12 months’ CPF Contribution History Statement")
+    expect(rendered).to have_content("Latest 3 months’ salary crediting bank statements in SGD")
+    expect(rendered).to have_css("img")
+  end
+
+  it 'displays the Income Tax Notice of Assessment section correctly' do
+    expect(rendered).to have_selector('button.accordion-header', text: 'Income Tax Notice of Assessment')
+    expect(rendered).to have_content('Latest 2 years of Income Tax Notice of Assessment in SGD is preferred; else minimally latest 1 year of Income Tax Notice of Assessment')
+    expect(rendered).to have_css("img.main-image")
+  end
+
+  context 'when application type is Salaried Employee (less than 3 months)' do
+    before do
+      assign(:application_type, 'Salaried Employee (less than 3 months)')
+      render
+    end
+
+    it 'displays the NRIC section correctly' do
+      expect(rendered).to have_selector('div#section1')
+      expect(rendered).to have_content('NRIC (front & back) for Singaporean/Permanent Residents')
+      expect(rendered).to have_css("img.main-image")
+    end
+
+    it 'displays the Financial Document section correctly' do
+      expect(rendered).to have_selector('button.accordion-header', text: 'Financial Document')
+      expect(rendered).to have_content("Latest 3 months’ computerised payslip in SGD is preferred; else minimally Latest 1 month’s computerised payslip")
+      expect(rendered).to have_content("Latest 12 months’ CPF Contribution History Statement")
+      expect(rendered).to have_content("Latest 3 months’ salary crediting bank statements in SGD")
+      expect(rendered).to have_css("img")
+    end
+  end
+
+  context 'when application type is Variable/Commission-based Employees or Self-Employed' do
+    before do
+      assign(:application_type, 'Variable/Commission-based Employees or Self-Employed')
+      render
+    end
+
+    it 'displays the NRIC section correctly' do
+      expect(rendered).to have_selector('div#section1')
+      expect(rendered).to have_content('NRIC (front & back) for Singaporean/Permanent Residents')
+      expect(rendered).to have_css("img.main-image")
+    end
+
+    it 'displays the Income Tax Notice of Assessment section correctly' do
+      expect(rendered).to have_selector('button.accordion-header', text: 'Income Tax Notice of Assessment')
+      expect(rendered).to have_content('Latest 2 years of Income Tax Notice of Assessment in SGD is preferred; else minimally latest 1 year of Income Tax Notice of Assessment')
+      expect(rendered).to have_css("img.main-image")
+    end
+  end
+end
