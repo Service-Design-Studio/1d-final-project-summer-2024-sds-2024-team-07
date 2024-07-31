@@ -1,4 +1,50 @@
-# require 'rails_helper'
+require 'rails_helper'
+#Unit Testing
+RSpec.describe "ToggleSidebar", type: :view do
+  it "renders the logo" do
+    render template: "pages/documentupload"
+    expect(rendered).to have_css("div.logo-details img.logo-icon[alt='DBS']")
+  end
+end
+
+RSpec.describe "ToggleSidebar", type: :view do
+  before do
+    render template: "pages/documentupload"
+  end
+
+  it "renders the Application Checklist link" do
+    expect(rendered).to have_css("span.link_name", text: "Application Checklist")
+  end
+
+  it "renders the Documents link" do
+    expect(rendered).to have_css("span.link_name", text: "1. Documents")
+  end
+
+  it "renders the Particulars link" do
+    expect(rendered).to have_css("span.link_name", text: "2. Particulars")
+  end
+end
+
+RSpec.describe "ToggleSidebar Tabs", type: :view do
+  before do
+    allow(view).to receive(:relevant_page?).with(pages_documentupload_path).and_return(true)
+    allow(view).to receive(:relevant_page?).with(pages_applicationform_path).and_return(false)
+  end
+  it "renders the Documents sub-menu items with links" do
+    render template: "shared/_left_toggle-sidebar"
+
+    within('div.sidebar') do
+      expect(rendered).to have_content('1. Documents')
+      expect(rendered).to have_css('li#item-tab1 a[data-tab="tab1"]', text: 'Valid Passport')
+      expect(rendered).to have_css('li#item-tab2 a[data-tab="tab2"]', text: 'Valid Employment Pass')
+      expect(rendered).to have_css('li#item-tab3 a[data-tab="tab3"]', text: 'Income Tax')
+      expect(rendered).to have_css('li#item-tab4 a[data-tab="tab4"]', text: 'Pay Slip')
+      expect(rendered).to have_css('li#item-tab5 a[data-tab="tab5"]', text: 'Proof of Singapore Address')
+    end
+  end
+end
+
+#Integration Testing
 
 
 # #Integration Testings
