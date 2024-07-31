@@ -11,18 +11,9 @@ RSpec.describe UploadsController, type: :controller do
   end
 
   describe 'POST #create' do
-    # context 'when no file is uploaded' do
-    #   it 'returns unprocessable_entity status' do
-    #     post :create, params: { file: nil }
-    #     expect(response).to have_http_status(:unprocessable_entity)
-    #     expect(JSON.parse(response.body)['result']).to eq(false)
-    #     expect(JSON.parse(response.body)['message']).to eq('No file uploaded')
-    #   end
-    # end
-
     context 'when a file is uploaded successfully' do
       before do
-        allow(controller).to receive(:send_file_to_flask_backend).and_return({ 'result' => 'true' })
+        allow(controller).to receive(:send_file_to_flask_backend).and_return({ 'result' => true })
         allow(controller).to receive(:upload_to_gcloud).and_return('http://gcloud_file_url')
       end
 
@@ -33,21 +24,21 @@ RSpec.describe UploadsController, type: :controller do
         post :create, params: { file: uploaded_file, file_type: 'passport' }
 
         expect(response).to have_http_status(:ok)
-        expect(JSON.parse(response.body)['result']).to eq('true')
+        expect(JSON.parse(response.body)['result']).to eq(true)
         expect(JSON.parse(response.body)['message']).to eq('File processed successfully and URL generated')
       end
     end
 
     context 'when file processing fails' do
       before do
-        allow(controller).to receive(:send_file_to_flask_backend).and_return({ 'result' => 'false' })
+        allow(controller).to receive(:send_file_to_flask_backend).and_return({ 'result' => false })
       end
 
       it 'returns an error message' do
         post :create, params: { file: uploaded_file, file_type: 'passport' }
 
         expect(response).to have_http_status(:ok)
-        expect(JSON.parse(response.body)['result']).to eq('false')
+        expect(JSON.parse(response.body)['result']).to eq(false)
         expect(JSON.parse(response.body)['message']).to eq('File processing failed')
       end
     end
@@ -59,12 +50,13 @@ RSpec.describe UploadsController, type: :controller do
       let(:file_type) { 'passport' }
 
       it 'sends the file to the Flask backend and returns the response' do
-        response_body = { 'result' => 'true' }.to_json
-        stub_request(:post, "https://flask-app-44nyvt7saq-de.a.run.app/upload/passport")
+        response_body = { 'result' => true }.to_json
+        # stub_request(:post, "https://flask-app-44nyvt7saq-de.a.run.app/upload/passport")
+        stub_request(:post, "http://127.0.0.1:5000/upload/passport")
           .to_return(status: 200, body: response_body, headers: { 'Content-Type' => 'application/json' })
 
         response = controller.send(:send_file_to_flask_backend, file_path, file_type)
-        expect(response['result']).to eq('true')
+        expect(response['result']).to eq(true)
       end
     end
 

@@ -1,6 +1,60 @@
 require 'rails_helper'
 
-RSpec.feature "DocumentUpload", type: :feature do
+#Unit Testing
+RSpec.describe "DocumentUpload", type: :view do
+  before do
+    render template: 'pages/documentupload'
+  end
+
+  describe "Viewing document upload options" do
+    it "displays buttons for different employee types" do
+      expect(rendered).to have_button('Salaried Employee : More than 3 Months')
+      expect(rendered).to have_button('Salaried Employee : Less than 3 months')
+      expect(rendered).to have_button('Self-Employed/Commission-Based')
+    end
+
+    it "displays content for documents" do
+      expect(rendered).to have_content('Passport')
+      expect(rendered).to have_content('Employment Pass')
+      expect(rendered).to have_content('Income Tax')
+      expect(rendered).to have_content('Pay Slip')
+      expect(rendered).to have_content('Proof of Address')
+    end
+  end
+
+  describe "Switching between different employee types" do
+    it "shows correct tabs for 'Salaried Employee : More than 3 Months'" do
+      render template: 'pages/documentupload', locals: { employee_type: 1 }
+      expect(rendered).to have_selector('label[for="tab1"]', visible: true)
+      expect(rendered).to have_selector('label[for="tab2"]', visible: true)
+      expect(rendered).to have_selector('label[for="tab3"]', visible: true)
+      expect(rendered).to have_selector('label[for="tab4"]', visible: true)
+      expect(rendered).to have_selector('label[for="tab5"]', visible: true)
+    end
+
+    it "shows correct tabs for 'Salaried Employee : Less than 3 months'" do
+      render template: 'pages/documentupload', locals: { employee_type: 2 }
+      expect(rendered).to have_selector('label[for="tab1"]', visible: true)
+      expect(rendered).to have_selector('label[for="tab2"]', visible: true)
+      expect(rendered).to have_selector('label[for="tab4"]', visible: true)
+      expect(rendered).to have_selector('label[for="tab5"]', visible: true)
+      expect(rendered).to have_selector('label[for="tab3"]', visible: false)
+    end
+
+    it "shows correct tabs for 'Self-Employed/Commission-Based'" do
+      render template: 'pages/documentupload', locals: { employee_type: 3 }
+      expect(rendered).to have_selector('label[for="tab1"]', visible: true)
+      expect(rendered).to have_selector('label[for="tab2"]', visible: true)
+      expect(rendered).to have_selector('label[for="tab3"]', visible: true)
+      expect(rendered).to have_selector('label[for="tab5"]', visible: true)
+      expect(rendered).to have_selector('label[for="tab4"]', visible: false)
+    end
+  end
+end
+
+
+#Integration Testing
+RSpec.feature "DocumentUpload Integration Test Cases", type: :feature do
   scenario "Entering the page and viewing document upload options" do
     visit pages_documentupload_path
 
@@ -29,12 +83,14 @@ RSpec.feature "DocumentUpload", type: :feature do
     expect(page).to have_selector('label[for="tab2"]', visible: true)
     expect(page).to have_selector('label[for="tab4"]', visible: true)
     expect(page).to have_selector('label[for="tab5"]', visible: true)
+    expect(page).to have_selector('label[for="tab3"]', visible: false)
 
     find('button', text: 'Self-Employed/Commission-Based').click
     expect(page).to have_selector('label[for="tab1"]', visible: true)
     expect(page).to have_selector('label[for="tab2"]', visible: true)
     expect(page).to have_selector('label[for="tab3"]', visible: true)
     expect(page).to have_selector('label[for="tab5"]', visible: true)
+    expect(page).to have_selector('label[for="tab4"]', visible: false)
   end
 
 

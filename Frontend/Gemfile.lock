@@ -532,7 +532,7 @@ DEPENDENCIES
   rake (>= 12.2)
   rspec-expectations
   rspec-rails
-  selenium-webdriver
+  selenium-webdriver (~> 4.23)
   simplecov
   sinatra
   sinatra-cross_origin

@@ -1,6 +1,7 @@
 # spec/controllers/pages_controller_spec.rb
 require 'rails_helper'
 
+# Unit Testing
 RSpec.describe PagesController, type: :controller do
   describe 'GET #apply' do
     it 'renders the apply template' do
