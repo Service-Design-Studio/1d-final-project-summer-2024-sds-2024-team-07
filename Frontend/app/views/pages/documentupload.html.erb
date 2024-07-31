@@ -292,16 +292,21 @@ function openpopup() {
                     intro: '2. Upload all required documents. Make sure to follow respective guidelines',
                 },
                 {
-                    element: document.querySelector('.next-button'),
+                    element: document.querySelector('.helpbtn'),
                     title: 'Third Step',
-                    intro: '3. Once all documents are successfully uploaded, click to the next section',
+                    intro: '3. Click the help button to find out more about the guidelines',
+                },
+                {
+                    element: document.querySelector('.next-button'),
+                    title: 'Fourth Step',
+                    intro: '4. Once all documents are successfully uploaded, click to the next section',
                 },
                 {
                     title: 'Tour Completed',
                     intro: 'That’s it, all the best!',
                 }
             ],
-            dontShowAgain: true,
+            dontShowAgain: false,
         }).start();
     }, 4500);
 // }
