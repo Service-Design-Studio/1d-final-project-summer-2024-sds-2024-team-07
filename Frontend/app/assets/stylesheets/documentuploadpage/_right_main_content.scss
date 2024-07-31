@@ -102,12 +102,35 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 }
 
 .content-image {
-  width: 80%;
+  width: 90%;
   height: auto;
   display: block;
-  margin: -50px auto auto;
-  margin-left: 91px;
+  // margin: -50px auto auto;
+  margin-left: 40px;
 }
+.popup {
+  width: 900px;
+  background: #939393;
+  border-radius: 12px;
+  position: absolute;
+  top: 0;
+  left: 63%;
+  visibility: hidden;
+  transform: translate(-50%,-50%) scale(0.1);
+  transition: transform 0.4s top 0.4s;
+
+}
+.open-popup{
+  top: 65%;
+  visibility: visible;
+  transform: translate(-50%,-50%) scale(1);
+}
+.close-popup{
+  top: 0;
+  visibility: hidden;
+  transform: translate(-50%,-50%) scale(0.1);
+}
+
 
 .tabs {
   display: flex;
@@ -194,31 +217,6 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
     }
   }
 
-  .content {
-    margin-top: 20px;
-
-    section {
-      display: none;
-      animation: content 0.3s ease-in-out;
-      line-height: 1.4;
-
-      h2 {
-        color: $accent;
-        display: none;
-
-        &::after {
-          content: "";
-          position: relative;
-          display: block;
-          width: 30px;
-          height: 3px;
-          background: $accent;
-          margin-top: 5px;
-          left: 1px;
-        }
-      }
-    }
-  }
 
   input[name="tab-control"] {
     &:nth-of-type(1):checked ~ ul li label[for="tab1"] {
@@ -302,6 +300,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   }
 }
 
+
 .btn-group {
   position: relative;
   left: 5%;
@@ -322,12 +321,30 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 
 
 .upload-btn-wrapper {
+  height: 500px;
   width: 100%; /* Ensure it takes the full width of the parent */
   display: flex;
   text-align: center;
   justify-content: center;
-  margin-top: -80px;
+  align-items: center;
+  margin-top: 0px;
   z-index: 2;
+  border: 2px dashed #fa3943;
+}
+
+.upload-btn-wrapper header {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 50px;
+}
+
+.upload-btn-wrapper span {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 10px 0 15px 0;
+}
+.upload-btn-wrapper .plus{
+  margin-top: 0px;
 }
 
 .wrapper-col-left{
@@ -348,7 +365,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   padding: 1;
   color: black;
   // margin: 10px;
-  max-width: 250px;
+  max-width: 50px;
 }
 
 .file-icon {
@@ -390,7 +407,6 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   border: 2px solid rgb(0, 0, 0);
   color: white;
   background-color: #fa3943;
-  display: inline-block;
   border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
@@ -408,6 +424,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   height: 100%;
   opacity: 0;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .btnUp span {
@@ -423,7 +440,29 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   pointer-events: none;
   cursor: pointer;
 }
+.row div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Adds some space between the buttons */
+  padding: 10px 0; 
+}
 
+
+.helpbtn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: #fa3943;
+  color: #efefef;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 500;
+  border-radius: 50%;
+  text-decoration: none;
+  margin-left: 1015px;
+  
+}
 
 /* Next Button */
 .next-button {

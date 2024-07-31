@@ -57,32 +57,37 @@
                     </label>
                 </li>
             </ul>
-            <div class="content">
-                <section id="content1">
-                    <%= image_tag 'Passport.png', alt: "Passport", class: 'content-image' %>
-                </section>
-                <section id="content2">
-                    <%= image_tag 'WorkPass1.png', alt: "Employment Pass", class: 'content-image' %>
-                </section>
-                <section id="content3">
-                    <%= image_tag 'TaxAsessment1.png', alt: "Income Tax", class: 'content-image' %>
-                </section>
-                <section id="content4">
-                    <%= image_tag 'IncomeSlip.png', alt: "Pay Slip", class: 'content-image' %>
-                </section>
-                <section id="content5">
-                    <%= image_tag 'poa.png', alt: "Proof of Address", class: 'content-image' %>
-                </section>
-            </div>
+               <button type="submit" class="helpbtn" onclick="openpopup()">?</button> 
+           
+
 
             <div class="upload-btn-wrapper">
                 <div class="wrapper-col-left"></div>
                 <div class="wrapper-col-middle">
-                    <form id="uploadForm" enctype="multipart/form-data">
+                    <svg class="plus" width="61" height="57" viewBox="0 0 61 57" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect width="61" height="57" fill="url(#pattern0_108_791)"/>
+                    <defs>
+                    <pattern id="pattern0_108_791" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlink:href="#image0_108_791" transform="matrix(0.00420913 0 0 0.0045045 -0.000886132 0)"/>
+                    </pattern>
+                    <image id="image0_108_791" width="238" height="222" xlink:href="data:image/png;base64,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"/>
+                    </defs>
+                    </svg>
+                    <%# <header>Drag & Drop File</header>
+                    <span>OR</span> %>
+
+                </div>
+                <div class="wrapper-col-right">
+                </div>
+            </div>
+             <form id="uploadForm" enctype="multipart/form-data">
+                <div class="row">
+                  
                         <label class="btnUp" id="uploadButton1">
-                            <span>Upload Passport</span>
-                            <input type="file" id="fileInput1" style="display:none;" data-file-type="passport">
+                            <span>Upload Passport Here</span>
+                            <input type="file" id="fileInput1" data-file-type="passport">
                         </label>
+
                         <div class="file-item" id="fileItem1" style="display: none;">
                             <div class="file-icon">
                                 <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
@@ -94,8 +99,9 @@
                                 <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
                             </div>
                         </div>   
+                        
                         <label class="btnUp" id="uploadButton2">
-                            <span>Upload Employment Pass</span>
+                            <span>Upload Employment Pass Here</span>
                             <input type="file" id="fileInput2" style="display:none;" data-file-type="employment_pass">
                         </label>
                         <div class="file-item" id="fileItem2" style="display: none;">
@@ -110,7 +116,7 @@
                             </div>
                         </div>   
                         <label class="btnUp" id="uploadButton3">
-                            <span>Upload Income Tax</span>
+                            <span>Upload Income Tax Here</span>
                             <input type="file" id="fileInput3" style="display:none;" data-file-type="income_tax">                         
                         </label>
                         <div class="file-item" id="fileItem3" style="display: none;">
@@ -125,7 +131,7 @@
                             </div>
                         </div>   
                         <label class="btnUp" id="uploadButton4">
-                            <span>Upload Pay Slip</span>
+                            <span>Upload Pay Slip Here</span>
                             <input type="file" id="fileInput4" style="display:none;" data-file-type="payslip">                         
                         </label>
                         <div class="file-item" id="fileItem4" style="display: none;">
@@ -140,7 +146,7 @@
                             </div>
                         </div>   
                         <label class="btnUp" id="uploadButton5">
-                            <span>Upload Proof of Address</span>
+                            <span>Upload Proof of Address Here</span>
                             <input type="file" id="fileInput5" style="display:none;" data-file-type="proof_of_address">                          
                         </label>
                         <div class="file-item" id="fileItem5" style="display: none;">
@@ -154,17 +160,63 @@
                                 <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
                             </div>
                         </div>   
-                    </form>
-                </div>
-                <div class="wrapper-col-right">
-                </div>
-            </div>
+                  </div>
+                </form>
         </div>
         <div class="next-button" id="next-button-ID">
             <%= link_to 'Next', pages_applicationform_path, class: 'next-link' %>
         </div>
     </div>
 </div>
+
+<div class="popup" id="popup">
+                <section id="content1" >
+                    <%= image_tag 'Passport.png', alt: "Passport", class: 'content-image' %>
+                 </section>
+                 <section id="content2">
+                    <%= image_tag 'WorkPass1.png', alt: "Employment Pass", class: 'content-image' %>
+                  </section>
+                <section id="content3">
+                     <%= image_tag 'TaxAsessment1.png', alt: "Income Tax", class: 'content-image' %>
+                 </section>
+                <section id="content4">
+                     <%= image_tag 'IncomeSlip.png', alt: "Pay Slip", class: 'content-image' %>
+                </section>
+                <section id="content5">
+                   <%= image_tag 'poa.png', alt: "Proof of Address", class: 'content-image' %>
+                </section>
+            </div> 
+<script>
+ const popup = document.getElementById("popup");
+
+function openpopup() {
+    const activeTab = document.querySelector(".tabs input[type='radio']:checked").id;
+
+    // Hide all content sections
+    const contents = popup.querySelectorAll("section");
+    contents.forEach(content => {
+        content.style.display = 'none';
+    });
+
+    // Show the content section corresponding to the active tab
+    const contentId = `content${activeTab.replace('tab', '')}`;
+    const activeContent = document.getElementById(contentId);
+    if (activeContent) {
+        activeContent.style.display = 'block';
+    }
+
+    if (popup.classList.contains("open-popup")) {
+        popup.classList.remove("open-popup");
+        popup.classList.add("close-popup");
+    } else {
+        popup.classList.remove("close-popup");
+        popup.classList.add("open-popup");
+    }
+}
+
+                   
+                
+</script>
 
 <script>
     //animation intro
@@ -249,7 +301,7 @@
                     intro: 'That’s it, all the best!',
                 }
             ],
-            dontShowAgain: false,
+            dontShowAgain: true,
         }).start();
     }, 4500);
 // }
