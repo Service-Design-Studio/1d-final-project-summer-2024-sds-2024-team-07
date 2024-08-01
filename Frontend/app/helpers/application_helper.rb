@@ -5,12 +5,10 @@ module ApplicationHelper
       'active' if current_page?(pages_documentupload_path)
     when 2
       'active' if current_page?(pages_applicationform_path)
-    # when 3
-    #   'active' if current_page?(verify_details_path)
-    # when 4
-    #   'active' if current_page?(create_pin_path)
-    # when 5
-    #   'active' if current_page?(create_pin_path)
+    when 3
+      'active' if current_page?(pages_verifydetails_path)
+    when 4
+      'active' if current_page?(pages_createpin_path)
     else
       ''
     end

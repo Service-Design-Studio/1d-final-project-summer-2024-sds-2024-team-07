@@ -1,0 +1,51 @@
+@import "bootstrap";
+@import "shared/left_toggle-sidebar";
+@import "shared/right_header_creditcard";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-container {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0; /* Ensure no margin */
+  padding: 0; /* Ensure no padding */
+}
+
+.left-div {
+  width: fit-content;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.right-div {
+  flex-grow: 1;
+  transition: margin-left 0.5s ease; /* Smooth transition for margin-left */
+  margin-left: 260px; /* Default margin-left when sidebar is open */
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  color: #333;
+}
+
+h4 {
+  font-size: 1em; /* Adjust as needed */
+  color: #333;
+  margin: 0 0 5px 0; /* Reduce bottom margin */
+}
