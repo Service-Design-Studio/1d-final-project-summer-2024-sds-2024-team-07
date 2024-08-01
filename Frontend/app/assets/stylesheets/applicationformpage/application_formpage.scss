@@ -249,6 +249,13 @@ h4 {
   color: white;
 }
 
+.input-container{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 23.8%;
+}
+
 //Length of Current Employment
 .length-current-employment {
   display: flex;
