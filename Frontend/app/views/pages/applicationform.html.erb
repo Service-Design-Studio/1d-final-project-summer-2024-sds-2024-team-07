@@ -41,10 +41,10 @@
 
           <div>
             <h2>Gender</h2>
-            <select>
-              <option value="other">Others</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
+            <select name="user[gender]">
+              <option value="other" <%= 'selected' if @user&.gender == 'other' %>>Others</option>
+              <option value="male" <%= 'selected' if @user&.gender == 'M' %>>Male</option>
+              <option value="female" <%= 'selected' if @user&.gender == 'F' %>>Female</option>
             </select>
           </div>
         </div>
@@ -74,7 +74,7 @@
           <h1 id="tab8">Passport Details</h1>
           <div>
             <h2>Nationality</h2>
-            <input type="text"/>
+            <input type="text" value="<%= @user&.nationality %>"/>
           </div>
           <div>
             <h2>Passport Number</h2>

@@ -37,8 +37,8 @@ class UploadsController < ApplicationController
               passport_number: response['extracted_data']['Passport Number'],
               date_of_birth: response['extracted_data']['Date of Birth'],
               passport_expiry: response['extracted_data']['Date of Expiry'],
-              gender: response['extracted_data']['Gender']
-              nationality: response['extracted_data']['Nationality']
+              gender: response['extracted_data']['Gender'],
+              nationality: response['extracted_data']['Nationality'],
             )
           end
         end
