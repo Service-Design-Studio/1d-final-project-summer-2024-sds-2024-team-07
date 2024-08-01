@@ -75,6 +75,8 @@ def extract_labeled_data(document):
         "Date of Birth": None,
         "Passport Number": None,
         "Date of Expiry": None,
+        "Gender": None,
+        "Nationality": None
     }
     
     # Loop through document entities to extract labeled data
@@ -88,6 +90,10 @@ def extract_labeled_data(document):
             extracted_data["Passport Number"] = entity.mention_text
         elif entity.type_ == "Date_Of_Expiry":
             extracted_data["Date of Expiry"] = entity.mention_text
+        elif entity.type_ == "Gender":
+            extracted_data["Gender"] = entity.mention_text
+        elif entity.type_ == "Nationality":
+            extracted_data["Nationality"] = entity.mention_text
             
     return extracted_data
 

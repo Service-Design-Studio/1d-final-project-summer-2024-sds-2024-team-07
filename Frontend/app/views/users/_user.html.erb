@@ -5,6 +5,8 @@
   <td><%= user.passport_number %></td>
   <td><%= user.passport_expiry %></td>
   <td><%= user.date_of_birth %></td>
+  <td><%= user.gender %></td>
+  <td><%= user.nationality %></td>
   <td><%= link_to user.doc_passport, user.doc_passport, target: "_blank" if user.doc_passport.present? %></td>
   <td><%= link_to user.doc_employment_pass, user.doc_employment_pass, target: "_blank" if user.doc_employment_pass.present? %></td>
   <td><%= link_to user.doc_income_tax, user.doc_income_tax, target: "_blank" if user.doc_income_tax.present? %></td>
