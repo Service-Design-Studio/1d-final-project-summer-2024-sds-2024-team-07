@@ -27,3 +27,7 @@ Then("I should see my information filled in") do
   Then("I should be able to select {string}") do |option|
     find(:xpath, "//h2[text()='Title']/following-sibling::select").find(:option, option).select_option
   end
+
+  And ("I should be able to choose the file corresponding to Passport") do
+    attach_file('fileInput1', Rails.root.join('features', 'support', 'test_images', 'passport.jpeg'), make_visible: true)
+  end
