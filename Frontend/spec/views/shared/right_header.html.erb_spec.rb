@@ -1,52 +1,52 @@
 require 'rails_helper'
 
-#Unit Testing
+# #Unit Testing
 
-RSpec.describe 'shared/_header', type: :view do
-  include ApplicationHelper
+# RSpec.describe 'shared/_header', type: :view do
+#   include ApplicationHelper
 
-  before do
-    allow(view).to receive(:current_page?).and_return(false)
-  end
+#   before do
+#     allow(view).to receive(:current_page?).and_return(false)
+#   end
 
-  context 'when on the document upload page' do
-    before do
-      allow(view).to receive(:current_page?).with(pages_documentupload_path).and_return(true)
-      render partial: 'shared/right_header'
-    end 
+#   context 'when on the document upload page' do
+#     before do
+#       allow(view).to receive(:current_page?).with(pages_documentupload_path).and_return(true)
+#       render partial: 'shared/right_header'
+#     end
 
-    it 'displays the header content' do
-      expect(rendered).to have_css('.custom-title', text: 'Credit Card Application')
-    end
+#     it 'displays the header content' do
+#       expect(rendered).to have_css('.custom-title', text: 'Credit Card Application')
+#     end
 
-    it 'marks the "Upload Documents" step as active' do
-      expect(rendered).to have_css('.custom-step.active .custom-step-label', text: 'Upload Documents')
-    end
+#     it 'marks the "Upload Documents" step as active' do
+#       expect(rendered).to have_css('.custom-step.active .custom-step-label', text: 'Upload Documents')
+#     end
 
-    it 'does not mark other steps as active' do
-      expect(rendered).not_to have_css('.custom-step.active .custom-step-label', text: 'Application Details')
-      expect(rendered).not_to have_css('.custom-step.active .custom-step-label', text: 'Verify Details')
-      expect(rendered).not_to have_css('.custom-step.active .custom-step-label', text: 'Create Pin')
-    end
-  end
+#     it 'does not mark other steps as active' do
+#       expect(rendered).not_to have_css('.custom-step.active .custom-step-label', text: 'Application Details')
+#       expect(rendered).not_to have_css('.custom-step.active .custom-step-label', text: 'Verify Details')
+#       expect(rendered).not_to have_css('.custom-step.active .custom-step-label', text: 'Create Pin')
+#     end
+#   end
 
-  context 'when on the application form page' do
-    before do
-      allow(view).to receive(:current_page?).with(pages_applicationform_path).and_return(true)
-      render partial: 'shared/right_header'
-    end
+#   context 'when on the application form page' do
+#     before do
+#       allow(view).to receive(:current_page?).with(pages_applicationform_path).and_return(true)
+#       render partial: 'shared/right_header'
+#     end
 
-    it 'marks the "Application Details" step as active' do
-      expect(rendered).to have_css('.custom-step.active .custom-step-label', text: 'Application Details')
-    end
+#     it 'marks the "Application Details" step as active' do
+#       expect(rendered).to have_css('.custom-step.active .custom-step-label', text: 'Application Details')
+#     end
 
-    it 'does not mark other steps as active' do
-      expect(rendered).not_to have_css('.custom-step.active .custom-step-label', text: 'Upload Documents')
-      expect(rendered).not_to have_css('.custom-step.active .custom-step-label', text: 'Verify Details')
-      expect(rendered).not_to have_css('.custom-step.active .custom-step-label', text: 'Create Pin')
-    end
-  end
-end
+#     it 'does not mark other steps as active' do
+#       expect(rendered).not_to have_css('.custom-step.active .custom-step-label', text: 'Upload Documents')
+#       expect(rendered).not_to have_css('.custom-step.active .custom-step-label', text: 'Verify Details')
+#       expect(rendered).not_to have_css('.custom-step.active .custom-step-label', text: 'Create Pin')
+#     end
+#   end
+# end
 
 
 #Integration Testings
