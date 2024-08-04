@@ -1,22 +1,24 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "D:/Coding Projects/School/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/controllers/pages_controller.rb": {
+      "/Users/michellehalim/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/controllers/pages_controller.rb": {
         "lines": [
           1,
           1,
           1,
-          33,
+          2,
           null,
-          3,
+          0,
           null,
-          13,
+          1,
           null,
-          7,
+          1,
           null,
-          10,
+          0,
           null,
+          0,
           null,
+          0,
           null,
           null,
           null,
@@ -31,152 +33,95 @@
           1,
           null,
           null,
+          1,
           1,
           null,
           null
         ]
       },
-      "D:/Coding Projects/School/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/controllers/application_controller.rb": {
+      "/Users/michellehalim/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "D:/Coding Projects/School/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/helpers/application_helper.rb": {
+      "/Users/michellehalim/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/helpers/application_helper.rb": {
         "lines": [
           1,
           1,
-          80,
+          8,
           null,
+          2,
+          null,
+          2,
+          null,
+          2,
+          null,
+          2,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
           20,
           null,
-          20,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          40,
-          null,
-          null,
-          null,
-          1,
-          200,
-          null,
           null,
           null
         ]
       },
-      "D:/Coding Projects/School/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/helpers/home_helper.rb": {
+      "/Users/michellehalim/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/helpers/home_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "D:/Coding Projects/School/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/helpers/pages_helper.rb": {
+      "/Users/michellehalim/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/helpers/pages_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "D:/Coding Projects/School/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/helpers/test_helper.rb": {
+      "/Users/michellehalim/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/helpers/test_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "D:/Coding Projects/School/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/helpers/uploads_helper.rb": {
+      "/Users/michellehalim/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/helpers/uploads_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "D:/Coding Projects/School/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/helpers/users_helper.rb": {
+      "/Users/michellehalim/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/helpers/users_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "D:/Coding Projects/School/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/controllers/uploads_controller.rb": {
+      "/Users/michellehalim/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/controllers/uploads_controller.rb": {
         "lines": [
           null,
           1,
           1,
           null,
           1,
-          2,
-          2,
-          null,
-          2,
-          0,
-          0,
-          null,
-          null,
-          2,
-          null,
-          null,
-          null,
-          2,
-          2,
-          null,
-          null,
-          null,
-          null,
-          2,
-          null,
-          null,
-          2,
           1,
           1,
-          0,
-          0,
+          null,
+          1,
           0,
           0,
           null,
           null,
           1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
           null,
           null,
           null,
           1,
-          null,
           1,
           null,
-          2,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          2,
-          2,
-          null,
-          2,
-          2,
-          2,
-          null,
-          2,
-          2,
-          null,
-          null,
-          2,
-          null,
-          0,
-          null,
-          0,
           null,
           null,
           1,
@@ -184,29 +129,111 @@
           0,
           0,
           0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
           null,
           0,
           0,
           0,
           null,
-          null,
+          0,
+          0,
           0,
           null,
+          0,
+          0,
           null,
+          0,
           0,
           null,
           null,
           null
         ]
       },
-      "D:/Coding Projects/School/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/models/user.rb": {
+      "/Users/michellehalim/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/models/user.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "D:/Coding Projects/School/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/models/application_record.rb": {
+      "/Users/michellehalim/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/models/application_record.rb": {
         "lines": [
           null,
           1,
@@ -214,7 +241,7 @@
           null
         ]
       },
-      "D:/Coding Projects/School/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/controllers/users_controller.rb": {
+      "/Users/michellehalim/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/controllers/users_controller.rb": {
         "lines": [
           0,
           0,
@@ -296,7 +323,7 @@
         "branches": {
         }
       },
-      "D:/Coding Projects/School/SDS Github Classroom/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/services/google_cloud_storage_service.rb": {
+      "/Users/michellehalim/Documents/GitHub/1d-final-project-summer-2024-sds-2024-team-07/Frontend/app/services/google_cloud_storage_service.rb": {
         "lines": [
           null,
           null,
@@ -318,6 +345,6 @@
         }
       }
     },
-    "timestamp": 1721890811
+    "timestamp": 1722535827
   }
 }

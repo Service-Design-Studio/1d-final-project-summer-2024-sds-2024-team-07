@@ -44,10 +44,26 @@ h2 {
   color: #333;
 }
 
+.spaced-h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  color: #333;
+  margin-top: 15px;
+}
+
 h4 {
   font-size: 1em; /* Adjust as needed */
   color: #333;
   margin: 0 0 5px 0; /* Reduce bottom margin */
+}
+
+h5 {
+  font-size: 0.8em;
+  color: #b2b2b2;
+  margin: 0 0 5px 0;
+}
+.spaced-h5 {
+  margin-top: 15px; /* Add margin to the top to create space */
 }
 
 .content {
@@ -247,6 +263,25 @@ h4 {
   background-color: #ff4a53;
   border-color: #ff4a53;
   color: white;
+}
+
+.input-container{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 30%;
+}
+
+.hidden-content {
+  display: none;
+  margin-top: 15px;
+}
+
+.hidden-container{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 5px;
 }
 
 //Length of Current Employment

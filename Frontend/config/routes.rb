@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'pages/documentupload', to: 'pages#documentupload', as: 'pages_documentupload'
   get 'pages/applicationform', to: 'pages#applicationform', as: 'pages_applicationform'
   get 'pages/applicationchecklist', to: 'pages#applicationchecklist', as: 'pages_applicationchecklist'
+  get 'pages/verifydetails', to: 'pages#verifydetails', as: 'pages_verifydetails'
+  get 'pages/createpin', to: 'pages#createpin', as: 'pages_createpin'
   get 'employment_passport', to: 'your_controller#employment_passport', as: 'employment_passport'
   get 'verify_details', to: 'your_controller#verify_details', as: 'verify_details'
   get 'create_pin', to: 'your_controller#create_pin', as: 'create_pin'
@@ -25,7 +27,7 @@ Rails.application.routes.draw do
       delete :delete_document
     end
   end
-  
+
   resources :users do
     collection do
       post 'apply', to: 'users#apply', as: 'apply'

@@ -5,155 +5,142 @@
     <div class="right-div">
         <%= render 'shared/chatbot' %>
         <%= render 'shared/right_header' %>
-        <div class="btn-group">
-            <button type="button" onclick="changeDiv(1)" id="button1" class="btn btn-outline-danger">Salaried Employee :<br> More than 3 Months </button>
-            <button type="button" onclick="changeDiv(2)" id="button2" class="btn btn-outline-danger">Salaried Employee :<br> Less than 3 months</button>
-            <button type="button" onclick="changeDiv(3)" id="button3" class="btn btn-outline-danger">Self-Employed/Commission-Based</button>
-        </div>
-
-        <div class="tabs">
-            <input type="radio" id="tab1" name="tab-control" checked>
-            <input type="radio" id="tab2" name="tab-control">
-            <input type="radio" id="tab3" name="tab-control">
-            <input type="radio" id="tab4" name="tab-control">
-            <input type="radio" id="tab5" name="tab-control">
-            <ul>
-                <li title="Valid Passport">
-                    <label class="tab-label" id="label1" for="tab1" role="button">
-                        <div class="icon">📕</div>
-                        <br><span>Passport</span>
-                    </label>
-                </li>
-                <li title="Employment Pass">
-                    <label class="tab-label" id="label2" for="tab2" role="button">
-                        <div class="icon">📝</div>
-                        <br><span>Employment Pass</span>
-                    </label>
-                </li>
-                <li id="item-tab3" title="Income Tax">
-                    <label class="tab-label" id="label3" for="tab3" role="button">
-                        <div class="icon">💵</div>
-                        <br><span>Income Tax</span>
-                    </label>
-                </li>
-                <li id="item-tab4" title="PaySlip">
-                    <label class="tab-label" id="label4" for="tab4" role="button">
-                        <div class="icon">💼</div>
-                        <br><span>Pay Slip</span>
-                    </label>
-                </li>
-                <li title="Proof of SG Address">
-                    <label class="tab-label" id="label5" for="tab5" role="button">
-                        <div class="icon">🏠</div>
-                        <br><span>Proof of Address</span>
-                    </label>
-                </li>
-            </ul>
-            <div class="content">
-                <section id="content1">
-                    <%= image_tag 'Passport.png', alt: "Passport", class: 'content-image' %>
-                </section>
-                <section id="content2">
-                    <%= image_tag 'WorkPass1.png', alt: "Employment Pass", class: 'content-image' %>
-                </section>
-                <section id="content3">
-                    <%= image_tag 'TaxAsessment1.png', alt: "Income Tax", class: 'content-image' %>
-                </section>
-                <section id="content4">
-                    <%= image_tag 'IncomeSlip.png', alt: "Pay Slip", class: 'content-image' %>
-                </section>
-                <section id="content5">
-                    <%= image_tag 'poa.png', alt: "Proof of Address", class: 'content-image' %>
-                </section>
+        <div class="doc-container">
+            <h3 class="header">Choose your employment type:</h3>
+            <div class="btn-group">
+                <button type="button" onclick="changeDiv(1)" id="button1" class="btn btn-outline-danger">Salaried Employee: More than 3 months </button>
+                <button type="button" onclick="changeDiv(2)" id="button2" class="btn btn-outline-danger">Salaried Employee: Less than 3 months</button>
+                <button type="button" onclick="changeDiv(3)" id="button3" class="btn btn-outline-danger">Self-Employed/Commission-Based</button>
             </div>
 
-            <div class="upload-btn-wrapper">
-                <div class="wrapper-col-left"></div>
-                <div class="wrapper-col-middle">
-                    <form id="uploadForm" enctype="multipart/form-data">
-                        <label class="btnUp" id="uploadButton1">
-                            <span>Upload Passport</span>
-                            <input type="file" id="fileInput1" style="display:none;" data-file-type="passport">
+            <h3 class="header">Please upload the following documents.</h3>
+            <p class="subheader">The accepted document formats are jpg, jpeg, png, doc, docx or pdf. The maximum size per file is 5MB.</p>
+
+            <div class="tabs">
+                <input type="radio" id="tab1" name="tab-control" checked>
+                <input type="radio" id="tab2" name="tab-control">
+                <input type="radio" id="tab3" name="tab-control">
+                <input type="radio" id="tab4" name="tab-control">
+                <input type="radio" id="tab5" name="tab-control">
+                <ul>
+                    <li title="Valid Passport">
+                        <label class="tab-label" id="label1" for="tab1" role="button">
+                            <br><span>Passport</span>
                         </label>
-                        <div class="file-item" id="fileItem1" style="display: none;">
-                            <div class="file-icon">
-                                <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
-                            </div>
-                            <div class="file-details">
-                                <div class="file-name"></div>
-                            </div>
-                            <div class="file-actions">
-                                <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                            </div>
-                        </div>   
-                        <label class="btnUp" id="uploadButton2">
-                            <span>Upload Employment Pass</span>
-                            <input type="file" id="fileInput2" style="display:none;" data-file-type="employment_pass">
+                    </li>
+                    <li title="Employment Pass">
+                        <label class="tab-label" id="label2" for="tab2" role="button">
+                            <br><span>Employment Pass</span>
                         </label>
-                        <div class="file-item" id="fileItem2" style="display: none;">
-                            <div class="file-icon">
-                                <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
-                            </div>
-                            <div class="file-details">
-                                <div class="file-name"></div>
-                            </div>
-                            <div class="file-actions">
-                                <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                            </div>
-                        </div>   
-                        <label class="btnUp" id="uploadButton3">
-                            <span>Upload Income Tax</span>
-                            <input type="file" id="fileInput3" style="display:none;" data-file-type="income_tax">                         
+                    </li>
+                    <li id="item-tab3" title="Income Tax">
+                        <label class="tab-label" id="label3" for="tab3" role="button">
+                            <br><span>Income Tax</span>
                         </label>
-                        <div class="file-item" id="fileItem3" style="display: none;">
-                            <div class="file-icon">
-                                <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
-                            </div>
-                            <div class="file-details">
-                                <div class="file-name"></div>
-                            </div>
-                            <div class="file-actions">
-                                <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                            </div>
-                        </div>   
-                        <label class="btnUp" id="uploadButton4">
-                            <span>Upload Pay Slip</span>
-                            <input type="file" id="fileInput4" style="display:none;" data-file-type="payslip">                         
+                    </li>
+                    <li id="item-tab4" title="PaySlip">
+                        <label class="tab-label" id="label4" for="tab4" role="button">
+                            <br><span>Pay Slip</span>
                         </label>
-                        <div class="file-item" id="fileItem4" style="display: none;">
-                            <div class="file-icon">
-                                <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
-                            </div>
-                            <div class="file-details">
-                                <div class="file-name"></div>
-                            </div>
-                            <div class="file-actions">
-                                <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                            </div>
-                        </div>   
-                        <label class="btnUp" id="uploadButton5">
-                            <span>Upload Proof of Address</span>
-                            <input type="file" id="fileInput5" style="display:none;" data-file-type="proof_of_address">                          
+                    </li>
+                    <li title="Proof of SG Address">
+                        <label class="tab-label" id="label5" for="tab5" role="button">
+                            <br><span>Proof of Address</span>
                         </label>
-                        <div class="file-item" id="fileItem5" style="display: none;">
-                            <div class="file-icon">
-                                <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
-                            </div>
-                            <div class="file-details">
-                                <div class="file-name"></div>
-                            </div>
-                            <div class="file-actions">
-                                <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                            </div>
-                        </div>   
-                    </form>
-                </div>
-                <div class="wrapper-col-right">
+                    </li>
+                </ul>
+                
+                <div class="upload-btn-wrapper">
+                    <div class="wrapper-col-left"></div>
+                    <div class="wrapper-col-middle">
+                        <form id="uploadForm" enctype="multipart/form-data">
+                            <label class="btnUp upload" id="uploadButton1">
+                                <div class="upload-rectangle">
+                                    <%= image_tag 'file-upload.png', alt: "Upload Icon", style:"width: 30%; height: 50%; margin: 25px;"%>
+                                    <span>Upload Passport</span>
+                                </div>
+                                <input type="file" id="fileInput1" style="display:none;" data-file-type="passport">
+                            </label>
+                            <div class="file-item upload-rectangle" id="fileItem1" style="display: none;">
+                                <%= image_tag 'file-upload.png', alt: "Upload Icon", style:"width: 30%; height: 50%; margin: 25px;" %>
+                                <div class="delete-icons">
+                                    <div class="file-details">
+                                        <div class="file-name"></div>
+                                    </div>
+                                    <div class="file-actions">
+                                        <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                    </div>
+                                </div>
+                            </div>   
+                            <label class="btnUp upload" id="uploadButton2">
+                                <span>Upload Employment Pass</span>
+                                <input type="file" id="fileInput2" style="display:none;" data-file-type="employment_pass">
+                            </label>
+                            <div class="file-item" id="fileItem2" style="display: none;">
+                                <div class="file-icon">
+                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name"></div>
+                                </div>
+                                <div class="file-actions">
+                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                </div>
+                            </div>   
+                            <label class="btnUp upload" id="uploadButton3">
+                                <span>Upload Income Tax</span>
+                                <input type="file" id="fileInput3" style="display:none;" data-file-type="income_tax">                         
+                            </label>
+                            <div class="file-item" id="fileItem3" style="display: none;">
+                                <div class="file-icon">
+                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name"></div>
+                                </div>
+                                <div class="file-actions">
+                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                </div>
+                            </div>   
+                            <label class="btnUp upload" id="uploadButton4">
+                                <span>Upload Pay Slip</span>
+                                <input type="file" id="fileInput4" style="display:none;" data-file-type="payslip">                         
+                            </label>
+                            <div class="file-item" id="fileItem4" style="display: none;">
+                                <div class="file-icon">
+                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name"></div>
+                                </div>
+                                <div class="file-actions">
+                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                </div>
+                            </div>   
+                            <label class="btnUp upload" id="uploadButton5">
+                                <span>Upload Proof of Address</span>
+                                <input type="file" id="fileInput5" style="display:none;" data-file-type="proof_of_address">                          
+                            </label>
+                            <div class="file-item" id="fileItem5" style="display: none;">
+                                <div class="file-icon">
+                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name"></div>
+                                </div>
+                                <div class="file-actions">
+                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                </div>
+                            </div>   
+                        </form>
+                    </div>
+                    <div class="wrapper-col-right">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="next-button" id="next-button-ID">
-            <%= link_to 'Next', pages_applicationform_path, class: 'next-link' %>
+            <div class="next-button" id="next-button-ID">
+                <%= link_to 'Next', pages_applicationform_path, class: 'next-link' %>
+            </div>
         </div>
     </div>
 </div>

@@ -24,7 +24,7 @@
             </div>
             <div class="form-name-right">
               <h2>Your name as in NRIC/Passport</h2>
-              <input type="text" id="name"/>
+              <input type="text" id="name" value="<%= @user&.name %>"/>
             </div>
           </div>
 
@@ -41,10 +41,10 @@
 
           <div>
             <h2>Gender</h2>
-            <select>
-              <option value="other">Others</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
+            <select name="user[gender]">
+              <option value="other" <%= 'selected' if @user&.gender == 'other' %>>Others</option>
+              <option value="male" <%= 'selected' if @user&.gender == 'M' %>>Male</option>
+              <option value="female" <%= 'selected' if @user&.gender == 'F' %>>Female</option>
             </select>
           </div>
         </div>
@@ -74,7 +74,7 @@
           <h1 id="tab8">Passport Details</h1>
           <div>
             <h2>Nationality</h2>
-            <input type="text"/>
+            <input type="text" value="<%= @user&.nationality %>"/>
           </div>
           <div>
             <h2>Passport Number</h2>
@@ -166,17 +166,6 @@
             </div>
           </div>
 
-          <%# Current Job Status %>
-          <div class="current-job-status">
-            <h2>Your current job status</h2>
-            <div class="current-job-status-toggle-buttons">
-              <button class="current-job-status-toggle-button" id="employee">Employee</button>
-              <button class="current-job-status-toggle-button" id="selfemployed">Self-Employed</button>
-              <button class="current-job-status-toggle-button" id="variable">Variable/Commissioned Earner</button>
-              <button class="current-job-status-toggle-button" id="others">Others</button>
-            </div>
-          </div>
-
           <%# Occupation %>
           <h2>Your occupation</h2>
           <div class="occupation"> 
@@ -221,8 +210,40 @@
             <input type="text"/>
           </div>
 
+          <div>
+            <h2>Monthly Income</h2>
+            <div class="input-container">
+              <h3>S$</h3>
+              <input type="text" />
+            </div>
+          </div>
+
+          <div>
+            <h2>Your preferred credit limit</h2>
+            <div>
+              <h5>For explanatory notes on Credit Limit, click <a href="https://www.dbs.com.sg/infopath_resources/pdf/dbsform/Terms_And_Conditions/dbs_credit_cards_credit_limit_review_tncs_declaration.pdf" target="_blank">here</a></h5>
+            </div>
+            <div>
+              <button class="current-job-status-toggle-button" id="bank-limit" onclick="toggleContent('bank-limit')">Limit granted by the Bank</button>
+            </div>
+            <div>
+              <h5 class="spaced-h5">I have no preference for the credit limit on my account. I understand that DBS has the right to determine the credit limit at its absolute discretion.</h5>
+            </div>
+            <div>
+              <button class="current-job-status-toggle-button" id="self-limit" onclick="toggleContent('self-limit')">I would like to specify a limit</button>
+            </div>
+            <div class="hidden-content" id="self-credit-limit">
+              <h5>I consent to be granted a credit limit that is no more than the above indicated amount. I understand that DBS has the right to determine the credit limit at its absolute discretion. Preferred credit limit should be at a minimum of S$500 and in multiples of S$100.</h5>
+              <div class="hidden-container">
+                <h3>S$</h3>
+                <input type="text" />
+              </div>
+            </div>
+            
+          </div>
+
           <%# Length of Current Employment  %>
-          <h2>Length of Current Employment</h2>
+          <h2 class="spaced-h2">Length of Current Employment</h2>
           <div class="length-current-employment"> 
             <div class= "length-current-employment-1">
               <input type="text"/>          
@@ -235,6 +256,25 @@
             </div>
             <div class= "length-current-employment-4">
               <h4>Months</h4>
+            </div>
+          </div>
+
+          <%# Marital Status%>
+          <div>
+            <h2>Marital Status</h2>
+            <div class="current-job-status-toggle-buttons">
+              <button class="current-job-status-toggle-button" id="single">Single</button>
+              <button class="current-job-status-toggle-button" id="married">Married</button>
+              <button class="current-job-status-toggle-button" id="divorced">Divorced</button>
+              <button class="current-job-status-toggle-button" id="others">Others</button>
+            </div>
+          </div>
+
+          <%# Number of dependents%>
+          <div>
+            <h2>Number of dependents</h2>
+            <div class="input-container">
+              <input type="text" />
             </div>
           </div>
         
@@ -295,6 +335,17 @@
 </div>
 
 <script>
+  //Show hidden credit limit
+  function toggleContent(buttonId){
+    var content = document.getElementById("self-credit-limit");
+
+    if (buttonId === "self-limit") {
+      content.style.display = content.style.display = (content.style.display === "none" || content.style.display === "") ? "block" : "none";
+    } else {
+      content.style.display = "none";
+    }
+  }
+
   //Mobile Number validation
   document.addEventListener("DOMContentLoaded", () => {
     const mobileNumberInput = document.getElementById("mobile-number");
