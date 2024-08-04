@@ -3,7 +3,9 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - F4S4-Autofill  # Adjust if you want to deploy from a different branch
+      - main-githubaction  # Adjust if you want to deploy from a different branch
+    paths:
+      - 'frontend/**'  # Specify the path to the frontend folder
 
 jobs:
   build-and-deploy:
