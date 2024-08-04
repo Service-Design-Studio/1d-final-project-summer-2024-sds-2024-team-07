@@ -3,6 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
+      - main
       - main-githubaction  # Adjust if you want to deploy from a different branch
     paths:
       - 'frontend/**'  # Specify the path to the frontend folder
@@ -10,6 +11,10 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend  # Set the working directory to the frontend folder
 
     steps:
     - name: Checkout repository
