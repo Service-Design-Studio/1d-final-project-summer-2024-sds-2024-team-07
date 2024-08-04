@@ -85,7 +85,7 @@ class UploadsController < ApplicationController
     }
 
     endpoint = endpoint_map[file_type] || '/upload/generic'
-    uri = URI.parse("http://127.0.0.1:5000#{endpoint}")
+    uri = URI.parse("https://flask-app-44nyvt7saq-de.a.run.app#{endpoint}")
 
     request = Net::HTTP::Post.new(uri)
     form_data = [['file', File.open(file_path)]]
