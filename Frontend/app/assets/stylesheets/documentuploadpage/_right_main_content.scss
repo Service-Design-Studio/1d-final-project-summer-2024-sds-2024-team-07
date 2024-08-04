@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400");
 
 /* colors */
-$blue: #428bff;
+$blue: #ff3333;
 $red: #ff4a53;
 $dark: #333;
 $accent: $blue;
@@ -75,7 +75,7 @@ body {
   position: absolute;
   bottom: 0;
   height: 4px;
-  background: #428bff;
+  background: #ff3333;
   transition: transform 0.3s ease, width 0.3s ease;
 }
 
@@ -86,7 +86,7 @@ input[id="tab3"]:checked ~ ul li label[for="tab3"],
 input[id="tab4"]:checked ~ ul li label[for="tab4"],
 input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   background: #fff;
-  border-bottom: 3px solid #428bff;
+  border-bottom: 3px solid #ff3333;
 }
 
 .tabs .content section {
@@ -312,7 +312,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 }
 
 .btn-group .btn.active {
-  background-color: #fa3943;
+  background-color: #ff3333;
   color: white;
 }
 
