@@ -86,9 +86,9 @@ Rails.application.configure do
   config.assets.compile = true
 
   # Disable asset digest generation in development
-  config.assets.digest = true
+  # config.assets.digest = true
   #Set it to False when GCloud Builds Submit
-  # config.assets.digest = false
+  config.assets.digest = false
 
   # Enable debug mode for assets
   config.assets.debug = true
