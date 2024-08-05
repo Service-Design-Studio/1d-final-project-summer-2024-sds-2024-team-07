@@ -1,6 +1,47 @@
 # spec/controllers/uploads_controller_spec.rb
 require 'rails_helper'
+require 'google/cloud/storage'
 require 'webmock/rspec'
+
+RSpec.describe UploadsController, type: :request do
+  let(:uploaded_file) { fixture_file_upload(Rails.root.join('spec/fixtures/files/test_file.txt'), 'text/plain') }
+  let(:user) { create(:user) }
+
+  before do
+    WebMock.allow_net_connect!
+  end
+
+  after do
+    WebMock.disable_net_connect!
+  end
+
+  describe 'POST #create (integration test)' do
+    it 'uploads a file, processes it via the Flask backend, and stores it in Google Cloud Storage' do
+      # Ensure the Flask backend is running and accessible
+      flask_response_body = { 'result' => true }.to_json
+      stub_request(:post, "http://127.0.0.1:5000/upload/passport")
+        .to_return(status: 200, body: flask_response_body, headers: { 'Content-Type' => 'application/json' })
+
+      # Mocking Google Cloud Storage interaction
+      storage = Google::Cloud::Storage.new(project_id: 'dbsdoccheckteam7', credentials: Rails.root.join('config/credentials/development1.json'))
+      bucket = storage.bucket('your_test_bucket')
+      file_url = nil
+
+      allow_any_instance_of(UploadsController).to receive(:upload_to_gcloud) do |_, file_path, uuid, original_filename|
+        file = bucket.create_file(file_path, "#{uuid}_#{original_filename}")
+        file_url = file.public_url
+      end
+
+      post '/uploads', params: { file: uploaded_file, file_type: 'passport' }
+
+      expect(response).to have_http_status(:ok)
+      response_body = JSON.parse(response.body)
+      expect(response_body['result']).to eq(true)
+      expect(response_body['message']).to eq('File processed successfully and URL generated')
+      expect(response_body['file_url']).to eq(file_url)
+    end
+  end
+end
 
 RSpec.describe UploadsController, type: :controller do
   let(:uploaded_file) { fixture_file_upload(Rails.root.join('spec/fixtures/files/test_file.txt'), 'text/plain') }
@@ -75,5 +116,5 @@ RSpec.describe UploadsController, type: :controller do
       end
     end
   end
-  
+
 end
