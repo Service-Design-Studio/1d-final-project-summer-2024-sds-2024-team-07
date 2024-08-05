@@ -1,3 +1,20 @@
+<%
+=begin%>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css" rel="stylesheet">
+
+<div class="titles">
+    <div class="title title-1"><h1><span>Begin</span> your<br>Journey with <span>us</span>,</h1></h1></div>
+    <div class="title title-2"><h1>
+    <%= image_tag("dbs_logo.svg", alt: "DBS", class: "logo-icon1") %>
+    </h1></div>
+</div>
+
+ 
+<%
+=end%>
+
 <div class="custom-container">
     <div class="left-div">
         <%= render 'shared/left_toggle-sidebar' %>
@@ -13,7 +30,10 @@
                 <button type="button" onclick="changeDiv(3)" id="button3" class="btn btn-outline-danger">Self-Employed/Commission-Based</button>
             </div>
 
-            <h3 class="header">Please upload the following documents.</h3>
+            <h3 class="header">
+                Please upload the following documents.
+                <%= image_tag 'Q-mark.svg', alt: "Question Mark Icon", style:"width: 24px; height: 24px; margin-left: 10px; margin-bottom: 6px;", class:"helpbtn" %>
+            </h3>
             <p class="subheader">The accepted document formats are jpg, jpeg, png, doc, docx or pdf. The maximum size per file is 5MB.</p>
 
             <div class="tabs">
@@ -22,7 +42,7 @@
                 <input type="radio" id="tab3" name="tab-control">
                 <input type="radio" id="tab4" name="tab-control">
                 <input type="radio" id="tab5" name="tab-control">
-                <ul>
+                <ul class="tablabel">
                     <li title="Valid Passport">
                         <label class="tab-label" id="label1" for="tab1" role="button">
                             <br><span>Passport</span>
@@ -62,7 +82,7 @@
                                 <input type="file" id="fileInput1" style="display:none;" data-file-type="passport">
                             </label>
                             <div class="file-item upload-rectangle" id="fileItem1" style="display: none;">
-                                <%= image_tag 'file-upload.png', alt: "Upload Icon", style:"width: 30%; height: 50%; margin: 25px;" %>
+                                <%= image_tag 'successful-upload.png', alt: "Upload Icon", style:"width: 40%; height: auto; margin: 25px;" %>
                                 <div class="delete-icons">
                                     <div class="file-details">
                                         <div class="file-name"></div>
@@ -72,72 +92,106 @@
                                     </div>
                                 </div>
                             </div>   
+
                             <label class="btnUp upload" id="uploadButton2">
-                                <span>Upload Employment Pass</span>
+                                <div class="upload-rectangle">
+                                    <%= image_tag 'file-upload.png', alt: "Upload Icon", style:"width: 30%; height: 50%; margin: 25px;"%>
+                                    <span>Upload Employment Pass</span>
+                                </div>
                                 <input type="file" id="fileInput2" style="display:none;" data-file-type="employment_pass">
                             </label>
-                            <div class="file-item" id="fileItem2" style="display: none;">
-                                <div class="file-icon">
-                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
-                                </div>
-                                <div class="file-details">
-                                    <div class="file-name"></div>
-                                </div>
-                                <div class="file-actions">
-                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                            <div class="file-item upload-rectangle" id="fileItem2" style="display: none;">
+                                <%= image_tag 'successful-upload.png', alt: "Upload Icon", style:"width: 40%; height: auto; margin: 25px;" %>
+                                <div class="delete-icons">
+                                    <div class="file-details">
+                                        <div class="file-name"></div>
+                                    </div>
+                                    <div class="file-actions">
+                                        <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                    </div>
                                 </div>
                             </div>   
+
                             <label class="btnUp upload" id="uploadButton3">
-                                <span>Upload Income Tax</span>
+                                <div class="upload-rectangle">
+                                    <%= image_tag 'file-upload.png', alt: "Upload Icon", style:"width: 30%; height: 50%; margin: 25px;"%>
+                                    <span>Upload Income Tax</span>
+                                </div>
                                 <input type="file" id="fileInput3" style="display:none;" data-file-type="income_tax">                         
                             </label>
-                            <div class="file-item" id="fileItem3" style="display: none;">
-                                <div class="file-icon">
-                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                            <div class="file-item upload-rectangle" id="fileItem3" style="display: none;">
+                                <%= image_tag 'successful-upload.png', alt: "Upload Icon",style:"width: 40%; height: auto; margin: 25px;" %>
+                                <div class="delete-icons">
+                                    <div class="file-details">
+                                        <div class="file-name"></div>
+                                    </div>
+                                    <div class="file-actions">
+                                        <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                    </div>
                                 </div>
-                                <div class="file-details">
-                                    <div class="file-name"></div>
-                                </div>
-                                <div class="file-actions">
-                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                                </div>
-                            </div>   
+                            </div>     
+
                             <label class="btnUp upload" id="uploadButton4">
-                                <span>Upload Pay Slip</span>
+                                <div class="upload-rectangle">
+                                    <%= image_tag 'file-upload.png', alt: "Upload Icon", style:"width: 30%; height: 50%; margin: 25px;"%>
+                                    <span>Upload payslip</span>
+                                </div>
                                 <input type="file" id="fileInput4" style="display:none;" data-file-type="payslip">                         
                             </label>
-                            <div class="file-item" id="fileItem4" style="display: none;">
-                                <div class="file-icon">
-                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                            <div class="file-item upload-rectangle" id="fileItem4" style="display: none;">
+                                <%= image_tag 'successful-upload.png', alt: "Upload Icon", style:"width: 40%; height: auto; margin: 25px;" %>
+                                <div class="delete-icons">
+                                    <div class="file-details">
+                                        <div class="file-name"></div>
+                                    </div>
+                                    <div class="file-actions">
+                                        <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                    </div>
                                 </div>
-                                <div class="file-details">
-                                    <div class="file-name"></div>
-                                </div>
-                                <div class="file-actions">
-                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                                </div>
-                            </div>   
+                            </div>    
+
                             <label class="btnUp upload" id="uploadButton5">
-                                <span>Upload Proof of Address</span>
+                                <div class="upload-rectangle">
+                                    <%= image_tag 'file-upload.png', alt: "Upload Icon", style:"width: 30%; height: 50%; margin: 25px;"%>
+                                    <span>Upload Proof of Address</span>
+                                </div>
                                 <input type="file" id="fileInput5" style="display:none;" data-file-type="proof_of_address">                          
                             </label>
-                            <div class="file-item" id="fileItem5" style="display: none;">
-                                <div class="file-icon">
-                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
-                                </div>
-                                <div class="file-details">
-                                    <div class="file-name"></div>
-                                </div>
-                                <div class="file-actions">
-                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                            <div class="file-item upload-rectangle" id="fileItem5" style="display: none;">
+                                <%= image_tag 'successful-upload.png', alt: "Upload Icon", style:"width: 40%; height: auto; margin: 25px;" %>
+                                <div class="delete-icons">
+                                    <div class="file-details">
+                                        <div class="file-name"></div>
+                                    </div>
+                                    <div class="file-actions">
+                                        <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                    </div>
                                 </div>
                             </div>   
+
                         </form>
                     </div>
                     <div class="wrapper-col-right">
                     </div>
                 </div>
             </div>
+            <div class="popup" id="popup">
+                <section id="content1" >
+                    <%= image_tag 'Passport.png', alt: "Passport", class: 'content-image' %>
+                    </section>
+                    <section id="content2">
+                    <%= image_tag 'WorkPass1.png', alt: "Employment Pass", class: 'content-image' %>
+                    </section>
+                <section id="content3">
+                        <%= image_tag 'TaxAsessment1.png', alt: "Income Tax", class: 'content-image' %>
+                    </section>
+                <section id="content4">
+                        <%= image_tag 'IncomeSlip.png', alt: "Pay Slip", class: 'content-image' %>
+                </section>
+                <section id="content5">
+                    <%= image_tag 'poa.png', alt: "Proof of Address", class: 'content-image' %>
+                </section>
+            </div> 
             <div class="next-button" id="next-button-ID">
                 <%= link_to 'Next', pages_applicationform_path, class: 'next-link' %>
             </div>
@@ -469,5 +523,143 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateUploadButtons(); // Initialize the upload buttons
     showTabGroup(1); // Initialize the first group of tabs
+
+    const popup = document.getElementById("popup");
+    const helpBtn = document.querySelector(".helpbtn");
+
+    helpBtn.addEventListener("mouseover", openpopup);
+    helpBtn.addEventListener("mouseout", closepopup);
+
+    function openpopup() {
+        const activeTab = document.querySelector(".tabs input[type='radio']:checked").id;
+
+        // Hide all content sections
+        const contents = popup.querySelectorAll("section");
+        contents.forEach(content => {
+            content.style.display = 'none';
+        });
+        // Show the content section corresponding to the active tab
+        const contentId = `content${activeTab.replace('tab', '')}`;
+        const activeContent = document.getElementById(contentId);
+        if (activeContent) {
+            activeContent.style.display = 'block';
+        }
+        popup.classList.remove("close-popup");
+        popup.classList.add("open-popup");
+    }
+        function closepopup() {
+            popup.classList.remove("open-popup");
+            popup.classList.add("close-popup");
+        }
 });
 </script>
+<%
+=begin%>
+ <script>
+    //animation intro
+            TweenMax.staggerFrom(
+                ".titles > div",
+                0.8,
+                {
+                    x: "-60",
+                    ease: Power3.easeInOut,
+                    opacity: "0",
+                },
+                2
+            );
+
+            TweenMax.staggerTo(
+                ".titles > div",
+                0.8,
+                {
+                    x: "60",
+                    ease: Power3.easeInOut,
+                    delay: 1.2,
+                    opacity: "0",
+                },
+                2
+            );
+            var textWrapper = document.querySelector(".custom-container");
+
+            anime.timeline().add({
+                targets: ".custom-container",
+                opacity: [0, 1],
+                translateY: [80, 0],
+                translateZ: 0,
+                easing: "easeOutExpo",
+                duration: 2000,
+                delay: (el, i) => 3500 + 40 * i,
+            }).add({
+                // New animation to scale titles and move to top: 0
+                targets: ".titles > div",
+                scale: [1, 0.01],
+                top: 500,
+                easing: "easeInOutExpo",
+                duration: 1000,
+                offset: '+=500' // Adding a slight delay before starting this animation
+            });
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
+<script>
+    //onboarding tour
+// function startTour() {
+    setTimeout(function() {
+        introJs().setOptions({
+            steps: [
+                {
+                    title: 'Welcome!',
+                    intro: 'Start Tour?'
+                },
+                {
+                    element: document.querySelector('.custom-steps'),
+                    title: 'Tip 1',
+                    intro: 'A. Complete all 4 sections to submit your application'
+                },
+                {
+                    element: document.querySelector('.link_name'),
+                    title: 'Tip 2',
+                    intro: 'B. Open/Close the sidebar'
+                },
+                {
+                    element: document.querySelector('.sb'),
+                    title: 'Tip 3',
+                    intro: 'C. Open/Close each sub-menus to preview details of each section'
+                },
+                {
+                    element: document.querySelector('.btn-group'),
+                    title: 'First Step',
+                    intro: '1. Select based on your Employment Type',
+                },
+                {
+                    element: document.querySelector('.tablabel'),
+                    title: 'Second Step',
+                    intro: '2. Check all required documents',
+                },
+                {
+                    element: document.querySelector('.upload-rectangle'),
+                    title: 'Third Step',
+                    intro: '3. Upload your documents here',
+                },
+                {
+                    element: document.querySelector('.helpbtn'),
+                    title: 'Forth Step',
+                    intro: '4. Hover to find out more about the document guidelines',
+                },
+                {
+                    element: document.querySelector('.next-button'),
+                    title: 'Fifth Step',
+                    intro: '5. Once all documents are successfully uploaded, click to the next section',
+                },
+                {
+                    title: 'Tour Completed',
+                    intro: 'That’s it, all the best!',
+                }
+            ],
+            dontShowAgain: false,
+        }).start();
+    }, 4500);
+// }
+</script> 
+<%
+=end%>
