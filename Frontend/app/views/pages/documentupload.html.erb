@@ -1,4 +1,6 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+<%
+=begin%>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css" rel="stylesheet">
 
@@ -9,7 +11,9 @@
     </h1></div>
 </div>
 
-
+ 
+<%
+=end%>
 
 <div class="custom-container">
     <div class="left-div">
@@ -26,7 +30,10 @@
                 <button type="button" onclick="changeDiv(3)" id="button3" class="btn btn-outline-danger">Self-Employed/Commission-Based</button>
             </div>
 
-            <h3 class="header">Please upload the following documents.</h3>
+            <h3 class="header">
+                Please upload the following documents.
+                <%= image_tag 'Q-mark.svg', alt: "Question Mark Icon", style:"width: 24px; height: 24px; margin-left: 10px; margin-bottom: 6px;", class:"helpbtn" %>
+            </h3>
             <p class="subheader">The accepted document formats are jpg, jpeg, png, doc, docx or pdf. The maximum size per file is 5MB.</p>
 
             <div class="tabs">
@@ -168,7 +175,6 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="helpbtn">Document Guidelines ▲</button> 
             <div class="popup" id="popup">
                 <section id="content1" >
                     <%= image_tag 'Passport.png', alt: "Passport", class: 'content-image' %>
@@ -517,38 +523,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateUploadButtons(); // Initialize the upload buttons
     showTabGroup(1); // Initialize the first group of tabs
+
+    const popup = document.getElementById("popup");
+    const helpBtn = document.querySelector(".helpbtn");
+
+    helpBtn.addEventListener("mouseover", openpopup);
+    helpBtn.addEventListener("mouseout", closepopup);
+
+    function openpopup() {
+        const activeTab = document.querySelector(".tabs input[type='radio']:checked").id;
+
+        // Hide all content sections
+        const contents = popup.querySelectorAll("section");
+        contents.forEach(content => {
+            content.style.display = 'none';
+        });
+        // Show the content section corresponding to the active tab
+        const contentId = `content${activeTab.replace('tab', '')}`;
+        const activeContent = document.getElementById(contentId);
+        if (activeContent) {
+            activeContent.style.display = 'block';
+        }
+        popup.classList.remove("close-popup");
+        popup.classList.add("open-popup");
+    }
+        function closepopup() {
+            popup.classList.remove("open-popup");
+            popup.classList.add("close-popup");
+        }
 });
 </script>
-<script>
-const popup = document.getElementById("popup");
-const helpBtn = document.querySelector(".helpbtn");
-
-helpBtn.addEventListener("mouseover", openpopup);
-helpBtn.addEventListener("mouseout", closepopup);
-
-function openpopup() {
-    const activeTab = document.querySelector(".tabs input[type='radio']:checked").id;
-
-    // Hide all content sections
-    const contents = popup.querySelectorAll("section");
-    contents.forEach(content => {
-        content.style.display = 'none';
-    });
-    // Show the content section corresponding to the active tab
-    const contentId = `content${activeTab.replace('tab', '')}`;
-    const activeContent = document.getElementById(contentId);
-    if (activeContent) {
-        activeContent.style.display = 'block';
-    }
-    popup.classList.remove("close-popup");
-    popup.classList.add("open-popup");
-}
-    function closepopup() {
-        popup.classList.remove("open-popup");
-        popup.classList.add("close-popup");
-    }
-</script>
-<script>
+<%
+=begin%>
+ <script>
     //animation intro
             TweenMax.staggerFrom(
                 ".titles > div",
@@ -653,4 +660,6 @@ function openpopup() {
         }).start();
     }, 4500);
 // }
-</script>
+</script> 
+<%
+=end%>
