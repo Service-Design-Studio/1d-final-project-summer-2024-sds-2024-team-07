@@ -30,7 +30,10 @@
                 <button type="button" onclick="changeDiv(3)" id="button3" class="btn btn-outline-danger">Self-Employed/Commission-Based</button>
             </div>
 
-            <h3 class="header">Please upload the following documents.</h3>
+            <h3 class="header">
+                Please upload the following documents.
+                <%= image_tag 'Q-mark.svg', alt: "Question Mark Icon", style:"width: 24px; height: 24px; margin-left: 10px; margin-bottom: 6px;", class:"helpbtn" %>
+            </h3>
             <p class="subheader">The accepted document formats are jpg, jpeg, png, doc, docx or pdf. The maximum size per file is 5MB.</p>
 
             <div class="tabs">
@@ -172,7 +175,6 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="helpbtn">Document Guidelines ▲</button> 
             <div class="popup" id="popup">
                 <section id="content1" >
                     <%= image_tag 'Passport.png', alt: "Passport", class: 'content-image' %>
