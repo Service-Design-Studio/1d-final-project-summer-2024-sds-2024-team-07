@@ -35,7 +35,7 @@
                 <input type="radio" id="tab3" name="tab-control">
                 <input type="radio" id="tab4" name="tab-control">
                 <input type="radio" id="tab5" name="tab-control">
-                <ul>
+                <ul class="tablabel">
                     <li title="Valid Passport">
                         <label class="tab-label" id="label1" for="tab1" role="button">
                             <br><span>Passport</span>
@@ -625,19 +625,24 @@ function openpopup() {
                     intro: '1. Select based on your Employment Type',
                 },
                 {
-                    element: document.querySelector('.tabs'),
+                    element: document.querySelector('.tablabel'),
                     title: 'Second Step',
-                    intro: '2. Upload all required documents. Make sure to follow respective guidelines',
+                    intro: '2. Check all required documents',
+                },
+                {
+                    element: document.querySelector('.upload-rectangle'),
+                    title: 'Third Step',
+                    intro: '3. Upload your documents here',
                 },
                 {
                     element: document.querySelector('.helpbtn'),
-                    title: 'Third Step',
-                    intro: '3. Click the help button to find out more about the guidelines',
+                    title: 'Forth Step',
+                    intro: '4. Hover to find out more about the document guidelines',
                 },
                 {
                     element: document.querySelector('.next-button'),
-                    title: 'Fourth Step',
-                    intro: '4. Once all documents are successfully uploaded, click to the next section',
+                    title: 'Fifth Step',
+                    intro: '5. Once all documents are successfully uploaded, click to the next section',
                 },
                 {
                     title: 'Tour Completed',
