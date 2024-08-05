@@ -5,17 +5,17 @@ Feature: OCR Autofill
   
   Scenario: Successful and correct extraction of personal details from submitted documents
     Given that I am on the document upload page
-    When I click “Document Upload” button
-    And I should be able to choose the file corresponding to Passport
-    And I should see the delete button
+    When I click on “Document Upload” button
+    And I should able to choose the file corresponding to Passport
+    And I should see a delete button
     Given that I am on the application form page
     Then I should see my information filled in
 
   Scenario: Wrong text extracted from documents
     Given that I am on the document upload page
-    When I click “Document Upload” button
-    And I should be able to choose the file corresponding to Passport
-    And I should see the delete button
+    When I click on “Document Upload” button
+    And I should able to choose the file corresponding to Passport
+    And I should see a delete button
     Given that I am on the application form page
     When I click on the "Your preferred name to appear on the card(s)" field
     Then I should be able to type "Kara Wong"

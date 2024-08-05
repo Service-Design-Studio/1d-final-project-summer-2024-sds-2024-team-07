@@ -7,17 +7,17 @@ Given('I am on the document upload page') do
 end
 
 Then('I should see that I am on the tab for "Salaried Employee for more than 3 months"') do
-  expect(page).to have_css('button#button1.active', text: /Salaried Employee\s*:\s*More\s*than\s*3\s*Months/)
+  expect(page).to have_css('button#button1.active', text: /Salaried Employee\s*:\s*More\s*than\s*3\s*months/)
 end
 
 Then('I should be able to click on {string} button') do |button_text|
   case button_text
-  when "Salaried Employee(less than 3 months)"
-    sleep 10
+  when "Salaried Employee: Less than 3 months"
     find('button#button2').click
-  when "Salaried Employee(more than 3 months)"
-    sleep 10
+  when "Salaried Employee: More than 3 months"
     find('button#button1').click
+  when "Self-Employed/Commission-Based"
+    find('button#button3').click
   else
     raise "Unknown button: #{button_text}"
   end
@@ -164,9 +164,25 @@ Then('I should see that the document is uploaded') do
   expect(page).to have_css('img[alt="File Icon"]')
 end
 
+# And('I should see the delete button') do
+#   expect(page).to have_css('img[alt="Delete Icon"]')
+# end
+
 And('I should see the delete button') do
+  begin
+    # Check if an alert is present using Capybara's modal handling
+    if page.driver.browser.switch_to.alert
+      # Dismiss the alert
+      page.driver.browser.switch_to.alert.dismiss
+    end
+  rescue Selenium::WebDriver::Error::NoSuchAlertError
+    # If no alert is present, continue as usual
+  end
+
+  # Now check for the delete button
   expect(page).to have_css('img[alt="Delete Icon"]')
 end
+
 
 Then('I should be able to click the "Delete" button') do
   # Click the delete button to simulate removing the uploaded file
