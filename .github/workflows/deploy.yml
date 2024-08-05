@@ -9,6 +9,7 @@ env:
   SERVICE: ${{ secrets.CLOUD_RUN_SERVICE }}
   REGION: ${{ secrets.CLOUD_RUN_REGION }}
 
+
 jobs:
   deploy:
     # Add 'id-token' with the intended permissions for workload identity federation
