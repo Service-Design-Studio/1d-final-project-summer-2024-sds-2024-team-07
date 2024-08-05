@@ -21,16 +21,6 @@ steps:
       ]
     secretEnv: ["RAILS_KEY"]
   
-  # - id: "seed database"
-  #   name: "gcr.io/google-appengine/exec-wrapper"
-  #   entrypoint: "bash"
-  #   args:
-  #     [
-  #       "-c",
-  #       "/buildstep/execute.sh -i gcr.io/dbsdoccheckteam7/${_SERVICE_NAME} -s dbsdoccheckteam7:${_REGION}:${_INSTANCE_NAME} -- bundle exec rake db:seed"
-  #     ]
-  #   secretEnv: ["RAILS_MASTER_KEY"]
-
   - id: "run deploy"
     name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: gcloud
