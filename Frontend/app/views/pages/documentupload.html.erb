@@ -1,4 +1,6 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+<%
+=begin%>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css" rel="stylesheet">
 
@@ -9,7 +11,9 @@
     </h1></div>
 </div>
 
-
+ 
+<%
+=end%>
 
 <div class="custom-container">
     <div class="left-div">
@@ -517,38 +521,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateUploadButtons(); // Initialize the upload buttons
     showTabGroup(1); // Initialize the first group of tabs
+
+    const popup = document.getElementById("popup");
+    const helpBtn = document.querySelector(".helpbtn");
+
+    helpBtn.addEventListener("mouseover", openpopup);
+    helpBtn.addEventListener("mouseout", closepopup);
+
+    function openpopup() {
+        const activeTab = document.querySelector(".tabs input[type='radio']:checked").id;
+
+        // Hide all content sections
+        const contents = popup.querySelectorAll("section");
+        contents.forEach(content => {
+            content.style.display = 'none';
+        });
+        // Show the content section corresponding to the active tab
+        const contentId = `content${activeTab.replace('tab', '')}`;
+        const activeContent = document.getElementById(contentId);
+        if (activeContent) {
+            activeContent.style.display = 'block';
+        }
+        popup.classList.remove("close-popup");
+        popup.classList.add("open-popup");
+    }
+        function closepopup() {
+            popup.classList.remove("open-popup");
+            popup.classList.add("close-popup");
+        }
 });
 </script>
-<script>
-const popup = document.getElementById("popup");
-const helpBtn = document.querySelector(".helpbtn");
-
-helpBtn.addEventListener("mouseover", openpopup);
-helpBtn.addEventListener("mouseout", closepopup);
-
-function openpopup() {
-    const activeTab = document.querySelector(".tabs input[type='radio']:checked").id;
-
-    // Hide all content sections
-    const contents = popup.querySelectorAll("section");
-    contents.forEach(content => {
-        content.style.display = 'none';
-    });
-    // Show the content section corresponding to the active tab
-    const contentId = `content${activeTab.replace('tab', '')}`;
-    const activeContent = document.getElementById(contentId);
-    if (activeContent) {
-        activeContent.style.display = 'block';
-    }
-    popup.classList.remove("close-popup");
-    popup.classList.add("open-popup");
-}
-    function closepopup() {
-        popup.classList.remove("open-popup");
-        popup.classList.add("close-popup");
-    }
-</script>
-<script>
+<%
+=begin%>
+ <script>
     //animation intro
             TweenMax.staggerFrom(
                 ".titles > div",
@@ -653,4 +658,6 @@ function openpopup() {
         }).start();
     }, 4500);
 // }
-</script>
+</script> 
+<%
+=end%>
