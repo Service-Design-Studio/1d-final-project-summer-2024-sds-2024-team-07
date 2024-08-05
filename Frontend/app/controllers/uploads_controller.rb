@@ -1,4 +1,3 @@
-# app/controllers/uploads_controller.rb
 class UploadsController < ApplicationController
   protect_from_forgery with: :null_session
 
@@ -6,7 +5,7 @@ class UploadsController < ApplicationController
     uploaded_file = params[:file]
     file_type = params[:file_type]
 
-    if uploaded_file.nil?
+    if uploaded_file.nil? || !uploaded_file.respond_to?(:original_filename)
       render json: { result: false, message: 'No file uploaded' }, status: :unprocessable_entity
       return
     end
@@ -38,7 +37,7 @@ class UploadsController < ApplicationController
               date_of_birth: response['extracted_data']['Date of Birth'],
               passport_expiry: response['extracted_data']['Date of Expiry'],
               gender: response['extracted_data']['Gender'],
-              nationality: response['extracted_data']['Nationality'],
+              nationality: response['extracted_data']['Nationality']
             )
           end
         end

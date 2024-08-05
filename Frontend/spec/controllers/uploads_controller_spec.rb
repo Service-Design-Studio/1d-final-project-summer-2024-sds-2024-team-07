@@ -51,8 +51,7 @@ RSpec.describe UploadsController, type: :controller do
 
       it 'sends the file to the Flask backend and returns the response' do
         response_body = { 'result' => true }.to_json
-        # stub_request(:post, "https://flask-app-44nyvt7saq-de.a.run.app/upload/passport")
-        stub_request(:post, "http://127.0.0.1:5000/upload/passport")
+        stub_request(:post, "https://flask-app-44nyvt7saq-de.a.run.app/upload/passport")
           .to_return(status: 200, body: response_body, headers: { 'Content-Type' => 'application/json' })
 
         response = controller.send(:send_file_to_flask_backend, file_path, file_type)
