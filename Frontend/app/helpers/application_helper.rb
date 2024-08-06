@@ -9,8 +9,6 @@ module ApplicationHelper
       'active' if current_page?(pages_verifydetails_path)
     when 4
       'active' if current_page?(pages_createpin_path)
-    else
-      ''
     end
   end
 

@@ -6,8 +6,8 @@ class UploadsController < ApplicationController
     file_type = params[:file_type]
 
     if uploaded_file.nil? || !uploaded_file.respond_to?(:original_filename)
-      render json: { result: false, message: 'No file uploaded' }, status: :unprocessable_entity
-      return
+      # render json: { result: false, message: 'No file uploaded' }, status: :unprocessable_entity
+      # return
     end
 
     file_path = Rails.root.join('tmp', uploaded_file.original_filename)
@@ -24,22 +24,22 @@ class UploadsController < ApplicationController
       if response['result'] == true
         user = User.find_by(session_id: session[:user_id]) # Use the session ID to find the user
         if user
-          uuid = SecureRandom.uuid
-          column_name = "doc_#{file_type}"
-          file_url = upload_to_gcloud(file_path, uuid, uploaded_file.original_filename)
-          user.update(column_name => file_url)
+          # uuid = SecureRandom.uuid
+          # column_name = "doc_#{file_type}"
+          # file_url = upload_to_gcloud(file_path, uuid, uploaded_file.original_filename)
+          # user.update(column_name => file_url)
 
-          # Update user attributes based on extracted data
-          if response['extracted_data']
-            user.update(
-              name: response['extracted_data']['Name'],
-              passport_number: response['extracted_data']['Passport Number'],
-              date_of_birth: response['extracted_data']['Date of Birth'],
-              passport_expiry: response['extracted_data']['Date of Expiry'],
-              gender: response['extracted_data']['Gender'],
-              nationality: response['extracted_data']['Nationality']
-            )
-          end
+          # # Update user attributes based on extracted data
+          # if response['extracted_data']
+          #   user.update(
+          #     name: response['extracted_data']['Name'],
+          #     passport_number: response['extracted_data']['Passport Number'],
+          #     date_of_birth: response['extracted_data']['Date of Birth'],
+          #     passport_expiry: response['extracted_data']['Date of Expiry'],
+          #     gender: response['extracted_data']['Gender'],
+          #     nationality: response['extracted_data']['Nationality']
+          #   )
+          # end
         end
         result = 'File processed successfully and URL generated'
         render json: { result: true, message: result, file_id: uuid }
@@ -56,20 +56,20 @@ class UploadsController < ApplicationController
   end
 
   def delete_document
-    file_type = params[:file_type]
-    user = User.find_by(session_id: session[:user_id])
+    # file_type = params[:file_type]
+    # user = User.find_by(session_id: session[:user_id])
 
-    if user
-      column_name = "doc_#{file_type}"
-      if user[column_name].present?
-        user.update(column_name => nil)
-        render json: { result: true, message: 'File deleted successfully' }
-      else
-        render json: { result: false, message: 'File not found' }
-      end
-    else
-      render json: { result: false, message: 'User not found' }
-    end
+    # if user
+    #   column_name = "doc_#{file_type}"
+    #   if user[column_name].present?
+    #     user.update(column_name => nil)
+    #     render json: { result: true, message: 'File deleted successfully' }
+    #   else
+    #     render json: { result: false, message: 'File not found' }
+    #   end
+    # else
+    #   render json: { result: false, message: 'User not found' }
+    # end
   end
 
   private
@@ -96,26 +96,26 @@ class UploadsController < ApplicationController
 
     JSON.parse(response.body)
   rescue JSON::ParserError => e
-    { 'result' => false, 'message' => "Failed to parse JSON response from Flask: #{e.message}" }
+    # { 'result' => false, 'message' => "Failed to parse JSON response from Flask: #{e.message}" }
   rescue StandardError => e
-    { 'result' => false, 'message' => "Error sending file to Flask: #{e.message}" }
+    #{ 'result' => false, 'message' => "Error sending file to Flask: #{e.message}" }
   end
 
   def upload_to_gcloud(file_path, uuid, original_filename)
-    begin
-      bucket = $storage.bucket $bucket_name
-      file_name = "#{uuid}_#{original_filename}"
-      puts "Uploading file: #{file_path} to GCS as #{file_name}"
+    # begin
+    #   bucket = $storage.bucket $bucket_name
+    #   file_name = "#{uuid}_#{original_filename}"
+    #   puts "Uploading file: #{file_path} to GCS as #{file_name}"
 
-      file = File.open(file_path)
-      gcs_file = bucket.create_file file, file_name
-      file.close
+    #   file = File.open(file_path)
+    #   gcs_file = bucket.create_file file, file_name
+    #   file.close
 
-      puts "File uploaded successfully."
-      gcs_file.public_url
-    rescue => e
-      puts "Failed to upload file: #{e.message}"
-      raise "File upload failed: #{e.message}"
-    end
+    #   puts "File uploaded successfully."
+    #   gcs_file.public_url
+    # rescue => e
+    #   puts "Failed to upload file: #{e.message}"
+    #   raise "File upload failed: #{e.message}"
+    # end
   end
 end

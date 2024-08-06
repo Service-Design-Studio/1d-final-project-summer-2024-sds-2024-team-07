@@ -133,12 +133,12 @@ end
 And('I should be able to choose a file not corresponding to {string} but is still the correct file format') do |file|
   case file
   when "Pay Slip"
-    # attach_file('fileInput4', Rails.root.join('features', 'support', 'test_images', 'test.png'), make_visible: true)
+    attach_file('fileInput4', Rails.root.join('features', 'support', 'test_images', 'test.png'), make_visible: true)
     
     # Windows
-    file_path = File.expand_path(File.join(__dir__, '..', 'support', 'test_images', 'test.png'))
-    windows_file_path = file_path.gsub('/', '\\')
-    attach_file('fileInput4', windows_file_path, make_visible: true)
+    # file_path = File.expand_path(File.join(__dir__, '..', 'support', 'test_images', 'test.png'))
+    # windows_file_path = file_path.gsub('/', '\\')
+    # attach_file('fileInput4', windows_file_path, make_visible: true)
 
   else
     raise "Unknown file: #{file}"
@@ -146,12 +146,12 @@ And('I should be able to choose a file not corresponding to {string} but is stil
 end
 
 And('I should be able to choose a file of the wrong file format') do
-  # attach_file('fileInput1', Rails.root.join('features', 'support', 'test_images', 'passport.jpeg'), make_visible: true)
+  attach_file('fileInput1', Rails.root.join('features', 'support', 'test_images', 'passport.jpeg'), make_visible: true)
 
   # Windows
-  file_path = File.expand_path(File.join(__dir__, '..', 'support', 'test_images', 'passport.jpeg'))
-  windows_file_path = file_path.gsub('/', '\\')
-  attach_file('fileInput1', windows_file_path, make_visible: true)
+  # file_path = File.expand_path(File.join(__dir__, '..', 'support', 'test_images', 'passport.jpeg'))
+  # windows_file_path = file_path.gsub('/', '\\')
+  # attach_file('fileInput1', windows_file_path, make_visible: true)
 end
 
 
@@ -209,17 +209,17 @@ end
 When('I click "Next" button') do
   # Make the Next button clickable using its CSS class
   page.execute_script('document.querySelector(".next-button").style.pointerEvents = "auto";')
-
+  page.execute_script('document.querySelector(".next-link").style.pointerEvents = "auto";')
   # Try clicking the Next link first
   if page.has_selector?('.next-link', visible: true)
     find('.next-link').click
     puts "Next link clicked"
   end
-  # # Try clicking the Next button if the Next link was not clicked
-  # if page.has_selector?('.next-button', visible: true)
-  #   find('.next-button').click
-  #   puts "Next button clicked"
-  # end
+  # Try clicking the Next button if the Next link was not clicked
+  if page.has_selector?('.next-button', visible: true)
+    find('.next-button').click
+    puts "Next button clicked"
+  end
 end
 
 When('I navigate to the {string} tab') do |tab|
@@ -245,11 +245,11 @@ When('I upload a document with the following details:') do |table|
     upload_button_text = row['Upload Button Text']
     file_input_id = row['File Input ID']
 
-    # invalid_file_path = Rails.root.join('Frontend', 'features', 'support', 'test_images', 'fail.txt')
+    invalid_file_path = Rails.root.join('Frontend', 'features', 'support', 'test_images', 'fail.txt')
 
     # Windows
-    invalid_file_path = File.expand_path(File.join(__dir__, '..', 'support', 'test_images', 'fail.txt'))
-    windows_file_path = invalid_file_path.gsub('/', '\\')
+    # invalid_file_path = File.expand_path(File.join(__dir__, '..', 'support', 'test_images', 'fail.txt'))
+    # windows_file_path = invalid_file_path.gsub('/', '\\')
 
     attach_file(file_input_id, invalid_file_path) # Replace with the path to an invalid file format
   end
