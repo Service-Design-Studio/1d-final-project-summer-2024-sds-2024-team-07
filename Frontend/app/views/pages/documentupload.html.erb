@@ -32,7 +32,8 @@
 
             <h3 class="header">
                 Please upload the following documents.
-                <%= image_tag 'Q-mark.svg', alt: "Question Mark Icon", style:"width: 24px; height: 24px; margin-left: 10px; margin-bottom: 6px;", class:"helpbtn" %>
+                            <%= image_tag 'Q-mark.svg', alt: "Question Mark Icon", style:"width: 28px; height: 28px;", class:"helpbtn" %>
+            <%# <p class="wrapper-col-left-text"> Document Guidelines</p> %>
             </h3>
             <p class="subheader">The accepted document formats are jpg, jpeg, png, doc, docx or pdf. The maximum size per file is 5MB.</p>
 
@@ -69,109 +70,132 @@
                         </label>
                     </li>
                 </ul>
-                
                 <div class="upload-btn-wrapper">
-                    <div class="wrapper-col-left"></div>
+                    <div class="wrapper-col-left">
+
+                    </div>
                     <div class="wrapper-col-middle">
                         <form id="uploadForm" enctype="multipart/form-data">
                             <label class="btnUp upload" id="uploadButton1">
                                 <div class="upload-rectangle">
-                                    <%= image_tag 'file-upload.png', alt: "Upload Icon", style:"width: 30%; height: 50%; margin: 25px;"%>
+                                    <%= image_tag 'fileuploadicon.png', class:"fileImg", alt: "Upload Icon", style:"width: 20%; height: auto; margin: 25px;"%>
+                                    <%= image_tag 'filesuccessful.png', class:"fileSuccessImg", alt: "Upload Icon", style:"width: 20%; height: auto; margin: 25px; display: none;"%>
                                     <span>Upload Passport</span>
                                 </div>
                                 <input type="file" id="fileInput1" style="display:none;" data-file-type="passport">
                             </label>
-                            <div class="file-item upload-rectangle" id="fileItem1" style="display: none;">
-                                <%= image_tag 'successful-upload.png', alt: "Upload Icon", style:"width: 40%; height: auto; margin: 25px;" %>
-                                <div class="delete-icons">
-                                    <div class="file-details">
-                                        <div class="file-name"></div>
-                                    </div>
-                                    <div class="file-actions">
-                                        <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                                    </div>
-                                </div>
-                            </div>   
+ 
 
                             <label class="btnUp upload" id="uploadButton2">
                                 <div class="upload-rectangle">
-                                    <%= image_tag 'file-upload.png', alt: "Upload Icon", style:"width: 30%; height: 50%; margin: 25px;"%>
+                                    <%= image_tag 'fileuploadicon.png', class:"fileImg", alt: "Upload Icon", style:"width: 20%; height: auto; margin: 25px;"%>
+                                    <%= image_tag 'filesuccessful.png', class:"fileSuccessImg", alt: "Upload Icon", style:"width: 20%; height: auto; margin: 25px; display: none;"%>
                                     <span>Upload Employment Pass</span>
                                 </div>
                                 <input type="file" id="fileInput2" style="display:none;" data-file-type="employment_pass">
                             </label>
-                            <div class="file-item upload-rectangle" id="fileItem2" style="display: none;">
-                                <%= image_tag 'successful-upload.png', alt: "Upload Icon", style:"width: 40%; height: auto; margin: 25px;" %>
-                                <div class="delete-icons">
-                                    <div class="file-details">
-                                        <div class="file-name"></div>
-                                    </div>
-                                    <div class="file-actions">
-                                        <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                                    </div>
-                                </div>
-                            </div>   
+
 
                             <label class="btnUp upload" id="uploadButton3">
                                 <div class="upload-rectangle">
-                                    <%= image_tag 'file-upload.png', alt: "Upload Icon", style:"width: 30%; height: 50%; margin: 25px;"%>
+                                    <%= image_tag 'fileuploadicon.png', class:"fileImg", alt: "Upload Icon", style:"width: 20%; height: auto; margin: 25px;"%>
+                                    <%= image_tag 'filesuccessful.png', class:"fileSuccessImg", alt: "Upload Icon", style:"width: 20%; height: auto; margin: 25px; display: none;"%>
                                     <span>Upload Income Tax</span>
                                 </div>
                                 <input type="file" id="fileInput3" style="display:none;" data-file-type="income_tax">                         
                             </label>
-                            <div class="file-item upload-rectangle" id="fileItem3" style="display: none;">
-                                <%= image_tag 'successful-upload.png', alt: "Upload Icon",style:"width: 40%; height: auto; margin: 25px;" %>
-                                <div class="delete-icons">
-                                    <div class="file-details">
-                                        <div class="file-name"></div>
-                                    </div>
-                                    <div class="file-actions">
-                                        <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                                    </div>
-                                </div>
-                            </div>     
+  
 
                             <label class="btnUp upload" id="uploadButton4">
                                 <div class="upload-rectangle">
-                                    <%= image_tag 'file-upload.png', alt: "Upload Icon", style:"width: 30%; height: 50%; margin: 25px;"%>
+                                    <%= image_tag 'fileuploadicon.png', class:"fileImg", alt: "Upload Icon", style:"width: 20%; height: auto; margin: 25px;"%>
+                                    <%= image_tag 'filesuccessful.png', class:"fileSuccessImg", alt: "Upload Icon", style:"width: 20%; height: auto; margin: 25px; display: none;"%>
                                     <span>Upload payslip</span>
                                 </div>
                                 <input type="file" id="fileInput4" style="display:none;" data-file-type="payslip">                         
                             </label>
-                            <div class="file-item upload-rectangle" id="fileItem4" style="display: none;">
-                                <%= image_tag 'successful-upload.png', alt: "Upload Icon", style:"width: 40%; height: auto; margin: 25px;" %>
-                                <div class="delete-icons">
-                                    <div class="file-details">
-                                        <div class="file-name"></div>
-                                    </div>
-                                    <div class="file-actions">
-                                        <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                                    </div>
-                                </div>
-                            </div>    
+
 
                             <label class="btnUp upload" id="uploadButton5">
                                 <div class="upload-rectangle">
-                                    <%= image_tag 'file-upload.png', alt: "Upload Icon", style:"width: 30%; height: 50%; margin: 25px;"%>
+                                    <%= image_tag 'fileuploadicon.png', class:"fileImg", alt: "Upload Icon", style:"width: 20%; height: auto; margin: 25px;"%>
+                                    <%= image_tag 'filesuccessful.png', class:"fileSuccessImg", alt: "Upload Icon", style:"width: 20%; height: auto; margin: 25px; display: none;"%>
                                     <span>Upload Proof of Address</span>
                                 </div>
                                 <input type="file" id="fileInput5" style="display:none;" data-file-type="proof_of_address">                          
                             </label>
-                            <div class="file-item upload-rectangle" id="fileItem5" style="display: none;">
-                                <%= image_tag 'successful-upload.png', alt: "Upload Icon", style:"width: 40%; height: auto; margin: 25px;" %>
-                                <div class="delete-icons">
-                                    <div class="file-details">
-                                        <div class="file-name"></div>
-                                    </div>
-                                    <div class="file-actions">
-                                        <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
-                                    </div>
-                                </div>
-                            </div>   
 
                         </form>
                     </div>
+                    <div class="wrapper-col-right-temp">
+                    </div>
                     <div class="wrapper-col-right">
+                        <span><u><b>List of uploaded documents: </b></u></span>
+                        <div class="file-item" id="fileItem1" style="display: none;">
+                            <div class="delete-icons">
+                                <div class="file-icon">
+                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name"></div>
+                                </div>
+                                <div class="file-actions">
+                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="file-item" id="fileItem2" style="display: none;">
+                            <div class="delete-icons">
+                                <div class="file-icon">
+                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name"></div>
+                                </div>
+                                <div class="file-actions">
+                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                </div>
+                            </div>
+                        </div>   
+                        <div class="file-item" id="fileItem3" style="display: none;">
+                            <div class="delete-icons">
+                                <div class="file-icon">
+                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name"></div>
+                                </div>
+                                <div class="file-actions">
+                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                </div>
+                            </div>
+                        </div>   
+                        <div class="file-item" id="fileItem4" style="display: none;">
+                            <div class="delete-icons">
+                                <div class="file-icon">
+                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name"></div>
+                                </div>
+                                <div class="file-actions">
+                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                </div>
+                            </div>
+                        </div>    
+                        <div class="file-item" id="fileItem5" style="display: none;">
+                            <div class="delete-icons">
+                                <div class="file-icon">
+                                    <%= image_tag 'fileicon.svg', alt: "File Icon", style:"width: 20px;" %>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name"></div>
+                                </div>
+                                <div class="file-actions">
+                                    <%= image_tag 'deleteicon.svg', alt: "Delete Icon", class: 'delete-icon' %>
+                                </div>
+                            </div>
+                        </div>   
                     </div>
                 </div>
             </div>
@@ -211,6 +235,37 @@ document.addEventListener("DOMContentLoaded", function () {
     // File Upload Requests
     const fileInputs = document.querySelectorAll(".btnUp input[type='file']");
 
+    function checkIfHasUploads() {
+        const fileItems = document.querySelectorAll('.file-item');
+        let hasUploads = false;
+
+        fileItems.forEach(fileItem => {
+            if (fileItem.style.display !== 'none') {
+                hasUploads = true;
+            }
+        });
+
+        if (hasUploads) {
+            // document.querySelector('.wrapper-col-right-temp').style.display = 'none';
+            // document.querySelector('.wrapper-col-right-temp').style.flex = '0';
+            document.querySelector('.wrapper-col-right').style.flex = '1';
+            document.querySelector('.wrapper-col-right').style.display = 'flex';
+            document.querySelector('.wrapper-col-middle').style.flex = '2';
+            // document.querySelector('.wrapper-col-left').style.flex = '0.1';
+            // document.querySelector('.wrapper-col-left-text').style.display = 'none';
+            
+
+        } else {
+            // document.querySelector('.wrapper-col-right-temp').style.display = 'flex';
+            // document.querySelector('.wrapper-col-right-temp').style.flex = '0.5';
+            document.querySelector('.wrapper-col-right').style.flex = '0';
+            document.querySelector('.wrapper-col-right').style.display = 'none';
+            document.querySelector('.wrapper-col-middle').style.flex = '1';
+            // document.querySelector('.wrapper-col-left').style.flex = '0.5';
+            // document.querySelector('.wrapper-col-left-text').style.display = 'flex';
+        }
+    }
+
     function uploadFile(fileInput) {
         const file = fileInput.files[0];
         if (!file) return;
@@ -223,7 +278,14 @@ document.addEventListener("DOMContentLoaded", function () {
         
         const button = fileInput.closest('label');
         const span = button.querySelector('span');
-        const fileitem = button.nextElementSibling;
+
+        const fileImg = button.querySelector('.fileImg');
+        const fileSuccessImg = button.querySelector('.fileSuccessImg');
+
+        const buttonId = button.id; // Extract the id of the closest label
+        const fileItemId = `fileItem${buttonId.replace('uploadButton', '')}`; // Construct the id for fileitem
+        const fileitem = document.getElementById(fileItemId); // Find the fileitem by the constructed id
+
         const filename = fileitem.querySelector('.file-name');
         const originalCursor = button.style.cursor;
         const spanContext = span.textContent; // Save the original span text
@@ -249,8 +311,11 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             alert(`Result: ${data.result} - ${data.message}`);
             if (data.result === true) {
-                fileitem.style.display = 'flex';
-                button.style.display = 'none';
+                fileitem.style.display = 'block';
+                span.textContent = spanContext + ' Successful';
+                fileImg.style.display = 'none';
+                fileSuccessImg.style.display = 'flex';
+                // button.style.display = 'none';
                 button.style.cursor = originalCursor;
                 filename.textContent = `${file.name}`;  
 
@@ -264,6 +329,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log(currentFileUploaded);
                 console.log(noFileRequired);
                 //Check Next Button
+                checkIfHasUploads();
                 checkNextButton();
 
 
@@ -290,7 +356,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         })
                         .then(data => {
                             if (data.result === true) {
-                                button.style.display = 'block';
+                                // button.style.display = 'block';
                                 fileitem.style.display = 'none';
                                 span.textContent = 'Pending...';
 
@@ -298,13 +364,16 @@ document.addEventListener("DOMContentLoaded", function () {
                                     span.textContent = 'File Deleted!';
                                     setTimeout(() => {
                                         fileitem.style.display = 'none';
-                                        button.style.display = 'block';
+                                        fileImg.style.display = 'block';
+                                        fileSuccessImg.style.display = 'none';
+                                        // button.style.display = 'block';
                                         fileInput.disabled = false;
                                         span.textContent = spanContext;
                                         fileInput.value = '';
                                         const tabKey = button.id.replace('uploadButton', 'tab');
                                         sessionStorage.removeItem(`fileUploaded_${tabKey}`);
                                         currentFileUploaded -= 1;
+                                        checkIfHasUploads();
                                     }, 1000);
                                 }, 1000);
                             }
@@ -363,14 +432,14 @@ document.addEventListener("DOMContentLoaded", function () {
             if (tab === activeTab) {
                 uploadButtons[tab].style.display = 'inline-block';
                 if (sessionStorage.getItem(`fileUploaded_${tab}`) === 'true') {
-                    fileItems[tab].style.display = 'flex';
-                    uploadButtons[tab].style.display = 'none';
+                    fileItems[tab].style.display = 'block';
+                    // uploadButtons[tab].style.display = 'none';
                 } else {
-                    fileItems[tab].style.display = 'none';
+                    // fileItems[tab].style.display = 'none';
                 }
             } else {
                 uploadButtons[tab].style.display = 'none';
-                fileItems[tab].style.display = 'none';
+                // fileItems[tab].style.display = 'none';
             }
         });
     }

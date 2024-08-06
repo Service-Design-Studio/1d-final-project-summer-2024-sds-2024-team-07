@@ -13,23 +13,20 @@ class UploadsController < ApplicationController
     file_path = Rails.root.join('tmp', uploaded_file.original_filename)
 
     begin
-      # Save the file temporarily to the server
       File.open(file_path, 'wb') do |file|
         file.write(uploaded_file.read)
       end
 
-      # Send the file to the Flask backend
       response = send_file_to_flask_backend(file_path, file_type)
 
       if response['result'] == true
-        user = User.find_by(session_id: session[:user_id]) # Use the session ID to find the user
+        user = User.find_by(session_id: session[:user_id])
         if user
           uuid = SecureRandom.uuid
           column_name = "doc_#{file_type}"
           file_url = upload_to_gcloud(file_path, uuid, uploaded_file.original_filename)
           user.update(column_name => file_url)
-
-          # Update user attributes based on extracted data
+          
           if response['extracted_data']
             user.update(
               name: response['extracted_data']['Name'],
