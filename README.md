@@ -240,6 +240,15 @@
      ```bash
      gcloud builds submit --config cloudbuild.yaml
      ```
+### Deployment with Github Actions
+  1. To automate your deployment process, `.github/workflows/deploy.yml` is used.
+  2. Ensure that your steps 1-5 for the above Deployment steps are working.
+  3. Go to your Github Repository > Settings > Secrets and Variables > Actions
+  4. Click on "New Repository Secret" and add the following secrets:
+     * Name: GCP_PROJECT_ID, Secret: "Your-Project-ID"
+     * Name: GCP_SA_KEY, Secret: copy and paste the information in credentials.json file from your gcloud service account
+       
+     * Note: Ensure that your gcloud service account has the roles Artifact Registry Reader, Storage Object Viewer and Service Account Token Creator
 
 ### Testing
 1. Testing using Cucumber
@@ -250,6 +259,15 @@
     Run the acceptance test using the following command
     ```bash
     bundle exec cucumber
+    ```
+2. Testing using RSpec
+   * All unit and integration testing for UI/Views are found in the `./Frontend/spec/views` directory
+   * All unit and integration testing for Controllers are found in the `./Frontend/spec/controllers` directory
+   
+   Run the RSpec test using the following command
+    ```bash
+    $env:RAILS_ENV='test'
+    bundle exec rspec
     ```
 
 ## Acknowledgments
