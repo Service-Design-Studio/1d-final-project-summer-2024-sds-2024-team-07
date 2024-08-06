@@ -213,7 +213,7 @@
        - id: "apply migrations"
          name: "gcr.io/google-appengine/exec-wrapper"
          entrypoint: "bash"
-         args: ["-c", "/buildstep/execute.sh -i gcr.io/$PROJECT_ID/${_SERVICE_NAME} -s dbsdoccheckteam7:${_REGION}:${_INSTANCE_NAME} -e RAILS_MASTER_KEY=$$RAILS_KEY -- bundle exec rake db:migrate"]
+         args: ["-c", "/buildstep/execute.sh -i gcr.io/$PROJECT_ID/${_SERVICE_NAME} -s "your-project-id":${_REGION}:${_INSTANCE_NAME} -e RAILS_MASTER_KEY=$$RAILS_KEY -- bundle exec rake db:migrate"]
          secretEnv: ["RAILS_KEY"]
 
        - id: "run deploy"
