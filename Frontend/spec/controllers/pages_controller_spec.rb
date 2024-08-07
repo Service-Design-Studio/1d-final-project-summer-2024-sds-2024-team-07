@@ -50,4 +50,18 @@ RSpec.describe PagesController, type: :controller do
       expect(response).to render_template(layout: 'application_checklistpage')
     end
   end
+
+  describe 'GET #verifydetails' do
+    it 'sets the correct layout for verifydetails' do
+      get :verifydetails
+      expect(response).to render_template('application_verifydetailspage')
+    end
+  end
+
+  describe 'GET #createpin' do
+    it 'sets the correct layout for createpin' do
+      get :createpin
+      expect(response).to render_template('application_createpinpage')
+    end
+  end
 end

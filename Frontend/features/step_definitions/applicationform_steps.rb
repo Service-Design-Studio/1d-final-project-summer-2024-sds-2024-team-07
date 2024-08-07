@@ -1,5 +1,4 @@
 Then('I should see my information filled in') do
-  # Mock the filled-in information using JavaScript
   page.execute_script("
     var dobField = document.evaluate('//h2[text()=\"Date of Birth\"]/following-sibling::input', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     var passportNumberField = document.evaluate('//h2[text()=\"Passport Number\"]/following-sibling::input', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -10,7 +9,6 @@ Then('I should see my information filled in') do
     if (passportExpiryDateField) passportExpiryDateField.value = '2022-10-30';
   ")
 
-  # Check the values using XPath selectors
   expect(find(:xpath, "//h2[text()='Date of Birth']/following-sibling::input").value).to eq '1977-05-03'
   expect(find(:xpath, "//h2[text()='Passport Number']/following-sibling::input").value).to eq 'K0000000E'
   expect(find(:xpath, "//h2[text()='Passport Expiry Date']/following-sibling::input").value).to eq '2022-10-30'
@@ -30,7 +28,6 @@ end
 
 And('I should see a delete button') do
   # Mock the presence of the delete button
-  # You can assume it appears or directly add it to the DOM
   page.execute_script("document.body.innerHTML += '<img alt=\"Delete Icon\" src=\"#\" />'")
   expect(page).to have_css('img[alt="Delete Icon"]')
 end
@@ -60,6 +57,7 @@ Then("I should be able to select {string}") do |option|
 end
 
 And ("I should be able to choose the file corresponding to Passport") do
+  ## Mac
   # file_path = File.expand_path(File.join('features', 'support', 'test_images', 'passport.jpeg'))
   # attach_file('fileInput1', file_path, make_visible: true)
 

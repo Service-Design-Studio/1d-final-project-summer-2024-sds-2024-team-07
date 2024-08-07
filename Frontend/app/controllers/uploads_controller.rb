@@ -97,8 +97,8 @@ class UploadsController < ApplicationController
     JSON.parse(response.body)
   rescue JSON::ParserError => e
     { 'result' => false, 'message' => "Failed to parse JSON response from Flask: #{e.message}" }
-  rescue StandardError => e
-    { 'result' => false, 'message' => "Error sending file to Flask: #{e.message}" }
+  # rescue StandardError => e
+  #   { 'result' => false, 'message' => "Error sending file to Flask: #{e.message}" }
   end
 
   def upload_to_gcloud(file_path, uuid, original_filename)
@@ -113,9 +113,9 @@ class UploadsController < ApplicationController
 
       puts "File uploaded successfully."
       gcs_file.public_url
-    rescue => e
-      puts "Failed to upload file: #{e.message}"
-      raise "File upload failed: #{e.message}"
+    # rescue => e
+    #   puts "Failed to upload file: #{e.message}"
+    #   raise "File upload failed: #{e.message}"
     end
   end
 end

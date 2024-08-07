@@ -53,11 +53,6 @@ Then("I should see other pages' headers on the sidebar") do
   expect(page).to have_css('.link_name', text: '4. Create Pin')
 end
 
-# And('all headers should be clickable') do
-#   find('.sidebar .link_name', text: '2. Particulars').click
-#   find('.sidebar .link_name', text: '3. Verify Particulars').click
-#   find('.sidebar .link_name', text: '4. Create Pin').click
-# end
 And('all headers should be clickable') do
   headers = [
     '2. Particulars',

@@ -36,13 +36,13 @@ Then('I should be able to see the details of {string}') do |details_text|
 end
 
 Then('I should be able to close the alert') do
-  save_and_open_screenshot # This will take a screenshot and open it in your browser
+  save_and_open_screenshot
   accept_confirm do
   end
 end
 
 Then('I should see and close a pop up warning that says "Do you wish to change your employment type? Your changes will be discarded."') do
-  save_and_open_screenshot # This will take a screenshot and open it in your browser
+  save_and_open_screenshot
   accept_confirm do
     accept_alert
     alert_confirm
@@ -133,6 +133,7 @@ end
 And('I should be able to choose a file not corresponding to {string} but is still the correct file format') do |file|
   case file
   when "Pay Slip"
+    ## Mac
     # attach_file('fileInput4', Rails.root.join('features', 'support', 'test_images', 'test.png'), make_visible: true)
     
     # Windows
@@ -146,6 +147,7 @@ And('I should be able to choose a file not corresponding to {string} but is stil
 end
 
 And('I should be able to choose a file of the wrong file format') do
+  ## Mac
   # attach_file('fileInput1', Rails.root.join('features', 'support', 'test_images', 'passport.jpeg'), make_visible: true)
 
   # Windows
@@ -156,7 +158,11 @@ end
 
 
 Then('I should be able to close the error message') do
-  accept_alert do
+  # accept_alert do
+  # end
+  
+  save_and_open_screenshot
+  accept_confirm do
   end
 end
 
@@ -164,13 +170,9 @@ Then('I should see that the document is uploaded') do
   expect(page).to have_css('img[alt="File Icon"]')
 end
 
-# And('I should see the delete button') do
-#   expect(page).to have_css('img[alt="Delete Icon"]')
-# end
 
 And('I should see the delete button') do
   begin
-    # Check if an alert is present using Capybara's modal handling
     if page.driver.browser.switch_to.alert
       # Dismiss the alert
       page.driver.browser.switch_to.alert.dismiss
@@ -178,16 +180,12 @@ And('I should see the delete button') do
   rescue Selenium::WebDriver::Error::NoSuchAlertError
     # If no alert is present, continue as usual
   end
-
-  # Now check for the delete button
   expect(page).to have_css('img[alt="Delete Icon"]')
 end
 
 
 Then('I should be able to click the "Delete" button') do
-  # Click the delete button to simulate removing the uploaded file
   find('#fileItem1 img[alt="Delete Icon"]').click
-  # Simulate the deletion by updating the DOM
   page.execute_script <<-JS
     document.querySelector("#fileItem1").style.display = "none";
     document.querySelector("#uploadButton1").style.display = "block";
@@ -196,7 +194,6 @@ Then('I should be able to click the "Delete" button') do
 end
 
 Then('I should see the "Document Upload" button') do
-  # Verify the "Document Upload" button is visible again
   expect(page).to have_css('label.btnUp', text: 'Upload Passport')
 end
 
@@ -207,10 +204,7 @@ Then('I should not be able to click on the "Next" button') do
 end
 
 When('I click "Next" button') do
-  # Make the Next button clickable using its CSS class
   page.execute_script('document.querySelector(".next-button").style.pointerEvents = "auto";')
-
-  # Try clicking the Next link first
   if page.has_selector?('.next-link', visible: true)
     find('.next-link').click
     puts "Next link clicked"
@@ -245,6 +239,7 @@ When('I upload a document with the following details:') do |table|
     upload_button_text = row['Upload Button Text']
     file_input_id = row['File Input ID']
 
+    # Mac
     # invalid_file_path = Rails.root.join('Frontend', 'features', 'support', 'test_images', 'fail.txt')
 
     # Windows

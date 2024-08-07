@@ -5,6 +5,7 @@ Feature: Document Upload Checklist
   
   Scenario: Salaried Employee for more than 3 months
     Given that I am on the document upload page
+    When I click the skip tour button
     Then I should be able to see 3 different buttons for the different employment status 
     And I should be able to click onto the Salaried Employee : More than 3 Months button
     When I click on the Salaried Employee : More than 3 Months button
@@ -20,6 +21,7 @@ Feature: Document Upload Checklist
 
   Scenario: Salaried Employee for less than 3 months
     Given that I am on the document upload page
+    When I click the skip tour button
     Then I should be able to see 3 different buttons for the different employment status 
     And I should be able to click onto the Salaried Employee : Less than 3 months button
     When I click on the Salaried Employee : Less than 3 months button
@@ -33,6 +35,7 @@ Feature: Document Upload Checklist
 
   Scenario: Commissioned-Based Employee/Self-Employed
     Given that I am on the document upload page
+    When I click the skip tour button
     Then I should be able to see 3 different buttons for the different employment status 
     And I should be able to click onto the Self-Employed or Commission-Based button
     When I click on the Self-Employed or Commission-Based button
@@ -46,6 +49,7 @@ Feature: Document Upload Checklist
 
   Scenario: Side Bar Change according to the type of user
     Given that I am at the document upload page
+    When I click the skip tour button
     Then I should be able to click on the Document side bar 
     When I click on to the Document side bar
     Then I should see the documents required for Salaried Employee : More than 3 Months
@@ -64,3 +68,8 @@ Feature: Document Upload Checklist
     Then I should be brought to the "Application Page"
     When I click on the "Document Upload Button"
     Then I should be brought to the "Document Upload Page"
+
+  Scenario: User skips the tour
+    Given that I am at the document upload page
+    When I click the skip tour button
+    Then I should not see the tour popup

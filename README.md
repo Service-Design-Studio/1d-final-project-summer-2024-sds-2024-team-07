@@ -251,24 +251,28 @@
      * Note: Ensure that your gcloud service account has the roles Artifact Registry Reader, Storage Object Viewer and Service Account Token Creator
 
 ### Testing
-1. Testing using Cucumber
-   * All features and user stories with the happy and sad paths are found in the `./Frontend/features` directory
-   * All step definitions are found in the `./Frontend/features/step_definitions` directory
-   * The Capybara helper can be found in the `./Frontend/features/support/env.rb` directory </br>
-     
-    Run the acceptance test using the following command
-    ```bash
-    bundle exec cucumber
-    ```
-2. Testing using RSpec
+1. Testing using RSpec
    * All unit and integration testing for UI/Views are found in the `./Frontend/spec/views` directory
    * All unit and integration testing for Controllers are found in the `./Frontend/spec/controllers` directory
    
-   Run the RSpec test using the following command
+   Run the RSpec test using the following command (There are issues with running RSpec directly on development environment)
     ```bash
     $env:RAILS_ENV='test'
     bundle exec rspec
     ```
+2. Testing using Cucumber
+   * All features and user stories with the happy and sad paths are found in the `./Frontend/features` directory
+   * All step definitions are found in the `./Frontend/features/step_definitions` directory
+   * The Capybara helper can be found in the `./Frontend/features/support/env.rb` directory </br>
+   * Note: Certain scenarios in steps_definitions have different code depending on whether you are a Mac User or a Windows User. Change accordingly.
+    Run the acceptance test using the following command
+    ```bash
+    $env:RAILS_ENV='development'
+    bundle exec cucumber
+    ```
+3. Open Code Coverage Report. Found in `./Frontend/coverage/index.html` directory
+   * Install VS Code Extension 'Live Server'
+   * Right-Click `index.html` and Click on 'Open with Live Server'.
 
 ## Acknowledgments
 1. Michelle Halim 

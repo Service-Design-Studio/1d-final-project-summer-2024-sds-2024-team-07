@@ -195,16 +195,7 @@ When('I click on the {string}') do |link_text|
   when "Application Page"
     click_link('application page')
   when "Document Upload Button"
-    # begin
-    #   button = find_button('Document Upload')
-    #   page.execute_script("arguments[0].scrollIntoView(true);", button.native) # Scroll the button into view
-    #   sleep 1 # Adding a short delay to ensure the scroll has completed
-    #   page.execute_script("arguments[0].click();", button.native) # Use JavaScript to click the button
-    # rescue Capybara::ElementNotFound
-    #   puts page.html # Print the HTML content to help debug
-    #   raise "Button 'Document Upload' not found"
-    # end
-    visit pages_documentupload_path
+    find('button#apply-yes.btn3').click
   when "Application Checklist Page"
     click_link('application checklist')
   else
@@ -226,4 +217,12 @@ Then('I should be brought to the {string}') do |page_name|
   else
     raise "Unknown page: #{page_name}"
   end
+end
+
+#Skip Tour Feature
+When('I click the skip tour button') do
+  find('a.introjs-skipbutton').click
+end
+Then('I should not see the tour popup') do
+  expect(page).not_to have_css('a.introjs-skipbutton')
 end
