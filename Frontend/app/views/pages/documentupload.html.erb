@@ -1,5 +1,4 @@
-<%
-=begin%>
+
  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css" rel="stylesheet">
@@ -12,9 +11,6 @@
 </div>
 
  
-<%
-=end%>
-
 <div class="custom-container">
     <div class="left-div">
         <%= render 'shared/left_toggle-sidebar' %>
@@ -554,8 +550,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 });
 </script>
-<%
-=begin%>
+
  <script>
     //animation intro
             TweenMax.staggerFrom(
@@ -607,25 +602,28 @@ document.addEventListener("DOMContentLoaded", function () {
 // function startTour() {
     setTimeout(function() {
         introJs().setOptions({
+            tooltipClass: 'customTooltip',
             steps: [
                 {
                     title: 'Welcome!',
-                    intro: 'Start Tour?'
+                    intro: 'Start the tour?'
                 },
                 {
                     element: document.querySelector('.custom-steps'),
                     title: 'Tip 1',
-                    intro: 'A. Complete all 4 sections to submit your application'
+                    intro: 'Complete all 4 sections to submit your application'
                 },
                 {
-                    element: document.querySelector('.link_name'),
+                    element: document.querySelector('.icon-link'),
                     title: 'Tip 2',
-                    intro: 'B. Open/Close the sidebar'
+                    intro: 'Click here to open/close the sidebar',
+                    position: 'right'
                 },
                 {
                     element: document.querySelector('.sb'),
                     title: 'Tip 3',
-                    intro: 'C. Open/Close each sub-menus to preview details of each section'
+                    intro: 'Click here to open/close each sub-menus to preview details of each section',
+                    position: 'right'
                 },
                 {
                     element: document.querySelector('.btn-group'),
@@ -635,7 +633,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 {
                     element: document.querySelector('.tablabel'),
                     title: 'Second Step',
-                    intro: '2. Check all required documents',
+                    intro: '2. Prepare all required documents',
                 },
                 {
                     element: document.querySelector('.upload-rectangle'),
@@ -662,5 +660,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 4500);
 // }
 </script> 
-<%
-=end%>
+

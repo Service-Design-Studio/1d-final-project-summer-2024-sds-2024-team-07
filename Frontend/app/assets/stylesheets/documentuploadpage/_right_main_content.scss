@@ -324,7 +324,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
   background-color: white;
   border: 1px solid #ccc;
   margin-right: 7px;
-  margin-top: 7px;
+  margin-top: 0px;
   padding: 10px;
   cursor: pointer;
   transition: background-color 0.3s, border-color 0.3s;
@@ -510,7 +510,7 @@ input[id="tab5"]:checked ~ ul li label[for="tab5"] {
 
 .titles {
   position: absolute;
-  top: 45%;
+  top: 47%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 150%;
@@ -586,4 +586,7 @@ ul.titles {
   top: 0;
   visibility: hidden;
   transform: translate(-50%,-50%) scale(0.1);
+}
+.customTooltip * {
+  text-align: center;
 }
