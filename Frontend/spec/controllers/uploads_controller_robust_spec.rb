@@ -55,8 +55,8 @@ RSpec.describe UploadsController, type: :controller do
         user.reload
         expect(user.name).to eq('John Doe')
         expect(user.passport_number).to eq('A1234567')
-        expect(user.date_of_birth.to_s).to eq('1990-01-01') # Convert date to string for comparison
-        expect(user.passport_expiry.to_s).to eq('2030-01-01') # Convert date to string for comparison
+        expect(user.date_of_birth.to_s).to eq('1990-01-01') 
+        expect(user.passport_expiry.to_s).to eq('2030-01-01') 
         expect(user.gender).to eq('Male')
         expect(user.nationality).to eq('Singaporean')
         expect(user.doc_passport).to eq('http://gcloud_file_url')

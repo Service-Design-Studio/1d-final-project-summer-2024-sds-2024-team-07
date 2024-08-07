@@ -4,35 +4,35 @@ require 'webmock/rspec'
 
 #integration testing:
 #Add this new describe block for integration tests
-RSpec.describe "Users Integration", type: :request do
-  let(:valid_attributes) { attributes_for(:user) }
-  let(:invalid_attributes) { attributes_for(:user, name: nil) }
+  RSpec.describe "Users Integration", type: :request do
+    let(:valid_attributes) { attributes_for(:user) }
+    let(:invalid_attributes) { attributes_for(:user, name: nil) }
 
-  describe "User flow" do
-    it "allows a user to be created, updated, and deleted" do
-      # Create a new user
-      post users_path, params: { user: valid_attributes }
-      expect(response).to redirect_to(user_path(User.last))
+    describe "User flow" do
+      it "allows a user to be created, updated, and deleted" do
+        # Create a new user
+        post users_path, params: { user: valid_attributes }
+        expect(response).to redirect_to(user_path(User.last))
 
-      user = User.last
-      expect(user.name).to eq(valid_attributes[:name])
+        user = User.last
+        expect(user.name).to eq(valid_attributes[:name])
 
-      # Update the user
-      new_name = "Updated Name"
-      put user_path(user), params: { user: { name: new_name } }
-      expect(response).to redirect_to(user_path(user))
+        # Update the user
+        new_name = "Updated Name"
+        put user_path(user), params: { user: { name: new_name } }
+        expect(response).to redirect_to(user_path(user))
 
-      user.reload
-      expect(user.name).to eq(new_name)
+        user.reload
+        expect(user.name).to eq(new_name)
 
-      # Delete the user
-      expect {
-        delete user_path(user)
-      }.to change(User, :count).by(-1)
+        # Delete the user
+        expect {
+          delete user_path(user)
+        }.to change(User, :count).by(-1)
 
-      expect(response).to redirect_to(users_path)
+        expect(response).to redirect_to(users_path)
+      end
     end
-  end
 
   describe "User application process" do
     it "allows a user to apply and upload a document" do
@@ -134,7 +134,7 @@ RSpec.describe UsersController, type: :controller do
     context "with invalid params" do
       let(:invalid_attributes) { attributes_for(:user, name: nil) }
 
-      it "returns a success response (i.e., to display the 'new' template)" do
+      it "returns a 422 Unprocessable Entity" do
         post :create, params: { user: invalid_attributes }
         expect(response).to be_unprocessable
       end
@@ -160,7 +160,7 @@ RSpec.describe UsersController, type: :controller do
     context "with invalid params" do
       let(:invalid_attributes) { { name: nil } }
 
-      it "returns a success response (i.e., to display the 'edit' template)" do
+      it "returns unprocessable" do
         put :update, params: { id: user.id, user: invalid_attributes }
         expect(response).to be_unprocessable
       end

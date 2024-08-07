@@ -16,7 +16,7 @@ RSpec.describe UploadsController, type: :request do
     WebMock.disable_net_connect!
   end
 
-  describe 'POST #create (integration test)' do
+  describe 'File Upload and Processing' do
     it 'uploads a file, processes it via the Flask backend, and stores it in Google Cloud Storage' do
       # Ensure the Flask backend is running and accessible
       flask_response_body = { 'result' => true }.to_json
@@ -42,6 +42,65 @@ RSpec.describe UploadsController, type: :request do
       expect(response_body['file_url']).to eq(file_url)
     end
   end
+
+  describe "User Database Update", type: :request do
+    before do
+      # Mock the request to the Flask backend
+      stub_request(:post, "https://flask-app-44nyvt7saq-de.a.run.app/upload/passport")
+        .with(
+          headers: {
+            'Accept' => '*/*',
+            'Content-Type' => 'multipart/form-data'
+          }
+        ).to_return(
+          status: 200,
+          body: {
+            result: true,
+            extracted_data: {
+              "Date of Birth": "03 MAY 1977",
+              "Date of Expiry": "30 OCT 2022",
+              "Gender": "F",
+              "Name": "KARA WONG YUN EN",
+              "Nationality": "SINGAPORE CITIZEN",
+              "Passport Number": "K0000000E"
+            },
+            messages: [
+              "First Prompt: Is this a passport containing keywords 'Passport','date of issue','date of expiry'? Answer with 'True' or 'False'.\nResponse: true"
+            ]
+          }.to_json,
+          headers: { 'Content-Type' => 'application/json' }
+        )
+    end
+  
+    it "allows a user to apply and upload a document" do
+      # Apply as a new user
+      post apply_users_path
+      expect(response).to redirect_to(pages_documentupload_path)
+  
+      user = User.last
+      expect(user.session_id).not_to be_nil
+  
+      # Simulate document upload
+      post uploads_path, params: { file: fixture_file_upload('spec/fixtures/files/passport.jpg', 'image/jpeg'), file_type: 'passport' }
+      expect(response).to be_successful
+  
+      # Parse the JSON response
+      json_response = JSON.parse(response.body)
+      
+      expect(json_response['result']).to be true
+  
+      # Check if the document was associated with the user
+      user.reload
+      expect(user.name).to eq("KARA WONG YUN EN")
+      expect(user.gender).to eq("F")
+      expect(user.date_of_birth).to eq(Date.parse("03 MAY 1977"))
+      expect(user.nationality).to eq("SINGAPORE CITIZEN")
+      expect(user.passport_number).to eq("K0000000E")
+      expect(user.passport_expiry).to eq(Date.parse("30 OCT 2022"))
+    end
+  end
+  
+  
 end
 
 #unit testing
@@ -69,7 +128,7 @@ RSpec.describe UploadsController, type: :controller do
         expect(response).to have_http_status(:ok)
         expect(JSON.parse(response.body)['result']).to eq(true)
         expect(JSON.parse(response.body)['message']).to eq('File processed successfully and URL generated')
-      end
+      end 
     end
 
     context 'when file processing fails' do
