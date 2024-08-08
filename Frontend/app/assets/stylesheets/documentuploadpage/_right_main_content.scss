@@ -552,23 +552,21 @@ ul.titles {
   margin-bottom: 6px;
 }
 
-
 .content-image {
-  width: 95%;
+  width:567px;
   height: auto;
   display: block;
   margin: auto auto auto;
   margin-top: -20px;
 }
 .popup {
-  width: 700px;
-  height: 300px;
+  width: 600px;
+  height: 250px;
   background: white;
   justify-content: center;
   align-items: center;
   border-radius: 12px;
   position: absolute;
-  margin-top: 25px;
   left: 58%;
   visibility: hidden;
   transform: translate(-50%,-50%) scale(0.1);
@@ -576,8 +574,8 @@ ul.titles {
   z-index: 20;
 }
 .open-popup{
-  top: 40%;
-  left: 49%;
+  top: 71%;
+  left: 52.5%;
   visibility: visible;
   transform: translate(-50%,-50%) scale(1);
   border: 2px solid black;
